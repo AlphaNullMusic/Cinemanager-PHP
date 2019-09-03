@@ -1,4 +1,4 @@
-<?
+<?php
 ini_set('display_errors',1); 
 error_reporting(E_ALL ^ E_NOTICE);
 
@@ -57,6 +57,9 @@ $config = array(
 	"bounce_email" => "bounces@cinemanager.ga",
 	"support_email"	=> "support@cinemanager.ga",
 	"sessions_email" => "sessions@cinemanager.ga",
+	
+	"cookie" => "Cinemanager",
+	"title_pre" => "Cinemanager: ",
 	
 	// Salts (used by Cinemanager cookies)
 	"salt_int" => "6578912",
