@@ -10,7 +10,7 @@ RewriteCond %{QUERY_STRING} (\<|%3C).*script.*(\>|%3E) [NC,OR]
 RewriteCond %{QUERY_STRING} (\<|%3C).*iframe.*(\>|%3E) [NC,OR]
 RewriteCond %{QUERY_STRING} GLOBALS(=|\[|\%[0-9A-Z]{0,2}) [OR]
 RewriteCond %{QUERY_STRING} _REQUEST(=|\[|\%[0-9A-Z]{0,2})
-RewriteRule ^(.*)$ http://www.shoreline.ml/blank.txt [F,L]
+RewriteRule ^(.*)$ http://www.shoreline.nz/blank.txt [F,L]
 RewriteCond %{REQUEST_METHOD} ^(TRACE|TRACK)
 RewriteRule .* - [F]
 
@@ -31,4 +31,4 @@ deny from all
 </Limit>
 
 # Domains
-AuthName shoreline.ml
+#AuthName shoreline.nz
