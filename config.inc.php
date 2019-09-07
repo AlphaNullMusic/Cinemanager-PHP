@@ -14,8 +14,8 @@ $config = array(
 	"public_url_secure"	=> "https://secure.cinemanager.ga/",
 	"public_dir"		=> $root_dir."cineguide.ga.2019/",
 
-	// Cinemanager
-	"manage_url" => "https://manage.shoreline.ml/",
+	// Manage
+	"manage_url" => "https://manage.shoreline.nz/",
 	"manage_dir" => $root_dir."manage/",
 
 	// API
