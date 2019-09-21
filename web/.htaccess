@@ -1,0 +1,88 @@
+# Tell the browser to cache static resources
+<IfModule mod_expires.c>
+	ExpiresActive On
+	ExpiresDefault A0
+	ExpiresByType image/gif "access plus 1 month"
+	ExpiresByType image/png "access plus 1 month"
+	ExpiresByType image/jpg "access plus 1 month"
+	ExpiresByType image/jpeg "access plus 1 month"
+	ExpiresByType image/ico "access plus 1 month"
+	ExpiresByType text/css "access plus 1 month"
+	ExpiresByType text/javascript "access plus 1 month"
+	ExpiresByType application/javascript "access plus 1 month"
+	ExpiresByType application/x-javascript "access plus 1 month"
+  <IfModule mod_headers.c>
+    Header append Cache-Control "public, max-age=2592000"
+		Header unset ETag
+  </IfModule>
+  FileETag None
+</IfModule>
+
+# Compress files
+<IfModule mod_deflate.c>
+	<IfModule filter_module>
+	  FilterDeclare   COMPRESS
+	  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/html
+	  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/css
+	  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/plain
+	  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/xml
+	  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/x-component
+	  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/javascript
+	  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/javascript
+	  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/x-javascript
+	  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/json
+	  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/xml
+	  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/xhtml+xml
+	  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/rss+xml
+	  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/atom+xml
+	  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/vnd.ms-fontobject
+	  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $image/svg+xml
+	  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/x-font-ttf
+	  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $font/opentype
+	  FilterChain     COMPRESS
+	  FilterProtocol  COMPRESS  DEFLATE change=yes;byteranges=no
+	</IfModule>
+</IfModule>
+
+# Rewrite to remove .php extension
+	RewriteEngine On
+	#RewriteCond %{REQUEST_FILENAME} !-d
+	#RewriteCond %{REQUEST_FILENAME}\.php -f
+	#RewriteRule ^(.*))$ $1.php [NC,L]
+
+# Default to 404.php on 404
+    RewriteEngine On
+	ErrorDocument 404 /404.php
+
+# Retina image detection
+	Options -MultiViews
+	RewriteEngine on
+	RewriteCond %{HTTP_COOKIE} HTTP_IS_RETINA [NC]
+	RewriteCond %{REQUEST_FILENAME} !@2x
+	RewriteRule ^(.*)\.(gif|jpg|png)$ $1@2x.$2
+	
+	# If @2x isn't available fulfill the original request
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+	RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/(?:\ Ballot169)?
+	RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^(.*)@2x\.(gif|jpg|png)$ $1.$2
+
+# Force SSL on secure domains
+	RewriteCond %{HTTPS} off
+	RewriteCond %{HTTP_HOST} ^(secure|ssl)\. [NC]
+	RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R,L]
+
+# Page redirects
+	RewriteRule ^cinema/([a-z\.]*)/(.*)$ /$2?%{QUERY_STRING}&urloverride=$1
+	RewriteRule ^page_(.*)_urlovr_(.*).php$ /generic_page.php?template=$1&urloverride=$2 [L]
+	RewriteRule ^page_(.*).php$ /generic_page.php?template=$1 [QSA,L]
+	RewriteRule ^page-(.*).php$ /generic_page.php?template=generic&reference=$1 [QSA,L]
+	RewriteRule ^movies/((.*)/)?([0-9]+).php$ /movie_page.php?movie=$3&extra=$2 [L]
+	RewriteRule ^event-([a-z]?[0-9]+).php$ /session_times.php?event_id=$1 [L]
+	RewriteRule ^label-([a-z0-9]+).php$ /session_times.php?session_label_filter=$1 [L]
+	RewriteRule ^type-([A-Za-z0-9]+).php$ /session_times.php?session_comment_filter=$1 [L]
+	RewriteRule ^sitemap.xml$ /sitemap.xml.php [L]
+	
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^([0-9]+)/([a-z]+).css$ /$1/css/$2.css [L]

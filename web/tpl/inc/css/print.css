@@ -1,0 +1,13 @@
+#body, footer { display: none; }
+#body, #body .content, #body .content.leftofquote { 
+	padding:0;
+	width:auto;
+}
+h2, strong, a {
+    color: #000 !important;
+    font-size: 12px;
+}
+span.print-text { display: inline !important; }
+nav button,
+div.featured,
+img.replacement { display: none; }

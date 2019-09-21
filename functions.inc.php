@@ -398,18 +398,6 @@ function get_movie_list_full($type = 'ns', $order_by = 'ml.priority,m.title', $n
     
     if ($limit > 0) {
         
-        // Allow cinema ID override
-        if (isset($cinema_id_parsed) && !empty($cinema_id_parsed)) {
-            $this_cinema_id = $cinema_id_parsed;
-        } elseif (!empty($cinema_data['children'])) {
-            $this_cinema_id = $cinema_data['children'];
-            array_push($this_cinema_id, $cinema_data['cinema_id']);
-        } elseif (isset($cinema_id) && !empty($cinema_id)) {
-            $this_cinema_id = $cinema_id;
-        } elseif (isset($_SESSION['cinema_data']['cinema_id']) && !empty($_SESSION['cinema_data']['cinema_id'])) {
-            $this_cinema_id = $_SESSION['cinema_data']['cinema_id'];
-        }
-        
         // Timezone
         $timezoneOffset = (!empty($cinema_data['timezoneOffset'])) ? $cinema_data['timezoneOffset'] : 17;
         
@@ -454,6 +442,7 @@ function get_movie_list_full($type = 'ns', $order_by = 'ml.priority,m.title', $n
             $extra_conditions .= " ) ";
         }
         
+		/*
         // Some cinemas display multiple cinemas
         $cinema_sql = "ml.cinema_id='$this_cinema_id'";
         if (!empty($cinema_data['api_fetch']) || !empty($cinema_data['children'])) {
@@ -478,12 +467,14 @@ function get_movie_list_full($type = 'ns', $order_by = 'ml.priority,m.title', $n
                 $this_cinema_id
             );
         }
+		*/
         
         // Tidy up the session label filter
         if (isset($session_label_filter) && !empty($session_label_filter) && !is_array($session_label_filter)) {
             $session_label_filter = explode('|', $session_label_filter);
         }
         
+		/*
         // Filter by event
         if (isset($event_filter) && !empty($event_filter)) {
             if ($event_filter[0] == 'v') {
@@ -505,6 +496,7 @@ function get_movie_list_full($type = 'ns', $order_by = 'ml.priority,m.title', $n
             $extra_select .= ", GROUP_CONCAT(DISTINCT LOWER(st.screen) SEPARATOR '|') AS screens ";
             $having .= " HAVING screens LIKE '%" . $mysqli->real_escape_string($session_screen_filter) . "%' ";
         }
+		*/
         
         // Only show featured movies
         if (isset($features_only) && !empty($features_only)) {
@@ -522,10 +514,9 @@ function get_movie_list_full($type = 'ns', $order_by = 'ml.priority,m.title', $n
         // Now Showing
         if ($type == 'ns') {
             $sql = "
-                SELECT m.movie_id, m.master_movie_id, m.imdb_id, m.poster, m.title, IF(ml.synopsis != '', ml.synopsis, m.synopsis) AS `synopsis`, m.country_id, IF(ml.trailer!='',ml.trailer,m.trailer) AS trailer, m.official_site, IF(ml.class_explanation != '', ml.class_explanation, m.class_explanation) AS `class_explanation`, m.subtitled,
+                SELECT m.movie_id, m.imdb_id, m.title, IF(ml.synopsis != '', ml.synopsis, m.synopsis) AS `synopsis`, IF(ml.trailer!='',ml.trailer,m.trailer) AS trailer, IF(ml.classification_id != '', ml.classification_id, m.classification_id) AS `classification_id`, m.subtitled, m.poster_url, IF(ml.custom_poster_id != '', ml.custom_poster_id, m.custom_poster_id) AS `custom_poster_id`,
                     mc.trailers AS cache_trailers, mc.cast AS cache_cast,
                     ml.comments, ml.release_date, ml.comments, ml.priority, COUNT(DISTINCT st.session_id) AS total_sessions, st.event_id, IF(ml.duration!='',ml.duration,m.duration) AS duration, IF(MAX(ml.runtime)>0,MAX(ml.runtime),m.runtime) AS runtime, MIN(ml.priority) as priority, DATE_FORMAT(ml.release_date,'$date_format') AS release_date_f1, DATE_FORMAT(ml.release_date,'$date_format2') AS release_date_f2, ml.event_id AS movie_event_id,
-                    GROUP_CONCAT(DISTINCT i.image_name ORDER BY IF(mi.cinema_id IN(" . implode(',', $cinema_ids) . "), 1, 0) DESC, i.priority DESC, i.image_id DESC SEPARATOR '|') AS image_names,
                     IF(ml.class_id != 0, c2.class, c.class) AS `class`
                     $extra_select
                 FROM movies m
@@ -545,7 +536,6 @@ function get_movie_list_full($type = 'ns', $order_by = 'ml.priority,m.title', $n
                     ON i.image_id=mi.image_id
                     AND i.image_cat_id='{$cinema_data['image_cat_id']}'
                     AND i.status='ok'
-                    AND (mi.cinema_id IN(" . implode(',', $cinema_ids) . ") OR (i.priority=1 AND i.exclusive!=1))
                 LEFT JOIN classifications c
                     ON c.class_id=m.class_id
                 LEFT JOIN classifications c2
@@ -566,7 +556,7 @@ function get_movie_list_full($type = 'ns', $order_by = 'ml.priority,m.title', $n
                 $this_cinema_id = $orig_cinema_id;
             }
             $sql = "
-                SELECT m.movie_id, m.master_movie_id, m.imdb_id, m.poster, m.title, IF(ml.synopsis != '', ml.synopsis, m.synopsis) AS `synopsis`, m.country_id, IF(ml.trailer!='',ml.trailer,m.trailer) AS trailer, m.official_site,
+                SELECT m.movie_id, m.imdb_id, m.poster, m.title, IF(ml.synopsis != '', ml.synopsis, m.synopsis) AS `synopsis`, m.country_id, IF(ml.trailer!='',ml.trailer,m.trailer) AS trailer, m.official_site,
                     mc.trailers AS cache_trailers, mc.cast AS cache_cast,
                     ml.comments, ml.release_date, ml.priority, ml.event_id, DATE_FORMAT(ml.release_date,'$date_format') AS release_date_f1, DATE_FORMAT(ml.release_date,'$date_format2') AS release_date_f2, ml.event_id AS movie_event_id,
                     GROUP_CONCAT(DISTINCT i.image_name ORDER BY IF(mi.cinema_id IN(" . implode(',', $cinema_ids) . "), 1, 0) DESC, mi.cinema_id DESC, i.priority DESC, i.image_id DESC SEPARATOR '|') AS image_names,
@@ -580,7 +570,6 @@ function get_movie_list_full($type = 'ns', $order_by = 'ml.priority,m.title', $n
                 INNER JOIN movie_lists ml
                     ON ml.movie_id=m.movie_id
                 LEFT JOIN sessions s
-                    ON s.cinema_id = ml.cinema_id
                     AND s.movie_id = m.movie_id
                     AND s.time >= NOW()
                 LEFT JOIN movie_images mi
