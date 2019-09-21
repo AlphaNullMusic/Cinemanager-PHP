@@ -23,8 +23,8 @@ $config = array(
 	"api_dir" => $root_dir."api.cinemanager.ga/",
 
 	// Cinema Sites
-	"cinema_url" => "https://cinemas.cinemanager.ga/",
-	"cinema_dir" => $root_dir."cinemas.cinemanager.ga/",
+	"cinema_url" => "https://shoreline.nz",
+	"cinema_dir" => $root_dir."web/",
 
 	// Movie Images
 	"movie_image_url" => "https://media.moviemanager.biz/movies/",
@@ -163,10 +163,10 @@ $config['image_sizes'] = array(
 //////////////////////////
 
 define('DB_TYPE', 'mysql');
-define('DB_HOST', "mysql1003.mochahost.com");
-define('DB_NAME', "applemac_shoreline");
-define('DB_USER', "applemac_cinemgr");
-define('DB_PASS', "qCd2Gopp#WeX");
+define('DB_HOST', "localhost");
+define('DB_NAME', "shoreline");
+define('DB_USER', "root");
+define('DB_PASS', "");
 
 if (isset($use_pdo)) {
 	db_pdo();
