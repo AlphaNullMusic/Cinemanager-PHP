@@ -8,8 +8,8 @@
 		{foreach from=$sessions item=s name=s}
 		<div class="featured-poster item">
 			<div style="clear:{cycle values="left,none"};">
-				<a href="movies/{$s.movie_id}.php"><img src="{$s.poster}" alt="{$s.title}" height="279" border="0"></a>
-	      <h2><a href="movies/{$s.movie_id}.php">{$s.title}</a> <span class="details">({$s.class})</span></h2>
+				<a href="movies/{$s.movie_id}.php"><img src="{$s.poster_url}" alt="{$s.title}" height="279" border="0"></a>
+	      <h2><a href="movies/{$s.movie_id}.php">{$s.title}</a> <span class="details">({$s.classification})</span></h2>
 	      <p><strong>
 	        {foreach from=$s.sessions item=st name=st}
 	          {if !$smarty.foreach.st.first}, {/if}{$st.time}

@@ -56,12 +56,13 @@ function identify_cinema() {
 
 // Get the user-edited content for a page
 function get_page_content($reference=null) {
-	global $cinema_data, $mysqli;
+	global $mysqli;
+	db_direct();
 	if (!isset($mysqli)) {
 		return false;
 	}
 	$sql = "
-		SELECT page_id, reference, content, title
+		SELECT page_id, reference, title, content
 		FROM pages
 		WHERE status = 'ok'
 	";

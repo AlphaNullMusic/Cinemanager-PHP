@@ -390,12 +390,12 @@ function get_session_days($movie_id = false, $date = false) {
 
 // Get full movie list
 // Gets now_showing or coming_soon list for current cinema
-function get_movie_list_full($type = 'ns', $order_by = 'ml.priority,m.title', $num_sessions = '7', $date_format = '%e %b', $date_format2 = '%e %b', $limit = 100, $session_start = 'today', $cinema_id_parsed = NULL, $movie_array = NULL, $days_of_sessions = NULL, $group_by_cinema = NULL, $features_only = NULL, $get_session_labels = NULL, $session_label_filter = NULL, $event_filter = NULL, $session_comment_filter = NULL, $vista_attribute_filter = NULL, $session_screen_filter = NULL) {
+function get_movie_list_full($type = 'ns', $order_by = 'm.title', $num_sessions = '7', $date_format = '%e %b', $date_format2 = '%e %b', $limit = 100, $session_start = 'today', $cinema_id_parsed = NULL, $movie_array = NULL, $days_of_sessions = NULL, $group_by_cinema = NULL, $features_only = NULL, $get_session_labels = NULL, $session_label_filter = NULL, $event_filter = NULL, $session_comment_filter = NULL, $vista_attribute_filter = NULL, $session_screen_filter = NULL) {
     global $mysqli, $session_flags, $cinema_data;
     $extra_conditions = "";
     $extra_select     = "";
     $having           = "";
-    
+	
     if ($limit > 0) {
         
         // Timezone
@@ -467,14 +467,12 @@ function get_movie_list_full($type = 'ns', $order_by = 'ml.priority,m.title', $n
                 $this_cinema_id
             );
         }
-		*/
         
         // Tidy up the session label filter
         if (isset($session_label_filter) && !empty($session_label_filter) && !is_array($session_label_filter)) {
             $session_label_filter = explode('|', $session_label_filter);
         }
         
-		/*
         // Filter by event
         if (isset($event_filter) && !empty($event_filter)) {
             if ($event_filter[0] == 'v') {
@@ -496,25 +494,27 @@ function get_movie_list_full($type = 'ns', $order_by = 'ml.priority,m.title', $n
             $extra_select .= ", GROUP_CONCAT(DISTINCT LOWER(st.screen) SEPARATOR '|') AS screens ";
             $having .= " HAVING screens LIKE '%" . $mysqli->real_escape_string($session_screen_filter) . "%' ";
         }
-		*/
         
         // Only show featured movies
         if (isset($features_only) && !empty($features_only)) {
             $cinema_sql .= " AND ml.feature > 0 ";
         }
-        
-        // Get a list of labels used by each movie's sessions
-        if (isset($get_session_labels) && !empty($get_session_labels)) {
-            $extra_select .= ", GROUP_CONCAT(DISTINCT st.session_preset_group_id ORDER BY st.session_preset_group_id DESC SEPARATOR '|') AS session_labels";
-        }
-        
-        // Exclude custom images if this is not a cinema site
+		
+		// Exclude custom images if this is not a cinema site
         $extra_custom_cinema_image = (empty($cinema_data['api_fetch']) && !isset($cinema_data['cinema_id']) && !isset($_SESSION['cinema_data']['cinema_id'])) ? "AND ml.cinema_id = 0" : "";
         
-        // Now Showing
-        if ($type == 'ns') {
+        */
+		
+        // Get a list of labels used by each movie's sessions
+        if (isset($get_session_labels) && !empty($get_session_labels)) {
+            $extra_select .= ", GROUP_CONCAT(DISTINCT st.label_id ORDER BY st.label_id DESC SEPARATOR '|') AS session_labels";
+        }
+        
+        /*if ($type == 'ns') {
             $sql = "
-                SELECT m.movie_id, m.imdb_id, m.title, IF(ml.synopsis != '', ml.synopsis, m.synopsis) AS `synopsis`, IF(ml.trailer!='',ml.trailer,m.trailer) AS trailer, IF(ml.classification_id != '', ml.classification_id, m.classification_id) AS `classification_id`, m.subtitled, m.poster_url, IF(ml.custom_poster_id != '', ml.custom_poster_id, m.custom_poster_id) AS `custom_poster_id`,
+                SELECT m.movie_id, m.imdb_id, m.title, m.synopsis, m.trailer, 
+					   m.classification_id, m.subtitled, m.poster_url, 
+					   m.custom_poster_id,
                     mc.trailers AS cache_trailers, mc.cast AS cache_cast,
                     ml.comments, ml.release_date, ml.comments, ml.priority, COUNT(DISTINCT st.session_id) AS total_sessions, st.event_id, IF(ml.duration!='',ml.duration,m.duration) AS duration, IF(MAX(ml.runtime)>0,MAX(ml.runtime),m.runtime) AS runtime, MIN(ml.priority) as priority, DATE_FORMAT(ml.release_date,'$date_format') AS release_date_f1, DATE_FORMAT(ml.release_date,'$date_format2') AS release_date_f2, ml.event_id AS movie_event_id,
                     IF(ml.class_id != 0, c2.class, c.class) AS `class`
@@ -540,8 +540,46 @@ function get_movie_list_full($type = 'ns', $order_by = 'ml.priority,m.title', $n
                     ON c.class_id=m.class_id
                 LEFT JOIN classifications c2
                     ON c2.class_id=ml.class_id
-                WHERE $cinema_sql 
-                    AND ml.status='ok'
+                WHERE m.status='ok'
+                    $extra_conditions
+                GROUP BY m.movie_id 
+                $having
+                ORDER BY $order_by
+                LIMIT $limit
+        ";*/
+		
+        // Now Showing
+        if ($type == 'ns') {
+            $sql = "
+                SELECT 
+					m.movie_id, 
+					m.imdb_id, 
+					m.title, 
+					m.synopsis, 
+					m.trailer, 
+					m.classification_id, 
+					m.subtitled, 
+					m.poster_url, 
+					m.custom_poster_id,
+					m.runtime, 
+					m.comments, 
+					COUNT(DISTINCT st.session_id) AS total_sessions, 
+					DATE_FORMAT(m.release_date,'$date_format') AS release_date_f1,
+					DATE_FORMAT(m.release_date,'$date_format2') AS release_date_f2,
+					c.classification, 
+					ci.custom_image_url
+                    $extra_select
+                FROM movies m
+                INNER JOIN sessions st
+                    ON st.movie_id=m.movie_id
+                    AND st.time>='$session_start' 
+                    AND st.time<='$session_end'
+                LEFT JOIN custom_images ci
+                    ON ci.movie_id=m.movie_id
+					AND ci.custom_image_id=m.custom_poster_id
+                LEFT JOIN classifications c
+                    ON c.classification_id=m.classification_id
+                WHERE m.status='ok'
                     $extra_conditions
                 GROUP BY m.movie_id 
                 $having
@@ -552,133 +590,101 @@ function get_movie_list_full($type = 'ns', $order_by = 'ml.priority,m.title', $n
             // Coming Soon
             // Timezone support here needs to be dynamic based on the cinema's location
         } else if ($type == 'cs') {
-            if (isset($orig_cinema_id)) {
-                $this_cinema_id = $orig_cinema_id;
-            }
             $sql = "
-                SELECT m.movie_id, m.imdb_id, m.poster, m.title, IF(ml.synopsis != '', ml.synopsis, m.synopsis) AS `synopsis`, m.country_id, IF(ml.trailer!='',ml.trailer,m.trailer) AS trailer, m.official_site,
-                    mc.trailers AS cache_trailers, mc.cast AS cache_cast,
-                    ml.comments, ml.release_date, ml.priority, ml.event_id, DATE_FORMAT(ml.release_date,'$date_format') AS release_date_f1, DATE_FORMAT(ml.release_date,'$date_format2') AS release_date_f2, ml.event_id AS movie_event_id,
-                    GROUP_CONCAT(DISTINCT i.image_name ORDER BY IF(mi.cinema_id IN(" . implode(',', $cinema_ids) . "), 1, 0) DESC, mi.cinema_id DESC, i.priority DESC, i.image_id DESC SEPARATOR '|') AS image_names,
-                    IF(ml.class_id != 0, c2.class, c.class) AS `class`,
-                    COUNT(DISTINCT s.session_id) AS total_sessions, s.event_id,
-                    IF(ml.release_date = '0000-00-00', 1, 0) AS tbc
+                SELECT 
+					m.movie_id, 
+					m.imdb_id, 
+					m.title, 
+					m.synopsis, 
+					m.trailer,
+					m.classification_id, 
+					m.subtitled, 
+					m.poster_url, 
+					m.custom_poster_id,
+					m.runtime, 
+					m.comments, 
+					COUNT(DISTINCT s.session_id) AS total_sessions, 
+                    DATE_FORMAT(m.release_date,'$date_format') AS release_date_f1, 
+					DATE_FORMAT(ml.release_date,'$date_format2') AS release_date_f2, 
+                    c.classification,
+                    ci.custom_image_url, 
+                    IF(m.release_date = '0000-00-00', 1, 0) AS tbc
                     $extra_select
                 FROM movies m
-                INNER JOIN movie_cache mc
-                    ON mc.movie_id=m.movie_id
-                INNER JOIN movie_lists ml
-                    ON ml.movie_id=m.movie_id
                 LEFT JOIN sessions s
                     AND s.movie_id = m.movie_id
                     AND s.time >= NOW()
-                LEFT JOIN movie_images mi
-                    ON mi.movie_id=m.movie_id
-                    $extra_custom_cinema_image
-                LEFT JOIN images i
-                    ON i.image_id=mi.image_id
-                    AND i.image_cat_id='{$cinema_data['image_cat_id']}'
-                    AND i.status='ok'
-                    AND (mi.cinema_id IN(" . implode(',', $cinema_ids) . ") OR (i.priority=1 AND i.exclusive!=1))
+                LEFT JOIN custom_images ci
+                    ON ci.movie_id=m.movie_id
+					AND ci.custom_image_id=m.custom_poster_id
                 LEFT JOIN classifications c
-                    ON c.class_id=m.class_id
-                LEFT JOIN classifications c2
-                    ON c2.class_id=ml.class_id
-                WHERE $cinema_sql
-                    AND (ml.release_date > DATE_ADD(NOW(), INTERVAL $timezoneOffset HOUR) OR ml.release_date='0000-00-00') 
-                    AND ml.status='ok'
+                    ON c.classification_id=m.classification_id
+                WHERE (ml.release_date > DATE_ADD(NOW(), INTERVAL $timezoneOffset HOUR) OR ml.release_date='0000-00-00') 
+					AND ml.status='ok'
                 GROUP BY m.movie_id 
                 $having
                 ORDER BY $order_by
                 LIMIT $limit
             ";
-            if (isset($orig_cinema_id)) {
-                $this_cinema_id = $new_cinema_id;
-            }
             
             // Any Movies
         } else if ($type == 'all') {
             $sql = "
-                SELECT m.movie_id, m.master_movie_id, m.imdb_id, m.poster, m.title, IF(ml.synopsis != '', ml.synopsis, m.synopsis) AS `synopsis`, m.country_id, IF(ml.trailer!='',ml.trailer,m.trailer) AS trailer, m.official_site, IF(ml.class_explanation != '', ml.class_explanation, m.class_explanation) AS `class_explanation`, IF(ml.duration!='',ml.duration,m.duration) AS duration, IF(MAX(ml.runtime)>0,MAX(ml.runtime),m.runtime) AS runtime,
-                    mc.trailers AS cache_trailers, mc.cast AS cache_cast,
-                    GROUP_CONCAT(DISTINCT i.image_name ORDER BY IF(mi.cinema_id IN(" . implode(',', $cinema_ids) . "), 1, 0) DESC, i.priority DESC, i.image_id DESC SEPARATOR '|') AS image_names,
-                    IF(ml.class_id != 0, c2.class, c.class) AS `class`,
+                SELECT 
+					m.movie_id, 
+					m.imdb_id, 
+					m.title, 
+					m.synopsis, 
+					m.trailer, 
+					m.classification_id, 
+					m.subtitled, 
+					m.poster_url, 
+					m.custom_poster_id, 
+					m.runtime, 
+					m.comments, 
                     COUNT(DISTINCT s.session_id) AS total_sessions,
-                    ml.comments, ml.release_date, ml.priority, ml.feature, ml.event_id, IF(ml.duration!='',ml.duration,m.duration) AS duration, DATE_FORMAT(ml.release_date,'$date_format') AS release_date_f1, DATE_FORMAT(ml.release_date,'$date_format2') AS release_date_f2, ml.event_id AS movie_event_id
-                    $extra_select
+                    DATE_FORMAT(m.release_date,'$date_format') AS release_date_f1, 
+					DATE_FORMAT(m.release_date,'$date_format2') AS release_date_f2, 
+                    c.classification,
+					ci.custom_image_url
+					$extra_select
                 FROM movies m
-                INNER JOIN movie_cache mc
-                    ON mc.movie_id=m.movie_id
-                LEFT JOIN movie_images mi
-                    ON mi.movie_id=m.movie_id
-                    $extra_custom_cinema_image
-                LEFT JOIN images i
-                    ON i.image_id=mi.image_id
-                    AND i.image_cat_id='{$cinema_data['image_cat_id']}'
-                    AND i.status='ok'
-                    AND (mi.cinema_id IN(" . implode(',', $cinema_ids) . ") OR (i.priority=1 AND i.exclusive!=1))
-                INNER JOIN movie_lists ml
-                    ON ml.movie_id=m.movie_id
                 LEFT JOIN sessions s
-                    ON s.cinema_id = ml.cinema_id
                     AND s.movie_id = m.movie_id
                     AND s.time >= NOW()
+                LEFT JOIN custom_images ci
+                    ON ci.movie_id=m.movie_id
+					AND ci.custom_image_id=m.custom_poster_id
                 LEFT JOIN classifications c
-                    ON c.class_id=m.class_id
-                LEFT JOIN classifications c2
-                    ON c2.class_id=ml.class_id
-                WHERE $cinema_sql
-                    AND ml.status='ok'
+                    ON c.classification_id=m.classification_id
+                WHERE m.status='ok'
                     $extra_conditions
                 GROUP BY m.movie_id 
                 $having
                 ORDER BY $order_by
                 LIMIT $limit
             ";
-            
-            // Temporary Sessions
-        } else if ($type == 'temp') {
-            $sql = "
-                SELECT m.movie_id, m.title, m.synopsis, m.country_id
-                FROM movies m
-                INNER JOIN sessions_temp s
-                    ON s.movie_id=m.movie_id
-                WHERE s.cinema_id='$this_cinema_id' 
-                GROUP BY m.movie_id 
-                ORDER BY $order_by
-            ";
         }
-        
         $movie_list_res = query($sql);
-        
         if ($movie_list_res->num_rows > 0) {
             $n = 0;
             unset($tmp, $movies);
             
             // If movies found, assign variables to $movies array
             while ($movie_list_data = $movie_list_res->fetch_assoc()) {
-                if (isset($movie_list_data['image_names'])) {
-                    $image_names                   = explode('|', $movie_list_data['image_names']);
-                    $movie_list_data['image_name'] = $image_names[0];
-                }
                 $movies[$n]['movie_id']          = (isset($movie_list_data['movie_id'])) ? $movie_list_data['movie_id'] : NULL;
                 $movies[$n]['imdb_id']           = (isset($movie_list_data['imdb_id'])) ? $movie_list_data['imdb_id'] : NULL;
                 $movies[$n]['title']             = (isset($movie_list_data['title'])) ? $movie_list_data['title'] : NULL;
-                $movies[$n]['priority']          = (isset($movie_list_data['priority'])) ? $movie_list_data['priority'] : NULL;
-                $movies[$n]['feature']           = (isset($movie_list_data['feature'])) ? $movie_list_data['feature'] : NULL;
-                $movies[$n]['country_id']        = (isset($movie_list_data['country_id'])) ? $movie_list_data['country_id'] : NULL;
-                $movies[$n]['image_name']        = (isset($movie_list_data['image_name'])) ? $movie_list_data['image_name'] : NULL;
-                $movies[$n]['class']             = (isset($movie_list_data['class'])) ? $movie_list_data['class'] : NULL;
-                $movies[$n]['class_explanation'] = (isset($movie_list_data['class_explanation'])) ? $movie_list_data['class_explanation'] : NULL;
-                $movies[$n]['duration']          = (isset($movie_list_data['duration'])) ? $movie_list_data['duration'] : NULL;
+                //$movies[$n]['feature']         = (isset($movie_list_data['feature'])) ? $movie_list_data['feature'] : NULL;
+                $movies[$n]['classification']    = (isset($movie_list_data['classification'])) ? $movie_list_data['classification'] : NULL;
+                // update with class function $movies[$n]['class_explanation'] = (isset($movie_list_data['class_explanation'])) ? get_class_explanation($movies[$n]['classification']) : NULL;
                 $movies[$n]['runtime']           = (isset($movie_list_data['runtime'])) ? $movie_list_data['runtime'] : NULL;
-                $movies[$n]['poster']            = (isset($movie_list_data['imdb_id'])) ? $movie_list_data['poster'] : NULL;
+				// function for converting runtime to duration $movies[$n]['duration']           = (isset($movie_list_data['duration'])) ? $movie_list_data['duration'] : NULL;
+                $movies[$n]['poster_url']        = (isset($movie_list_data['poster_url'])) ? $movie_list_data['poster_url'] : NULL;
+				// function for getting custom image url, then add to poster_url $movies[$n]['custom_image_url']  = (isset($movie_list_data['custom_image_url'])) ? $movie_list_data['custom_image_url'] : NULL;
+				$movies[$n]['comments']           = (isset($movie_list_data['comments'])) ? $movie_list_data['comments'] : NULL;
                 $movies[$n]['trailer']           = (isset($movie_list_data['trailer'])) ? $movie_list_data['trailer'] : NULL;
-                $movies[$n]['trailers']          = (isset($movie_list_data['cache_trailers'])) ? unserialize($movie_list_data['cache_trailers']) : NULL;
-                $movies[$n]['official_site']     = (isset($movie_list_data['official_site'])) ? $movie_list_data['official_site'] : NULL;
-                $movies[$n]['event_id']          = (isset($movie_list_data['event_id'])) ? $movie_list_data['event_id'] : NULL;
                 $movies[$n]['release_date_raw']  = (isset($movie_list_data['release_date'])) ? $movie_list_data['release_date'] : NULL;
-                $movies[$n]['master']            = (!empty($movie_list_data['master_movie_id'])) ? get_movie_basics($movie_list_data['master_movie_id']) : null;
                 if ($movies[$n]['release_date_raw'] == '0000-00-00') {
                     $movies[$n]['release_date']  = 'TBC';
                     $movies[$n]['release_date2'] = 'TBC';
@@ -686,8 +692,6 @@ function get_movie_list_full($type = 'ns', $order_by = 'ml.priority,m.title', $n
                     $movies[$n]['release_date']  = $movie_list_data['release_date_f1'];
                     $movies[$n]['release_date2'] = $movie_list_data['release_date_f2'];
                 }
-                $movies[$n]['comments']         = (isset($movie_list_data['comments'])) ? $movie_list_data['comments'] : NULL;
-                $movies[$n]['manager_comments'] = (isset($movie_list_data['manager_comments'])) ? $movie_list_data['manager_comments'] : NULL;
                 $movies[$n]['synopsis']         = (isset($movie_list_data['synopsis'])) ? $movie_list_data['synopsis'] : NULL;
                 $movies[$n]['total_sessions']   = (isset($movie_list_data['total_sessions'])) ? $movie_list_data['total_sessions'] : NULL;
                 if ($movies[$n]['release_date_raw'] > date('Y-m-d') || $movies[$n]['release_date_raw'] == '0000-00-00') {
@@ -696,62 +700,15 @@ function get_movie_list_full($type = 'ns', $order_by = 'ml.priority,m.title', $n
                     $status = 'ns';
                 }
                 $movies[$n]['status'] = $status;
-                $movies[$n]['cast']   = get_cast($movie_list_data['movie_id']);
-                if (has_permission('merge_3d')) {
-                    if (substr(strtolower($movies[$n]['title']), -3) == ' 3d' || substr(strtolower($movies[$n]['title']), -5) == ' (3d)') {
-                        $sql            = "
-                            SELECT m.movie_id
-                            FROM movies m
-                            INNER JOIN movie_lists ml
-                                ON ml.movie_id = m.movie_id
-                                AND ml.cinema_id IN (" . implode(',', $cinema_ids) . ")
-                            WHERE LOWER(m.title) = '" . $mysqli->real_escape_string(str_replace(array(
-                            ' 3d',
-                            ' (3d)'
-                        ), array(
-                            '',
-                            ''
-                        ), strtolower($movies[$n]['title']))) . "'
-                            LIMIT 1
-                        ";
-                        $root_movie_res = query($sql);
-                        if ($root_movie_res->num_rows > 0) {
-                            $root_movie       = $root_movie_res->fetch_assoc();
-                            $movies[$n]['3D'] = $root_movie['movie_id'];
-                        }
-                    } else {
-                        $sql          = "
-                            SELECT m.movie_id
-                            FROM movies m
-                            INNER JOIN movie_lists ml
-                                ON ml.movie_id = m.movie_id
-                                AND ml.cinema_id IN (" . implode(',', $cinema_ids) . ")
-                            WHERE LOWER(m.title) = '" . $mysqli->real_escape_string(strtolower($movies[$n]['title'])) . " 3d' OR LOWER(m.title) = '" . $mysqli->real_escape_string(strtolower($movies[$n]['title'])) . " (3d)'
-                            LIMIT 1
-                        ";
-                        $d3_movie_res = query($sql);
-                        if ($d3_movie_res->num_rows > 0) {
-                            $d3_movie         = $d3_movie_res->fetch_assoc();
-                            $movies[$n]['2D'] = $d3_movie['movie_id'];
-                        }
-                    }
-                }
-                if (isset($movie_list_data['cinema_ids']) && !empty($movie_list_data['cinema_ids'])) {
-                    foreach (explode('|', $movie_list_data['cinema_ids']) as $temp) {
-                        if (!empty($temp)) {
-                            $movies[$n]['cinema_ids'][$temp] = true;
-                        }
-                    }
-                }
                 if (isset($get_session_labels) && !empty($get_session_labels)) {
                     unset($check_for_movie_removal, $keep_movie);
                     foreach (explode('|', $movie_list_data['session_labels']) as $temp) {
-                        if (isset($session_label_filter) && !empty($session_label_filter)) {
+                        /*if (isset($session_label_filter) && !empty($session_label_filter)) {
                             $check_for_movie_removal = true;
                             if (!empty($temp) && in_array($temp, $session_label_filter)) {
                                 $keep_movie = true;
                             }
-                        }
+                        }*/
                         if (!empty($temp)) {
                             $movies[$n]['labels'][$temp] = true;
                         }
@@ -799,29 +756,30 @@ function get_cast($movie_id, $relationship = 'actor') {
 function get_movie($movie_id, $screen_limit = 4, $get_sessions = true, $extra_conditions = NULL, $ignore_image_cat_id = false) {
     //db_direct();
     global $mysqli, $cinema_data;
-    if (!isset($cinema_data['image_cat_id'])) {
-        $cinema_data['image_cat_id'] = 2;
-    }
-    if (!empty($cinema_data['cinema_id'])) {
-        $extra_conditions .= " AND ml.cinema_id = '" . $mysqli->real_escape_string($cinema_data['cinema_id']) . "'";
-    }
+
     $return    = array();
     // Main movie info
-    $sql       = "
-        SELECT m.movie_id, m.master_movie_id, m.title, m.status, m.admin_report_ignore, m.country_id, m.runtime, IF(ml.trailer!='',ml.trailer,m.trailer) AS trailer, m.trailer_format_id, m.official_site, m.subtitled, m.rating_total, m.rating_average, m.review_total, m.date_listed, m.updated, m.bms_Event_strCode, m.poster, m.sentry_film_id,  
-            mc.trailers AS cache_trailers, mc.cast AS cache_cast, 
-            IF( ml.class_id != 0, c2.class, c.class) AS `class`, IF(ml.class_explanation!='',ml.class_explanation,m.class_explanation) AS class_explanation, IF(ml.synopsis!='',ml.synopsis,m.synopsis) AS synopsis, IF(ml.trailer!='',ml.trailer,m.trailer) AS trailer, 
-            ml.cinema_id, GROUP_CONCAT(DISTINCT ml.comments SEPARATOR '') AS comments, IF(ml.duration!='',ml.duration,m.duration) AS duration, ml.release_date, DATE_FORMAT(ml.release_date,'%M %e') AS release_date_format, ml.alias
+    $sql = "
+        SELECT 
+			m.movie_id, 
+			m.title, 
+			m.runtime,
+			m.trailer, 
+			m.subtitled, 
+			m.last_updated, 
+			m.poster_url, 
+			m.custom_image_id,   
+            c.classification, 
+			m.classification_id, 
+			m.synopsis,  
+            GROUP_CONCAT(DISTINCT m.comments SEPARATOR '') AS comments, 
+			m.release_date, 
+			DATE_FORMAT(m.release_date,'%M %e') AS release_date_format 
         FROM movies m
-        INNER JOIN movie_cache mc
-            ON mc.movie_id=m.movie_id
-        INNER JOIN movie_lists ml
-            ON ml.movie_id=m.movie_id
         LEFT JOIN classifications c
-            ON c.class_id=m.class_id
-        LEFT JOIN classifications c2
-            ON c2.class_id=ml.class_id
+            ON c.classification_id = m.classification_id
         WHERE m.movie_id='" . $mysqli->real_escape_string($movie_id) . "'
+			AND m.status = 'ok'
             $extra_conditions
         GROUP BY m.movie_id
         LIMIT 1
@@ -839,35 +797,13 @@ function get_movie($movie_id, $screen_limit = 4, $get_sessions = true, $extra_co
     } else {
         $status = 'ns';
     }
-    $return['movie_id']        = $movie_id;
-    $return['movie']           = $movie_data;
-    $return['movie']['master'] = (!empty($movie_data['master_movie_id'])) ? get_movie_basics($movie_data['master_movie_id']) : null;
-    $return['status']          = $status;
-    $return['cast']            = get_cast($movie_id);
-    $return['movie']['class']  = $movie_data['class'];
-    if (isset($movie_data['cache_trailers']) && !empty($movie_data['cache_trailers'])) {
-        $return['trailers'] = unserialize($movie_data['cache_trailers']);
-    }
-    
-    //Other cinemas
-    if (!empty($cinema_data['children']) && is_array($cinema_data['children'])) {
-        $cinema_ids = $cinema_data['children'];
-        array_push($cinema_ids, $cinema_data['cinema_id']);
-        $sql           = "
-            SELECT ml.cinema_id, ml.release_date
-            FROM movie_lists ml
-            WHERE ml.movie_id = '" . $mysqli->real_escape_string($movie_id) . "'
-                AND ml.cinema_id IN (" . implode(',', $cinema_ids) . ")
-        ";
-        $res           = $mysqli->query($sql);
-        $release_dates = array();
-        while ($data = $res->fetch_assoc()) {
-            $return['release_dates'][$data['cinema_id']] = $data['release_date'];
-        }
-    }
+    $return['movie_id'] = $movie_id;
+    $return['movie'] = $movie_data;
+    $return['status'] = $status;
+    $return['movie']['classification'] = $movie_data['classification'];
     
     // Screens info
-    if ($screen_limit > 0) {
+    /*if ($screen_limit > 0) {
         $sql = "
             SELECT i.image_name, i.image_cat_id, i.priority, mi.cinema_id
             FROM images i
@@ -899,18 +835,18 @@ function get_movie($movie_id, $screen_limit = 4, $get_sessions = true, $extra_co
             }
         }
         $return['screens'] = isset($sc_data) ? $sc_data : NULL;
-    }
+    }*/
     
     // Get sessions grouped by date
     if ($get_sessions) {
         if (is_array($get_sessions)) {
             $raw_data = get_movie_sessions($get_sessions, $movie_id);
             foreach ($get_sessions as $s) {
-                $return['sessions'][$s] = isset($raw_data['cinemas'][$s]['movies']) ? $raw_data['cinemas'][$s]['movies'][$movie_id]['sessions'] : NULL;
+                $return['sessions'][$s] = isset($raw_data['movies']) ? $raw_data['movies'][$movie_id]['sessions'] : NULL;
             }
         } else {
-            $raw_data           = get_movie_sessions($movie_data['cinema_id'], $movie_id);
-            $return['sessions'] = (isset($raw_data['cinemas'][$movie_data['cinema_id']]['movies'])) ? $raw_data['cinemas'][$movie_data['cinema_id']]['movies'][$movie_id]['sessions'] : NULL;
+            $raw_data = get_movie_sessions($movie_data['cinema_id'], $movie_id);
+            $return['sessions'] = (isset($raw_data['movies'])) ? $raw_data['movies'][$movie_id]['sessions'] : NULL;
         }
     }
     
@@ -947,22 +883,8 @@ function get_random_movie($cinema_id, $priority = null) {
 
 // Get movie sessions
 function get_movie_sessions($cinema_id_array, $movie_id_array = NULL, $time_array = NULL, $get_image = false, $format_date = '%Y-%m-%d', $format_time = '%l:%i%p', $session_comment_filter = null, $allow_session_duplicates = true, $vista_attribute_filter = null, $session_screen_filter = null) {
-    global $global, $mysqli, $cinema_data;
+    global $config, $mysqli, $cinema_data;
     
-    // Prepare variables
-    if (!is_array($cinema_id_array)) {
-        $cinema_id_array = array(
-            $cinema_id_array
-        );
-    }
-    if (isset($movie_id_array) && !is_array($movie_id_array)) {
-        $movie_id_array = array(
-            $movie_id_array
-        );
-    }
-    if (count($cinema_id_array) < 1 || (isset($movie_id_array) && count($movie_id_array) < 1)) {
-        return false;
-    }
     if (!isset($time_array)) {
         date_default_timezone_set($cinema_data['timezone']);
         $time_array = array(
@@ -972,140 +894,120 @@ function get_movie_sessions($cinema_id_array, $movie_id_array = NULL, $time_arra
     }
     $max_sessions_per_day = 0;
     
-    //Get sessions
-    foreach ($cinema_id_array as $cinema_id) {
+    // Get sessions
+    //foreach ($cinema_id_array as $cinema_id) {
         
-        // Cinema info
-        $sql                                                 = "
-            SELECT c.cinema_name, c.city
-            FROM cinemas c
-            WHERE c.cinema_id='" . $mysqli->real_escape_string($cinema_id) . "'
+    // Cinema info
+    $sql = "
+        SELECT se.name, se.city
+        FROM settings se
+        WHERE se.id='1'
+    ";
+    $res = query($sql);
+    $data = $res->fetch_assoc();
+    $session_array['cinema_data'] = array(
+        'name' => $data['name'],
+        'city' => $data['city']
+    );
+        
+    // Apply filters
+    /*$extra_sql_conditions = '';
+    if (!empty($session_comment_filter)) {
+        $extra_sql_conditions .= "AND s.comments LIKE '%" . $mysqli->real_escape_string($session_comment_filter) . "%' ";
+    } elseif (!empty($vista_attribute_filter)) {
+        $extra_sql_conditions .= "AND s.vista_attributes LIKE '%" . $mysqli->real_escape_string($vista_attribute_filter) . "%' ";
+    } elseif (!empty($session_screen_filter)) {
+        $extra_sql_conditions .= "AND s.screen LIKE '%" . $mysqli->real_escape_string($session_screen_filter) . "%' ";
+    }*/
+        
+    // If no $movie_id_array specified, select all movies for this cinema with sessions >= today
+    if (!$movie_id_array) {
+        unset($movie_ids);
+        $sql = "
+            SELECT DISTINCT(s.movie_id)
+            FROM sessions s
+            WHERE s.time >= '" . $mysqli->real_escape_string($time_array[0]) . "' 
+                AND s.time <= '" . $mysqli->real_escape_string($time_array[1]) . "'
+                $extra_sql_conditions
         ";
-        $res                                                 = query($sql);
-        $data                                                = $res->fetch_assoc();
-        $session_array['cinemas'][$cinema_id]['cinema_data'] = array(
-            'name' => $data['cinema_name'],
-            'city' => $data['city']
-        );
-        
-        // Apply filters
-        $extra_sql_conditions = '';
-        if (!empty($session_comment_filter)) {
-            $extra_sql_conditions .= "AND s.comments LIKE '%" . $mysqli->real_escape_string($session_comment_filter) . "%' ";
-        } elseif (!empty($vista_attribute_filter)) {
-            $extra_sql_conditions .= "AND s.vista_attributes LIKE '%" . $mysqli->real_escape_string($vista_attribute_filter) . "%' ";
-        } elseif (!empty($session_screen_filter)) {
-            $extra_sql_conditions .= "AND s.screen LIKE '%" . $mysqli->real_escape_string($session_screen_filter) . "%' ";
+        $res = query($sql);
+        while ($data = $res->fetch_assoc()) {
+            $movie_ids[] = $data['movie_id'];
         }
+    } else {
+        $movie_ids = $movie_id_array;
+    }
         
-        // If no $movie_id_array specified, select all movies for this cinema with sessions >= today
-        if (!$movie_id_array) {
-            unset($movie_ids);
+    // Loop through each movie
+    if (isset($movie_ids) && is_array($movie_ids)) {
+        foreach ($movie_ids as $movie_id) {
+            unset($num_sessions, $movie_session_summary);
+                
+            // Get sessions if they exist
             $sql = "
-                SELECT DISTINCT(s.movie_id)
+                SELECT 
+					s.*, 
+					DATE_FORMAT(s.time,
+					'$format_date') AS session_date, 
+					LOWER(
+						CAST(
+							DATE_FORMAT(s.time,
+							'$format_time') AS CHAR(10)
+						)
+					) AS time_format,
+                    sl.session_preset_group_id, 
+					sl.name AS label
                 FROM sessions s
-                WHERE s.time >= '" . $mysqli->real_escape_string($time_array[0]) . "' 
+                LEFT JOIN session_labels sl
+                    ON s.label_id = sl.label_id
+                WHERE 
+					s.movie_id = '" . $mysqli->real_escape_string($movie_id) . "'
+                    AND s.time >= '" . $mysqli->real_escape_string($time_array[0]) . "' 
                     AND s.time <= '" . $mysqli->real_escape_string($time_array[1]) . "'
                     $extra_sql_conditions
+                ORDER BY s.time
             ";
             $res = query($sql);
-            while ($data = $res->fetch_assoc()) {
-                $movie_ids[] = $data['movie_id'];
-            }
-        } else {
-            $movie_ids = $movie_id_array;
-        }
-        
-        // Loop through each movie
-        if (isset($movie_ids) && is_array($movie_ids)) {
-            foreach ($movie_ids as $movie_id) {
-                unset($num_sessions, $movie_session_summary);
-                
-                // Get sessions if they exist
-                $sql = "
-                    SELECT s.*, DATE_FORMAT(s.time,'$format_date') AS session_date, LOWER(CAST(DATE_FORMAT(s.time,'$format_time') AS CHAR(10))) AS time_format,
-                        spg.session_preset_group_id, spg.name AS label, spg.comments AS label_comments,
-                        vts.vista_cinema_id,
-                        vc.site_token AS veezi_site_token
-                    FROM sessions s
-                    LEFT JOIN session_preset_groups spg
-                        ON s.session_preset_group_id = spg.session_preset_group_id
-                    LEFT JOIN vista_ticketing_servers vts
-                        ON vts.cinema_id = s.cinema_id
-                    LEFT JOIN veezi_cinemas vc
-                        ON vc.cinema_id = s.cinema_id
-                    WHERE s.cinema_id = '" . $mysqli->real_escape_string($cinema_id) . "'
-                        AND s.movie_id = '" . $mysqli->real_escape_string($movie_id) . "'
-                        AND s.time >= '" . $mysqli->real_escape_string($time_array[0]) . "' 
-                        AND s.time <= '" . $mysqli->real_escape_string($time_array[1]) . "'
-                        $extra_sql_conditions
-                    ORDER BY s.time
-                ";
-                $res = query($sql);
-                if ($res->num_rows > 0) {
+            if ($res->num_rows > 0) {
                     
-                    $movie_data = get_movie($movie_id, ($get_image) ? 1 : 0, false);
+                $movie_data = get_movie($movie_id, ($get_image) ? 1 : 0, false);
                     
-                    $session_duplicates = array();
-                    while ($data = $res->fetch_assoc()) {
-                        if ($allow_session_duplicates || !isset($session_duplicates[$cinema_id][$movie_id][$data['time']])) {
-                            
-                            // Generate the booking URL
-                            if (empty($data['external_booking_url'])) {
-                                if (!empty($data['bms_Session_lngSessionId']) && !empty($data['bms_Venue_strCode'])) {
-                                    $data['external_booking_url'] = "{$global['bms_session_booking_url']}?cid={$data['bms_Venue_strCode']}&sid={$data['bms_Session_lngSessionId']}";
-                                } elseif (!empty($data['vista_session_id'])) {
-                                    $base_url                     = (!empty($cinema_data['homepage_url'])) ? rtrim($cinema_data['homepage_url'], '/') . '/' : main_cinema_domain($cinema_id);
-                                    $data['external_booking_url'] = $base_url . "page_tickets.php?sessionId={$data['vista_session_id']}&cinemaId={$data['vista_cinema_id']}";
-                                } elseif (!empty($data['veezi_site_token']) && !empty($data['veezi_session_id'])) {
-                                    $data['external_booking_url'] = 'http://ticketing.us.veezi.com/purchase/' . $data['veezi_session_id'] . '?siteToken=' . $data['veezi_site_token'];
-                                }
-                            }
-                            
-                            // Prepare the session data
-                            $session_array['cinemas'][$cinema_id]['movies'][$movie_id]['sessions'][$data['session_date']][$data['session_id']] = array(
-                                'id' => $data['session_id'],
-                                'bms_sid' => $data['bms_Session_lngSessionId'],
-                                'bms_cid' => $data['bms_Venue_strCode'],
-                                'sentry_sid' => $data['sentry_session_id'],
-                                'external_booking_url' => $data['external_booking_url'],
-                                'vista_session_id' => $data['vista_session_id'],
-                                'veezi_session_id' => $data['veezi_session_id'],
-                                'screen' => $data['screen'],
-                                'comment' => (isset($data['comments'])) ? $data['comments'] : NULL,
-                                'timestamp' => $data['time'],
-                                'time' => strtolower($data['time_format']),
-                                'label' => (isset($data['label'])) ? $data['label'] : NULL,
-                                'label_id' => (isset($data['session_preset_group_id'])) ? $data['session_preset_group_id'] : NULL,
-                                'label_comment' => (isset($data['label_comments'])) ? $data['label_comments'] : NULL,
-                                'status' => (isset($data['status'])) ? $data['status'] : NULL
-                            );
-                            $session_duplicates[$cinema_id][$movie_id][$data['time']]                                                          = true;
-                            $num_sessions                                                                                                      = count($session_array['cinemas'][$cinema_id]['movies'][$movie_id]['sessions'][$data['session_date']]);
-                            if (!isset($max_sessions_per_day) || $max_sessions_per_day < $num_sessions) {
-                                $max_sessions_per_day = $num_sessions;
-                            }
-                            $movie_session_summary[] = $data['session_id'];
+                $session_duplicates = array();
+                while ($data = $res->fetch_assoc()) {
+                    if ($allow_session_duplicates || !isset($session_duplicates[$cinema_id][$movie_id][$data['time']])) {
+
+                        // Prepare the session data
+                        $session_array['cinemas'][$cinema_id]['movies'][$movie_id]['sessions'][$data['session_date']][$data['session_id']] = array(
+                            'id' => $data['session_id'],
+                            'timestamp' => $data['time'],
+                            'time' => strtolower($data['time_format']),
+                            'label' => (isset($data['label'])) ? $data['label'] : NULL,
+                            'label_id' => (isset($data['session_preset_group_id'])) ? $data['session_preset_group_id'] : NULL,
+                            'status' => (isset($data['status'])) ? $data['status'] : NULL
+                        );
+                        $session_duplicates[$movie_id][$data['time']] = true;
+                        $num_sessions = count($session_array['movies'][$movie_id]['sessions'][$data['session_date']]);
+                        if (!isset($max_sessions_per_day) || $max_sessions_per_day < $num_sessions) {
+                            $max_sessions_per_day = $num_sessions;
                         }
+                        $movie_session_summary[] = $data['session_id'];
                     }
-                    unset($session_duplicates);
-                    
-                    // Get basic movie details
-                    $session_array['cinemas'][$cinema_id]['movies'][$movie_id]['movie_data'] = array(
-                        'movie_id' => $movie_id,
-                        'title' => $movie_data['movie']['title'],
-                        'class' => $movie_data['movie']['class'],
-                        'class_explanation' => $movie_data['movie']['class_explanation'],
-                        'duration' => $movie_data['movie']['duration'],
-                        'comments' => $movie_data['movie']['comments'],
-                        'synopsis' => $movie_data['movie']['synopsis'],
-                        'cast' => $movie_data['movie']['cache_cast'],
-                        'release_date_raw' => $movie_data['movie']['release_date'],
-                        'status' => $movie_data['status'],
-                        'session_summary' => $movie_session_summary,
-                        'image_name' => (isset($movie_data['screens'][0])) ? $movie_data['screens'][0] : null
-                    );
                 }
+                unset($session_duplicates);
+                    
+                // Get basic movie details
+                $session_array['movies'][$movie_id]['movie_data'] = array(
+                    'movie_id' => $movie_id,
+                    'title' => $movie_data['movie']['title'],
+                    'class' => $movie_data['movie']['class'],
+                    'class_explanation' => $movie_data['movie']['class_explanation'],
+                    'runtime' => $movie_data['movie']['runtime'],
+                    'synopsis' => $movie_data['movie']['synopsis'],
+                    'cast' => $movie_data['movie']['cache_cast'],
+                    'release_date_raw' => $movie_data['movie']['release_date'],
+                    'status' => $movie_data['status'],
+                    'session_summary' => $movie_session_summary,
+                );
             }
         }
     }
@@ -1232,165 +1134,85 @@ function get_sessions_today($cinema_id, $day = NULL, $add_day = NULL, $order_by 
         $smarty_day  = "Today";
         $smarty_date = date('l jS F');
     }
-    
-    // Select from multiple cinemas
-    if (is_array($cinema_id)) {
-        foreach ($cinema_id as $c) {
-            if (!isset($cinema_sql)) {
-                $cinema_sql = "(";
-            } else {
-                $cinema_sql .= " OR ";
-            }
-            $cinema_sql .= "s.cinema_id='" . $mysqli->real_escape_string($c) . "'";
-        }
-        $cinema_sql .= ")";
-        $cinema_ids = $cinema_id;
-    } else {
-        $cinema_sql = "s.cinema_id='" . $mysqli->real_escape_string($cinema_id) . "'";
-        $cinema_ids = array(
-            $cinema_id
-        );
-    }
-    
-    // Get an array of 2D vs 3D movies
-    if (has_permission('merge_3d')) {
-        $sql           = "
-            SELECT DISTINCT(m.movie_id) AS movie_id, m2.movie_id AS movie_id_3d, m.title
-            FROM movies m
-            INNER JOIN movies m2 
-                ON m.title = REPLACE(REPLACE(REPLACE(REPLACE(m2.title,' (3d)',''),' (3D)',''),' 3d',''),' 3D','')
-                AND m.movie_id != m2.movie_id
-                AND (RIGHT(RTRIM(m2.title), 5) IN (' (3d)',' (3D)') OR RIGHT(RTRIM(m2.title), 3) IN (' 3d',' 3D'))
-                AND m2.master_movie_id = 0
-            INNER JOIN movie_lists ml2
-                ON ml2.movie_id = m2.movie_id
-                AND ml2.status = 'ok'
-            INNER JOIN movie_lists ml
-                ON ml.movie_id = m.movie_id
-                AND ml.status = 'ok'
-            WHERE " . str_replace('s.', 'ml.', $cinema_sql) . "
-                AND m.master_movie_id = 0
-        ";
-        $titles_3d_res = query($sql);
-        $titles_3d     = array();
-        while ($temp = $titles_3d_res->fetch_assoc()) {
-            $titles_3d[$temp['movie_id_3d']] = $temp['movie_id'];
-        }
-    }
-    
+	
     // Select data
     $from = $day . ' 00:00:00';
-    // $to     = $day.' 23:59:59';
+    // $to = $day.' 23:59:59';
     $to   = date('Y-m-d', strtotime($day . ' +1 day')) . ' 02:00:00';
     $sql  = "
-        SELECT DISTINCT m.movie_id, m.title, m.poster, m.trailer, m.synopsis,
-            mc.trailers AS cache_trailers,
-            s.cinema_id, s.session_id, s.comments, s.time, substring(s.time,1,10) AS session_date, LOWER(CAST(DATE_FORMAT(s.time,'%l:%i%p') AS CHAR(10))) AS time_format, s.bms_Session_lngSessionId, s.bms_Venue_strCode, s.sentry_session_id, s.external_booking_url, s.vista_session_id,
-            spg.name AS label, spg.comments AS label_comments,
-            GROUP_CONCAT(DISTINCT i.image_name ORDER BY IF(mi.cinema_id IN(" . implode(',', $cinema_ids) . "), 1, 0) DESC, i.priority DESC, i.image_id DESC SEPARATOR '|') AS image_names,
-            ml.comments AS movie_comments, IF( ml.class_id != 0, c2.class, c.class) AS `class`, IF( ml.class_explanation != '', ml.class_explanation, m.class_explanation) AS `class_explanation`, IF(ml.synopsis != '', ml.synopsis, m.synopsis) AS `synopsis`,
-            vts.vista_cinema_id
+        SELECT DISTINCT 
+			m.movie_id,
+			m.imdb_id,
+			m.title,
+			m.synopsis,
+			m.trailer,
+			m.classification_id,
+			m.subtitled,
+			m.poster_url,
+			m.custom_poster_id,
+            s.session_id, 
+			s.time, 
+			substring(s.time,1,10) AS session_date, 
+			LOWER(
+				CAST(
+					DATE_FORMAT(s.time,
+					'%l:%i%p') AS CHAR(10)
+				)
+			) AS time_format, 
+            sl.name AS label, 
+            c.classification 
         FROM movies m
-        INNER JOIN movie_cache mc
-            ON mc.movie_id=m.movie_id
         INNER JOIN sessions s
             ON s.movie_id=m.movie_id
-        INNER JOIN movie_lists ml
-            ON ml.movie_id=m.movie_id
-            AND ml.cinema_id=s.cinema_id
-        LEFT JOIN session_preset_groups spg
-            ON s.session_preset_group_id = spg.session_preset_group_id
+        LEFT JOIN session_labels sl
+            ON s.label_id=sl.label_id
+		LEFT JOIN custom_images ci
+            ON ci.movie_id=m.movie_id
+			AND ci.custom_image_id=m.custom_poster_id
         LEFT JOIN classifications c
-            ON c.class_id=m.class_id
-        LEFT JOIN classifications c2 
-            ON c2.class_id=ml.class_id 
-        LEFT JOIN vista_ticketing_servers vts
-            ON vts.cinema_id = s.cinema_id
-        LEFT JOIN movie_images mi
-            ON mi.movie_id=m.movie_id
-        LEFT JOIN images i
-            ON i.image_id=mi.image_id
-            AND i.image_cat_id='{$cinema_data['image_cat_id']}'
-            AND i.status='ok'
-            AND (i.priority=1 OR mi.cinema_id IN(" . implode(',', $cinema_ids) . "))
-        WHERE $cinema_sql
-            AND s.time>='" . $mysqli->real_escape_string($from) . "'
+            ON c.classification_id=m.classification_id
+        WHERE s.time>='" . $mysqli->real_escape_string($from) . "'
             AND s.time<='" . $mysqli->real_escape_string($to) . "'
         GROUP BY s.session_id
         ORDER BY $order_by
     ";
-    
     $session_res = query($sql);
     
     // Group session data by movie
     unset($tmp);
     while ($sd = $session_res->fetch_assoc()) {
-        // This is a 3D session which should be combined with it's 2D counterpart
-        $this_is_3d = false;
-        if (isset($titles_3d[$sd['movie_id']])) {
-            $sd['movie_id'] = $titles_3d[$sd['movie_id']];
-            $this_is_3d     = true;
-        }
-        // Get the main image
-        $image_names      = explode('|', $sd['image_names']);
-        $sd['image_name'] = $image_names[0];
         // Set up the film data if necessary
         if (!isset($session_data[$sd['movie_id']]['movie_id'])) {
             $session_data[$sd['movie_id']] = array(
                 'movie_id' => $sd['movie_id'],
+				'imdb_id' => $sd['imdb_id'],
                 'title' => $sd['title'],
-                'poster' => $sd['poster'],
-                'class' => $sd['class'],
-                'class_explanation' => $sd['class_explanation'],
+                'poster_url' => $sd['poster_url'],
+                'classification' => $sd['classification'],
+                // function to get class explanation 'class_explanation' => $sd['class_explanation'],
                 'synopsis' => $sd['synopsis'],
-                'comments' => $sd['movie_comments'],
-                'image_name' => $sd['image_name'],
                 'trailer' => $sd['trailer'],
-                'trailers' => unserialize($sd['cache_trailers'])
             );
-            if ($get_cast) {
+            /*if ($get_cast) {
                 $session_data[$sd['movie_id']]['cast'] = get_cast($sd['movie_id']);
-            }
+            }*/
         }
         // Prepare the session data
-        if (empty($sd['external_booking_url'])) {
+        /*if (empty($sd['external_booking_url'])) {
             if (!empty($sd['bms_Session_lngSessionId']) && !empty($sd['bms_Venue_strCode'])) {
                 $sd['external_booking_url'] = "{$global['bms_session_booking_url']}?cid={$sd['bms_Venue_strCode']}&sid={$sd['bms_Session_lngSessionId']}";
             } elseif (!empty($sd['vista_session_id'])) {
                 $base_url                   = (!empty($cinema_data['homepage_url'])) ? rtrim($cinema_data['homepage_url'], '/') . '/' : main_cinema_domain($cinema_id);
                 $sd['external_booking_url'] = $base_url . "/page_tickets.php?sessionId={$sd['vista_session_id']}&cinemaId={$sd['vista_cinema_id']}";
             }
-        }
+        }*/
         $s = array(
             'id' => $sd['session_id'],
-            'bms_sid' => $sd['bms_Session_lngSessionId'],
-            'bms_cid' => $sd['bms_Venue_strCode'],
-            'sentry_sid' => $sd['sentry_session_id'],
-            'comment' => $sd['comments'],
             'label' => $sd['label'],
-            'label_comment' => $sd['label_comments'],
             'timestamp' => $sd['time'],
             'time' => $sd['time_format'],
-            '3D' => $this_is_3d,
-            'external_booking_url' => $sd['external_booking_url'],
-            'vista_session_id' => $sd['vista_session_id'],
-            'veezi_session_id' => $sd['veezi_session_id']
         );
-        // Ordered by cinema then movie
-        if (is_array($cinema_id) && $group_by_cinema == true) {
-            if (!isset($tmp[$sd['cinema_id']]['movie'][$sd['movie_id']])) {
-                $tmp[$sd['cinema_id']]['movie'][$sd['movie_id']] = $session_data[$sd['movie_id']];
-            }
-            $tmp[$sd['cinema_id']]['movie'][$sd['movie_id']]['sessions'][$s['id']] = $s;
-        }
-        // Ordered by movie then cinema
-        elseif (is_array($cinema_id)) {
-            $session_data[$sd['movie_id']]['cinema'][$sd['cinema_id']]['sessions'][] = $s;
-        }
-        // Ordered by movie
-        else {
-            $session_data[$sd['movie_id']]['sessions'][] = $s;
-        }
+        $session_data[$sd['movie_id']]['sessions'][] = $s;
     }
     if (isset($tmp)) {
         $session_data = $tmp;
@@ -1399,9 +1221,6 @@ function get_sessions_today($cinema_id, $day = NULL, $add_day = NULL, $order_by 
     // Assign final variables
     $get_sessions_today_day  = isset($smarty_day) ? $smarty_day : NULL;
     $get_sessions_today_date = isset($smarty_date) ? $smarty_date : NULL;
-    if (isset($orig_cinema_id)) {
-        $cinema_id = $orig_cinema_id;
-    }
     return $session_data;
 }
 
@@ -1680,7 +1499,7 @@ function update_site_stats() {
 // This adds an event_id against a movie_list if one is found against a session, otherwise clears the movie_list event_id
 // Not good if we have set a movie-level event against the movie_list already
 // Only useful when importing from BMS, dangerous otherwise
-function update_movie_list_cache($movie_id, $cinema_id) {
+/*function update_movie_list_cache($movie_id, $cinema_id) {
     if (!class_exists('db')) {
         db_pdo();
     }
@@ -1715,7 +1534,7 @@ function update_movie_list_cache($movie_id, $cinema_id) {
         $cinema_id
     ));
     $stmt = NULL;
-}
+}*/
 
 function get_additional_images($cinema_id, $movie_id) {
     if (!class_exists('db')) {
@@ -1749,19 +1568,10 @@ function get_additional_images($cinema_id, $movie_id) {
 
 // Check cinema permissions
 function has_permission($p, $c = NULL) {
-    global $mysqli, $cinema_id;
+    global $mysqli;
     db_direct();
-    if (!isset($c)) {
-        if (isset($cinema_id)) {
-            $c = $cinema_id;
-        } elseif (isset($_SESSION['cinema_data']['cinema_id'])) {
-            $c = $_SESSION['cinema_data']['cinema_id'];
-        } else {
-            return false;
-        }
-    }
-    if (isset($c)) {
-        $sql = "SELECT cinema_id FROM cinema_permissions WHERE cinema_id=$c AND $p=1";
+    if (isset($p)) {
+        $sql = "SELECT * FROM permissions WHERE id='1' AND $p=1";
         $tmp_res = $mysqli->query($sql) or user_error("Gnarly: $sql");
         if ($tmp_res->num_rows != 1) {
             return false;
