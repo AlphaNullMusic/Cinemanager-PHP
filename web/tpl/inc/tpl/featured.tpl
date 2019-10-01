@@ -6,7 +6,7 @@
                 {foreach from=$now_showing item=n name=n}
                 <div>
                     <div class="content-wrapper poster">
-                        <img class="mc-auto show" src="{$n.poster}" width="150" alt="{$n.title} Poster">
+                        <img class="mc-auto show" src="{$n.poster_url}" width="150" alt="{$n.title} Poster">
                     </div>
                     <div class="content-wrapper text">
                         <h1 class="featured-title">{$n.title}</h1>

@@ -7,7 +7,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>
-    {if $tpl_name == 'index.tpl'}{$name} {$city}{/if}
+    {if $tpl_name == 'index.tpl'}Shoreline Cinema Waikanae{/if}
     {if $tpl_name == 'session_times_today.tpl'}What's On Today{/if}
     {if $tpl_name == 'session_times.tpl'}What's On{/if}
     {if $tpl_name == 'coming_soon.tpl'}Coming Soon{/if}

@@ -10,15 +10,16 @@
 			    <div class="content">
 			        <div class="content-wrapper poster">
 			            <a href="movies/{$n.movie_id}.php">
-			                <img src="{$n.poster}" alt="{$n.title}" width="190" border="0">
+			                <img src="{$n.poster_url}" alt="{$n.title}" width="190" border="0">
 			            </a>
 			        </div>
 			        <div class="content-wrapper text">
 			            <h2><a href="movies/{$n.movie_id}.php">{$n.title}</a>
-				        <span class="details">&nbsp;&nbsp;[<strong>{$n.class}</strong>
+				        <span class="details">&nbsp;&nbsp;[<strong>{$n.classification}</strong>
 				        {if $n.class_explanation} ({$n.class_explanation}){/if}
 				        {if $n.duration} - {$n.duration}{/if}]</span>
 				        </h2>
+						<strong>{if $n.comments} ({$n.comments}){/if}</strong>
 			            <ul class="sessions">
 					    {foreach from=$n.sessions item=s key=date name=s}
     						{assign var="cnt" value=0}
@@ -36,7 +37,6 @@
     											{assign var="cnt" value=$cnt+1}
     										{else}
     											{if !$smarty.foreach.st.first}, {/if}<a href="/bookings.php?s={$st.id}">{$st.time}</a>
-    											{if $st.comment} ({$st.comment}){/if}
     											{if $st.label} ({$st.label}){/if}
     										{/if}
     									{else}
