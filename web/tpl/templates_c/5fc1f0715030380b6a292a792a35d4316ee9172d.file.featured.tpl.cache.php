@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2019-10-01 18:13:44
+<?php /* Smarty version Smarty-3.1.13, created on 2019-10-02 21:29:51
          compiled from "I:\Cinemanager\www\Cinemanager\web\tpl\inc\tpl\featured.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:156405d731d59b155d1-21740266%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '5fc1f0715030380b6a292a792a35d4316ee9172d' => 
     array (
       0 => 'I:\\Cinemanager\\www\\Cinemanager\\web\\tpl\\inc\\tpl\\featured.tpl',
-      1 => 1569906823,
+      1 => 1570004989,
       2 => 'file',
     ),
   ),
@@ -32,5 +32,5 @@ $_smarty_tpl->tpl_vars['n']->_loop = true;
 " width="150" alt="<?php echo $_smarty_tpl->tpl_vars['n']->value['title'];?>
  Poster"></div><div class="content-wrapper text"><h1 class="featured-title"><?php echo $_smarty_tpl->tpl_vars['n']->value['title'];?>
 </h1><p><?php echo $_smarty_tpl->tpl_vars['n']->value['synopsis'];?>
-</p><a class="btn light" href="movies/<?php echo $_smarty_tpl->tpl_vars['n']->value['movie_id'];?>
-.php">See More</a></div></div><?php } ?></div></div></div><?php }} ?>
+</p><a class="btn light" href="/movies/<?php echo $_smarty_tpl->tpl_vars['n']->value['movie_id'];?>
+/">See More</a></div></div><?php } ?></div></div></div><?php }} ?>

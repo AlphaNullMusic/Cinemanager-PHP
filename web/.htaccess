@@ -1,3 +1,5 @@
+DirectoryIndex home.php
+
 # Tell the browser to cache static resources
 <IfModule mod_expires.c>
 	ExpiresActive On
@@ -44,11 +46,24 @@
 	</IfModule>
 </IfModule>
 
-# Rewrite to remove .php extension
-	RewriteEngine On
-	#RewriteCond %{REQUEST_FILENAME} !-d
-	#RewriteCond %{REQUEST_FILENAME}\.php -f
-	#RewriteRule ^(.*))$ $1.php [NC,L]
+# Redirect files
+RewriteEngine on
+	RewriteRule ^home/ /home.php [L]
+	RewriteRule ^whats-on-today/ /whats-on-today.php [L]
+	RewriteRule ^whats-on/ /whats-on.php [L]
+	RewriteRule ^coming-soon/ /coming-soon.php [L]
+	RewriteRule ^venue-hire/ /venue-hire.php [L]
+	RewriteRule ^about-us/ /about-us.php [L]
+	RewriteRule ^contact-us/ /contact-us.php [L]
+	
+	RewriteRule ^movies\/((.*)\/)?([0-9]+)\/$ /movies.php?movie=$3 [QSA,L]
+	RewriteRule ^bookings\/((.*)\/)?([0-9]+)\/$ /bookings.php?booking_id=$3 [QSA,L]
+	RewriteRule ^bookings\/((.*)\/)?([0-9]+)\/complete/(.*)$ /bookings.php?booking_id=$3&booking=complete$4 [QSA,L]
+	RewriteRule ^bookings\/((.*)\/)?([0-9]+)\/failed/(.*)$ /bookings.php?booking_id=$3&booking=failed&4 [QSA,L]
+	
+# Enforce trailing slash
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*[^/])$ /$1/ [L,R]
 
 # Default to 404.php on 404
     RewriteEngine On
@@ -63,9 +78,6 @@
 	
 	# If @2x isn't available fulfill the original request
 	RewriteCond %{REQUEST_FILENAME} !-f
-	RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
-	RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/(?:\ Ballot169)?
-	RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
 	RewriteRule ^(.*)@2x\.(gif|jpg|png)$ $1.$2
 
 # Force SSL on secure domains
@@ -73,12 +85,10 @@
 	RewriteCond %{HTTP_HOST} ^(secure|ssl)\. [NC]
 	RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R,L]
 
-# Page redirects
-	RewriteRule ^cinema/([a-z\.]*)/(.*)$ /$2?%{QUERY_STRING}&urloverride=$1
 	RewriteRule ^page_(.*)_urlovr_(.*).php$ /generic_page.php?template=$1&urloverride=$2 [L]
 	RewriteRule ^page_(.*).php$ /generic_page.php?template=$1 [QSA,L]
 	RewriteRule ^page-(.*).php$ /generic_page.php?template=generic&reference=$1 [QSA,L]
-	RewriteRule ^movies/((.*)/)?([0-9]+).php$ /movie_page.php?movie=$3&extra=$2 [L]
+	RewriteRule ^movie-((.*)/)?([0-9]+)/$ /movie_page.php?movie=$3&extra=$2 [L]
 	RewriteRule ^event-([a-z]?[0-9]+).php$ /session_times.php?event_id=$1 [L]
 	RewriteRule ^label-([a-z0-9]+).php$ /session_times.php?session_label_filter=$1 [L]
 	RewriteRule ^type-([A-Za-z0-9]+).php$ /session_times.php?session_comment_filter=$1 [L]

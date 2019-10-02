@@ -1,5 +1,4 @@
 {strip}
-
     <div class="featured">
         <div class="content">
             <div class="featured-carousel">
@@ -11,7 +10,7 @@
                     <div class="content-wrapper text">
                         <h1 class="featured-title">{$n.title}</h1>
                         <p>{$n.synopsis}</p>
-                        <a class="btn light" href="movies/{$n.movie_id}.php">See More</a> 
+                        <a class="btn light" href="/movies/{$n.movie_id}/">See More</a> 
                     </div>
                 </div>
                 {/foreach}

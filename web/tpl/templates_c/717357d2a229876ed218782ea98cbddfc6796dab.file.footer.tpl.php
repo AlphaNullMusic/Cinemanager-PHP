@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2019-10-02 16:41:10
+<?php /* Smarty version Smarty-3.1.13, created on 2019-10-02 21:59:26
          compiled from "I:\Cinemanager\www\Cinemanager\web\tpl\inc\tpl\footer.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:8815d731d59b5ff54-33421217%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:212255d9466ee4e4319-18458409%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,17 +11,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '8815d731d59b5ff54-33421217',
+  'nocache_hash' => '212255d9466ee4e4319-18458409',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.13',
-  'unifunc' => 'content_5d731d59b92637_95609989',
   'variables' => 
   array (
     'home' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.13',
+  'unifunc' => 'content_5d9466ee5184c6_63994128',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5d731d59b92637_95609989')) {function content_5d731d59b92637_95609989($_smarty_tpl) {?><footer><div id="text"><p>Web design and content &copy; <?php echo date('Y');?>
+<?php if ($_valid && !is_callable('content_5d9466ee5184c6_63994128')) {function content_5d9466ee5184c6_63994128($_smarty_tpl) {?><footer><div id="text"><p>Web design and content &copy; <?php echo date('Y');?>
 , Shoreline Cinema, Waikanae, New Zealand. <a id="improve-visibility">Improve Visibility.</a></p></div></footer></div><script src="/tpl/inc/js/jquery-3.4.1.min.js"></script><script src="/tpl/inc/js/js.cookie-2.2.1.min.js"></script><script src="/tpl/inc/js/scripts.js"></script><?php if ($_smarty_tpl->tpl_vars['home']->value){?><script src="/tpl/inc/js/slick.min.js"></script><script>$('.featured-carousel').slick({slidesToShow: 1,slidesToScroll: 1,autoplay: true,autoplaySpeed: 10000,});</script><?php }?></body></html><?php }} ?>
