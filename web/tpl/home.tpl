@@ -1,9 +1,10 @@
 {strip}
 
 {include file="inc/tpl/header.tpl" home=true}
-		
-    {include file="inc/tpl/featured.tpl"}
-    
+	
+	{if $now_showing[1]}
+		{include file="inc/tpl/featured.tpl"}
+	{/if}
     <div class="information">
         <div class="content">
             <div class="content-wrapper">

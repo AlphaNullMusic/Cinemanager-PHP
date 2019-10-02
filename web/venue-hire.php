@@ -1,14 +1,13 @@
-<?
+<?php
 require('inc/web.inc.php');
 require('inc/smarty_vars.inc.php');
 
-$tpl_name = 'session_times_today.tpl';
-$tpl = $config['site_dir'].'tpl/'.$tpl_name;
-$cache_id .= (!empty($_GET['day'])) ? '|'.$_GET['day'] : '';
-$cache_id .= (!empty($_GET['date'])) ? '|'.$_GET['date'] : '';
+$tpl_name = 'venue-hire.tpl';
+$tpl = $config['site_dir'].'tpl/generic.tpl';
+$cache_id = 'venue-hire';
 
 if(!$smarty->isCached($tpl,$cache_id)) {
-	
+
 	// Assign page variables
 	$smarty->assign('domain',$cinema_domain);
 	$smarty->assign('name',$cinema_data['cinema_name']);
@@ -17,12 +16,10 @@ if(!$smarty->isCached($tpl,$cache_id)) {
 	$smarty->assign('movie_image_url_secure',$global['movie_image_url_secure']);
 	$smarty->assign('tpl_name',$tpl_name);
 	
-	// Get session data
-	$smarty->assign('sessions',get_sessions_today($cinema_id,NULL,NULL,"s.time,m.title",true));
-	$smarty->assign('day',$get_sessions_today_day);
-	$smarty->assign('date',$get_sessions_today_date);
-	$smarty->assign('now_showing',get_movie_list_full('ns','m.title',14,'%W %D','%e %b',20));
-	
+	if (has_permission('edit_pages')) {
+		$smarty->assign('page',get_page_content('venue-hire'));
+	}
+
 	// Common functions
 	include('inc/local.inc.php');
 	
@@ -32,6 +29,7 @@ if(!$smarty->isCached($tpl,$cache_id)) {
 
 }
 
+// Include template
 $smarty->display($tpl,$cache_id);
 
 ?>
