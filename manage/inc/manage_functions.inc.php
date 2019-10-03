@@ -6,38 +6,11 @@
 
 // Check cinema
 function check_cinema() {
-    if (isset($_SESSION['all_cinema_data']) && 
-        isset($_SESSION['cinema_data']) && 
+    if (isset($_SESSION['cinema_data']) && 
+		isset($_SESSION['all_cinema_data']) &&
         is_array($_SESSION['cinema_data']) && 
         count($_SESSION['cinema_data']) >= 4) {
         return true;
-    } else {
-        return false;
-    }
-}
-
-// Switch cinema
-function switch_cinema($cinema_id = false) {
-    global $cookie_name, $mysqli;
-    if (isset($_SESSION['all_cinema_data']))
-      {
-        if ($cinema_id && isset($_SESSION['all_cinema_data']['cinemas'][$cinema_id])) {
-            $_SESSION['cinema_data'] = $_SESSION['all_cinema_data']['cinemas'][$cinema_id];
-        } else {
-            foreach ($_SESSION['all_cinema_data']['cinemas'] as $c) {
-                $_SESSION['cinema_data'] = $_SESSION['all_cinema_data']['cinemas'][$c['id']];
-                break;
-            }
-        }
-        setcookie($cookie_name, $_SESSION['all_cinema_data']['login_id'], 0, '/');
-        $sql = "
-			UPDATE logins
-			SET last_login_id = '{$_SESSION['cinema_data']['id']}'
-			WHERE login_id = '{$_SESSION['all_cinema_data']['login_id']}'
-		";
-        if (!empty($mysqli)) {
-            $mysqli->query($sql) or user_error("Error at: $sql");
-        }
     } else {
         return false;
     }
@@ -47,12 +20,12 @@ function switch_cinema($cinema_id = false) {
 // FUNCTIONS //
 ///////////////
 
-// Delete film
-function delete_film($movie_id) {
+// Delete movie
+function delete_movie($movie_id) {
     global $mysqli, $config;
     
     // Delete images
-    $sql = "
+    /*$sql = "
 		SELECT i.image_id 
 		FROM images i
 		INNER JOIN film_images mi
@@ -62,33 +35,27 @@ function delete_film($movie_id) {
 	";
     $res = $mysqli->query($sql) or user_error("Error at: $sql");
     while ($data = $res->fetch_assoc()) {
-        delete_film_image($data['image_id']);
-    }
+        delete_movie_image($data['image_id']);
+    }*/
     
     // Remove from database
-    $sql = "DELETE FROM movie_genres WHERE film_id=$film_id";
+    $sql = "DELETE FROM sessions WHERE movie_id = $movie_id";
     $mysqli->query($sql) or user_error("Error at: $sql");
-    $sql = "DELETE FROM sessions WHERE film_id = $film_id";
+    $sql = "DELETE FROM custom_images ci INNER JOIN movies m ON m.movie_id = ci.movie_id WHERE m.movie_id = $movie_id";
     $mysqli->query($sql) or user_error("Error at: $sql");
-    $sql = "DELETE FROM images i INNER JOIN movie_images mi ON mi.image_id = i.image_id WHERE mi.film_id = $film_id";
-    $mysqli->query($sql) or user_error("Error at: $sql");
-    $sql = "DELETE FROM movie_images WHERE film_id = $film_id";
-    $mysqli->query($sql) or user_error("Error at: $sql");
-    $sql = "DELETE FROM films WHERE film_id=$film_id LIMIT 1";
-    $mysqli->query($sql) or user_error("Error at: $sql");
-    $sql = "DELETE FROM movie_cache WHERE film_id=$film_id LIMIT 1";
+    $sql = "DELETE FROM movies WHERE movie_id=$movie_id LIMIT 1";
     $mysqli->query($sql) or user_error("Error at: $sql");
     
     // Clear Smarty cache for all cinemas using this movie
-    smarty_clearCache(NULL, $film_id);
+    smarty_clearCache(NULL, $movie_id);
     return true;
   }
 
-// Delete film images
+// Delete movie images
 //currently deletes from movie_images table completely
 //should really just remove it's own entries and if the images are in use by other films then leave them on the server
 //for now we'll leave it as it is because duplicate images are only used to clean up BMS imports
-function delete_film_image($image_id) {
+/*function delete_movie_image($image_id) {
     global $mysqli, $config;
     
     // Get the film id for this image
@@ -125,7 +92,7 @@ function delete_film_image($image_id) {
             smarty_clear_cache(NULL, $data['film_id']);
         }
     }
-}
+}*/
 
 // Remove custom posters, but only if it has not been moved to the common primary image
 function remove_custom_images($film_id, $cinema_id) {
@@ -157,7 +124,6 @@ function remove_custom_images($film_id, $cinema_id) {
     }
 }
 
-
 // Delete directory contents
 function empty_directory($dirname, $rmdir = false) {
     if (is_dir($dirname)) { $dir_handle = opendir($dirname); }
@@ -174,9 +140,8 @@ function empty_directory($dirname, $rmdir = false) {
     return true;
 }
 
-
 // Select a random image for this movie and set it as primary
-function set_random_primary_image($film_id) {
+/*function set_random_primary_image($film_id) {
     global $mysqli;
     $sql = "
 		SELECT i.image_id
@@ -210,7 +175,7 @@ function set_random_primary_image($film_id) {
             $mysqli->query($sql) or user_error("Error at: $sql");
         }
     }
-}
+}*/
 
 // Get file extension
 function get_file_extension($filename) { return end(explode(".", $filename)); }
@@ -218,12 +183,11 @@ function get_file_extension($filename) { return end(explode(".", $filename)); }
 // Create page reference from title
 function create_page_reference($title) { return strtolower(preg_replace('/[^a-z0-9_-]/i', '-', $title)); }
 
-
 ///////////
 // ADMIN //
 ///////////
 
-function notification_new_movie($film_id, $description = null, $movie_title = null, $synopsis = null, $distributor_id = null)
+/*function notification_new_movie($film_id, $description = null, $movie_title = null, $synopsis = null, $distributor_id = null)
   {
     global $global, $default_email, $mysqli;
     //get title if necessary
@@ -298,7 +262,7 @@ function notification_no_poster($movie_id, $type = "poster")
       {
         return false;
       }
-  }
+  }*/
 
 /////////////
 // BUTTONS //
@@ -361,9 +325,9 @@ function confirm($msg = NULL, $type = 'ok') {
 
 class manage_sessions {
     var $session_date;
-    var $film_id;
-    var $cinema_id;
-    var $prices = false;
+    var $movie_id;
+    //var $cinema_id;
+    //var $prices = false;
     var $old_sessions = array();
     var $pattern = "/([0-2]{0,1}[0-9]{1})([:|\.|\-][0-6]{1}[0-9]{1})?\s*(am|pm|noon)?\s*(\(.+?\))?/i";
     
@@ -422,39 +386,32 @@ class manage_sessions {
 			SELECT session_id
 			FROM sessions
 			WHERE id = " . $this->id . "
-				AND film_id = " . $this->film_id . "
+				AND movie_id = " . $this->movie_id . "
 				AND time = FROM_UNIXTIME($session_time)
 		";
         $res = $mysqli->query($sql) or user_error("Error at: $sql");
         if ($res->num_rows == 1) {
             // Session is already in database, so just update comment
-            $data = $res->fetch_assoc();
+            /*$data = $res->fetch_assoc();
             $sql  = "
 				UPDATE sessions
 				SET comments = '$comment'
 				WHERE session_id = '{$data['session_id']}'
 			";
-            $mysqli->query($sql) or user_error("Error at: $sql");
+            $mysqli->query($sql) or user_error("Error at: $sql");*/
             if (isset($this->old_sessions[$data['session_id']])) { unset($this->old_sessions[$data['session_id']]); }
         } else {
             // Insert new session into database
             $sql = "
 				INSERT INTO sessions
-				SET cinema_id = " . $this->cinema_id . ",
-						movie_id = " . $this->movie_id . ",
-						time = FROM_UNIXTIME($session_time),
-						comments = '$comment'
+				SET movie_id = " . $this->movie_id . ",
+					time = FROM_UNIXTIME($session_time)
 			";
             $mysqli->query($sql);
             $session_id = $mysqli->insert_id;
-            if (isset($this->old_sessions[$session_id]))
-              {
+            if (isset($this->old_sessions[$session_id])) {
                 unset($this->old_sessions[$session_id]);
-              }
-            if ($this->prices)
-              {
-                $this->set_default_prices($session_id, $session_time);
-              }
+            }
         }
         return true;
     }
@@ -467,8 +424,7 @@ class manage_sessions {
         $sql    = "
 			SELECT session_id
 			FROM sessions
-			WHERE cinema_id = " . $this->cinema_id . "
-				AND film_id = " . $this->film_id . "
+			WHERE movie_id = " . $this->movie_id . "
 				AND time>='$from'
 				AND time<='$to'
 		";
@@ -505,8 +461,7 @@ class manage_sessions {
         // Remove sessions only
         $sql  = "
 			DELETE FROM sessions
-			WHERE cinema_id = " . $this->cinema_id . "
-				AND film_id = " . $this->film_id . "
+			WHERE movie_id = " . $this->movie_id . "
 		";
         $sql .= (!$all_days) ? "
 			AND time>='$from'
@@ -515,11 +470,10 @@ class manage_sessions {
         $mysqli->query($sql) or user_error("Error at: $sql");
     }
     
-    function insert_individual_session_temp($session_time) {
+    /*function insert_individual_session_temp($session_time) {
         $sql = "
 			INSERT INTO sessions_temp
-			SET cinema_id = " . $this->cinema_id . ",
-				film_id = " . $this->film_id . ",
+			SET movie_id = " . $this->movie_id . ",
 				time = FROM_UNIXTIME($session_time)
 		";
         $mysqli->query($sql) or user_error("Error at: $sql");
@@ -532,17 +486,17 @@ class manage_sessions {
 			WHERE cinema_id = '" . $this->cinema_id . "'
 		";
         $mysqli->query($sql) or user_error("Error at: $sql");
-    }
+    }*/
 }
 
-/////////////////////////////////
-// SEBASTIAN'S SILLY FUNCTIONS //
-/////////////////////////////////
+//////////
+// MISC //
+//////////
 
 function getExtension($str) {
     $i = strrpos($str, ".");
     if (!$i) { return ""; }
-    $l   = strlen($str) - $i;
+    $l = strlen($str) - $i;
     $ext = substr($str, $i + 1, $l);
     return $ext;
 }
@@ -574,14 +528,14 @@ function format_date($date) {
     return $date;
 }
 
-function get_homepage_url($cinema_id) {
+function get_homepage_url() {
     global $mysqli;
     $return = false;
-    $sql = "SELECT homepage_url from cinemas WHERE cinema_id =" . $cinema_id;
+    $sql = "SELECT url from cinemas WHERE id ='1'";
     $res = query($sql);
     
     while ($temp = $res->fetch_assoc($res)) {
-        if ($temp['homepage_url'] != "") { $return = $temp['homepage_url']; }
+        if ($temp['url'] != "") { $return = $temp['url']; }
     }
     return $return;
 }
@@ -600,7 +554,7 @@ function get_date_6_months_ago() {
         $m_former = $m - 6;
         $y_former = $y;
     }
-    $d        = leading_zero($d);
+    $d = leading_zero($d);
     $m_former = leading_zero($m_former);
     $return = $y_former . "-" . $m_former . "-" . $d;
     return $return;

@@ -892,6 +892,7 @@ function get_session($session_id) {
     return $return;
 }
 
+
 // Generate a link to a movie page
 function movie_link($movie_id, $title = NULL, $section = NULL, $prefix = NULL) {
     global $mysqli;

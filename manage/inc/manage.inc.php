@@ -21,7 +21,6 @@ if (isset($_GET['clear_cache']) && isset($logged_cinema_data['id'])) {
 	header("Location: ".$_SERVER['PHP_SELF'] . "?conf=Cache+cleared+successfully.");
 	exit;
 }
-
 // Log Out
 if (isset($force_logout) || (isset($_REQUEST['action']) && $_REQUEST['action']=='logout')) {
 	setcookie ($cookie_name, '', time()-3600, '/');
@@ -38,7 +37,6 @@ if (isset($force_logout) || (isset($_REQUEST['action']) && $_REQUEST['action']==
 elseif (isset($_POST['action']) && $_POST['action']=='login') {
 	if (!isset($_SESSION['failed_login_attempts']) || $_SESSION['failed_login_attempts'] < 5) {
 		check_referrer();
-		
 		// Set return URL
 		if (isset($_REQUEST['r'])) {
 			$return=$_REQUEST['r'];
@@ -53,20 +51,19 @@ elseif (isset($_POST['action']) && $_POST['action']=='login') {
 		} else {
             if ($_POST['login']=="test" && $_POST['password']=="test") {
                 $sql = "
-                    SELECT login_id, name, last_login_id, master
+                    SELECT id, name
 				    FROM logins
-				    WHERE login = 'testcinema'
-					AND password = 'cc03e747a6afbbcbf8be7668acfebee5'
+				    WHERE login = 'shoreline'
+					AND password = '661e2f281017ff1a941e6068c184254d'
                 ";
             } else {
 			    $sql = "
-				    SELECT login_id, name, last_login_id, master
+				    SELECT id, name
 				    FROM logins
 				    WHERE login = '".$mysqli->real_escape_string($_POST['login'])."'
 					AND password = MD5('".$mysqli->real_escape_string($_POST['password'])."')";
             }
 			$login_res = $mysqli->query($sql) or user_error("Error at: $sql");
-			
 			// Check for login
 			if ($login_res->num_rows != 1) {
 				if (isset($_SESSION['failed_login_attempts'])) {
@@ -78,29 +75,27 @@ elseif (isset($_POST['action']) && $_POST['action']=='login') {
 				exit;
 			} else {
 				$login_data = $login_res->fetch_assoc();
+				die(print_r($login_data));
 				unset($_SESSION['all_cinema_data']);
 				$_SESSION['all_cinema_data'] = array(
-					'login_id' => $login_data['login_id'],
+					'login_id' => $login_data['id'],
 					'login_name' => $login_data['name'],
 				);
 
 				// Get a list of accesible cinemas
 				$sql = "
-					SELECT c.status, c.name, c.city, c.email, c.id, c.timezone
-					FROM cinemas c
-					INNER JOIN login_access la
-						ON la.id = c.id
-						AND la.login_id = '{$login_data['login_id']}'
-					ORDER BY c.name, c.city
+					SELECT s.name, s.city, s.email, s.id, s.timezone
+					FROM settings s
+					ORDER BY s.id
+					LIMIT 1
 				";
 				$cinema_res = $mysqli->query($sql) or user_error("Error at: $sql");
 				while ($data = $cinema_res->fetch_assoc()) {
 					$_SESSION['all_cinema_data']['cinemas'][$data['id']] = $data;
 					$_SESSION['all_cinema_data']['cinemas'][$data['id']]['timezoneOffset'] = differenceBetweenTimezones($data['timezone']);
 				}
-				switch_cinema($login_data['last_login_id']);
 				$sql="
-					INSERT INTO cinema_log 
+					INSERT INTO activity_log 
 					SET login_id = '{$login_data['login_id']}', 
 						timestamp = NOW()
 				";
@@ -111,13 +106,5 @@ elseif (isset($_POST['action']) && $_POST['action']=='login') {
 		}
 	}
 } 
-
-// Switch cinemas
-elseif (isset($_REQUEST['switch_cinema'])) {
-	switch_cinema($_REQUEST['switch_cinema']);
-	$redir = $_SERVER['PHP_SELF'].'?'.preg_replace('/&?switch_cinema=[0-9]+&?/i', '', $_SERVER['QUERY_STRING']);
-	header('Location: $redir');
-	exit;
-}
 
 ?>
