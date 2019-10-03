@@ -14,7 +14,7 @@
 	        {foreach from=$s.sessions item=st name=st}
 	          {if !$smarty.foreach.st.first}, {/if}{$st.time}
 	          {if $st.comment} ({$st.comment}){/if}
-	          {if $st.label} ({$st.label}){/if}
+	          {if $st.label} <em>({$st.label})</em>{/if}
 	        {/foreach}</strong></p>
 				<a class="btn dark" href="/movies/{$s.movie_id}/">More details</a>	
 			</div>
