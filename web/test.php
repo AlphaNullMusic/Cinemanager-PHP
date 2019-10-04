@@ -33,7 +33,7 @@
 	//$raw_data = get_movie_sessions(2, ['2019-10-01','2024-10-01'], false, '%Y-%m-%d', '%l:%i%p', true);
 	//print_r($raw_data);
 	
-	$raw_data = get_movie_list_full('ns','m.title',14,'%W %D','%e %b',100,'today',null,null,true);
+	/*$raw_data = get_movie_list_full('ns','m.title',14,'%W %D','%e %b',100,'today',null,null,true);
 	echo '-----get_movie_list_full()-----<br/>';
 	print_r($raw_data);
 	echo '<br/>-----end get_movie_list_full()-----<br/>';
@@ -51,6 +51,7 @@
 	echo '<br/>-----end get_movie()-----<br/>';
 	echo '<br/>';
 	
-	echo get_class_explanation('TBC');
+	echo get_class_explanation('TBC');*/
+	echo get_class_id('R-13');
 	
 ?>

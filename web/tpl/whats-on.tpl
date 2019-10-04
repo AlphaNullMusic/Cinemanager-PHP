@@ -3,7 +3,7 @@
 {include file="inc/tpl/header.tpl"}
 
 <div class="information">
-    <h1>Session Times</h1>
+    <h1>What's On</h1>
 	{if $now_showing}
 	<ul class="movie-times">
 		{foreach from=$now_showing item=n name=n}

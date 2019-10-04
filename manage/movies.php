@@ -1,13 +1,14 @@
 <?php
 require("inc/manage.inc.php");
 
-if (/*check_cinema() && (has_permission('sessions'))*/1==1) {
+if (check_cinema() && (has_permission('sessions'))) {
 
     // Confirmation
     if (isset($_GET['changed_id'])) {
-        $res = $mysqli->query("SELECT title 
-							   FROM movies 
-							   WHERE movie_id='{$_GET['changed_id']}'
+        $res = $mysqli->query("
+			SELECT title 
+			FROM movies 
+			WHERE movie_id='{$_GET['changed_id']}'
 		");
         $data         = $res->fetch_assoc();
         $_GET['conf'] = "Sessions updated successfully for {$data['title']}.";
@@ -22,80 +23,42 @@ if (/*check_cinema() && (has_permission('sessions'))*/1==1) {
         }
         // Add a new movie
         if ($_REQUEST['movie_id']) {
-            //check if the submitted title already exists
-            $sql = "SELECT title,class_id FROM movies WHERE imdb_id='" . $mysqli->real_escape_string($_REQUEST['movie_id']) . "'";
+            // Check if the submitted title already exists
+            $sql = "
+				SELECT title,
+					   classification_id 
+				FROM movies 
+				WHERE imdb_id='" . $mysqli->real_escape_string($_REQUEST['movie_id']) . "'
+			";
             $res = $mysqli->query($sql) or user_error("Gnarly: $sql");
-            if ($res->num_rows == 0)
-              {
-                //movie does not exist, add to main database
+            if ($res->num_rows == 0) {
+                // Movie does not exist, add to main database
+				// rated = real escape string of get_classification_id()
                 $movie_details = get_movie_basics($_REQUEST['movie_id']);
                 $sql = "
-	  INSERT INTO movies 
-	  SET title='" . $mysqli->real_escape_string($movie_details['title']) . "', 
-	  imdb_id='" . $mysqli->real_escape_string($movie_details['movie_id']) . "',
-	  status='new', 
-	  synopsis = '" . $mysqli->real_escape_string($movie_details['synopsis']) . "',
-	  release_date='" . $mysqli->real_escape_string($movie_details['released']) . "', 
-	  poster='" . $mysqli->real_escape_string($movie_details['poster']) . "',
-	  runtime='" . $mysqli->real_escape_string($movie_details['runtime']) . "',
-	  country_id=15, 
-	  trailer_format_id=1, 
-	  date_listed=CURDATE()
-	";
+					INSERT INTO movies 
+					SET title='" . $mysqli->real_escape_string($movie_details['title']) . "', 
+					imdb_id='" . $mysqli->real_escape_string($movie_details['imdbID']) . "',
+					status='ok', 
+					synopsis = '" . $mysqli->real_escape_string($movie_details['synopsis']) . "',
+					release_date='" . $mysqli->real_escape_string(date('Y-m-d', strtotime($movie_details['released']))) . "', 
+					poster_url='" . $mysqli->real_escape_string($movie_details['poster']) . "',
+					runtime='" . $mysqli->real_escape_string($movie_details['runtime']) . "',
+					classification_id='" . $mysqli->real_escape_string(get_class_id($movie_details['rated'])) . "'
+				";
                 $mysqli->query($sql) or user_error("Gnarly: $sql");
                 $movie_id = $mysqli->insert_id;
-                update_movie_cache($movie_id);
-              }
-            else
-              {
-                //movie exists, set movie_id to existing movie
+                //update_movie_cache($movie_id);
+            } else {
+                // Movie exists, set movie_id to existing movie
                 $data     = $res->fetch_assoc();
                 $movie_id = $data['movie_id'];
-                $class_id = $data['class_id'];
-              }
-            //notify staff of new movie addition
-            notification_new_movie($movie_id, $_POST['description'], $_POST['title'], $_POST['synopsis'], $_POST['distributor_id']);
-          }
-        if (is_numeric($_REQUEST['movie_id']))
-          {
-            $movie_id = $_REQUEST['movie_id'];
-          }
-        //add movie to movie list
-        $sql = "
-      SELECT status 
-      FROM movie_lists 
-      WHERE cinema_id='{$_SESSION['cinema_data']['cinema_id']}' 
-      AND movie_id='$movie_id'
-    ";
-        $res = $mysqli->query($sql) or user_error("Gnarly: $sql");
-        $data                 = $res->fetch_assoc();
-        $current_movie_status = $data['status'];
-        //movie already exists (expired or ok), update movie list with release date specified
-        if ($current_movie_status == "exp" || $current_movie_status == "ok")
-          {
-            $sql = "
-	UPDATE movie_lists 
-	SET release_date='$release_date', 
-	status='ok' 
-	WHERE cinema_id='{$_SESSION['cinema_data']['cinema_id']}' 
-	AND movie_id='$movie_id'
-      ";
-            $mysqli->query($sql) or user_error("Gnarly: $sql");
-            //movie is new, add to movie list
-          }
-        else
-          {
-            $sql = "
-	INSERT INTO movie_lists 
-	SET cinema_id='{$_SESSION['cinema_data']['cinema_id']}', 
-	movie_id='$movie_id', 
-	release_date='$release_date', 
-	status='ok'
-      ";
-            $mysqli->query($sql) or user_error("Gnarly: $sql");
-          }
-        //check if this cinema requires posters
-        $sql = "SELECT cinema_id FROM cinema_site_settings WHERE image_cat_id=2 AND cinema_id='{$_SESSION['cinema_data']['cinema_id']}' LIMIT 1";
+                $class_id = $data['classification_id'];
+            }
+        }
+
+        // Check if this cinema requires posters
+        /*$sql = "SELECT cinema_id FROM cinema_site_settings WHERE image_cat_id=2 AND cinema_id='{$_SESSION['cinema_data']['cinema_id']}' LIMIT 1";
         $tmp_res = $mysqli->query($sql) or user_error("Gnarly: $sql");
         if ($tmp_res->num_rows == 1)
           {
@@ -116,65 +79,55 @@ if (/*check_cinema() && (has_permission('sessions'))*/1==1) {
                 //notify staff of new movie addition
                 notification_no_poster($movie_id);
               }
-          }
-        //clear smarty cache
+          }*/
+        // Clear smarty cache
         smarty_clear_cache($_SESSION['cinema_data']['cinema_id'], $movie_id);
-        //redirect
-        if ($_POST['redir'] == "edit_details")
-          {
+        // Redirect
+        if ($_POST['redir'] == "edit_details") {
             $redir = "movie_edit_details.php?movie_id=$movie_id";
-          }
-        else if ($_POST['redir'] == "edit_sessions")
-          {
+        } else if ($_POST['redir'] == "edit_sessions") {
             $redir = "movie_edit_sessions.php?movie_id=$movie_id";
-          }
-        else
-          {
+        } else {
             $redir = $_POST['redir'];
-          }
+        }
         header("Location: $redir");
     }
     
     // Remove movie
     elseif (isset($_GET['delete_movie'])) {
-        delete_cinema_movie($_GET['delete_movie'], $_SESSION['cinema_data']['cinema_id']);
+        expire_movie($_GET['delete_movie']);
         header("Location: movies.php?conf=Movie deleted successfully.");
         exit;
     }
 	
     // Delete multiple movies
     elseif (isset($_POST['delete_multiple_movies']) && isset($_POST['movie_ids']) && is_array($_POST['movie_ids'])) {
-        foreach ($_POST['movie_ids'] as $m)
-          {
-            delete_cinema_movie($m, $_SESSION['cinema_data']['cinema_id']);
-          }
+        foreach ($_POST['movie_ids'] as $m) {
+            expire_movie($m);
+        }
         header("Location: movies.php?conf=Movies deleted successfully.");
         exit;
     }
     
   }
 
-function delete_cinema_movie($movie_id, $cinema_id)
-  {
+function expire_movie($movie_id) {
     global $mysqli;
-    //remove sessions and prices
+    // Remove sessions and prices
     $sp               = new manage_sessions();
     $sp->session_date = "all";
     $sp->movie_id     = $movie_id;
-    $sp->cinema_id    = $cinema_id;
     $sp->clear_day(true);
-    //remove movie data
+    // Remove movie data
     $sql = "
-    UPDATE movie_lists
-    SET status = 'exp'
-    WHERE movie_id = '$movie_id'
-      AND cinema_id = '$cinema_id'
-  ";
+		UPDATE movies
+		SET status = 'exp'
+		WHERE movie_id = '$movie_id'
+	";
     $mysqli->query($sql) or user_error("Gnarly: $sql");
-    $mysqli->query("DELETE FROM vista_movie_matrix WHERE movie_id = '$movie_id' AND cinema_id = '$cinema_id'") or user_error("Gnarly: $sql");
-    remove_custom_images($movie_id, $cinema_id);
-    //clear smarty cache
-    smarty_clear_cache($cinema_id, $movie_id);
+    remove_custom_images($movie_id);
+    // Clear smarty cache
+    smarty_clear_cache($movie_id);
     return true;
   }
 
@@ -186,100 +139,71 @@ function delete_cinema_movie($movie_id, $cinema_id)
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="includes/generic.js" type="text/javascript"></script>
-    <title><?=$title_prefix?> <?=(isset($_SESSION['cinema_data']))?"Movie Lists &amp; Sessions":"Website Content Management For Cinemas";?></title>
+    <title><?php echo $title_prefix?> <?php echo (isset($_SESSION['cinema_data']))?"Movie Lists &amp; Sessions":"Website Content Management For Cinemas";?></title>
     <link href="inc/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <!--<link href="includes/css/styles.css" rel="stylesheet" type="text/css">-->
     <link href="inc/css/dashboard.css" rel="stylesheet">
   </head>
   <body>
-  <?
-include("inc/header.inc.php");
-?>
+<?php include("inc/header.inc.php");?>
   <div class="container-fluid">
     <div class="row">
-      <?
-include("inc/nav.inc.php");
-?>
-      <?
-if (/*check_cinema() && (has_permission('sessions'))*/1==1)
-  {
-?>
-        <?
-    if (isset($_REQUEST['action']) && $_REQUEST['action'] == "addmovie")
-      {
+<?php include("inc/nav.inc.php");
+if (check_cinema() && (has_permission('sessions'))) {
+	// Add movie
+	if (isset($_REQUEST['action']) && $_REQUEST['action'] == "addmovie") {
         $movie_data = get_movie_basics($_REQUEST['movie_id']);
-        if (strtotime($movie_data['year']) > strtotime(date('Y')))
-          {
+        if (strtotime($movie_data['year']) > strtotime(date('Y'))) {
             $d = date('j');
             $m = date('n');
             $y = $movie_data['year'];
-          }
-        else
-          {
+        } else {
             $d = date('j');
             $m = date('n');
             $y = date('Y');
-          }
+        }
 ?>
 	  <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
               <div class="btn-toolbar mb-2 mb-md-0">
                 <div class="btn-group mr-2">
-                  <? button_1("< Back To Movie List", "movies.php", "back", "right"); ?>
+                  <?php button_1("< Back To Movie List", "movies.php", "back", "right"); ?>
                 </div>
               </div>
               <h1 class="h2">Add A Movie</h1>
             </div>
             
-	    <? // Check if movie already exists 
+	    <?php // Check if movie already exists 
         $sql = "
 		SELECT status 
-		FROM movie_lists 
-		WHERE cinema_id='{$_SESSION['cinema_data']['cinema_id']}' 
-		  AND movie_id='{$_REQUEST['movie_id']}'
+		FROM movies 
+		WHERE movie_id='".$mysqli->real_escape_string($_REQUEST['movie_id'])."'
 		  AND status='ok'
 	      ";
         $res = $mysqli->query($sql) or user_error("Gnarly: $sql");
-        if (is_numeric($_REQUEST['movie_id']) && $res->num_rows > 0)
-          {
-?>
+        if (is_numeric($_REQUEST['movie_id']) && $res->num_rows > 0) { ?>
 	      <p>This movie is already in your now showing list.</p>
-	    <?
-          }
-        else
-          {
-?>
+  <?php } else { ?>
 	      <form action="movies.php" method="post">
-	        <?
-            if ($_REQUEST['movie_id'] == "new")
-              {
-?>
+      <?php if ($_REQUEST['movie_id'] == "new") { ?>
 		  <p><strong>Movie Title:</strong><br><input name="title" type="text" size="30" maxlength="100"></p>
 		  <p><strong>Synopsis:</strong><br><textarea name="synopsis" cols="50" rows="6"></textarea></p>
 		  <p><strong>IMDB ID:</strong><br><input name="imdb_id" type="text" size="30" maxlength="100"></input></p>
 		  <p><strong>Distributor:</strong><br><select name="distributor_id"><option></option>
-		  <?
-                $sql = "
-		    SELECT *
-		    FROM distributors
-		    ORDER BY name
-		  ";
-                $res = $mysqli->query($sql) or die($mysqli->error);
-                while ($data = $res->fetch_assoc())
-                  {
-                    echo "<option value='{$data['distributor_id']}'>{$data['name']}</option>";
-                  }
-?>
+	  <?php $sql = "
+				SELECT *
+				FROM distributors
+				ORDER BY name
+			";
+            $res = $mysqli->query($sql) or die($mysqli->error);
+            while ($data = $res->fetch_assoc()) {
+                echo "<option value='{$data['distributor_id']}'>{$data['name']}</option>";
+            } ?>
 		  <option></option><option>As specified below...</option></select></p>
 		  <p><strong>Notes:</strong><br>
 		    <em>Any additional information such as the cast, director or distributor (if not in the list above).</em><br>
 		    <textarea name="description" cols="50" rows="6"></textarea>
 		  </p>
-	        <?
-              }
-            else
-              {
-?>
+	  <?php } else { ?>
 	          <p>Add "<?
                 echo $movie_data['title'];
 ?>" to your movie list...</p>
@@ -345,7 +269,7 @@ if (/*check_cinema() && (has_permission('sessions'))*/1==1)
             for ($n = date('Y') - 1; $n <= (date('Y') + 2); $n++)
               {
 ?>
-	            <option value="<?= $n ?>" <?= ($y == $n) ? 'selected' : '' ?>><?= $n ?></option>
+	            <option value="<?php echo $n ?>" <?php echo ($y == $n) ? 'selected' : '' ?>><?php echo $n ?></option>
 	          <?
               }
 ?>
@@ -371,254 +295,119 @@ if (/*check_cinema() && (has_permission('sessions'))*/1==1)
 		  <input name="Submit" type="submit" class="submit" value="Add This Movie">
 	        </p>
 	      </form>
-	    <?
+	    <?php
           }
-?>			
-	<?
-      }
-    elseif (isset($_REQUEST['action']) && $_REQUEST['action'] == "findmovie")
-      {
-?>
+	// Find movie to add
+    } elseif (isset($_REQUEST['action']) && $_REQUEST['action'] == "findmovie") {?>
 	  <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-	    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-	      <div class="btn-toolbar mb-2 mb-md-0">
+		<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+		  <div class="btn-toolbar mb-2 mb-md-0">
                 <div class="btn-group mr-2">
-                  <?
-        check_msg();
-?>
-                  <?
-        button_1("< Back To Movie List", "movies.php", "back", "right");
-?>
+                  <?php button_1("< Back To Movie List", "movies.php", "back", "right");?>
                 </div>
-              </div>
+          </div>
 	      <h1 class="h2">Add A Movie</h1>
-            </div>	
+        </div>	
+		<?php echo check_msg();?>
 	    <h2>Search By Keyword</h2>
 	    <form action="movies.php" method="get" enctype="multipart/form-data">
-	      <input name="keyword" type="text" size="25" maxlength="50" value="<?= (isset($_GET['keyword'])) ? $_GET['keyword'] : '' ?>">
+	      <input name="keyword" type="text" size="25" maxlength="50" value="<?php echo (isset($_GET['keyword'])) ? $_GET['keyword'] : '' ?>">
 	      <input name="Search" type="submit" class="btn btn-sm btn-success submit" value="Search">
 	      <input type="hidden" name="action" value="findmovie">
 	    </form>
 	    <hr>
-	    <h2>Search By IMDB ID</h2>
+	    <h2>Get With IMDB ID</h2>
 	    <form action="movies.php" method="get" enctype="multipart/form-data">
-	      <input name="imdbID" type="text" size="25" maxlength="50" value="<?= (isset($_GET['imdbID'])) ? $_GET['imdbID'] : '' ?>">
+	      <input name="imdbID" type="text" size="25" maxlength="50" value="<?php echo (isset($_GET['imdbID'])) ? $_GET['imdbID'] : '' ?>">
 	      <input name="Search" type="submit" class="btn btn-sm btn-success submit" value="Search">
 	      <input type="hidden" name="action" value="findmovie">
 	    </form>
-	    <?
-        if (isset($_REQUEST['alpha']) || isset($_REQUEST['keyword']))
-          {
-
+	    <?php
+        if (isset($_REQUEST['alpha']) || isset($_REQUEST['keyword'])) {
             $alpha     = (isset($_REQUEST['alpha'])) ? $_REQUEST['alpha'] : '';
             $keyword   = (isset($_REQUEST['keyword'])) ? trim($_REQUEST['keyword']) : '';
             $sql       = "
-		SELECT m.movie_id, m.title, 
-		  mc.cast,
-		  i.image_name, 
-		  d.name AS distributor
-		FROM movies m 
-		LEFT JOIN movie_cache mc
-		  ON m.movie_id=mc.movie_id
-		LEFT JOIN movie_images mi
-		  ON mi.movie_id=m.movie_id
-		LEFT JOIN images i
-		  ON i.image_id=mi.image_id
-		  AND i.image_cat_id=2
-		  AND i.status='ok'
-		  AND (i.priority=1 OR i.priority=100)
-		LEFT JOIN distributors d
-		  ON d.distributor_id = m.distributor_id
-		WHERE 
-	      ";
+				SELECT 
+					m.movie_id, 
+					m.imdb_id, 
+					m.title, 
+					mc.cast,
+					i.image_name, 
+					d.name AS distributor
+				FROM movies m 
+				LEFT JOIN custom_images ci
+					ON m.custom_poster_id = custom_image_id
+				WHERE 
+			";
             $searching = true;
-            if ($alpha == 'num')
-              {
+            if ($alpha == 'num') {
                 $sql .= "( ";
-                for ($n = 0; $n <= 9; $n++)
-                  {
-                    if ($n > 0)
-                      {
+                for ($n = 0; $n <= 9; $n++) {
+                    if ($n > 0) {
                         $sql .= "OR ";
-                      }
+                    }
                     $sql .= "m.title LIKE '$n%' OR m.title LIKE 'The $n%'";
-                  }
-                $sql .= ") AND (m.status='ok' OR m.status='new')";
-              }
-            else if (strtolower($alpha) == "t")
-              {
+                }
+                $sql .= ") AND m.status='ok'";
+            } else if (strtolower($alpha) == "t") {
                 $sql .= "((m.title LIKE '$alpha%' AND m.title NOT LIKE 'The %') OR m.title LIKE 'The $alpha%') AND (m.status='ok' OR m.status='new' OR m.status='hidden')";
-              }
-            else if ($alpha)
-              {
+            } else if ($alpha) {
                 $sql .= "(m.title LIKE '$alpha%' OR m.title LIKE 'The $alpha%') AND (m.status='ok' OR m.status='new' OR m.status='hidden')";
-              }
-            else if (!empty($keyword))
-              {
+            } else if (!empty($keyword)) {
                 $sql .= "m.title LIKE '%$keyword%' AND (m.status='ok' OR m.status='new' OR m.status='hidden')";
-              }
-            else
-              {
+            } else {
                 $searching = false;
-              }
-            if ($searching)
-              {
+            }
+            if ($searching) {
                 $sql .= "
-		  AND m.master_movie_id = 0
-		    GROUP BY m.movie_id 
-		";
-		
-                if ($movie_list = get_movie_search($keyword))
-                  {
-                      if ($movie_list['response'] == "True") {
-?>
+					AND m.master_movie_id = 0
+					GROUP BY m.movie_id 
+				";
+                if ($movie_list = get_movie_search($keyword)) {
+                    if ($movie_list['response'] == "True") { ?>
 		  <hr>
 		  <h2>Search Results</h2>
 	      <p class="subtle">Click a movie below to add it to your own movie list.</p>
 		  <table class="table table-striped table-sm">
 		    <tbody>
-		      <?
-                    foreach ($movie_list['result'] as $f)
-                      {
-?>
+				<?php foreach ($movie_list['result'] as $f) { ?>
 		        <tr>
-			  <td class="title autowidth" bgcolor="#ffffff">
-			    <a href='?action=addmovie&movie_id=<?= $f['imdbID'] ?>'>
-			      <img src='<?= $f['poster'] ?>' width=30 height=44>
-			    </a>
-			  
-			    <a href='?action=addmovie&movie_id=<?= $f['imdbID'] ?>'><?= $f['title'] ?> (<?= $f['year']?>)</a>
-			  </td>
-			</tr>
-                  <?
-                        }
-?>
+					<td class="title autowidth" bgcolor="#ffffff">
+						<a href='?action=addmovie&movie_id=<?php echo $f['imdbID'] ?>'  class="search_poster">
+							<img src="<?php echo (isset($f['poster']) ? $f['poster'] : '/inc/img/no_image_available.gif') ?>" width="30" height="44">
+						</a>
+						<a href='?action=addmovie&movie_id=<?php echo $f['imdbID'] ?>'><?php echo $f['title'] ?> (<?php echo $f['year']?>)</a>
+					</td>
+				</tr>
+				<?php } ?>
 		    </tbody>
 		  </table>
-		<?
-                  } else {
-                      // get_movie_search()
-                      ?>
+			<?php   } else { ?>
                       <hr>
                       <h2>Error</h2>
 	                  <p class="subtle">No results found. Please <a href="?action=addmovie&movie_id=new">click here</a> if you wish to manually add it.</p>
-                  <? }
-                  }
-              }
-?>
+			  <?php }
+                }
+            } ?>
 	      <p>
 	        <br>
-		If you can't find the movie you wish to add in the list above,<br>
-		<a href="?action=addmovie&movie_id=new">click here</a> to manually add it.
+			If you can't find the movie you wish to add in the list above,<br>
+			<a href="?action=addmovie&movie_id=new">click here</a> to manually add it.
 	      </p>
-	    <?
-          }
-?>
-	    			
-	<?
-      }
-    else
-      {
-?>
-	  <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+  <?php }
+	// Main view, just show movies
+    } else { ?>
+	<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
 	    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-	      <h1 class="h2">Your Movies</h1>
-	      <div class="btn-toolbar mb-2 mb-md-0">
+	        <h1 class="h2">Your Movies</h1>
+	        <div class="btn-toolbar mb-2 mb-md-0">
                 <div class="btn-group mr-2">
-                  <?
-        button_1("+ Add a New Movie", "?action=findmovie", "plus", "right");
-?>
+                <?php button_1("+ Add a New Movie", "?action=findmovie", "plus", "right"); ?>
                 </div>
-              </div>
             </div>
-            <? check_msg(); ?>
+        </div>
+        <?php echo check_msg(); ?>
             <p>Click a title to edit the film details, click the green numbers to prioritise your films.</p>	
-	    <? // Get the cinema's primary domain
-        $sql = "
-		SELECT url
-		FROM cinema_domains
-		WHERE cinema_id = '{$_SESSION['cinema_data']['cinema_id']}'
-		  AND mode = 'w'
-		ORDER BY `primary` DESC
-		LIMIT 1
-	      ";
-        $res = $mysqli->query($sql) or user_error("Gnarly: $sql");
-        $domain = $res->fetch_assoc();
-        if ($res->num_rows > 0)
-          {
-            // Get the events
-            $sql = "
-		  SELECT e.*,
-		    COUNT(s.session_id) AS session_count
-		  FROM events e
-		  INNER JOIN sessions s
-		    ON e.event_id = s.event_id
-		  WHERE e.cinema_id = '{$_SESSION['cinema_data']['cinema_id']}'
-		  GROUP BY e.event_id
-		  HAVING session_count > 0
-		  ORDER BY e.event_id DESC
-		";
-            $event_res = $mysqli->query($sql) or user_error("Gnarly: $sql");
-            if ($event_res->num_rows > 0)
-              {
-?>
-		  <strong>The following events have been imported from Vista:</strong>
-		  <ul>
-		    <?
-                while ($e = $event_res->fetch_assoc())
-                  {
-?>
-		      <li><a href="http://<?= $domain['url'] ?>/event-<?= $e['event_id'] ?>.php" target="_blank"><?= $e['name'] ?></a> (<?= $e['session_count'] ?> sessions)</li>
-		    <?
-                  }
-?>
-		  </ul>
-		<?
-              }
-          }
-        else
-          {
-            // Does this cinema import from a Vista Web Ticketing Server
-            $sql = "
-		  SELECT vista_cinema_id
-		  FROM vista_ticketing_servers
-		  WHERE cinema_id = '{$_SESSION['cinema_data']['cinema_id']}'
-		";
-            $res = $mysqli->query($sql) or user_error("Gnarly: $sql");
-            if ($res->num_rows > 0)
-              {
-                // Get events from the Vista ticketing server (movie-level)
-                $sql = "
-		    SELECT e.*
-		    FROM events e
-		    INNER JOIN movie_lists ml
-		      ON ml.event_id = e.event_id
-		      AND ml.cinema_id = e.cinema_id
-		      AND ml.status = 'ok'
-		    WHERE e.cinema_id = '{$_SESSION['cinema_data']['cinema_id']}'
-		      GROUP BY e.event_id
-		      ORDER BY e.name
-		  ";
-                $event_res = $mysqli->query($sql) or user_error("Gnarly: $sql");
-                if ($event_res->num_rows > 0)
-                  {
-?>
-		    <strong>The following events have been imported from Vista:</strong>
-		    <ul>
-		      <?
-                    while ($e = $event_res->fetch_assoc())
-                      {
-?>
-		        <li><a href="http://<?= $domain['url'] ?>/event-v<?= $e['event_id'] ?>.php" target="_blank"><?= $e['name'] ?></a></li>
-		      <?
-                      }
-?>
-		    </ul>
-		  <?
-                  }
-              }
-          }
-?>
 	      <?
         foreach (array(
             'all' => 'Current Movies',
@@ -626,12 +415,12 @@ if (/*check_cinema() && (has_permission('sessions'))*/1==1)
         ) as $status => $name)
           {
 ?>
-		<h1 class="h2"><?= $name ?></h1>
-	        <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data">
+		<h1 class="h2"><?php echo $name ?></h1>
+	        <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data">
 		  <table class="table table-striped table-sm">
 		    <tbody>
 		      <?
-            if ($movie_list = get_movie_list_full($status, ($status == 'cs') ? 'tbc,ml.release_date,m.title' : 'm.title', 7, '%e %b', '%e %b', 500))
+            if ($movie_list = get_movie_list_full($status, ($status == 'cs') ? 'tbc,m.release_date,m.title' : 'm.title', 7, '%e %b', '%e %b', 500, 'today', NULL, NULL, false))
               {
                 foreach ($movie_list as $movie_item)
                   {
@@ -640,31 +429,31 @@ if (/*check_cinema() && (has_permission('sessions'))*/1==1)
                       {
 ?>
 			  	  
-			    <tr id="imdbId_<?= $movie_item['imdb_id'] ?>">
+			    <tr id="imdbId_<?php echo $movie_item['imdb_id'] ?>">
 			      <td class="title" nowrap>
-				        <a href="movie_edit_details.php?movie_id=<?= $movie_item['movie_id'] ?>">
-				            <img src="<?= $movie_item['poster'] ?>" width="30" height="44" border="0" alt="<?= $movie_item['title'] ?> Mini Poster" />
+				        <a href="movie_edit_details.php?movie_id=<?php echo $movie_item['movie_id'] ?>">
+				            <img src="<?php echo $movie_item['poster_url'] ?>" width="30" height="44" border="0" alt="<?php echo $movie_item['title'] ?> Mini Poster" />
 				        </a>
 				
 			      
-				<a href="movie_edit_details.php?movie_id=<?= $movie_item['movie_id'] ?>" title="<?= $movie_item['title'] ?>"><?= summary($movie_item['title'], 36, 'char', '...', true) ?>
+				<a href="movie_edit_details.php?movie_id=<?php echo $movie_item['movie_id'] ?>" title="<?php echo $movie_item['title'] ?>"><?php echo summary($movie_item['title'], 36, 'char', '...', true) ?>
 				</a>
 				<?
                         if ($status == 'cs')
                           {
 ?>
 				  <br>
-				  <span class="subtle">Release Date: <?= (isset($movie_item['release_date']) && !empty($movie_item['release_date'])) ? $movie_item['release_date'] : 'TBC' ?></span>
+				  <span class="subtle">Release Date: <?php echo (isset($movie_item['release_date']) && !empty($movie_item['release_date'])) ? $movie_item['release_date'] : 'TBC' ?></span>
 				<?
                           }
 ?>
 			      </td>
 				
 			      <td nowrap>
-				<a href="movie_edit_sessions.php?movie_id=<?= $movie_item['movie_id'] ?>">
+				<a href="movie_edit_sessions.php?movie_id=<?php echo $movie_item['movie_id'] ?>">
 				  <img src="images/icon_mm_sessions.gif" width="19" height="13" border="0" align="absmiddle">Session Times
 				</a>
-				<span title="<?= $movie_item['total_sessions'] ?> sessions<?= ($movie_item['session_days_count']) ? " over {$movie_item['session_days_count']} days" : "" ?>">(<?= $movie_item['total_sessions'] ?>)</span>
+				<span title="<?php echo $movie_item['total_sessions'] ?> sessions<?php echo ($movie_item['session_days_count']) ? " over {$movie_item['session_days_count']} days" : "" ?>">(<?php echo $movie_item['total_sessions'] ?>)</span>
 			      </td>
 			        
 			      <?
@@ -676,7 +465,7 @@ if (/*check_cinema() && (has_permission('sessions'))*/1==1)
                             if ($movie_item['total_sessions'])
                               {
 ?>
-			            <a href="labels.php?movie_id_array[]=<?= $movie_item['movie_id'] ?>">
+			            <a href="labels.php?movie_id_array[]=<?php echo $movie_item['movie_id'] ?>">
 			              <img src="images/icon_mm_prices.gif" width="19" height="13" border="0" align="absmiddle">Session Labels
 			            </a>
 			          <?
@@ -690,7 +479,7 @@ if (/*check_cinema() && (has_permission('sessions'))*/1==1)
                             $ns_movies_present = true;
 ?>
 				<td>
-				  <input name="movie_ids[]" type="checkbox" value="<?= $movie_item['movie_id'] ?>"<?= (!$coming_soon && $movie_item['total_sessions'] == 0) ? " checked" : "" ?>>
+				  <input name="movie_ids[]" type="checkbox" value="<?php echo $movie_item['movie_id'] ?>"<?php echo (!$coming_soon && $movie_item['total_sessions'] == 0) ? " checked" : "" ?>>
 				</td>
 			      <?
                           }
@@ -752,7 +541,7 @@ else
   }
 ?>				
     <?
-include("includes/footer.inc.php");
+include("inc/footer.inc.php");
 ?>
   </body>
 </html>

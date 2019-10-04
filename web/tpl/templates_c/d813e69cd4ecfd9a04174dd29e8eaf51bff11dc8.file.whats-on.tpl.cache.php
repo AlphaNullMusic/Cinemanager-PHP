@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2019-10-02 21:47:42
+<?php /* Smarty version Smarty-3.1.13, created on 2019-10-05 11:46:50
          compiled from "tpl\whats-on.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:32775d9423ed3de0e7-19377548%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'd813e69cd4ecfd9a04174dd29e8eaf51bff11dc8' => 
     array (
       0 => 'tpl\\whats-on.tpl',
-      1 => 1570004797,
+      1 => 1570174141,
       2 => 'file',
     ),
   ),
@@ -33,7 +33,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5d9423ed5767b0_52191705')) {function content_5d9423ed5767b0_52191705($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_date_format')) include 'I:\\Cinemanager\\www\\Cinemanager/_deps/smarty/plugins\\modifier.date_format.php';
 ?><?php echo $_smarty_tpl->getSubTemplate ("inc/tpl/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 9999, null, array(), 0);?>
-<div class="information"><h1>Session Times</h1><?php if ($_smarty_tpl->tpl_vars['now_showing']->value){?><ul class="movie-times"><?php  $_smarty_tpl->tpl_vars['n'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['n']->_loop = false;
+<div class="information"><h1>What's On</h1><?php if ($_smarty_tpl->tpl_vars['now_showing']->value){?><ul class="movie-times"><?php  $_smarty_tpl->tpl_vars['n'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['n']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['now_showing']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['n']->key => $_smarty_tpl->tpl_vars['n']->value){
 $_smarty_tpl->tpl_vars['n']->_loop = true;
