@@ -6,10 +6,10 @@
 
 // Check cinema
 function check_cinema() {
-    if (isset($_SESSION['cinema_data']) && 
-		isset($_SESSION['all_cinema_data']) &&
+    if (/*isset($_SESSION['cinema_data']) && 
+		*/isset($_SESSION['all_cinema_data'])/* &&
         is_array($_SESSION['cinema_data']) && 
-        count($_SESSION['cinema_data']) >= 4) {
+        count($_SESSION['cinema_data']) >= 4*/) {
         return true;
     } else {
         return false;

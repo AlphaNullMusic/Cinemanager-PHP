@@ -4,6 +4,7 @@ require('inc/smarty_vars.inc.php');
 
 $tpl_name = 'whats-on-today.tpl';
 $tpl = $config['site_dir'].'tpl/'.$tpl_name;
+$cache_id = 'whats-on-today';
 $cache_id .= (!empty($_GET['day'])) ? '|'.$_GET['day'] : '';
 $cache_id .= (!empty($_GET['date'])) ? '|'.$_GET['date'] : '';
 

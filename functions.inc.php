@@ -322,37 +322,23 @@ function get_movie_search($keyword) {
 }
 
 // Get info about movie with IMDB ID
-function get_movie_basics($movie_id) {
-    $content         = file_get_contents("https://www.omdbapi.com/?i=$movie_id&plot=full&r=xml&apikey=cb84a757");
+function get_movie_basics($imdbID) {
+    $content         = file_get_contents("https://www.omdbapi.com/?i=$imdbID&plot=full&r=xml&apikey=cb84a757");
     $res             = simplexml_load_string($content);
     $arr             = array();
-    $arr['movie_id'] = $movie_id;
+    $arr['imdbID']   = $imdbID;
     $arr['title']    = $res->movie['title'];
     $arr['year']     = $res->movie['year'];
     $arr['rated']    = $res->movie['rated'];
     $arr['released'] = $res->movie['released'];
-    $arr['runtime']  = $res->movie['runtime'];
+	$arr['duration'] = $res->movie['duration'];
+    $arr['runtime']  = explode(" min",$res->movie['runtime'])[0];
+	$arr['cast']     = explode(", ",$res->movie['actors']);
     $arr['synopsis'] = $res->movie['plot'];
     $arr['poster']   = $res->movie['poster'];
-    
+	
     return $arr;
 }
-
-// Get basic info for a movie
-/*function get_movie_basics($movie_id)
-{
-$sql  = "
-SELECT title
-FROM movies
-WHERE movie_id = '" . $mysqli->real_escape_string($movie_id) . "'
-";
-$res  = query($sql);
-$data = $res->fetch_assoc();
-return array(
-'movie_id' => $movie_id,
-'title' => $data['title']
-);
-}*/
 
 // Count number of days that have session from a specified date
 function count_session_days($movie_id, $date/*, $cinema_id*/) {
@@ -1160,6 +1146,28 @@ function get_class_explanation($id) {
     }
 }
 
+function get_class_id($input) {
+	global $mysqli;
+	$class = explode("-",$input);
+	$sql = "
+		SELECT classification_id 
+		FROM classifications 
+		WHERE classification='".$mysqli->real_escape_string($input)."' 
+		   OR classification='".$mysqli->real_escape_string($class[0])."'
+		LIMIT 1
+	";
+    $res = $mysqli->query($sql) or user_error("Gnarly: $sql");
+    if ($res->num_rows != 1) {
+        return 1;
+    } else {
+		$data = $res->fetch_assoc();
+		return $data['classification_id'];
+    }
+}
+
+$class = "PG";
+
+
 function hrmin_convert($string, $return_pieces = false) {
     $pieces = str_split($string, 2);
     $ampm   = 'am';
@@ -1186,7 +1194,7 @@ function hrmin_convert($string, $return_pieces = false) {
 /////////////
 
 // Update movie cache
-function update_movie_cache($movie_id, $sessions_only = false) {
+/*function update_movie_cache($movie_id, $sessions_only = false) {
     if (!class_exists('db')) {
         db_pdo();
     }
@@ -1262,7 +1270,7 @@ function update_movie_cache($movie_id, $sessions_only = false) {
         $stmt = NULL;
     }
     return true;
-}
+}*/
 
 // Update site stats
 function update_site_stats() {
@@ -1502,78 +1510,38 @@ function main_cinema_domain($cinema_id) {
 // SMARTY FUNCTIONS //
 //////////////////////
 
-function smarty_clear_cache($cinema_id = NULL, $movie_id = NULL, $area = NULL, $user_id = NULL) {
-    global $mysqli;
-    // If no cinema_id is sent, get array of all cinemas with sessions_own permission
-    if (!isset($cinema_id)) {
-        $sql = "
-            SELECT cinema_id 
-            FROM cinema_permissions 
-            WHERE sessions_own=1
-        ";
-        $res = $mysqli->query($sql) or user_error("Gnarly: $sql");
-        $cinema_id = array();
-        while ($data = $res->fetch_assoc()) {
-            $cinema_id[] = $data['cinema_id'];
-        }
-    }
-    // Handle arrrays of cinema ids or single cinema ids
-    if (is_array($cinema_id)) {
-        foreach ($cinema_id as $c) {
-            smarty_clear_cache_action($c, $movie_id, $area, true);
-        }
-        smarty_clear_cache_public($movie_id);
-    } else {
-        smarty_clear_cache_action($cinema_id, $movie_id, $area);
-        smarty_clear_cache_public($movie_id, $cinema_id, $user_id);
-    }
-}
-
-function smarty_clear_cache_action($cinema_id = NULL, $movie_id = NULL, $area = NULL, $reset_smarty = false) {
+function smarty_clear_cache($movie_id = NULL, $area = NULL, $user_id = NULL, $reset_smarty = false) {
     global $mysqli, $global, $smarty;
-    if (isset($cinema_id) && (!isset($smarty) || $reset_smarty)) {
-        include($global['cinema_dir'] . "includes/smarty_vars.inc.php");
+    if ((!isset($smarty) || $reset_smarty)) {
+        include($config['cinema_dir']."inc/smarty_vars.inc.php");
     }
     // Create array of all pages that may contain movie data
-    $areas                    = array(
-        'coming_soon',
+    $areas = array(
+        'coming-soon',
         'homepage',
-        'now_showing',
-        'session_times',
-        'session_times_today',
-        'top_movies',
-        'login'
+        'session-times',
+        'session-times-today'
     );
-    // Add additional areas if this cinema has movie data on all pages
-    $areas_additional         = array(
-        'generic_page'
-    );
-    $cinemas_using_additional = array(
-        1006,
-        1107
-    );
-    if (isset($cinema_id) && in_array($cinema_id, $cinemas_using_additional)) {
-        $areas = array_merge($areas, $areas_additional);
-    }
+
     // If $movie_id is passed, also clear data for that specific movie, plus all other generic pages
-    if (isset($movie_id) && isset($cinema_id)) {
-        $smarty->clearCache(NULL, $cinema_id . "|movie_page|" . $movie_id);
+    if (isset($movie_id)) {
+        $smarty->clearCache(NULL, "movie-".$movie_id);
         foreach ($areas as $a) {
-            $smarty->clearCache(NULL, $cinema_id . "|" . $a);
+            $smarty->clearCache(NULL, $a);
         }
     }
     // If $movie_id is passed with no $cinema_id, clear cache for all movies using this movie, plus all other generic pages for these cinemas
-    else if (!isset($cinema_id) && isset($movie_id)) {
+    if (isset($movie_id)) {
         $sql = "
-            SELECT DISTINCT cinema_id
-            FROM movie_lists
+            SELECT DISTINCT movie_id
+            FROM movies
             WHERE movie_id = '" . $mysqli->real_escape_string($movie_id) . "'
                 AND status = 'ok'
         ";
         $res = $mysqli->query($sql) or user_error("Gnarly: $sql");
         while ($data = $res->fetch_assoc()) {
             if (!isset($smarty)) {
-                include($global['cinema_dir'] . "includes/smarty_vars.inc.php");
+                include($config['cinema_dir']."inc/smarty_vars.inc.php");
             }
             $smarty->clearCache(NULL, $data['cinema_id'] . "|" . $movie_id);
             foreach ($areas as $a) {
@@ -1582,8 +1550,8 @@ function smarty_clear_cache_action($cinema_id = NULL, $movie_id = NULL, $area = 
         }
     }
     
-    // Check for $cinema_id or $area variables and clear accordingly
-    else if (isset($cinema_id) && isset($area)) {
+    // Check for $area variable and clear accordingly
+    else if (isset($area)) {
         $smarty->clearCache(NULL, $cinema_id . '|generic_page|' . $area);
         $smarty->clearCache(NULL, $cinema_id . '|' . $area);
         if (strstr($area, 'home')) {
@@ -1597,69 +1565,6 @@ function smarty_clear_cache_action($cinema_id = NULL, $movie_id = NULL, $area = 
     } else {
         return false;
     }
-}
-
-// Clear the public site cache
-function smarty_clear_cache_public($movie_id = NULL, $cinema_id = NULL, $user_id = NULL) {
-    global $global, $smarty, $mysqli;
-    // Set up db connection
-    if (!class_exists('db')) {
-        db_pdo();
-    }
-    $db = new db;
-    //setup public smarty
-    // Setup public smarty
-    require_once($global['public_dir'] . "inc/smarty_vars.inc.php");
-    // Clear a user profile only
-    if (isset($user_id)) {
-        $smarty->clearCache(null, 'member_profile|' . $user_id);
-    }
-    // If a cinema has updated their sessions or movie specs clear their page and the cinema list page
-    if (isset($cinema_id)) {
-        $smarty->clearCache(null, 'cinema_page|' . $cinema_id);
-        $smarty->clearCache(null, 'cinemas');
-    }
-    //clear generic areas that use movie data
-    if (isset($movie_id)) {
-        //cast in this movie
-        $sql  = "
-            SELECT cast_id
-            FROM movie_cast
-            WHERE movie_id=?
-        ";
-        $stmt = $db->prepare($sql);
-        $stmt->execute(array(
-            $movie_id
-        ));
-        $cast = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        $stmt = NULL;
-        foreach ($cast as $c) {
-            $smarty->clearCache(null, 'cast_page|' . $c);
-        }
-        //cinemas using this movie
-        if (!isset($cinema_id)) {
-            $sql  = "
-                SELECT cinema_id
-                FROM movie_lists
-                WHERE movie_id=?
-                    AND status='ok'
-            ";
-            $stmt = $db->prepare($sql);
-            $stmt->execute(array(
-                $movie_id
-            ));
-            $cinema = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            $stmt   = NULL;
-            foreach ($cinema as $c) {
-                $smarty->clearCache(null, 'cinema_page|' . $c);
-            }
-        }
-    }
-    // Clear the individual movie page if a movie_id was parsed
-    if (isset($movie_id)) {
-        $smarty->clearCache(null, 'movie_page|' . $movie_id);
-    }
-    return true;
 }
 
 ///////////////
@@ -1686,7 +1591,7 @@ function check_msg($conf = null, $er = null) {
 function check_confirm($msg, $echo_message = true) {
     global $global;
     if ($msg) {
-        $msg = "<table border='0' cellpadding='6' cellspacing='1' bgcolor='#89B10C'><tr><td bgcolor='#EDFBC4'><img src='" . $global['admin_url'] . "images/icon_tick_greenbutton.gif' alt='ok' width='15' height='15' align='absmiddle'> {$msg}</td></tr></table>";
+        $msg = "<div class=\"alert alert-success\" role=\"alert\"><img src='".$config['manage_url']."inc/icons/icon_tick_greenbutton.gif' alt='ok' width='15' height='15' align='absmiddle'> {$msg}</div>";
         if ($echo_message) {
             echo $msg;
         } else {
@@ -1700,8 +1605,8 @@ function check_confirm($msg, $echo_message = true) {
 function check_er($msg, $echo_message = true) {
     global $global;
     if ($msg) {
-        $msg = "<table border='0' cellpadding='6' cellspacing='1' bgcolor='#F8D10A'><tr><td bgcolor='#FFFFD5'><img src='" . $global['admin_url'] . "images/icon_exclaim_onyellow.gif' alt='ok' width='15' height='15' align='absmiddle'> {$msg}</td></tr></table>";
-        if ($echo_message) {
+        $msg = "<div class=\"alert alert-warning\" role=\"alert\"><img src='".$config['manage_url']."inc/icons/icon_exclaim_onyellow.gif' alt='ok' width='15' height='15' align='absmiddle'> {$msg}</div>";
+		if ($echo_message) {
             echo $msg;
         } else {
             return $msg;

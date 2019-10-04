@@ -75,7 +75,6 @@ elseif (isset($_POST['action']) && $_POST['action']=='login') {
 				exit;
 			} else {
 				$login_data = $login_res->fetch_assoc();
-				die(print_r($login_data));
 				unset($_SESSION['all_cinema_data']);
 				$_SESSION['all_cinema_data'] = array(
 					'login_id' => $login_data['id'],

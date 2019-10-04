@@ -9,11 +9,6 @@ error_reporting(E_ALL ^ E_NOTICE);
 $root_dir = dirname(__FILE__).'/';
 $config = array(
 
-	// Cineguide
-	"public_url"		=> "https://www.cineguide.ga/",
-	"public_url_secure"	=> "https://secure.cinemanager.ga/",
-	"public_dir"		=> $root_dir."cineguide.ga.2019/",
-
 	// Manage
 	"manage_url" => "https://manage.shoreline.nz/",
 	"manage_dir" => $root_dir."manage/",
@@ -31,7 +26,11 @@ $config = array(
 	"movie_image_url_secure" => "https://media.moviemanager.biz/movies/",
 	"movie_image_dir" => $root_dir."media.moviemanager.biz/movie_images/",
 	"image_overlay_dir"	=> $root_dir."media.moviemanager.biz/overlays/",
-
+	
+	// Posters
+	"poster_url" => "https://posters.shoreline.nz",
+	"poster_dir" => $root_dir."posters/",
+	
 	// Movie Images
 	"movie_trailer_url"	=> "http://media2.cinemanager.ga/trailers/",
 	"movie_trailer_dir"	=> $root_dir."media.cinemanager.ga/movie_trailers/",
@@ -155,6 +154,33 @@ $config['image_sizes'] = array(
 	'aimedium' => array(
 		'width' => 400,
 		'height' => 600,
+	),
+);
+
+//////////////////
+// Poster Sizes //
+//////////////////
+
+$config['poster_sizes'] = array(
+	// Manage Dashboard
+	'tiny' => array(
+		'width' => 30,
+		'height' => 44
+		/*'output' => 'jpg:85'*/
+	),
+	// Featured
+	'small' => array(
+		'width' => 150
+	),
+	// What's On, Movie Page and Bookings
+	'medium' => array(
+		'width' => 190,
+	),
+	// Coming Soon and What's On Today
+	'large' => array(
+		'height' => 279,
+		/*'width' => 100*/
+		// keep aspect ratio when converting
 	),
 );
 
