@@ -164,21 +164,32 @@ $config['image_sizes'] = array(
 $config['poster_sizes'] = array(
 	// Manage Dashboard
 	'tiny' => array(
+		'name' => 'tiny',
 		'width' => 30,
 		'height' => 44
 		/*'output' => 'jpg:85'*/
 	),
 	// Featured
 	'small' => array(
+		'name' => 'small',
 		'width' => 150
 	),
 	// What's On, Movie Page and Bookings
 	'medium' => array(
-		'width' => 190,
+		'name' => 'medium',
+		'width' => 190
 	),
 	// Coming Soon and What's On Today
 	'large' => array(
-		'height' => 279,
+		'name' => 'large',
+		'height' => 279
+		/*'width' => 100*/
+		// keep aspect ratio when converting
+	),
+	// Original
+	'full' => array(
+		'name' => 'full',
+		'height' => 2046
 		/*'width' => 100*/
 		// keep aspect ratio when converting
 	),

@@ -1,4 +1,4 @@
-<?
+<?php
 
 function image_resize_auto($src, $dst, $size) {
 	global $config;
