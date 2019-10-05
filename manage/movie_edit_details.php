@@ -1,11 +1,11 @@
-<? 
+<?php
 require("inc/manage.inc.php");
 
 if (check_cinema()) {
 	
 	$sessions_displayed=21;
 	$friendly_date_format="l jS F";
-	
+
 	// Save changes
 	if (isset($_POST['submit']) && isset($_POST['movie_id'])) {
 		// Update movie details
