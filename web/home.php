@@ -21,25 +21,13 @@ if (!$smarty->isCached($tpl,$cache_id)) {
 	$smarty->assign('movie_trailer_url',$global['movie_trailer_url']);
 	$smarty->assign('tpl_name',$tpl_name);
 
-	// Now showing and coming soon movie lists
-	$now_showing_sessions=0;
-	$now_showing_movies=100;
-	$coming_soon_movies=50;
-	$ns_date_1='%W %D';
-	$ns_date_2='%e %b';
-	$cs_date_1='%M %e';
-	$cs_date_2='%e %b';
-	$days_of_sessions = NULL;
-	$get_session_labels=false;
-	$coming_soon_order='m.release_date, m.title';
-
 	// Check for homepage content
 	if (has_permission('edit_pages')) {
 		$smarty->assign('page',get_page_content('homepage'));
 	}
 	
-	// Get full movie list (type, order by, number of sessions, date format, alt date format, limit, session start, movie array, days of sessions, get session labels)
-	$smarty->assign('now_showing',get_movie_list_full('ns','m.title',14,'%W %D','%e %b',100,'today',null,null,false));
+	// Get full movie list (type, order by, number of sessions, date format, alt date format, limit, session start, movie array, days of sessions, get session labels, small poster)
+	$smarty->assign('now_showing',get_movie_list_full('ns','m.title',14,'%W %D','%e %b',100,'today',null,null,false,'small'));
 	
 	// Common functions
 	include('inc/local.inc.php');

@@ -59,7 +59,8 @@
 		list($width_orig, $height_orig) = getimagesize($url);
 		$ids = array();
 		//$url_split = explode('SX300.jpg',$url);
-		//$img_url = $url_split[0].'.jpg';
+		//$url_split1 = explode('.jpg',$url_split[0]);
+		//$img_url = $url_split1[0].'.jpg';
 		$img_url = $url;
 		
 		if ($custom == false) {
@@ -108,34 +109,43 @@
 				WHERE movie_id = '".$mysqli->real_escape_string($movie_id)."'
 			";
 			$mysqli->query($sql) or user_error("Error at ".$sql);
+		} else {
+			$sql = "
+				UPDATE movies
+				SET custom_poster = '0'
+				WHERE movie_id = '".$mysqli->real_escape_string($movie_id)."'
+			";
+			$mysqli->query($sql) or user_error("Error at ".$sql);
 		}
 		
 		return true;
 	}
 	
-	/*function reset_to_default_poster($movie_id) {
+	function delete_poster($movie_id, $type = 'custom') {
 		global $config, $mysqli;
 		$dir = $config['poster_dir'];
-		list($width_orig, $height_orig) = getimagesize($url);
-		foreach ($config['poster_sizes'] as $size) {
-			if (isset($size['width']) && isset($size['height'])) {
-				$dst_width = $size['width'];
-				$dst_height = $size['height'];
-			} elseif (isset($size['width'])) {
-				$dst_width = $size['width'];
-				$dst_height = ($dst_width/$width_orig)*$height_orig;
-			} elseif (isset($size['height'])) {
-				$dst_height = $size['height'];
-				$dst_width = ($dst_height/$height_orig)*$width_orig;
+
+		if ($type == 'all') {
+			foreach ($config['poster_sizes'] as $size) {
+				$path = $dir.$movie_id.'-'.$size['name'].'-';
+				@unlink($path.'default.jpg');
+				@unlink($path.'custom.jpg');
 			}
-			$img = imagecreatetruecolor($dst_width,$dst_height);
-			$tmp_img = imagecreatefromjpeg($url);
-			imagecopyresampled($img, $tmp_img, 0, 0, 0, 0, $dst_width, $dst_height, $width_orig, $height_orig);
-			imagejpeg($img,$dir.$movie_id.'-'.$size['name'].'-default.jpg');
-			imagedestroy($img);
+		} else {
+			foreach ($config['poster_sizes'] as $size) {
+				$path = $dir.$movie_id.'-'.$size['name'].'-custom.jpg';
+				@unlink($path);
+			}
 		}
+		
+		$sql = "
+			UPDATE movies
+			SET custom_poster = '0'
+			WHERE movie_id = '".$mysqli->real_escape_string($movie_id)."'
+		";
+		$mysqli->query($sql) or user_error("Error at ".$sql);
 		return true;
-	}*/
+	}
 	
 	function get_custom_poster($movie_id) {
 		global $mysqli;
@@ -156,7 +166,9 @@
 			}
 		}
 	}	
-
-	//save_poster('https://m.media-amazon.com/images/M/MV5BMjgyN2EzMDgtYzAxYS00Y2I3LTk2YzEtOTJlNWM0ODk3OTIxXkEyXkFqcGdeQXVyNDk5NzQ0MzY@._V1_.jpg','2',false);
-	
+	$_POST['duration'] = '1hr 20min';
+	$d = $_POST['duration'];
+	//save_poster('https://m.media-amazon.com/images/M/MV5BMTU2OTAxNjI2OV5BMl5BanBnXkFtZTgwNzc2NjUwODM@._V1_SX300.jpg','1',false);
+	echo stringtomins($d);
+	//delete_poster(1,'all');
 ?>

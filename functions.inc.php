@@ -188,7 +188,7 @@ function stringtomins($string) {
     if (is_numeric($string)) {
         $mins = (int) $string;
     } else if (preg_match('/(([0-9])( )?(hours|hour|hrs|hr|h))?\s*(([0-9]{1,3})( )?(mins|min|m))?/i', $string, $matches)) {
-        $mins = 0;
+		$mins = 0;
         $mins += (isset($matches[2])) ? $matches[2] * 60 : 0;
         $mins += (isset($matches[6])) ? $matches[6] : 0;
     }
@@ -390,8 +390,8 @@ function get_session_days($movie_id = false, $date = false) {
 
 // Get full movie list
 // Gets now_showing or coming_soon list for current cinema
-function get_movie_list_full($type = 'ns', $order_by = 'm.title', $num_sessions = '7', $date_format = '%e %b', $date_format2 = '%e %b', $limit = 100, $session_start = 'today', $movie_array = NULL, $days_of_sessions = NULL, $get_session_labels = false) {
-    global $mysqli, $session_flags, $cinema_data;
+function get_movie_list_full($type = 'ns', $order_by = 'm.title', $num_sessions = '7', $date_format = '%e %b', $date_format2 = '%e %b', $limit = 100, $session_start = 'today', $movie_array = NULL, $days_of_sessions = NULL, $get_session_labels = false, $size = 'full') {
+    global $mysqli, $session_flags, $cinema_data, $config;
     $extra_conditions = "";
     $extra_select     = "";
     $having           = "";
@@ -458,24 +458,20 @@ function get_movie_list_full($type = 'ns', $order_by = 'm.title', $num_sessions 
 					m.classification_id, 
 					m.subtitled, 
 					m.poster_url, 
-					m.custom_poster_id,
+					m.custom_poster,
 					m.runtime, 
 					m.comments, 
 					m.release_date,
 					COUNT(DISTINCT st.session_id) AS total_sessions, 
 					DATE_FORMAT(m.release_date,'$date_format') AS release_date_f1,
 					DATE_FORMAT(m.release_date,'$date_format2') AS release_date_f2,
-					c.classification, 
-					ci.custom_image_url
+					c.classification
                     $extra_select
                 FROM movies m
                 INNER JOIN sessions st
                     ON st.movie_id=m.movie_id
                     AND st.time>='$session_start' 
                     AND st.time<='$session_end'
-                LEFT JOIN custom_images ci
-                    ON ci.movie_id=m.movie_id
-					AND ci.custom_image_id=m.custom_poster_id
                 LEFT JOIN classifications c
                     ON c.classification_id=m.classification_id
                 WHERE m.status='ok'
@@ -499,7 +495,7 @@ function get_movie_list_full($type = 'ns', $order_by = 'm.title', $num_sessions 
 					m.classification_id, 
 					m.subtitled, 
 					m.poster_url, 
-					m.custom_poster_id,
+					m.custom_poster,
 					m.runtime, 
 					m.comments, 
 					m.release_date,
@@ -507,16 +503,12 @@ function get_movie_list_full($type = 'ns', $order_by = 'm.title', $num_sessions 
                     DATE_FORMAT(m.release_date,'$date_format') AS release_date_f1, 
 					DATE_FORMAT(m.release_date,'$date_format2') AS release_date_f2, 
                     c.classification,
-                    ci.custom_image_url, 
                     IF(m.release_date = '0000-00-00', 1, 0) AS tbc
                     $extra_select
                 FROM movies m
                 LEFT JOIN sessions s
                     ON s.movie_id = m.movie_id
                     AND s.time >= NOW()
-                LEFT JOIN custom_images ci
-                    ON ci.movie_id=m.movie_id
-					AND ci.custom_image_id=m.custom_poster_id
                 LEFT JOIN classifications c
                     ON c.classification_id=m.classification_id
                 WHERE (m.release_date > DATE_ADD(NOW(), INTERVAL $timezoneOffset HOUR) OR m.release_date='0000-00-00') 
@@ -539,23 +531,19 @@ function get_movie_list_full($type = 'ns', $order_by = 'm.title', $num_sessions 
 					m.classification_id, 
 					m.subtitled, 
 					m.poster_url, 
-					m.custom_poster_id, 
+					m.custom_poster, 
 					m.runtime, 
 					m.comments,
 					m.release_date,
                     COUNT(DISTINCT s.session_id) AS total_sessions,
                     DATE_FORMAT(m.release_date,'$date_format') AS release_date_f1, 
 					DATE_FORMAT(m.release_date,'$date_format2') AS release_date_f2, 
-                    c.classification,
-					ci.custom_image_url
+                    c.classification
 					$extra_select
                 FROM movies m
                 LEFT JOIN sessions s
                     ON s.movie_id = m.movie_id
                     AND s.time >= NOW()
-                LEFT JOIN custom_images ci
-                    ON ci.movie_id=m.movie_id
-					AND ci.custom_image_id=m.custom_poster_id
                 LEFT JOIN classifications c
                     ON c.classification_id=m.classification_id
                 WHERE m.status='ok'
@@ -580,8 +568,7 @@ function get_movie_list_full($type = 'ns', $order_by = 'm.title', $num_sessions 
                 $movies[$n]['class_explanation'] = (isset($movie_list_data['class_explanation'])) ? get_class_explanation($movies[$n]['classification']) : NULL;
                 $movies[$n]['runtime']           = (isset($movie_list_data['runtime'])) ? $movie_list_data['runtime'] : NULL;
 				$movies[$n]['duration']          = (isset($movie_list_data['runtime'])) ? mintohr($movie_list_data['runtime']) : NULL;
-                $movies[$n]['poster_url']        = (isset($movie_list_data['poster_url'])) ? $movie_list_data['poster_url'] : NULL;
-				// [if no poster, add no poster image] function for getting custom image url, then add to poster_url $movies[$n]['custom_image_url']  = (isset($movie_list_data['custom_image_url'])) ? $movie_list_data['custom_image_url'] : NULL;
+                $movies[$n]['poster_url']        = ($movie_list_data['custom_poster']==1 ? $config['poster_url'].$movie_list_data['movie_id'].'-'.$size.'-custom.jpg' : $config['poster_url'].$movie_list_data['movie_id'].'-'.$size.'-default.jpg');
 				$movies[$n]['comments']           = (isset($movie_list_data['comments'])) ? $movie_list_data['comments'] : NULL;
                 $movies[$n]['trailer']           = (isset($movie_list_data['trailer'])) ? $movie_list_data['trailer'] : NULL;
                 $movies[$n]['release_date_raw']  = (isset($movie_list_data['release_date'])) ? $movie_list_data['release_date'] : NULL;
@@ -702,7 +689,7 @@ function get_movie($movie_id, $get_sessions = true, $extra_conditions = NULL) {
 }
 
 // Get a single random movie
-function get_random_movie($cinema_id, $priority = null) {
+/*function get_random_movie($cinema_id, $priority = null) {
     $sql = "
         SELECT ml.movie_id, ml.release_date,
             m.title,
@@ -725,7 +712,7 @@ function get_random_movie($cinema_id, $priority = null) {
     ";
     $top_movie_res = query($sql);
     return $top_movie_res->fetch_assoc();
-}
+}*/
 
 // Get movie sessions
 function get_movie_sessions($movie_id_array = NULL, $time_array = NULL, $get_image = false, $format_date = '%Y-%m-%d', $format_time = '%l:%i%p', $allow_session_duplicates = true) {
@@ -937,8 +924,8 @@ function get_movies_flagged($cinema_id) {
 //$day = 'tomorrow'
 //$day = 'dd-mm-yyyy' (specific date)
 //$add_day = int (increase day by specific number of days)
-function get_sessions_today($cinema_id, $day = NULL, $add_day = NULL, $order_by = "m.title,s.time", $get_cast = false, $group_by_cinema = false) {
-    global $get_sessions_today_day, $get_sessions_today_date, $cinema_data, $mysqli;
+function get_sessions_today($cinema_id, $day = NULL, $add_day = NULL, $order_by = "m.title,s.time", $get_cast = false, $group_by_cinema = false, $size = 'full') {
+    global $get_sessions_today_day, $get_sessions_today_date, $cinema_data, $mysqli, $config;
     date_default_timezone_set($cinema_data['timezone']);
     $session_data = false;
     
@@ -983,7 +970,7 @@ function get_sessions_today($cinema_id, $day = NULL, $add_day = NULL, $order_by 
 			m.classification_id,
 			m.subtitled,
 			m.poster_url,
-			m.custom_poster_id,
+			m.custom_poster,
             s.session_id, 
 			s.time, 
 			substring(s.time,1,10) AS session_date, 
@@ -1000,9 +987,6 @@ function get_sessions_today($cinema_id, $day = NULL, $add_day = NULL, $order_by 
             ON s.movie_id=m.movie_id
         LEFT JOIN session_labels sl
             ON s.label_id=sl.label_id
-		LEFT JOIN custom_images ci
-            ON ci.movie_id=m.movie_id
-			AND ci.custom_image_id=m.custom_poster_id
         LEFT JOIN classifications c
             ON c.classification_id=m.classification_id
         WHERE s.time>='" . $mysqli->real_escape_string($from) . "'
@@ -1021,9 +1005,9 @@ function get_sessions_today($cinema_id, $day = NULL, $add_day = NULL, $order_by 
                 'movie_id' => $sd['movie_id'],
 				'imdb_id' => $sd['imdb_id'],
                 'title' => $sd['title'],
-                'poster_url' => $sd['poster_url'],
+                'poster_url' => ($sd['custom_poster']==1 ? $config['poster_url'].$sd['movie_id'].'-'.$size.'-custom.jpg' : $config['poster_url'].$sd['movie_id'].'-'.$size.'-default.jpg'),
                 'classification' => $sd['classification'],
-                // function to get class explanation 'class_explanation' => $sd['class_explanation'],
+				'class_explanation' => get_class_explanation($sd['classification']),
                 'synopsis' => $sd['synopsis'],
                 'trailer' => $sd['trailer'],
             );
@@ -1098,33 +1082,6 @@ function get_sessions_today($cinema_id, $day = NULL, $add_day = NULL, $order_by 
             $n++;
         }
         return $return;
-    }
-}
-
-// Cinema icons
-function cinema_icons($cinema_id, $size = 'small', $link = 'y') {
-    global $base_url, $db;
-    $sql   = "SELECT a.* 
-                FROM associations a, cinema_associations ca 
-                WHERE ca.cinema_id='" . $mysqli->real_escape_string($cinema_id) . "' 
-                AND ca.association_id=a.associaiton_id
-                AND a.show_icon='y'
-                ORDER BY a.priority, a.name";
-    $res   = query($sql);
-    $image = "";
-    while ($data = $res->fetch_assoc()) {
-        if ($size == 'small') {
-            $this_image = "<img src='{$base_url}images/{$data['icon_small']}' height='14' border='0' align='absmiddle' alt='{$data['alt']}'>";
-        } else if ($size == 'big') {
-            $this_image = "<img src='{$base_url}images/{$data['icon_large']}' height='24' border='0' align='absmiddle' alt='{$data['alt']}'>";
-        }
-        if ($link == 'y') {
-            $this_image = "<a href='{$base_url}cinemas/associations-{$data['associaiton_id']}.php'>$this_image</a>";
-        }
-        $image .= " $this_image";
-    }
-    if (isset($image)) {
-        return $image;
     }
 }*/
 
@@ -1511,7 +1468,7 @@ function main_cinema_domain($cinema_id) {
 //////////////////////
 
 function smarty_clear_cache($movie_id = NULL, $area = NULL, $user_id = NULL, $reset_smarty = false) {
-    global $mysqli, $global, $smarty;
+    global $mysqli, $config, $smarty;
     if ((!isset($smarty) || $reset_smarty)) {
         include($config['cinema_dir']."inc/smarty_vars.inc.php");
     }
@@ -1591,8 +1548,15 @@ function check_msg($conf = null, $er = null) {
 function check_confirm($msg, $echo_message = true) {
     global $global;
     if ($msg) {
-        $msg = "<div class=\"alert alert-success\" role=\"alert\"><img src='".$config['manage_url']."inc/icons/icon_tick_greenbutton.gif' alt='ok' width='15' height='15' align='absmiddle'> {$msg}</div>";
-        if ($echo_message) {
+        $msg = "
+			<div class=\"alert alert-success alert-dismissible fade show\" role=\"alert\"><img src='".$config['manage_url']."inc/icons/icon_tick_greenbutton.gif' alt='ok' width='15' height='15' align='absmiddle'> 
+			{$msg} 
+			<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+				<span aria-hidden=\"true\">&times;</span>
+			</button>
+			</div>
+		";
+		if ($echo_message) {
             echo $msg;
         } else {
             return $msg;
@@ -1605,7 +1569,15 @@ function check_confirm($msg, $echo_message = true) {
 function check_er($msg, $echo_message = true) {
     global $global;
     if ($msg) {
-        $msg = "<div class=\"alert alert-warning\" role=\"alert\"><img src='".$config['manage_url']."inc/icons/icon_exclaim_onyellow.gif' alt='ok' width='15' height='15' align='absmiddle'> {$msg}</div>";
+        $msg = "
+			<div class=\"alert alert-danger alert-dismissible fade show\" role=\"alert\"><img src='".$config['manage_url']."inc/icons/icon_exclaim_onyellow.gif' alt='ok' width='15' height='15' align='absmiddle'> 
+			<strong>Error: </strong>
+			{$msg} 
+			<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+				<span aria-hidden=\"true\">&times;</span>
+			</button>
+			</div>
+		";
 		if ($echo_message) {
             echo $msg;
         } else {
@@ -1618,7 +1590,14 @@ function check_er($msg, $echo_message = true) {
 
 function check_notice($msg, $echo_message = true) {
     if ($msg) {
-        $msg = "<img src='images/icon_exclaim_onyellow.gif' alt='!' width=15 height=15 align='absmiddle'> <strong>{$msg}</strong>";
+        $msg = "
+			<div class=\"alert alert-warning alert-dismissible fade show\" role=\"alert\"><img src='".$config['manage_url']."inc/icons/icon_exclaim_onyellow.gif' alt='ok' width='15' height='15' align='absmiddle'> 
+			{$msg} 
+			<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+				<span aria-hidden=\"true\">&times;</span>
+			</button>
+			</div>
+		";
         if ($echo_message) {
             echo $msg;
         } else {

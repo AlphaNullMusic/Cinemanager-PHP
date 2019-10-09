@@ -19,12 +19,12 @@ if(!$smarty->isCached($tpl,$cache_id)) {
 	$smarty->assign('tpl_name',$tpl_name);
 	
 	// Get session data
-	$smarty->assign('sessions',get_sessions_today($cinema_id,NULL,NULL,"s.time,m.title",true));
+	$smarty->assign('sessions',get_sessions_today($cinema_id,NULL,NULL,"s.time,m.title",true,'large'));
 	$smarty->assign('day',$get_sessions_today_day);
 	$smarty->assign('date',$get_sessions_today_date);
 	
-	// Get full movie list (type, order by, number of sessions, date format, alt date format, limit, session start, movie array, days of sessions, get session labels)
-	$smarty->assign('now_showing',get_movie_list_full('ns','m.title',14,'%W %D','%e %b',20,'today',null,null,true));
+	// Get full movie list (type, order by, number of sessions, date format, alt date format, limit, session start, movie array, days of sessions, get session labels, large poster)
+	$smarty->assign('now_showing',get_movie_list_full('ns','m.title',14,'%W %D','%e %b',20,'today',null,null,true,'large'));
 	
 	// Common functions
 	include('inc/local.inc.php');

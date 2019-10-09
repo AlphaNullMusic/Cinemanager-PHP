@@ -2,7 +2,7 @@
 require("/inc/manage.inc.php");
 
 if (check_cinema()) {
-	header("Location: films.php");
+	header("Location: movies.php");
 	exit;
 }
 
