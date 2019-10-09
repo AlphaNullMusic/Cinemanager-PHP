@@ -1,6 +1,9 @@
 <?php
 require("inc/manage.inc.php");
 
+// For processing large posters
+ini_set('memory_limit', '512M');
+
 if (check_cinema() && (has_permission('sessions'))) {
 
     // Confirmation
@@ -11,7 +14,7 @@ if (check_cinema() && (has_permission('sessions'))) {
 			WHERE movie_id='{$_GET['changed_id']}'
 		");
         $data         = $res->fetch_assoc();
-        $_GET['conf'] = "Sessions updated successfully for {$data['title']}.";
+        $_REQUEST['conf'] = "Sessions updated successfully for {$data['title']}.";
     }
     
     if (isset($_REQUEST['action']) && $_REQUEST['action'] == "listmovie") {
@@ -26,14 +29,14 @@ if (check_cinema() && (has_permission('sessions'))) {
             // Check if the submitted title already exists
             $sql = "
 				SELECT title,
-					   classification_id 
+					   classification_id,
+					   movie_id
 				FROM movies 
 				WHERE imdb_id='" . $mysqli->real_escape_string($_REQUEST['movie_id']) . "'
 			";
             $res = $mysqli->query($sql) or user_error("Gnarly: $sql");
             if ($res->num_rows == 0) {
                 // Movie does not exist, add to main database
-				// rated = real escape string of get_classification_id()
                 $movie_details = get_movie_basics($_REQUEST['movie_id']);
                 $sql = "
 					INSERT INTO movies 
@@ -48,12 +51,19 @@ if (check_cinema() && (has_permission('sessions'))) {
 				";
                 $mysqli->query($sql) or user_error("Gnarly: $sql");
                 $movie_id = $mysqli->insert_id;
+				save_poster($movie_details['poster'], $movie_id, $custom = false);
                 //update_movie_cache($movie_id);
             } else {
                 // Movie exists, set movie_id to existing movie
                 $data     = $res->fetch_assoc();
                 $movie_id = $data['movie_id'];
                 $class_id = $data['classification_id'];
+				$sql = "
+					UPDATE movies 
+					SET status='ok'
+					WHERE movie_id = '" . $mysqli->real_escape_string($movie_id) . "'
+				";
+                $mysqli->query($sql) or user_error("Gnarly: $sql");
             }
         }
 
@@ -125,7 +135,7 @@ function expire_movie($movie_id) {
 		WHERE movie_id = '$movie_id'
 	";
     $mysqli->query($sql) or user_error("Gnarly: $sql");
-    remove_custom_images($movie_id);
+	delete_poster($movie_id, $type = 'custom');
     // Clear smarty cache
     smarty_clear_cache($movie_id);
     return true;
@@ -323,52 +333,15 @@ if (check_cinema() && (has_permission('sessions'))) {
 	      <input type="hidden" name="action" value="findmovie">
 	    </form>
 	    <?php
-        if (isset($_REQUEST['alpha']) || isset($_REQUEST['keyword'])) {
-            $alpha     = (isset($_REQUEST['alpha'])) ? $_REQUEST['alpha'] : '';
+		// Get search with keyword
+        if (isset($_REQUEST['keyword'])) {
             $keyword   = (isset($_REQUEST['keyword'])) ? trim($_REQUEST['keyword']) : '';
-            $sql       = "
-				SELECT 
-					m.movie_id, 
-					m.imdb_id, 
-					m.title, 
-					mc.cast,
-					i.image_name, 
-					d.name AS distributor
-				FROM movies m 
-				LEFT JOIN custom_images ci
-					ON m.custom_poster_id = custom_image_id
-				WHERE 
-			";
-            $searching = true;
-            if ($alpha == 'num') {
-                $sql .= "( ";
-                for ($n = 0; $n <= 9; $n++) {
-                    if ($n > 0) {
-                        $sql .= "OR ";
-                    }
-                    $sql .= "m.title LIKE '$n%' OR m.title LIKE 'The $n%'";
-                }
-                $sql .= ") AND m.status='ok'";
-            } else if (strtolower($alpha) == "t") {
-                $sql .= "((m.title LIKE '$alpha%' AND m.title NOT LIKE 'The %') OR m.title LIKE 'The $alpha%') AND (m.status='ok' OR m.status='new' OR m.status='hidden')";
-            } else if ($alpha) {
-                $sql .= "(m.title LIKE '$alpha%' OR m.title LIKE 'The $alpha%') AND (m.status='ok' OR m.status='new' OR m.status='hidden')";
-            } else if (!empty($keyword)) {
-                $sql .= "m.title LIKE '%$keyword%' AND (m.status='ok' OR m.status='new' OR m.status='hidden')";
-            } else {
-                $searching = false;
-            }
-            if ($searching) {
-                $sql .= "
-					AND m.master_movie_id = 0
-					GROUP BY m.movie_id 
-				";
-                if ($movie_list = get_movie_search($keyword)) {
-                    if ($movie_list['response'] == "True") { ?>
-		  <hr>
-		  <h2>Search Results</h2>
-	      <p class="subtle">Click a movie below to add it to your own movie list.</p>
-		  <table class="table table-striped table-sm">
+            if ($movie_list = get_movie_search($keyword)) {
+                if ($movie_list['response'] == "True") { ?>
+		<hr>
+		<h2>Search Results</h2>
+		<p class="subtle">Click a movie below to add it to your own movie list.</p>
+		<table class="table table-striped table-sm">
 		    <tbody>
 				<?php foreach ($movie_list['result'] as $f) { ?>
 		        <tr>
@@ -382,21 +355,47 @@ if (check_cinema() && (has_permission('sessions'))) {
 				<?php } ?>
 		    </tbody>
 		  </table>
-			<?php   } else { ?>
-                      <hr>
-                      <h2>Error</h2>
-	                  <p class="subtle">No results found. Please <a href="?action=addmovie&movie_id=new">click here</a> if you wish to manually add it.</p>
-			  <?php }
-                }
-            } ?>
+		  <?php } else { ?>
+        <hr>
+        <h2>Error</h2>
+	    <p class="subtle">No results found. Please <a href="?action=addmovie&movie_id=new">click here</a> if you wish to manually add it.</p>
+		  <?php } ?>
 	      <p>
 	        <br>
 			If you can't find the movie you wish to add in the list above,<br>
 			<a href="?action=addmovie&movie_id=new">click here</a> to manually add it.
 	      </p>
-  <?php }
-	// Main view, just show movies
-    } else { ?>
+		  
+		<?php }
+		// Get movie with IMDB ID
+		} elseif (isset($_REQUEST['imdbID'])) {
+            $imdbID = (isset($_REQUEST['imdbID'])) ? trim($_REQUEST['imdbID']) : '';
+            if ($movie_list = get_movie_basics($imdbID)) {
+                if (!empty($movie_list)/*$movie_list['response'] == "True"*/) { ?>
+		<hr>
+		<h2>Search Results</h2>
+	    <p class="subtle">Click a movie below to add it to your own movie list.</p>
+		<table class="table table-striped table-sm">
+		    <tbody>
+		        <tr>
+					<td class="title autowidth" bgcolor="#ffffff">
+						<a href='?action=addmovie&movie_id=<?php echo $movie_list['imdbID'] ?>'  class="search_poster">
+							<img src="<?php echo (isset($movie_list['poster']) ? $movie_list['poster'] : '/inc/img/no_image_available.gif') ?>" width="30" height="44">
+						</a>
+						<a href='?action=addmovie&movie_id=<?php echo $movie_list['imdbID'] ?>'><?php echo $movie_list['title'] ?> (<?php echo $movie_list['year']?>)</a>
+					</td>
+				</tr>
+		    </tbody>
+		</table>
+		  <?php } else { ?>
+        <hr>
+        <h2>Error</h2>
+	    <p class="subtle">No results found. Please <a href="?action=addmovie&movie_id=new">click here</a> if you wish to manually add it.</p>
+		  <?php }
+                }
+        }
+	// Main view
+	} else { ?>
 	<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
 	    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
 	        <h1 class="h2">Your Movies</h1>
@@ -420,7 +419,7 @@ if (check_cinema() && (has_permission('sessions'))) {
 		  <table class="table table-striped table-sm">
 		    <tbody>
 		      <?
-            if ($movie_list = get_movie_list_full($status, ($status == 'cs') ? 'tbc,m.release_date,m.title' : 'm.title', 7, '%e %b', '%e %b', 500, 'today', NULL, NULL, false))
+            if ($movie_list = get_movie_list_full($status, ($status == 'cs') ? 'tbc,m.release_date,m.title' : 'm.title', 7, '%e %b', '%e %b', 500, 'today', NULL, NULL, false, 'tiny'))
               {
                 foreach ($movie_list as $movie_item)
                   {
@@ -519,15 +518,8 @@ if (check_cinema() && (has_permission('sessions'))) {
 	        </form>
               <?
           }
-?>			
-	<?
-      }
-?>				
-      <?
-  }
-else
-  {
-?>
+		}
+	} else { ?>
 	<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
             <h1 class="h2">Website Content Management For Cinemas</h1>

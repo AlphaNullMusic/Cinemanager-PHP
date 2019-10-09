@@ -17,8 +17,8 @@ if(!$smarty->isCached($tpl,$cache_id)) {
 	$smarty->assign('movie_trailer_url',$global['movie_trailer_url']);
 	$smarty->assign('tpl_name',$tpl_name);
 
-	// Get full movie list (type, order by, number of sessions, date format, alt date format, limit, session start, movie array, days of sessions, get session labels)
-	$smarty->assign('now_showing',get_movie_list_full('ns','m.title',14,'%W %D','%e %b',100,'today',null,null,true));
+	// Get full movie list (type, order by, number of sessions, date format, alt date format, limit, session start, movie array, days of sessions, get session labels, medium poster)
+	$smarty->assign('now_showing',get_movie_list_full('ns','m.title',14,'%W %D','%e %b',100,'today',null,null,true,'medium'));
 	
 	// Common functions
 	include('inc/local.inc.php');

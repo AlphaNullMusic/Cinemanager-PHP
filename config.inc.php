@@ -28,7 +28,7 @@ $config = array(
 	"image_overlay_dir"	=> $root_dir."media.moviemanager.biz/overlays/",
 	
 	// Posters
-	"poster_url" => "https://posters.shoreline.nz",
+	"poster_url" => "https://posters.shoreline.nz/",
 	"poster_dir" => $root_dir."posters/",
 	
 	// Movie Images
@@ -88,75 +88,6 @@ $config = array(
 	
 );
 
-/////////////////
-// Image Sizes //
-/////////////////
-
-$config['image_sizes'] = array(
-	// Raw Image
-	'raw' => array(
-		'width' => 3000,
-		'height' => 3000,
-		'output' => 'jpg:85'
-	),
-	// Old Still Sizes
-	'small' => array(
-		'width' => 100,
-		'height' => 100
-	),
-	'normal' => array(
-		'width' => 180,
-		'height' => 180,
-	),
-	'medium' => array(
-		'width' => 250,
-		'height' => 250,
-	),
-	// Old Poster Sizes
-	'tiny' => array(
-		'width' => 80,
-		'height' => 150,
-	),
-	'poster' => array(
-		'width' => 150,
-		'height' => 300,
-	),
-	'large' => array(
-		'width' => 250,
-		'height' => 500,
-	),
-	// Mobile Sizes
-	'mobilemini' => array(
-		'width' => 34,
-		'height' => 46,
-		'crop_style' => 'narrow_centre',
-	),
-	'mobileposter' => array(
-		'width' => 86,
-		'height' => 126,
-		'crop_style' => 'narrow_centre',
-	),
-	'mobilepostermini' => array(
-		'width' => 40,
-		'height' => 80,
-	),
-	// Mobile App Sizes
-	'appposter' => array(
-		'width' => 640,
-		'height' => 1136,
-	),
-	// Non-Poster Sizes
-	'aithumb' => array(
-		'width' => 50,
-		'height' => 50,
-		'crop_style' => 'narrow_centre'
-	),
-	'aimedium' => array(
-		'width' => 400,
-		'height' => 600,
-	),
-);
-
 //////////////////
 // Poster Sizes //
 //////////////////
@@ -189,8 +120,8 @@ $config['poster_sizes'] = array(
 	// Original
 	'full' => array(
 		'name' => 'full',
-		'height' => 2046
-		/*'width' => 100*/
+		/*'height' => 2046
+		'width' => 100*/
 		// keep aspect ratio when converting
 	),
 );

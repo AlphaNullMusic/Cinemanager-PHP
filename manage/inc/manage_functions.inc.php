@@ -94,8 +94,124 @@ function delete_movie($movie_id) {
     }
 }*/
 
+function save_poster($url, $movie_id, $custom = false) {
+	global $config, $mysqli;
+	$dir = $config['poster_dir'];
+	list($width_orig, $height_orig) = getimagesize($url);
+	$ids = array();
+	$url_split = explode('SX300.jpg',$url);
+	$url_split1 = explode('.jpg',$url_split[0]);
+	$img_url = $url_split1[0].'.jpg';
+	//$img_url = $url;
+		
+	if ($custom == false) {
+		$status = 'default';
+	} else {
+		$status = 'custom';
+	}
+		
+	// For each poster size needed
+	foreach ($config['poster_sizes'] as $size) {
+		if (isset($size['width']) && isset($size['height'])) {
+			$dst_width = $size['width'];
+			$dst_height = $size['height'];
+		} elseif (isset($size['width'])) {
+			$dst_width = $size['width'];
+			$dst_height = ($dst_width/$width_orig)*$height_orig;
+		} elseif (isset($size['height'])) {
+			$dst_height = $size['height'];
+			$dst_width = ($dst_height/$height_orig)*$width_orig;
+		} elseif (!isset($size['height']) && !isset($size['width']) && $size['name'] == 'full') {
+			$dst_width = $width_orig;
+			$dst_height = $height_orig;
+		}
+			
+		$img = imagecreatetruecolor($dst_width,$dst_height);
+		$tmp_img = imagecreatefromjpeg($img_url);
+		imagecopyresampled($img, $tmp_img, 0, 0, 0, 0, $dst_width, $dst_height, $width_orig, $height_orig);
+		
+		$name = $movie_id.'-'.$size['name'].'-'.$status.'.jpg';
+		// Add data to posters table
+		$sql = "
+			INSERT IGNORE INTO posters
+			SET 
+				movie_id = '".$mysqli->real_escape_string($movie_id)."',
+				size = '".$mysqli->real_escape_string($size['name'])."',
+				name = '".$mysqli->real_escape_string($name)."',
+				status = '".$mysqli->real_escape_string($status)."'
+		";
+		$mysqli->query($sql) or user_error("Error at ".$sql);
+		imagejpeg($img,$dir.$name);
+		imagedestroy($img);
+	}
+		
+	// Set custom_poster to true in movies table
+	if ($custom == true) {
+		$sql = "
+			UPDATE movies
+			SET custom_poster = '1'
+			WHERE movie_id = '".$mysqli->real_escape_string($movie_id)."'
+		";
+		$mysqli->query($sql) or user_error("Error at ".$sql);
+	} else {
+		$sql = "
+			UPDATE movies
+			SET custom_poster = '0'
+			WHERE movie_id = '".$mysqli->real_escape_string($movie_id)."'
+		";
+		$mysqli->query($sql) or user_error("Error at ".$sql);
+	}
+	return true;
+}
+	
+function delete_poster($movie_id, $type = 'custom') {
+	global $config, $mysqli;
+	$dir = $config['poster_dir'];
+
+	if ($type == 'all') {
+		foreach ($config['poster_sizes'] as $size) {
+			$path = $dir.$movie_id.'-'.$size['name'].'-';
+			@unlink($path.'default.jpg');
+			@unlink($path.'custom.jpg');
+		}
+	} else {
+		foreach ($config['poster_sizes'] as $size) {
+			$path = $dir.$movie_id.'-'.$size['name'].'-custom.jpg';
+			@unlink($path);
+		}
+	}
+		
+	$sql = "
+		UPDATE movies
+		SET custom_poster = '0'
+		WHERE movie_id = '".$mysqli->real_escape_string($movie_id)."'
+	";
+	$mysqli->query($sql) or user_error("Error at ".$sql);
+	return true;
+}
+	
+function get_custom_poster($movie_id) {
+	global $mysqli;
+	$sql = "
+		SELECT custom_poster
+		FROM movies
+		WHERE movie_id = '".$mysqli->real_escape_string($movie_id)."'
+	";
+	$res = $mysqli->query($sql) or user_error("Error at ".$sql);
+	if ($res->num_rows != 1) {
+		return false;
+	} else {
+		$data = $res->fetch_assoc();
+		if ($data['custom_poster'] == 1) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+}	
+
 // Remove custom posters, but only if it has not been moved to the common primary image
-function remove_custom_images($film_id, $cinema_id) {
+/*function remove_custom_images($film_id, $cinema_id) {
     global $mysqli;
     $sql = "
 		SELECT mi.image_id
@@ -122,7 +238,7 @@ function remove_custom_images($film_id, $cinema_id) {
 		";
         $mysqli->query($sql) or user_error("Error at: $sql");
     }
-}
+}*/
 
 // Delete directory contents
 function empty_directory($dirname, $rmdir = false) {
