@@ -214,35 +214,35 @@ if (check_cinema() && (has_permission('sessions'))) {
 		    <textarea name="description" cols="50" rows="6"></textarea>
 		  </p>
 	  <?php } else { ?>
-	          <p>Add "<?
+	          <p>Add "<?php
                 echo $movie_data['title'];
 ?>" to your movie list...</p>
-	        <?
+	        <?php
               }
 ?>
 	        <p><strong>When do you start screening this movie?</strong><br>
 	        <em>Leave this as today's date if the movie is already showing.</em><br>
 	        <select name="d" id="d">
-		  <?
+		  <?php
             for ($n = 1; $n <= 31; $n++)
               {
 ?>
-		    <option value="<?
+		    <option value="<?php
                 echo $n;
-?>" <?
+?>" <?php 
                 if ($d == $n)
                   {
                     echo "selected";
                   }
-?>><?
+?>><?php 
                 echo $n;
 ?></option>
-		  <?
+		  <?php 
               }
 ?>
 	        </select>
 	        <select name="m" id="m">
-		  <?
+		  <?php 
             $months = array(
                 1 => "January",
                 "February",
@@ -260,27 +260,27 @@ if (check_cinema() && (has_permission('sessions'))) {
             for ($n = 1; $n <= count($months); $n++)
               {
 ?>
-		    <option value="<?
+		    <option value="<?php 
                 echo $n;
-?>" <?
+?>" <?php 
                 if ($m == $n)
                   {
                     echo "selected";
                   }
-?>><?
+?>><?php 
                 echo $months[$n];
 ?></option>
-		  <?
+		  <?php 
               }
 ?>
 	        </select>
 	        <select name="y" id="y">
-	          <?
+	          <?php 
             for ($n = date('Y') - 1; $n <= (date('Y') + 2); $n++)
               {
 ?>
 	            <option value="<?php echo $n ?>" <?php echo ($y == $n) ? 'selected' : '' ?>><?php echo $n ?></option>
-	          <?
+	          <?php 
               }
 ?>
 	        </select>
@@ -298,7 +298,7 @@ if (check_cinema() && (has_permission('sessions'))) {
 		  <label for="redir_4">Return to movie list</label>
 	        </p>
 	        <p>
-		  <input name="movie_id" type="hidden" value="<?
+		  <input name="movie_id" type="hidden" value="<?php 
             echo $_REQUEST['movie_id'];
 ?>">
 		  <input name="action" type="hidden" value="listmovie">
@@ -371,7 +371,7 @@ if (check_cinema() && (has_permission('sessions'))) {
 		} elseif (isset($_REQUEST['imdbID'])) {
             $imdbID = (isset($_REQUEST['imdbID'])) ? trim($_REQUEST['imdbID']) : '';
             if ($movie_list = get_movie_basics($imdbID)) {
-                if (!empty($movie_list)/*$movie_list['response'] == "True"*/) { ?>
+                if (!empty($movie_list['title'])/*$movie_list['response'] == "True"*/) { ?>
 		<hr>
 		<h2>Search Results</h2>
 	    <p class="subtle">Click a movie below to add it to your own movie list.</p>
@@ -407,7 +407,7 @@ if (check_cinema() && (has_permission('sessions'))) {
         </div>
         <?php echo check_msg(); ?>
             <p>Click a title to edit the film details, click the green numbers to prioritise your films.</p>	
-	      <?
+	      <?php
         foreach (array(
             'all' => 'Current Movies',
             'cs' => 'Coming Soon'
@@ -418,7 +418,7 @@ if (check_cinema() && (has_permission('sessions'))) {
 	        <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data">
 		  <table class="table table-striped table-sm">
 		    <tbody>
-		      <?
+		      <?php 
             if ($movie_list = get_movie_list_full($status, ($status == 'cs') ? 'tbc,m.release_date,m.title' : 'm.title', 7, '%e %b', '%e %b', 500, 'today', NULL, NULL, false, 'tiny'))
               {
                 foreach ($movie_list as $movie_item)
@@ -437,13 +437,13 @@ if (check_cinema() && (has_permission('sessions'))) {
 			      
 				<a href="movie_edit_details.php?movie_id=<?php echo $movie_item['movie_id'] ?>" title="<?php echo $movie_item['title'] ?>"><?php echo summary($movie_item['title'], 36, 'char', '...', true) ?>
 				</a>
-				<?
+				<?php 
                         if ($status == 'cs')
                           {
 ?>
 				  <br>
 				  <span class="subtle">Release Date: <?php echo (isset($movie_item['release_date']) && !empty($movie_item['release_date'])) ? $movie_item['release_date'] : 'TBC' ?></span>
-				<?
+				<?php 
                           }
 ?>
 			      </td>
@@ -455,23 +455,23 @@ if (check_cinema() && (has_permission('sessions'))) {
 				<span title="<?php echo $movie_item['total_sessions'] ?> sessions<?php echo ($movie_item['session_days_count']) ? " over {$movie_item['session_days_count']} days" : "" ?>">(<?php echo $movie_item['total_sessions'] ?>)</span>
 			      </td>
 			        
-			      <?
+			      <?php 
                         if ($allow_presets)
                           {
 ?>
 			        <td nowrap>
-			          <?
+			          <?php 
                             if ($movie_item['total_sessions'])
                               {
 ?>
 			            <a href="labels.php?movie_id_array[]=<?php echo $movie_item['movie_id'] ?>">
 			              <img src="images/icon_mm_prices.gif" width="19" height="13" border="0" align="absmiddle">Session Labels
 			            </a>
-			          <?
+			          <?php 
                               }
 ?>
 			        </td>
-			      <?
+			      <?php 
                           }
                         if ($status != 'cs')
                           {
@@ -480,11 +480,11 @@ if (check_cinema() && (has_permission('sessions'))) {
 				<td>
 				  <input name="movie_ids[]" type="checkbox" value="<?php echo $movie_item['movie_id'] ?>"<?php echo (!$coming_soon && $movie_item['total_sessions'] == 0) ? " checked" : "" ?>>
 				</td>
-			      <?
+			      <?php 
                           }
 ?>
 			    </tr>
-			  <?
+			  <?php
                       }
                   }
               }
@@ -496,11 +496,11 @@ if (check_cinema() && (has_permission('sessions'))) {
 			    <em>No movies currently listed.</em>
 			  </td>
 			</tr>
-		      <?
+		      <?php 
               }
 ?>
 		    </tbody>
-		    <?
+		    <?php 
             if ($status != 'cs' && isset($ns_movies_present))
               {
 ?>
@@ -511,12 +511,12 @@ if (check_cinema() && (has_permission('sessions'))) {
 			  <input type="submit" class="btn btn-sm btn-outline-danger" value="Delete Ticked Movies &uarr;" onClick="return confirmDelete()">
 			</td>
 		      </tfoot>
-		    <?
+		    <?php 
               }
 ?>
 		  </table>
 	        </form>
-              <?
+              <?php 
           }
 		}
 	} else { ?>
@@ -524,15 +524,15 @@ if (check_cinema() && (has_permission('sessions'))) {
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
             <h1 class="h2">Website Content Management For Cinemas</h1>
           </div>
-	<p><?
+	<p><?php 
     check_notice("Either you are not logged in or you do not have permission to use this feature.");
 ?></p>
 	<p>This page allows cinemas to update their free NZ Cinema movie listing in minutes. Registered cinemas can also control their own website: modify and add pages, changes session times and movie details, maintain their upcoming features list and much more.</p>
 	<p>This content management system has been built specifically for New Zealand cinema operators to streamline the website updating process. If you are a cinema operator and would like more information on any of our services, please don't hesitate to <a href="contact.php">contact us</a>.</p>				
-      <?
+      <?php 
   }
 ?>				
-    <?
+    <?php 
 include("inc/footer.inc.php");
 ?>
   </body>

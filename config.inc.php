@@ -134,7 +134,7 @@ define('DB_TYPE', 'mysql');
 define('DB_HOST', "localhost");
 define('DB_NAME', "shoreline");
 define('DB_USER', "root");
-define('DB_PASS', "");
+define('DB_PASS', "root");
 
 if (isset($use_pdo)) {
 	db_pdo();
