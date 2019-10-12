@@ -442,8 +442,6 @@ function confirm($msg = NULL, $type = 'ok') {
 class manage_sessions {
     var $session_date;
     var $movie_id;
-    //var $cinema_id;
-    //var $prices = false;
     var $old_sessions = array();
     var $pattern = "/([0-2]{0,1}[0-9]{1})([:|\.|\-][0-6]{1}[0-9]{1})?\s*(am|pm|noon)?\s*(\(.+?\))?/i";
     
@@ -461,7 +459,7 @@ class manage_sessions {
         $hour           = $matches[1];
         $mins           = (isset($matches[2])) ? $matches[2] : NULL;
         $ampm           = (isset($matches[3])) ? $matches[3] : NULL;
-        $comment        = (isset($matches[4])) ? $matches[4] : NULL;
+        //$comment        = (isset($matches[4])) ? $matches[4] : NULL;
         
         // Ensure minutes exist and have : separator
         $bad_separators = array(
@@ -489,7 +487,7 @@ class manage_sessions {
         }
         
         // Comments without brackets
-        if ($comment) { $comment = preg_replace('/\((.+)\)/', '\1', $comment); }
+        //if ($comment) { $comment = preg_replace('/\((.+)\)/', '\1', $comment); }
         
         // Convert to timestamp
         $session_time = $this->session_date . ' ' . $hour . $mins . $ampm;
@@ -501,8 +499,7 @@ class manage_sessions {
         $sql = "
 			SELECT session_id
 			FROM sessions
-			WHERE id = " . $this->id . "
-				AND movie_id = " . $this->movie_id . "
+			WHERE movie_id = " . $this->movie_id . "
 				AND time = FROM_UNIXTIME($session_time)
 		";
         $res = $mysqli->query($sql) or user_error("Error at: $sql");

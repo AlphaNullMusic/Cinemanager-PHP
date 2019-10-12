@@ -524,9 +524,7 @@ if (check_cinema() && (has_permission('sessions'))) {
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
             <h1 class="h2">Website Content Management For Cinemas</h1>
           </div>
-	<p><?php 
-    check_notice("Either you are not logged in or you do not have permission to use this feature.");
-?></p>
+	<p><?php check_notice("Either you are not logged in or you do not have permission to use this feature.");?></p>
 	<p>This page allows cinemas to update their free NZ Cinema movie listing in minutes. Registered cinemas can also control their own website: modify and add pages, changes session times and movie details, maintain their upcoming features list and much more.</p>
 	<p>This content management system has been built specifically for New Zealand cinema operators to streamline the website updating process. If you are a cinema operator and would like more information on any of our services, please don't hesitate to <a href="contact.php">contact us</a>.</p>				
       <?php 
