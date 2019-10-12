@@ -630,13 +630,14 @@ function get_movie($movie_id, $get_sessions = true, $extra_conditions = NULL) {
     $sql = "
         SELECT 
 			m.movie_id, 
+			m.imdb_id, 
 			m.title, 
 			m.runtime,
 			m.trailer, 
 			m.subtitled, 
 			m.last_updated, 
 			m.poster_url, 
-			m.custom_poster_id,   
+			m.custom_poster,   
             c.classification, 
 			m.classification_id, 
 			m.synopsis,  
@@ -683,7 +684,6 @@ function get_movie($movie_id, $get_sessions = true, $extra_conditions = NULL) {
             $return['sessions'] = (isset($raw_data['movies'])) ? $raw_data['movies'][$movie_id]['sessions'] : NULL;
         }
     }
-    
     return $return;
     
 }
@@ -1230,7 +1230,7 @@ function hrmin_convert($string, $return_pieces = false) {
 }*/
 
 // Update site stats
-function update_site_stats() {
+/*function update_site_stats() {
     if (!class_exists('db')) {
         db_pdo();
     }
@@ -1324,7 +1324,7 @@ function update_site_stats() {
         $stmt->execute();
     }
     $stmt = NULL;
-}
+}*/
 
 // Update the movie_list cache
 // This adds an event_id against a movie_list if one is found against a session, otherwise clears the movie_list event_id
@@ -1517,8 +1517,6 @@ function smarty_clear_cache($movie_id = NULL, $area = NULL, $user_id = NULL, $re
         if (strstr($area, 'global')) {
             $smarty->clearCache(NULL, $cinema_id);
         }
-    } elseif (isset($cinema_id)) {
-        $smarty->clearCache(NULL, $cinema_id);
     } else {
         return false;
     }

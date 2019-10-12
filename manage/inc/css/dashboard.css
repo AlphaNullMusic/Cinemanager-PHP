@@ -91,6 +91,7 @@ body {
 .border-top { border-top: 1px solid #e5e5e5; }
 .border-bottom { border-bottom: 1px solid #e5e5e5; }
 .search_poster:hover { text-decoration: none; }
+.mark, mark { background-color: #FFFF99;}
 
 @media (min-width: 576px) { 
     

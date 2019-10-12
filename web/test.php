@@ -166,9 +166,13 @@
 			}
 		}
 	}	
-	$_POST['duration'] = '1hr 20min';
-	$d = $_POST['duration'];
+	//$_POST['duration'] = '1hr 20min';
+	//$d = $_POST['duration'];
 	//save_poster('https://m.media-amazon.com/images/M/MV5BMTU2OTAxNjI2OV5BMl5BanBnXkFtZTgwNzc2NjUwODM@._V1_SX300.jpg','1',false);
-	echo stringtomins($d);
+	//echo stringtomins($d);
 	//delete_poster(1,'all');
+	
+	//$sessions = get_movie_sessions(NULL,NULL,false,'%Y-%m-%d', '%l:%i%p', true);
+	//print_r($sessions);
+	//print_r(get_movie(1, false, NULL));
 ?>
