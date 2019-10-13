@@ -9,51 +9,51 @@ if (check_cinema() && has_permission('sessions')) {
 		$sql = "DELETE FROM session_labels WHERE label_id = '{$_GET['delete']}'";
 		$mysqli->query($sql);
 		// Clear Smarty cache
-		smarty_clear_cache($_SESSION['cinema_data']['cinema_id']);
+		smarty_clear_cache(NULL,NULL,NULL,false,true);
 		// Reload
 		header("Location: labels.php?conf=Label deleted successfully.");
 		exit;
 	} 
 	
 	//apply session preset changes
-	/*elseif (isset($_POST['action']) && $_POST['action']=='apply_presets' && isset($_POST['session_labels'])) {
-		//validation
+	elseif (isset($_POST['action']) && $_POST['action']=='apply_presets' && isset($_POST['session_labels'])) {
+		// Validation
 		if (!isset($_POST['s']) || !is_array($_POST['s'])) {
-			$er="No sessions were selected.";
+			$er = "No sessions were selected.";
 		}
 		if (!isset($er)) {
-			$sp=new manage_sessions();
-			$sp->cinema_id = $_SESSION['cinema_data']['cinema_id'];
-			$sp->prices = false;
+			$sp = new manage_sessions();
 			foreach ($_POST['s'] as $s) {
-				if ($_POST['session_preset_group']=='default') {
-					$sp->set_default_prices($s);
+				if ($_POST['session_labels']=='default') {
+					//$sp->set_default_prices($s);
+					$sp->set_label($s);
 				} else {
-					$sp->set_custom_prices($s,$_POST['session_labels']);
+					//$sp->set_custom_prices($s,$_POST['session_labels']);
+					$sp->set_label($s,$_POST['session_labels']);
 				}
 			} 
 		}
-		//clear smarty cache
+		// Clear Smarty cache
 		smarty_clear_cache($_SESSION['cinema_data']['cinema_id']);
-		//reload
-		$location="labels.php?";
-		//add movie_id_array
+		// Reload
+		$location = "labels.php?";
+		// Add movie_id_array
 		if (isset($_REQUEST['movie_id_array'])) {
 			foreach ($_REQUEST['movie_id_array'] as $m) {
-				$location.="movie_id_array[]=$m&";
+				$location .= "movie_id_array[]=$m&";
 			}
 		}
 		if (isset($er)) {
-			$location.="er=$er";
+			$location .= "er=$er";
 		} else {
-			$location.="conf=Labels updated successfully.";
+			$location .= "conf=Labels updated successfully.";
 		}
-		//clear smarty cache
-		smarty_clear_cache($_SESSION['cinema_data']['cinema_id']);
-		//reload
+		// Clear smarty cache
+		smarty_clear_cache(NULL,NULL,NULL,false,true);
+		// Reload
 		header("Location: $location");
 		exit;
-	} */
+	}
 	
 	// Editing presets
 	elseif (isset($_REQUEST['edit'])) {
@@ -122,7 +122,7 @@ if (check_cinema() && has_permission('sessions')) {
 				$location .= "conf=Label saved successfully.";
 			}
 			// Clear smarty cache
-			smarty_clear_cache();
+			smarty_clear_cache(NULL,NULL,NULL,false,true);
 			// Reload
 			header("Location: $location");
 			exit;

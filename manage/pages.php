@@ -1,6 +1,5 @@
 <?php
 require("inc/manage.inc.php");
-
 global $mysqli;
 
 if (check_cinema() && has_permission('edit_pages')) {
@@ -70,7 +69,7 @@ if (check_cinema() && has_permission('edit_pages')) {
 						    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
 						        <h1 class="h2">Edit Your Webpages</h1>
 						    </div>
-							<?php confirm() ?>
+							<?php echo check_msg(); ?>
 							<p><em>Sorry but the page you are requesting could not be found or you don't have permission to edit it.</em></p>
 						</main>
 			  <?php } else { ?>
@@ -78,17 +77,21 @@ if (check_cinema() && has_permission('edit_pages')) {
 						    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
 								<h1 class="h2">Editing <?php echo $page['title']?></h1>
 						    </div>
-							<? confirm() ?>
+							<? echo check_msg(); ?>
 							<form action="pages.php" method="post" name="page_form">
 								<p>Use the boxes below to edit this page. If you are copying and pasting from Microsoft Word, please use the Paste From Word or Paste as Plain Text buttons, otherwise your formatting might get muddled.</p>
 								<?php 
-								$tiny_mce_name = 'content';
-								$tiny_mce_value = $page['content'];
-								//include('inc/tiny_mce/load.php');
-								include('inc/quill/load.php');
+								$editor_name = 'content';
+								$editor_value = $page['content'];
+								include('inc/tiny_mce/load.php');
+								//include('inc/quill/load.php');
 								?>
 								<input type="hidden" name="edit" value="<?php echo $_REQUEST['edit']?>">
-								<p><input type="submit" name="submit" class="submit" value="Save This Page" /> &nbsp; &nbsp; or <a href="pages.php">abandon</a> your changes.</p>
+								<p>
+									<input type="submit" name="submit" class="btn btn-success submit" value="Save This Page" /> 
+										&nbsp; or &nbsp; 
+									<a href="pages.php" class="btn btn-outline-danger">abandon your changes.</a>
+								</p>
 							</form>
 						</main>
 			  <?php }
@@ -97,7 +100,7 @@ if (check_cinema() && has_permission('edit_pages')) {
 						<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
 						    <h1 class="h2">Edit Your Webpages</h1>
 						</div>
-						<?php confirm() ?>
+						<?php echo check_msg(); ?>
 						<p>Click on a page below to edit it.</p>
 				        <?php $sql="
 							SELECT 

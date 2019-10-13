@@ -1,5 +1,5 @@
-<script type="text/javascript" src="includes/tiny_mce/tiny_mce.js"></script>
-<script type="text/javascript" src="includes/tiny_mce/plugins/tinybrowser/tb_tinymce.js.php"></script>
+<script type="text/javascript" src="inc/tiny_mce/tiny_mce.js"></script>
+<script type="text/javascript" src="inc/tiny_mce/plugins/tinybrowser/tb_tinymce.js.php"></script>
 <script type="text/javascript">
 	tinyMCE.init({
 		mode : "textareas",
@@ -25,18 +25,17 @@
 		external_link_list_url : "js/link_list.js",
 		external_image_list_url : "js/image_list.js",
 		file_browser_callback : "tinyBrowser",
-		content_css : "<?=$global['cinema_url'].$_SESSION['cinema_data']['cinema_id']?>/<?="inc/css/editor.css"; ?>",
+		content_css : "<?php echo $config['manage_url'].'inc/css/editor.css'; ?>",
 	});
 </script>
-<textarea name="<?=$tiny_mce_name?>" style="width:100%;height:300px;"><?=$tiny_mce_value?></textarea>
-<p id="editor_tips_link"><a href="javascript:;" onClick="document.getElementById('editor_tips').style.display='block';document.getElementById('editor_tips_link').style.display='none';">Editor Tips</a></p>
+<textarea name="<?php echo $editor_name?>" style="width:100%;height:300px;"><?php echo $editor_value?></textarea>
 <div id="editor_tips">
 	<h2>Editor Tips</h2>
 	<p>If you are copying and pasting from Microsoft Word, please use the Paste From Word or Paste as Plain Text buttons, otherwise your formatting might get muddled.</p>
 	<ul>
-		<li><img src="images/icon-tinymce-pasteword.gif" width="16" height="16" align="absmiddle" alt="" /> <strong>Paste From Word</strong> - always use this button when copying and pasting from Word.</li>
-		<li><img src="images/icon-tinymce-cleanup.gif" width="16" height="16" align="absmiddle" alt="" /> <strong>Remove Formatting</strong> - if text still pastes in weird press this to clean up the formatting.</li>
-		<li><img src="images/icon-tinymce-link.gif" width="16" height="16" align="absmiddle" alt="" /> <strong>Insert Link</strong> - select the text you want to link from, then press this button to make it a link.</li>
-		<li><img src="images/icon-tinymce-image.gif" width="16" height="16" align="absmiddle" alt="" /> <strong>Insert Image</strong> - you can insert images from your computer or other websites.</li>
+		<li><img src="inc/icons/icon-tinymce-pasteword.gif" width="16" height="16" align="absmiddle" alt="" /> <strong>Paste From Word</strong> - always use this button when copying and pasting from Word.</li>
+		<li><img src="inc/icons/icon-tinymce-cleanup.gif" width="16" height="16" align="absmiddle" alt="" /> <strong>Remove Formatting</strong> - if text still pastes in weird press this to clean up the formatting.</li>
+		<li><img src="inc/icons/icon-tinymce-link.gif" width="16" height="16" align="absmiddle" alt="" /> <strong>Insert Link</strong> - select the text you want to link from, then press this button to make it a link.</li>
+		<li><img src="inc/icons/icon-tinymce-image.gif" width="16" height="16" align="absmiddle" alt="" /> <strong>Insert Image</strong> - you can insert images from your computer or other websites.</li>
 	</ul>
 </div>

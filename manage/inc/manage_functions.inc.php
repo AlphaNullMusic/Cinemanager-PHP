@@ -447,10 +447,7 @@ class manage_sessions {
     
     function process_session_string($sessions) {
         $this->old_sessions = $this->day_sessions();
-        preg_replace_callback($this->pattern, array(
-            $this,
-            'insert_individual_session'
-        ), $sessions);
+        preg_replace_callback($this->pattern, array($this,'insert_individual_session'), $sessions);
         $this->cleanup_day();
     }
     
@@ -529,6 +526,25 @@ class manage_sessions {
         return true;
     }
     
+	// Set label for a session
+	function set_label($s,$id = NULL) {
+		global $mysqli;
+		if (isset($id)) {
+			$sql = "
+				UPDATE sessions
+				SET label_id = $id
+				WHERE session_id = $s
+			";
+		} else {
+			$sql = "
+				UPDATE sessions
+				SET label_id = NULL
+				WHERE session_id = $session_id
+			";
+		}
+		$mysqli->query($sql) or user_error("Error at: ".$sql);
+	}
+
     // Get a list of sessions for a particular day
     function day_sessions() {
         global $mysqli;

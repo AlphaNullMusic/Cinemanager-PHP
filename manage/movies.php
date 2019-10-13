@@ -450,29 +450,24 @@ if (check_cinema() && (has_permission('sessions'))) {
 				
 			      <td nowrap>
 				<a href="movie_edit_sessions.php?movie_id=<?php echo $movie_item['movie_id'] ?>">
-				  <img src="images/icon_mm_sessions.gif" width="19" height="13" border="0" align="absmiddle">Session Times
+				  <img src="inc/icons/icon_mm_sessions.gif" width="19" height="13" border="0" align="absmiddle">Session Times
 				</a>
 				<span title="<?php echo $movie_item['total_sessions'] ?> sessions<?php echo ($movie_item['session_days_count']) ? " over {$movie_item['session_days_count']} days" : "" ?>">(<?php echo $movie_item['total_sessions'] ?>)</span>
 			      </td>
 			        
-			      <?php 
-                        if ($allow_presets)
-                          {
-?>
 			        <td nowrap>
-			          <?php 
+			          <?php
                             if ($movie_item['total_sessions'])
-                              {
+                              { 
 ?>
 			            <a href="labels.php?movie_id_array[]=<?php echo $movie_item['movie_id'] ?>">
-			              <img src="images/icon_mm_prices.gif" width="19" height="13" border="0" align="absmiddle">Session Labels
+			              <img src="inc/icons/icon_mm_prices.gif" width="19" height="13" border="0" align="absmiddle">Session Labels
 			            </a>
 			          <?php 
                               }
 ?>
 			        </td>
 			      <?php 
-                          }
                         if ($status != 'cs')
                           {
                             $ns_movies_present = true;
