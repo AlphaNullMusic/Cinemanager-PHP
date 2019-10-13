@@ -58,7 +58,11 @@
                 <a class="nav-link" href="<?php echo $_SERVER['PHP_SELF']?>?clear_cache=true">Clear Cache</a>
               </li>
             </ul>
-            <?php } ?>
+		  <?php if ($_REQUEST['clear_cache'] == 'true') { 
+					smarty_clear_cache(NULL,NULL,NULL,false,true); 
+					$_REQUEST['conf'] = 'Successfully cleared cache.';
+				}
+            } ?>
 
             <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
               <span>General</span>

@@ -24,63 +24,20 @@ if (check_cinema()) {
                     m.classification_id, 
                     m.runtime, 
                     m.trailer,
-                    c.classification,
-                    c.class_explanation
+                    c.classification
                 FROM movies m
                 LEFT JOIN classifications c
                     ON c.classification_id = m.classification_id
                 WHERE movie_id = '{$_REQUEST['movie_id']}'
             ";
-            $movie_res           = query($sql);
+            $movie_res = query($sql);
             $original_movie_data = $movie_res->fetch_assoc();
-            
-			/*function hrtomins($string) {
-				if (!is_numeric($string)) {
-					$string_clean = strtolower(str_replace(' ','',$string));
-					$hr_arr = explode('hr', $string);
-					$min_arr = explode('min', $hr_arr[1]);
-					if (empty($hr_arr) && empty($min_arr) || empty($min_arr)) {
-						// Wrong format
-						$_REQUEST['er'] = "The duration is in the wrong format, please try 0hr 0min.";
-						return false;
-					}
-					if (is_numeric($hr) && is_numeric($min)) {
-						
-					}
-					$hr = $hr_arr[0];
-					$min = $min_arr[0];
-					$res = $hr * 60 + $min;
-					return $hr;
-				}
-				return $string;
-			}*/
 			
-            // for the following, only use the post data if it differs from the original movie data
+            // For the following, only use the post data if it differs from the original movie data
             $synopsis = (!isset($_POST['synopsis']) || $original_movie_data['synopsis'] === $_POST['synopsis']) ? '' : $_POST['synopsis'];
             $classification_id = (!isset($_POST['classification_id']) || $original_movie_data['classification_id'] === $_POST['classification_id']) ? '1' : $_POST['classification_id'];
             $runtime  = (!isset($_POST['duration']) || mintohr($original_movie_data['runtime']) === $_POST['duration']) ? '71' : stringtomins($_POST['duration']);
             $trailer  = (!isset($_POST['trailer']) || $original_movie_data['trailer'] === $_POST['trailer']) ? '' : $_POST['trailer'];
-            if (!isset($_POST['class_explanation']) || $original_movie_data['class_explanation'] === $_POST['class_explanation']) {
-                $class_explanation = '';
-            } elseif (isset($_POST['class_explanation']) && $_POST['class_explanation'] == '') {
-                $class_explanation = ' ';
-            } else {
-                $class_explanation = $_POST['class_explanation'];
-            }
-            if (isset($_POST['alias'])) {
-                $alias_sql = ', alias = "' . $mysqli->real_escape_string($_POST['alias']) . '"';
-            }
-            /*$sql = sprintf("
-                UPDATE movies 
-                SET release_date=%s, 
-                    synopsis=%s,
-                    classification_id=%s,
-                    comments=%s, 
-                    runtime=%s,
-                    trailer=%s
-                    $alias_sql
-                WHERE movie_id=%s
-                ", dbv($release_date), dbv($synopsis), dbv($classification_id), dbv(isset($_POST['comments']) ? $_POST['comments'] : ''), dbv($runtime), dbv($trailer), dbv($_POST['movie_id']));*/
 			$sql = "
 				UPDATE movies
 				SET
@@ -93,17 +50,8 @@ if (check_cinema()) {
 					$alias_sql
 				WHERE movie_id = '".$mysqli->real_escape_string($_POST['movie_id'])."'
 			";
-        /*} else {
-            $sql = sprintf("
-                UPDATE movies 
-                SET release_date=%s 
-                WHERE movie_id=%s
-                ", dbv($release_date), dbv($_POST['movie_id']));*/
+			query($sql);
         }
-		query($sql);
-        die(print_r($_POST));
-		//die(print_r($original_movie_data));
-		//die($runtime);
 		
         // Upload image
         if (isset($_FILES['poster']['error']) && ($_FILES['poster']['error'] == 'UPLOAD_ERR_OK' || $_FILES['poster']['error'] == 0)) {
@@ -208,10 +156,10 @@ if (check_cinema()) {
                 m.imdb_id,
                 m.title, 
                 m.synopsis, 
-                m.classification_id, 
-                c.class_explanation, 
+                m.classification_id,  
                 m.runtime, 
                 m.trailer,
+				m.comments,
 				m.status,
 				m.release_date,
                 c.classification
@@ -220,9 +168,8 @@ if (check_cinema()) {
                 ON c.classification_id=m.classification_id
             WHERE movie_id='" . $mysqli->real_escape_string($_REQUEST['movie_id']) . "'
         ";
-        
-        $movie_res                   = query($sql);
-        $movie_data                  = $movie_res->fetch_assoc();
+        $movie_res = query($sql);
+        $movie_data = $movie_res->fetch_assoc();
         $movie_data['custom_poster'] = get_custom_poster($_REQUEST['movie_id']);
 		if ($movie_data['status'] == 'exp') {
 			header("Location: movies.php?er=This+movie+has+been+deleted.");
@@ -255,12 +202,7 @@ if (check_cinema()) {
  <div class="container-fluid">
     <div class="row">
     <?php include("inc/nav.inc.php");
-	if (check_cinema()) {
-		if (!empty($error)) { ?>
-			<div class="notice error">
-				<?php echo $error;?>TEST
-			</div>
-  <?php } ?>
+	if (check_cinema()) { ?>
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
                     <h1 class="h2">Edit Movie Details</h1>
@@ -270,6 +212,7 @@ if (check_cinema()) {
                         </div>
                     </div>
                 </div>
+				<?php echo check_msg(); ?>
                 <form name="form" method="post" action="<?php echo $_SERVER['PHP_SELF'];?>" enctype="multipart/form-data"> 
 					<h3><?php echo $movie_data['title'];?></h3>
 					<ul>
@@ -278,15 +221,14 @@ if (check_cinema()) {
 					</ul>
 					<table border="0" cellspacing="0" cellpadding="1">
   <?php if (has_permission('sessions')) {?>
-                        <?php echo check_msg(); ?>
 						<tr>
                             <td align="right"><strong>Classification</strong></td>
                             <td nowrap>&nbsp;</td>
                             <td>
                                 <select 
-									name="class_id" 
-									id="class_id"<?php echo (empty($movie_data['classification_id'])) ? ' disabled="disabled"' : '';?>
-								><?php print_r($class_data); ?>
+									name="classification_id" 
+									id="classification_id"<?php echo (empty($movie_data['classification_id'])) ? ' disabled="disabled"' : '';?>
+								>
 								<?php $selected_class_id = $movie_data['classification_id'];
 								foreach ($class_data as $key => $class) {?>
 									<option value="<?php echo $class['classification_id'];?>" <?php
@@ -295,7 +237,7 @@ if (check_cinema()) {
 									}?>>
 										<?php echo $class['classification'];?>
 									</option>
-  <?php } ?>
+						  <?php } ?>
 								</select>
                                 <label>
 									<input 
@@ -303,35 +245,8 @@ if (check_cinema()) {
 										name="class_explanation_edit" 
 										value="true" 
 										class="edit_toggle" 
-										data-inputid="class_id" 
+										data-inputid="classification_id" 
 										data-defaultvalue="<?php echo $movie_data['class_id'];?>"<?php echo (empty($movie_data['classification_id'])) ? ' checked="checked"' : '';?>
-									>
-									Default
-								</label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="right" nowrap><strong>Explanation</strong></td>
-                            <td nowrap>&nbsp;</td>
-                            <td>
-                                <input 	
-									name="class_explanation" 
-									type="text" 
-									id="class_explanation" 
-									value="<?php echo $movie_data['class_explanation'];?>"
-									<?php echo (empty($movie_data['class_explanation'])) ? ' disabled="disabled"' : '';?> 
-									size="46" 
-									maxlength="100"
-								>
-                                <label>
-									<input 
-										type="checkbox" 
-										name="class_explanation_edit" 
-										value="true" 
-										class="edit_toggle" 
-										data-inputid="class_explanation" 
-										data-defaultvalue="<?php echo $movie_data['class_explanation'];?>"
-										<?php echo (empty($movie_data['class_explanation'])) ? ' checked="checked"' : '';?>
 									>
 									Default
 								</label>
@@ -350,18 +265,6 @@ if (check_cinema()) {
 									size="46" 
 									maxlength="100"
 								>
-                                <label>
-									<input 
-										type="checkbox" 
-										name="class_explanation_edit" 
-										value="true" 
-										class="edit_toggle" 
-										data-inputid="duration" 
-										data-defaultvalue="<?php echo mintohr($movie_data['runtime']);?>"
-										<?php echo (empty($movie_data['runtime'])) ? ' checked="checked"' : '';?>
-									>
-									Default
-								</label>
                             </td>
                         </tr>
                         <tr>
@@ -386,22 +289,9 @@ if (check_cinema()) {
 									type="text" 
 									id="trailer" 
 									value="<?php echo $movie_data['trailer'];?>"
-									<?php echo (empty($movie_data['trailer'])) ? ' disabled="disabled"' : '';?> 
 									size="46" 
 									maxlength="100"
 								>
-                                <label>
-									<input 
-										type="checkbox" 
-										name="class_explanation_edit" 
-										value="true" 
-										class="edit_toggle" 
-										data-inputid="trailer" 
-										data-defaultvalue="<?php echo $movie_data['trailer'];?>"
-										<?php echo (empty($movie_data['trailer'])) ? ' checked="checked"' : '';?>
-									>
-									Default
-								</label>
                             </td>
                         </tr>
                         <tr>
@@ -413,22 +303,9 @@ if (check_cinema()) {
 									id="synopsis" 
 									cols="60" 
 									rows="6"
-									<?php echo (empty($movie_data['synopsis'])) ? ' disabled="disabled"' : '';?>
 								>
 									<?php echo $movie_data['synopsis'];?>
 								</textarea>
-                                <label>
-									<input 
-										type="checkbox" 
-										name="class_explanation_edit" 
-										value="true" 
-										class="edit_toggle" 
-										data-inputid="synopsis" 
-										data-defaultvalue="<?php echo htmlspecialchars($movie_data['synopsis']);?>"
-										<?php echo (empty($movie_data['synopsis'])) ? ' checked="checked"' : '';?>
-									>
-									Default
-								</label>
                             </td>
                         </tr>
 

@@ -825,6 +825,7 @@ function get_movie_sessions($movie_id_array = NULL, $time_array = NULL, $get_ima
                     'cast' => $movie_data['movie']['cache_cast'],
                     'release_date_raw' => $movie_data['movie']['release_date'],
                     'status' => $movie_data['status'],
+					'trailer' => $movie_data['trailer'],
                     'session_summary' => $movie_session_summary,
                 );
             }
@@ -1467,17 +1468,17 @@ function main_cinema_domain($cinema_id) {
 // SMARTY FUNCTIONS //
 //////////////////////
 
-function smarty_clear_cache($movie_id = NULL, $area = NULL, $user_id = NULL, $reset_smarty = false) {
+function smarty_clear_cache($movie_id = NULL, $area = NULL, $user_id = NULL, $reset_smarty = false, $clear_all = false) {
     global $mysqli, $config, $smarty;
     if ((!isset($smarty) || $reset_smarty)) {
         include($config['cinema_dir']."inc/smarty_vars.inc.php");
     }
     // Create array of all pages that may contain movie data
     $areas = array(
-        'coming-soon',
+        'coming_soon',
         'homepage',
-        'session-times',
-        'session-times-today'
+        'whats_on',
+        'whats_on_today'
     );
 
     // If $movie_id is passed, also clear data for that specific movie, plus all other generic pages
@@ -1487,6 +1488,12 @@ function smarty_clear_cache($movie_id = NULL, $area = NULL, $user_id = NULL, $re
             $smarty->clearCache(NULL, $a);
         }
     }
+	
+	// Reset all templates
+	if ($clear_all) {
+		$smarty->clearAllCache();
+	} 
+	
     // If $movie_id is passed with no $cinema_id, clear cache for all movies using this movie, plus all other generic pages for these cinemas
     if (isset($movie_id)) {
         $sql = "
@@ -1500,9 +1507,9 @@ function smarty_clear_cache($movie_id = NULL, $area = NULL, $user_id = NULL, $re
             if (!isset($smarty)) {
                 include($config['cinema_dir']."inc/smarty_vars.inc.php");
             }
-            $smarty->clearCache(NULL, $data['cinema_id'] . "|" . $movie_id);
+            $smarty->clearCache(NULL, "movie_" . $movie_id);
             foreach ($areas as $a) {
-                $smarty->clearCache(NULL, 'cinema_page|' . $cinema_id . "|" . $a);
+                $smarty->clearCache(NULL, $a);
             }
         }
     }
@@ -1520,6 +1527,7 @@ function smarty_clear_cache($movie_id = NULL, $area = NULL, $user_id = NULL, $re
     } else {
         return false;
     }
+	
 }
 
 ///////////////

@@ -4,7 +4,7 @@ require("inc/manage.inc.php");
 if (check_cinema() && has_permission('sessions')) {
 	
 	//date_default_timezone_set($_SESSION['cinema_data']['timezone']);
-	date_default_timezone_set('America/Chicago'); // provides the right offset for current server
+	//date_default_timezone_set('America/Chicago'); // provides the right offset for current server
 	$sessions_displayed = 63;
 	$weeks_displayed = 10;
 	$seconds_in_day = 24*3600;
@@ -87,10 +87,8 @@ if (check_cinema() && has_permission('sessions')) {
 			}
 		}
 		// Clear smarty cache
-		//update_site_stats();
-		//update_movie_cache($_POST['movie_id'],true);
-		smarty_clear_cache($_SESSION['cinema_data']['cinema_id'],$_POST['movie_id']);
-		//redirect
+		smarty_clear_cache($_POST['movie_id'],NULL,NULL,false,false);
+		// Redirect
 		if (isset($_POST['redir']) && $_POST['redir']=='edit_prices') {
 			$location="labels.php?movie_id_array[]=".$_POST['movie_id'];
 		} elseif ($_POST['redir']=='edit_movie') {

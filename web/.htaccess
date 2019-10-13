@@ -68,6 +68,9 @@ RewriteRule ^(.*[^/])$ /$1/ [L,R]
 # Default to 404.php on 404
     RewriteEngine On
 	ErrorDocument 404 /404.php
+	
+	RedirectMatch 403 ^/inc/?$
+	RedirectMatch 403 ^/tpl/?$
 
 # Retina image detection
 	Options -MultiViews

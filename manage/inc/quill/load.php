@@ -1,5 +1,5 @@
 <div id="editor">
-    <?=$tiny_mce_value?>
+    <?php echo $editor_value?>
 </div>
 <p id="editor_tips_link"><a href="javascript:;" onClick="document.getElementById('editor_tips').style.display='block';document.getElementById('editor_tips_link').style.display='none';">Editor Tips</a></p>
 <div id="editor_tips">

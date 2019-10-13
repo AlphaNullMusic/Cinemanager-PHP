@@ -18,7 +18,7 @@ $config = array(
 	"api_dir" => $root_dir."api.cinemanager.ga/",
 
 	// Cinema Sites
-	"cinema_url" => "https://shoreline.nz",
+	"cinema_url" => "https://shoreline.nz/",
 	"cinema_dir" => $root_dir."web/",
 
 	// Movie Images
