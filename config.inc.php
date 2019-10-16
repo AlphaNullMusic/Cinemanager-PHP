@@ -132,9 +132,9 @@ $config['poster_sizes'] = array(
 
 define('DB_TYPE', 'mysql');
 define('DB_HOST', "localhost");
-define('DB_NAME', "shoreline");
-define('DB_USER', "root");
-define('DB_PASS', "root");
+define('DB_NAME', "shor_eline");
+define('DB_USER', "shor_eline");
+define('DB_PASS', "r4L-MOn423#M");
 
 if (isset($use_pdo)) {
 	db_pdo();
