@@ -1,33 +1,42 @@
 <nav class="navbar navbar-expand-md navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-  <!--<img src="images/movie_manager_logo_2012.gif" width="248" height="76" border="0">-->
-  <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Cinemanager</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarDropdown" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	<a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Cinemanager</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarDropdown" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-  <? if (check_cinema()) { 
-    if (count($_SESSION['all_cinema_data']['cinemas'])) {?> &nbsp; 
-    
-      <select name="switch_cinema" class="form-control form-control-dark" OnChange="location.href='?switch_cinema='+this.value+'&<?=$_SERVER['QUERY_STRING']?>';">
-        <? foreach ($_SESSION['all_cinema_data']['cinemas'] as $c) { ?>
-          <option value="<?=$c['cinema_id']?>"<?
-	  if ($_SESSION['cinema_data']['cinema_id'] == $c['cinema_id']) {
-	    ?> selected<? 
-	  } ?>><?=str_replace(', '.$c['city'], '', $c['name'])?>, <?=$c['city']?></option><? 
-	 }
-      ?></select><? } ?>
+<?php 
+	if (check_cinema()) { 
+		if (count($_SESSION['all_cinema_data']['cinemas'])) {?> 
+			&nbsp; 
+			<select 
+				name="switch_cinema" 
+				class="form-control form-control-dark" 
+				OnChange="location.href='?switch_cinema='+this.value+'&<?php echo $_SERVER['QUERY_STRING']?>';"
+			>
+        <?php 
+			foreach ($_SESSION['all_cinema_data']['cinemas'] as $c) { ?>
+				<option value="<?php echo $c['cinema_id']?>"
+		  <?php if ($_SESSION['cinema_data']['cinema_id'] == $c['cinema_id']) { ?> 
+					selected
+		  <?php } ?>
+				>
+					<?php echo str_replace(', '.$c['city'], '', $c['name'])?>, <?php echo $c['city']?>
+				</option>
+	  <?php } ?>
+			</select>
+  <?php } ?>
     
   <ul class="navbar-nav px-3">
     <li>
       <a class="nav-link" href="?action=logout">Logout</a>
     </li>
   </ul>
-  <? } else { ?>
+  <?php } else { ?>
   <ul class="navbar-nav px-3">
     <li>
       <a class="nav-link" href="/" align="right">Login</a>
     </li>
   </ul>
-  <? } ?>
+  <?php } ?>
   <ul class="navbar-nav px-3">
     <li class="nav-item text-nowrap">
       <a class="nav-link" href="help.php">Help</a>

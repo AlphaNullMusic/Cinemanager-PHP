@@ -1,5 +1,5 @@
 <?php
-require("/inc/manage.inc.php");
+require("inc/manage.inc.php");
 
 if (check_cinema()) {
 	header("Location: movies.php");
