@@ -302,7 +302,7 @@ if (check_cinema() && (has_permission('sessions'))) {
             echo $_REQUEST['movie_id'];
 ?>">
 		  <input name="action" type="hidden" value="listmovie">
-		  <input name="Submit" type="submit" class="submit" value="Add This Movie">
+		  <input name="Submit" type="submit" class="btn btn-success submit" value="Add This Movie">
 	        </p>
 	      </form>
 	    <?php
