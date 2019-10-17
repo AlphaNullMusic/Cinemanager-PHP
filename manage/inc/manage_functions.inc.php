@@ -94,15 +94,31 @@ function delete_movie($movie_id) {
     }
 }*/
 
+function png2jpg($filePath) {
+	global $config;
+	$path = $config['tmp_poster_dir'];
+	$image = imagecreatefrompng($filePath);
+	$bg = imagecreatetruecolor(imagesx($image), imagesy($image));
+	imagefill($bg, 0, 0, imagecolorallocate($bg, 255, 255, 255));
+	imagealphablending($bg, TRUE);
+	imagecopy($bg, $image, 0, 0, 0, 0, imagesx($image), imagesy($image));
+	imagedestroy($image);
+	$quality = 100; // 0 = worst / smaller file, 100 = better / bigger file 
+	$return = $path.basename($filePath).".jpg";
+	imagejpeg($bg, $return, $quality);
+	imagedestroy($bg);
+	return $return;
+}
+
 function save_poster($url, $movie_id, $custom = false) {
 	global $config, $mysqli;
 	$dir = $config['poster_dir'];
 	list($width_orig, $height_orig) = getimagesize($url);
 	$ids = array();
-	$url_split = explode('SX300.jpg',$url);
-	$url_split1 = explode('.jpg',$url_split[0]);
-	$img_url = $url_split1[0].'.jpg';
-	//$img_url = $url;
+	//$url_split = explode('SX300.jpg',$url);
+	//$url_split1 = explode('.jpg',$url_split[0]);
+	//$img_url = $url_split1[0].'.jpg';
+	$img_url = $url;
 		
 	if ($custom == false) {
 		$status = 'default';

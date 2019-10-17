@@ -1,5 +1,6 @@
 <?php
 ini_set('display_errors',1); 
+date_default_timezone_set("Pacific/Auckland");
 error_reporting(E_ALL ^ E_NOTICE);
 
 /////////////////
@@ -30,6 +31,7 @@ $config = array(
 	// Posters
 	"poster_url" => "https://posters.shoreline.nz/",
 	"poster_dir" => $root_dir."posters/",
+	"tmp_poster_dir" => $root_dir."posters/tmp/",
 	
 	// Movie Images
 	"movie_trailer_url"	=> "http://media2.cinemanager.ga/trailers/",

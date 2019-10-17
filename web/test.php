@@ -1,5 +1,5 @@
 <?php
-	require('inc/web.inc.php');
+	//require('inc/web.inc.php');
 	/*function get_page_content($reference=null) {
 		global $mysqli;
 		db_direct();
@@ -53,7 +53,10 @@
 	
 	echo get_class_explanation('TBC');*/
 	//echo get_class_id('R-13');
-	function save_poster($url, $movie_id, $custom = false) {
+	
+	
+	
+	/*function save_poster($url, $movie_id, $custom = false) {
 		global $config, $mysqli;
 		$dir = $config['poster_dir'];
 		list($width_orig, $height_orig) = getimagesize($url);
@@ -165,7 +168,7 @@
 				return false;
 			}
 		}
-	}	
+	}*/
 	//$_POST['duration'] = '1hr 20min';
 	//$d = $_POST['duration'];
 	//save_poster('https://m.media-amazon.com/images/M/MV5BMTU2OTAxNjI2OV5BMl5BanBnXkFtZTgwNzc2NjUwODM@._V1_SX300.jpg','1',false);
@@ -175,4 +178,79 @@
 	//$sessions = get_movie_sessions(NULL,NULL,false,'%Y-%m-%d', '%l:%i%p', true);
 	//print_r($sessions);
 	//print_r(get_movie(1, false, NULL));
+	
+	require('../manage/inc/manage.inc.php');
+	
+	if (isset($_POST['submit'])) {
+		global $config;
+		$target_dir = $config['tmp_poster_dir'];
+		$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+		$tmp_file = $_FILES["fileToUpload"]["tmp_name"];
+		$uploadOk = 1;
+		$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+		// Check if image file is a actual image or fake image
+		$check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+		if($check !== false) {
+			echo "File is an image - " . $check["mime"] . ".";
+			$uploadOk = 1;
+		} else {
+			echo "File is not an image.";
+			$uploadOk = 0;
+		}
+		// Check if file already exists
+		if (file_exists($target_file)) {
+			echo "Sorry, file already exists.";
+			$uploadOk = 0;
+		}
+		// Check file size
+		if ($_FILES["fileToUpload"]["size"] > 500000) {
+			echo "Sorry, your file is too large.";
+			$uploadOk = 0;
+		}
+		// Allow certain file formats
+		if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+		&& $imageFileType != "gif" ) {
+			echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+			$uploadOk = 0;
+		}
+		// Convert PNG
+		if ($imageFileType == "png") {
+			$tmp_file = png2jpg($tmp_file);
+			$target_file = explode(".png",$target_file)[0].".jpg";
+		}
+		// Convert GIF
+		if ($imageFileType == "gif") {
+			$tmp_file = gif2jpg($tmp_file);
+			$target_file = explode(".gif",$target_file)[0].".jpg";
+		}
+		// Check if $uploadOk is set to 0 by an error
+		if ($uploadOk == 0) {
+			echo "Sorry, your file was not uploaded.";
+		// if everything is ok, try to upload file
+		} else {
+			//die('TMP FILE: '.$tmp_file.' | TARGET FILE: '.$target_file);
+			if (rename($tmp_file, $target_file)) {
+				echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+				if (save_poster($target_file, '1', true)) {
+					echo "Saved custom poster";
+					@unlink($config['tmp_poster_dir'].$_FILES["fileToUpload"]["name"]);
+				}
+			} else {
+				echo "Sorry, there was an error uploading your file.";
+			}
+		}
+	}
 ?>
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" enctype="multipart/form-data">
+    Select image to upload:
+    <input type="file" name="fileToUpload" id="fileToUpload">
+    <input type="submit" value="Upload Image" name="submit">
+</form>
+
+</body>
+</html>
