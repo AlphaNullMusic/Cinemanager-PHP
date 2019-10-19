@@ -24,97 +24,108 @@ if (check_cinema()) {
                     m.classification_id, 
                     m.runtime, 
                     m.trailer,
+					m.custom_poster,
                     c.classification
                 FROM movies m
                 LEFT JOIN classifications c
                     ON c.classification_id = m.classification_id
                 WHERE movie_id = '{$_REQUEST['movie_id']}'
             ";
+			echo 'Original SQL: '.$sql.' | <br><br>';
             $movie_res = query($sql);
             $original_movie_data = $movie_res->fetch_assoc();
-			
+			echo 'Original data: '.print_r($original_movie_data).' | <br><br>';
             // For the following, only use the post data if it differs from the original movie data
             $synopsis = (!isset($_POST['synopsis']) || $original_movie_data['synopsis'] === $_POST['synopsis']) ? '' : $_POST['synopsis'];
-            $classification_id = (!isset($_POST['classification_id']) || $original_movie_data['classification_id'] === $_POST['classification_id']) ? '1' : $_POST['classification_id'];
-            $runtime  = (!isset($_POST['duration']) || mintohr($original_movie_data['runtime']) === $_POST['duration']) ? '71' : stringtomins($_POST['duration']);
-            $trailer  = (!isset($_POST['trailer']) || $original_movie_data['trailer'] === $_POST['trailer']) ? '' : $_POST['trailer'];
+            $classification_id = (!isset($_POST['classification_id'])) ? '1' : $_POST['classification_id'];
+            $runtime  = (!isset($_POST['duration'])) ? '0' : stringtomins($_POST['duration']);
+            $trailer  = (!isset($_POST['trailer'])) ? '' : $_POST['trailer'];
+			$custom_poster  = (!isset($_POST['custom_poster']) || $_POST['custom_poster'] != 1) ? 0 : $_POST['custom_poster'];
+			
+			$extra_sql = '';
+			if (!isset($_POST['synopsis_edit'])) {
+				$extra_sql .= "synopsis = '".$mysqli->real_escape_string($synopsis)."',";
+			}
+			if (!isset($_POST['classification_edit'])) {
+				$extra_sql .= "classification_id = '".$mysqli->real_escape_string($classification_id)."',";
+			}
+			if (!isset($_POST['duration_edit'])) {
+				$extra_sql .= "runtime = '".$mysqli->real_escape_string($runtime)."',";
+			}
+			if (!isset($_POST['trailer_edit'])) {
+				$extra_sql .= "trailer = '".$mysqli->real_escape_string($trailer)."',";
+			}
+			
 			$sql = "
 				UPDATE movies
 				SET
 					release_date = '".$mysqli->real_escape_string($release_date)."',
-					synopsis = '".$mysqli->real_escape_string($synopsis)."',
-					classification_id = '".$mysqli->real_escape_string($classification_id)."',
+					$extra_sql
 					comments = '".$mysqli->real_escape_string(isset($_POST['comments']) ? $_POST['comments'] : '')."',
-					runtime = '".$mysqli->real_escape_string($runtime)."',
-					trailer = '".$mysqli->real_escape_string($trailer)."'
-					$alias_sql
+					custom_poster = '".$mysqli->real_escape_string($custom_poster)."'
 				WHERE movie_id = '".$mysqli->real_escape_string($_POST['movie_id'])."'
 			";
 			query($sql);
         }
 		
         // Upload image
-        if (isset($_FILES['poster']['error']) && ($_FILES['poster']['error'] == 'UPLOAD_ERR_OK' || $_FILES['poster']['error'] == 0)) {
-            if (isset($_POST['movie_id'])) {
-                $dir           = $config['poster_dir'];
-                $rand_chars    = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-                $tmp_name      = 'tmp-' . substr(str_shuffle($permitted_chars), 0, 16) . '.jpg';
-                $tmp_path      = $dir . $tmp_name;
-                $ok            = 1;
-                $check         = getimagesize($_FILES['poster']['tmp_name']);
-                $imageFileType = strtolower(pathinfo($_FILES['poster']['tmp_name'], PATHINFO_EXTENSION));
-                if ($check !== false) {
-                    // File is an image
-                    if ($imageFileType == "jpg" || $imageFileType == "png" || $imageFileType == "jpeg") {
-                        if (move_uploaded_file($_FILES['poster']['tmp_name'], $tmp_path)) {
-                            // Uploaded
-                            save_poster($tmp_path, $_POST['movie_id'], true);
-                        } else {
-                            // Error
-                        }
-                    }
-                } else {
-                    // Not an image
-                }
-                
-                @unlink($dir . $tmp_name);
-            }
-            //require($config['libs_dir'].'images.inc.php');
-            
-            /*$title = (isset($original_movie_data['title'])) ? $original_movie_data['title'] : 'custom_cinema_image' ;
-            $image_name = valid_file_name($title)."_".$image_id;
-            $new_image_path    = $global['movie_image_dir'].$image_id.'/raw.jpg';
-            $resize = image_resize_auto($_FILES['poster']['tmp_name'], $new_image_path, 'raw');
-            //if upload successful, remove any old images for this cinema and update db with new image name and status
-            $raw_size = getimagesize($_FILES['poster']['tmp_name']);
-            if (isset($resize)) {
-            remove_custom_images($_POST['movie_id'], $_SESSION['cinema_data']['cinema_id']);
-            $sql = "
-            UPDATE images 
-            SET image_name='$image_name', 
-            width = '{$raw_size[0]}',
-            height = '{$raw_size[1]}',
-            priority = 100,
-            status='ok' 
-            ";
-            if (in_array($_SESSION['cinema_data']['cinema_id'], array(1191,1192,1193))) {
-            $sql .= ", exclusive = 1 ";
-            }
-            $sql .= "WHERE image_id='$image_id' ";
-            $mysqli->query($sql) or user_error("Gnarly: $sql");
-            $sql = "
-            INSERT INTO movie_images
-            SET movie_id = '{$_POST['movie_id']}',
-            image_id = '$image_id',
-            cinema_id = '{$_SESSION['cinema_data']['cinema_id']}'
-            ";
-            $mysqli->query($sql) or user_error("Gnarly: $sql");
-            update_movie_image_sizes($image_id);
-            }*/
-        }
+		if (isset($_FILES['poster']['error']) && ($_FILES['poster']['error'] == 'UPLOAD_ERR_OK' || $_FILES['poster']['error'] == 0)) {
+			if (isset($_POST['custom_poster']) && $_POST['custom_poster'] == 1) {
+				$target_dir = $config['tmp_poster_dir'];
+				$target_file = $target_dir . basename($_FILES["poster"]["name"]);
+				$tmp_file = $_FILES["poster"]["tmp_name"];
+				$uploadOk = 1;
+				$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+				// Check if image file is a actual image or fake image
+				$check = getimagesize($_FILES["poster"]["tmp_name"]);
+				// Check if file already exists
+				if (file_exists($target_file)) {
+					$location = "movie_edit_details.php?movie_id=".$_POST['movie_id']."&er=Sorry,+the+file+already+exists.";
+					header("Location: $location");
+					$uploadOk = 0;
+				}
+				// Check file size
+				if ($_FILES["poster"]["size"] > 500000) {
+					$location = "movie_edit_details.php?movie_id=".$_POST['movie_id']."&er=File+is+too+large,+must+be+under+500MB.";
+					header("Location: $location");
+					$uploadOk = 0;
+				}
+				// Allow certain file formats
+				if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+				&& $imageFileType != "gif" ) {
+					$location = "movie_edit_details.php?movie_id=".$_POST['movie_id']."&er=Sorry,+only+JPG,+JPEG,+PNG+%26+GIF+files+are+allowed.";
+					header("Location: $location");
+					$uploadOk = 0;
+				}
+				// Convert PNG
+				if ($imageFileType == "png") {
+					$tmp_file = png2jpg($tmp_file);
+					$target_file = explode(".png",$target_file)[0].".jpg";
+				}
+				// Convert GIF
+				else if ($imageFileType == "gif") {
+					$tmp_file = gif2jpg($tmp_file);
+					$target_file = explode(".gif",$target_file)[0].".jpg";
+				}
+				// Check if $uploadOk is set to 0 by an error
+				if ($uploadOk == 0) {
+					$location = "movie_edit_details.php?movie_id=".$_POST['movie_id']."&er=Something+went+wrong+uploading+the+poster,+please+try+again.";
+					header("Location: $location");
+				// if everything is ok, try to upload file
+				} else {
+					if (rename($tmp_file, $target_file)) {
+						if (save_poster($target_file, $_POST['movie_id'], true)) {
+							@unlink($target_file);
+						}
+					} else {
+						echo "Sorry, there was an error uploading your file.";
+					}
+				}
+			}
+		}
         
         // Tidy up
-        smarty_clear_cache($_SESSION['cinema_data']['cinema_id'], $_POST['movie_id']);
+		smarty_clear_cache($_POST['movie_id'], NULL, NULL, false, false);
         
         // Redirect
         if (isset($_POST['redir']) && $_POST['redir'] == 'edit_sessions') {
@@ -157,6 +168,7 @@ if (check_cinema()) {
                 m.title, 
                 m.synopsis, 
                 m.classification_id,  
+				m.custom_poster,
                 m.runtime, 
                 m.trailer,
 				m.comments,
@@ -182,7 +194,9 @@ if (check_cinema()) {
         $d            = $release_date[2];
         $m            = $release_date[1];
         $y            = $release_date[0];
-    }
+    } else {
+		header("Location: movies.php?er=Can't+find+movie.");
+	}
 }
 
 ?>
@@ -192,7 +206,7 @@ if (check_cinema()) {
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="includes/generic.js" type="text/javascript"></script>
+    <script src="inc/js/generic.js" type="text/javascript"></script>
     <title><?php echo $title_prefix; ?><?php echo (check_cinema()) ? "Movie Lists &amp; Sessions" : "Website Content Management For Cinemas"; ?></title>
     <link href="inc/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="inc/css/dashboard.css" rel="stylesheet">
@@ -242,11 +256,12 @@ if (check_cinema()) {
                                 <label>
 									<input 
 										type="checkbox" 
-										name="class_explanation_edit" 
+										name="classification_edit" 
 										value="true" 
 										class="edit_toggle" 
 										data-inputid="classification_id" 
-										data-defaultvalue="<?php echo $movie_data['class_id'];?>"<?php echo (empty($movie_data['classification_id'])) ? ' checked="checked"' : '';?>
+										data-defaultvalue="<?php echo $movie_data['class_id'];?>"
+										<?php echo (empty($movie_data['classification_id'])) ? ' checked="checked"' : '';?>
 									>
 									Default
 								</label>
@@ -265,6 +280,18 @@ if (check_cinema()) {
 									size="46" 
 									maxlength="100"
 								>
+								<label>
+									<input 
+										type="checkbox" 
+										name="duration_edit" 
+										value="true" 
+										class="edit_toggle" 
+										data-inputid="duration" 
+										data-defaultvalue="<?php echo $movie_data['duration']?>"
+										<?php echo (empty($movie_data['duration'])) ? ' checked="checked"' : ''?>
+									>
+									Default
+								</label>
                             </td>
                         </tr>
                         <tr>
@@ -292,6 +319,18 @@ if (check_cinema()) {
 									size="46" 
 									maxlength="100"
 								>
+								<label>
+									<input 
+										type="checkbox" 
+										name="trailer_edit" 
+										value="true" 
+										class="edit_toggle" 
+										data-inputid="trailer" 
+										data-defaultvalue="<?php echo $movie_data['trailer']?>"
+										<?php echo (empty($movie_data['trailer'])) ? ' checked="checked"' : ''?>
+									>
+									Default
+								</label>
                             </td>
                         </tr>
                         <tr>
@@ -306,6 +345,18 @@ if (check_cinema()) {
 								>
 									<?php echo $movie_data['synopsis'];?>
 								</textarea>
+								<label>
+									<input 
+										type="checkbox" 
+										name="synopsis_edit" 
+										value="true" 
+										class="edit_toggle" 
+										data-inputid="synopsis" 
+										data-defaultvalue="<?php echo htmlspecialchars($movie_data['synopsis'])?>"
+										<?php echo (empty($movie_data['synopsis'])) ? ' checked="checked"' : ''?>
+									>
+									Default
+								</label>
                             </td>
                         </tr>
 
@@ -380,6 +431,23 @@ if (check_cinema()) {
 									onClick="disableDate(this.form)"
 								>
 								<label for="tba">TBC</label>
+							</td>
+						</tr>
+						<tr class="padTop">
+							<td align="right" valign="top"><strong>Use Custom Poster</strong></td>
+							<td>&nbsp;</td>
+							<td>
+								<div class="form-check">
+									<label class="form-check-label">
+										<input 
+											type="checkbox" 
+											class="form-check-input" 
+											value="1" 
+											name="custom_poster" 
+											<?php echo ($movie_data['custom_poster']) ? ' checked="checked"' : ''; ?>
+										>&nbsp;
+									</label>
+								</div>
 							</td>
 						</tr>
 						<tr class="padTop">

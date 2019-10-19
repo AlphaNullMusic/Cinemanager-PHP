@@ -110,6 +110,22 @@ function png2jpg($filePath) {
 	return $return;
 }
 
+function gif2jpg($filePath) {
+	global $config;
+	$path = $config['tmp_poster_dir'];
+	$image = imagecreatefromgif($filePath);
+	$bg = imagecreatetruecolor(imagesx($image), imagesy($image));
+	imagefill($bg, 0, 0, imagecolorallocate($bg, 255, 255, 255));
+	imagealphablending($bg, TRUE);
+	imagecopy($bg, $image, 0, 0, 0, 0, imagesx($image), imagesy($image));
+	imagedestroy($image);
+	$quality = 100; // 0 = worst / smaller file, 100 = better / bigger file 
+	$return = $path.basename($filePath).".jpg";
+	imagejpeg($bg, $return, $quality);
+	imagedestroy($bg);
+	return $return;
+}
+
 function save_poster($url, $movie_id, $custom = false) {
 	global $config, $mysqli;
 	$dir = $config['poster_dir'];
