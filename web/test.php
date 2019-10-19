@@ -219,7 +219,7 @@
 			$target_file = explode(".png",$target_file)[0].".jpg";
 		}
 		// Convert GIF
-		if ($imageFileType == "gif") {
+		else if ($imageFileType == "gif") {
 			$tmp_file = gif2jpg($tmp_file);
 			$target_file = explode(".gif",$target_file)[0].".jpg";
 		}
@@ -228,12 +228,11 @@
 			echo "Sorry, your file was not uploaded.";
 		// if everything is ok, try to upload file
 		} else {
-			//die('TMP FILE: '.$tmp_file.' | TARGET FILE: '.$target_file);
 			if (rename($tmp_file, $target_file)) {
 				echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
 				if (save_poster($target_file, '1', true)) {
 					echo "Saved custom poster";
-					@unlink($config['tmp_poster_dir'].$_FILES["fileToUpload"]["name"]);
+					@unlink($target_file);
 				}
 			} else {
 				echo "Sorry, there was an error uploading your file.";

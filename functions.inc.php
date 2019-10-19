@@ -621,9 +621,9 @@ function get_movie_list_full($type = 'ns', $order_by = 'm.title', $num_sessions 
 
 // Get movie
 // $get_sessions can be true to show sessions for current cinema, or an array of cinema_id's from which sessions are taken
-function get_movie($movie_id, $get_sessions = true, $extra_conditions = NULL) {
+function get_movie($movie_id, $get_sessions = true, $extra_conditions = NULL, $size = 'full') {
     //db_direct();
-    global $mysqli, $cinema_data;
+    global $mysqli, $cinema_data, $config;
     $return = array();
 	
     // Main movie info
@@ -671,6 +671,7 @@ function get_movie($movie_id, $get_sessions = true, $extra_conditions = NULL) {
     $return['status'] = $status;
     $return['movie']['classification'] = $movie_data['classification'];
 	$return['movie']['class_explanation'] = get_class_explanation($movie_data['classification']);
+	$return['movie']['poster_url'] = ($movie_data['custom_poster']==1 ? $config['poster_url'].$movie_data['movie_id'].'-'.$size.'-custom.jpg' : $config['poster_url'].$movie_data['movie_id'].'-'.$size.'-default.jpg');
     
     // Get sessions grouped by date
     if ($get_sessions) {

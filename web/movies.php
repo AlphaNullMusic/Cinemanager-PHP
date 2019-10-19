@@ -20,7 +20,7 @@ if(!$smarty->isCached($tpl,$cache_id)) {
 
 	if (isset($_REQUEST['movie'])) {
 		// Get movie data (movie ID, get sessions, extra conditions)
-		$movie_data = get_movie($movie_id, true, NULL);
+		$movie_data = get_movie($movie_id, true, NULL, 'medium');
 
 		// Redirect alias
 		if (!empty($movie_data['movie']['alias'])) {
