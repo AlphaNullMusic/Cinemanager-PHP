@@ -10,13 +10,16 @@ error_reporting(E_ALL ^ E_NOTICE);
 $root_dir = dirname(__FILE__).'/';
 $config = array(
 
+	// Basics
+	"cinema_name" => "Shoreline Cinema",
+
 	// Manage
 	"manage_url" => "https://manage.shoreline.nz/",
 	"manage_dir" => $root_dir."manage/",
 
 	// API
-	"api_url" => "https://api.cinemanager.ga/",
-	"api_dir" => $root_dir."api.cinemanager.ga/",
+	"api_url" => "https://api.shoreline.nz/",
+	"api_dir" => $root_dir."api/",
 
 	// Cinema Sites
 	"cinema_url" => "https://shoreline.nz/",
