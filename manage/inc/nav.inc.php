@@ -48,6 +48,9 @@
               
               <?php if (has_permission('newsletters')) { ?>
               <li class="nav-item">
+                <a class="nav-link <?php if (basename($_SERVER['PHP_SELF'])==="users.php"){?>active<?php }?>" href="users.php">Manage Subscribers</a>
+              </li>
+			  <li class="nav-item">
                 <a class="nav-link <?php if (basename($_SERVER['PHP_SELF'])==="newsletter_overview.php"){?>active<?php }?>" href="newsletter_overview.php">Manage Newsletters</a>
               </li>
               <?php } ?>

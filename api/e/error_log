@@ -1,0 +1,309 @@
+[10-Sep-2014 05:32:58 America/New_York] PHP Parse error:  syntax error, unexpected end of file in /home/moviemgr/public_html/global_functions.inc.php on line 1649
+[05-Nov-2014 02:26:59 America/New_York] PHP Parse error:  syntax error, unexpected end of file in /home/moviemgr/public_html/global_functions.inc.php on line 814
+[05-Nov-2014 18:10:52 America/New_York] PHP Warning:  Unterminated comment starting line 1636 in /home/moviemgr/public_html/global_functions.inc.php on line 1636
+[05-Nov-2014 18:10:52 America/New_York] PHP Parse error:  syntax error, unexpected end of file in /home/moviemgr/public_html/global_functions.inc.php on line 1640
+[11-Nov-2014 21:47:42 America/New_York] PHP Parse error:  syntax error, unexpected end of file in /home/moviemgr/public_html/global_functions.inc.php on line 1625
+[17-Nov-2014 15:42:41 America/New_York] PHP Parse error:  syntax error, unexpected end of file, expecting variable (T_VARIABLE) or ${ (T_DOLLAR_OPEN_CURLY_BRACES) or {$ (T_CURLY_OPEN) in /home/moviemgr/public_html/global_functions.inc.php on line 823
+[18-Nov-2014 15:50:52 America/New_York] PHP Parse error:  syntax error, unexpected end of file, expecting variable (T_VARIABLE) or ${ (T_DOLLAR_OPEN_CURLY_BRACES) or {$ (T_CURLY_OPEN) in /home/moviemgr/public_html/global_functions.inc.php on line 823
+[18-Nov-2014 20:17:57 America/New_York] PHP Parse error:  syntax error, unexpected end of file, expecting variable (T_VARIABLE) or ${ (T_DOLLAR_OPEN_CURLY_BRACES) or {$ (T_CURLY_OPEN) in /home/moviemgr/public_html/global_functions.inc.php on line 826
+[18-Nov-2014 20:24:29 America/New_York] PHP Parse error:  syntax error, unexpected end of file, expecting variable (T_VARIABLE) or ${ (T_DOLLAR_OPEN_CURLY_BRACES) or {$ (T_CURLY_OPEN) in /home/moviemgr/public_html/global_functions.inc.php on line 833
+[18-Nov-2014 20:26:01 America/New_York] PHP Parse error:  syntax error, unexpected end of file, expecting ')' in /home/moviemgr/public_html/global_functions.inc.php on line 1613
+[18-Nov-2014 20:26:02 America/New_York] PHP Parse error:  syntax error, unexpected end of file, expecting ')' in /home/moviemgr/public_html/global_functions.inc.php on line 1613
+[18-Nov-2014 20:27:32 America/New_York] PHP Parse error:  syntax error, unexpected end of file in /home/moviemgr/public_html/global_functions.inc.php on line 1613
+[18-Nov-2014 20:27:34 America/New_York] PHP Parse error:  syntax error, unexpected end of file in /home/moviemgr/public_html/global_functions.inc.php on line 1613
+[18-Nov-2014 20:28:53 America/New_York] PHP Parse error:  syntax error, unexpected end of file, expecting variable (T_VARIABLE) or ${ (T_DOLLAR_OPEN_CURLY_BRACES) or {$ (T_CURLY_OPEN) in /home/moviemgr/public_html/global_functions.inc.php on line 835
+[18-Nov-2014 20:28:53 America/New_York] PHP Parse error:  syntax error, unexpected end of file, expecting variable (T_VARIABLE) or ${ (T_DOLLAR_OPEN_CURLY_BRACES) or {$ (T_CURLY_OPEN) in /home/moviemgr/public_html/global_functions.inc.php on line 835
+[18-Nov-2014 20:37:45 America/New_York] PHP Parse error:  syntax error, unexpected ''' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home/moviemgr/public_html/global_functions.inc.php on line 834
+[18-Nov-2014 20:37:46 America/New_York] PHP Parse error:  syntax error, unexpected end of file in /home/moviemgr/public_html/global_functions.inc.php on line 1616
+[18-Nov-2014 20:39:17 America/New_York] PHP Parse error:  syntax error, unexpected ''' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home/moviemgr/public_html/global_functions.inc.php on line 834
+[18-Nov-2014 20:41:46 America/New_York] PHP Parse error:  syntax error, unexpected ''' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home/moviemgr/public_html/global_functions.inc.php on line 834
+[18-Nov-2014 20:43:06 America/New_York] PHP Parse error:  syntax error, unexpected ''' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home/moviemgr/public_html/global_functions.inc.php on line 834
+[18-Nov-2014 20:43:06 America/New_York] PHP Parse error:  syntax error, unexpected ''' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home/moviemgr/public_html/global_functions.inc.php on line 834
+[18-Nov-2014 20:49:42 America/New_York] PHP Parse error:  syntax error, unexpected end of file, expecting variable (T_VARIABLE) or ${ (T_DOLLAR_OPEN_CURLY_BRACES) or {$ (T_CURLY_OPEN) in /home/moviemgr/public_html/global_functions.inc.php on line 1624
+[18-Nov-2014 20:52:45 America/New_York] PHP Parse error:  syntax error, unexpected end of file, expecting variable (T_VARIABLE) or ${ (T_DOLLAR_OPEN_CURLY_BRACES) or {$ (T_CURLY_OPEN) in /home/moviemgr/public_html/global_functions.inc.php on line 816
+[18-Nov-2014 20:53:44 America/New_York] PHP Parse error:  syntax error, unexpected end of file, expecting variable (T_VARIABLE) or ${ (T_DOLLAR_OPEN_CURLY_BRACES) or {$ (T_CURLY_OPEN) in /home/moviemgr/public_html/global_functions.inc.php on line 1620
+[18-Nov-2014 21:05:07 America/New_York] PHP Parse error:  syntax error, unexpected end of file, expecting variable (T_VARIABLE) or ${ (T_DOLLAR_OPEN_CURLY_BRACES) or {$ (T_CURLY_OPEN) in /home/moviemgr/public_html/global_functions.inc.php on line 1623
+[18-Nov-2014 21:05:35 America/New_York] PHP Parse error:  syntax error, unexpected end of file in /home/moviemgr/public_html/global_functions.inc.php on line 1624
+[29-Dec-2014 03:45:25 America/New_York] PHP Parse error:  syntax error, unexpected end of file, expecting variable (T_VARIABLE) or ${ (T_DOLLAR_OPEN_CURLY_BRACES) or {$ (T_CURLY_OPEN) in /home/moviemgr/public_html/global_functions.inc.php on line 810
+[19-Jan-2015 20:47:07 America/New_York] PHP Parse error:  syntax error, unexpected end of file in /home/moviemgr/public_html/global_functions.inc.php on line 1596
+[28-Feb-2015 19:49:26 America/New_York] PHP Warning:  session_start(): The session id is too long or contains illegal characters, valid characters are a-z, A-Z, 0-9 and '-,' in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php on line 3
+[27-Jul-2015 23:32:55 America/New_York] PHP Parse error:  syntax error, unexpected end of file in /home/moviemgr/public_html/global_functions.inc.php on line 1563
+[20-Aug-2015 21:44:57 America/New_York] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1040] Too many connections' in /home/moviemgr/public_html/global_settings.inc.php:284
+Stack trace:
+#0 /home/moviemgr/public_html/global_settings.inc.php(284): PDO->__construct('mysql:host=loca...', 'moviemgr_main', 'qPqCcTLr6uAK', Array)
+#1 /home/moviemgr/public_html/api.moviemanager.biz/e/beacon.php(7): db->__construct()
+#2 {main}
+  thrown in /home/moviemgr/public_html/global_settings.inc.php on line 284
+[25-Aug-2015 17:13:21 America/New_York] PHP Warning:  session_start(): The session id is too long or contains illegal characters, valid characters are a-z, A-Z, 0-9 and '-,' in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php on line 3
+[20-Sep-2015 20:01:11 America/New_York] PHP Warning:  session_start(): The session id is too long or contains illegal characters, valid characters are a-z, A-Z, 0-9 and '-,' in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php on line 3
+[06-Oct-2015 00:22:45 America/New_York] PHP Warning:  session_start(): The session id is too long or contains illegal characters, valid characters are a-z, A-Z, 0-9 and '-,' in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php on line 3
+[22-Dec-2015 01:01:51 America/New_York] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'newsletter_id' cannot be null' in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php:34
+Stack trace:
+#0 /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php(34): PDOStatement->execute(Array)
+#1 /home/moviemgr/public_html/api.moviemanager.biz/e/link.php(25): logNewsletterOpen('60201', NULL)
+#2 {main}
+  thrown in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php on line 34
+[17-May-2016 05:08:38 America/New_York] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'newsletter_id' cannot be null' in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php:34
+Stack trace:
+#0 /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php(34): PDOStatement->execute(Array)
+#1 /home/moviemgr/public_html/api.moviemanager.biz/e/link.php(25): logNewsletterOpen('57441', NULL)
+#2 {main}
+  thrown in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php on line 34
+[01-Jun-2016 06:53:34 America/New_York] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1040] Too many connections' in /home/moviemgr/public_html/global_settings.inc.php:285
+Stack trace:
+#0 /home/moviemgr/public_html/global_settings.inc.php(285): PDO->__construct('mysql:host=loca...', 'moviemgr_main', 'qPqCcTLr6uAK', Array)
+#1 /home/moviemgr/public_html/api.moviemanager.biz/e/beacon.php(7): db->__construct()
+#2 {main}
+  thrown in /home/moviemgr/public_html/global_settings.inc.php on line 285
+[15-Jun-2016 01:06:15 America/New_York] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[08004] [1040] Too many connections' in /home/moviemgr/public_html/global_settings.inc.php:285
+Stack trace:
+#0 /home/moviemgr/public_html/global_settings.inc.php(285): PDO->__construct('mysql:host=loca...', 'moviemgr_main', 'qPqCcTLr6uAK', Array)
+#1 /home/moviemgr/public_html/api.moviemanager.biz/e/beacon.php(7): db->__construct()
+#2 {main}
+  thrown in /home/moviemgr/public_html/global_settings.inc.php on line 285
+[15-Jun-2016 01:06:15 America/New_York] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[08004] [1040] Too many connections' in /home/moviemgr/public_html/global_settings.inc.php:285
+Stack trace:
+#0 /home/moviemgr/public_html/global_settings.inc.php(285): PDO->__construct('mysql:host=loca...', 'moviemgr_main', 'qPqCcTLr6uAK', Array)
+#1 /home/moviemgr/public_html/api.moviemanager.biz/e/beacon.php(7): db->__construct()
+#2 {main}
+  thrown in /home/moviemgr/public_html/global_settings.inc.php on line 285
+[15-Jun-2016 01:06:16 America/New_York] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[08004] [1040] Too many connections' in /home/moviemgr/public_html/global_settings.inc.php:285
+Stack trace:
+#0 /home/moviemgr/public_html/global_settings.inc.php(285): PDO->__construct('mysql:host=loca...', 'moviemgr_main', 'qPqCcTLr6uAK', Array)
+#1 /home/moviemgr/public_html/api.moviemanager.biz/e/beacon.php(7): db->__construct()
+#2 {main}
+  thrown in /home/moviemgr/public_html/global_settings.inc.php on line 285
+[15-Jun-2016 01:45:44 America/New_York] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[08004] [1040] Too many connections' in /home/moviemgr/public_html/global_settings.inc.php:285
+Stack trace:
+#0 /home/moviemgr/public_html/global_settings.inc.php(285): PDO->__construct('mysql:host=loca...', 'moviemgr_main', 'qPqCcTLr6uAK', Array)
+#1 /home/moviemgr/public_html/api.moviemanager.biz/e/beacon.php(7): db->__construct()
+#2 {main}
+  thrown in /home/moviemgr/public_html/global_settings.inc.php on line 285
+[15-Jun-2016 01:45:48 America/New_York] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1040] Too many connections' in /home/moviemgr/public_html/global_settings.inc.php:285
+Stack trace:
+#0 /home/moviemgr/public_html/global_settings.inc.php(285): PDO->__construct('mysql:host=loca...', 'moviemgr_main', 'qPqCcTLr6uAK', Array)
+#1 /home/moviemgr/public_html/api.moviemanager.biz/e/beacon.php(7): db->__construct()
+#2 {main}
+  thrown in /home/moviemgr/public_html/global_settings.inc.php on line 285
+[12-Aug-2016 07:40:13 America/New_York] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'newsletter_id' cannot be null' in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php:34
+Stack trace:
+#0 /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php(34): PDOStatement->execute(Array)
+#1 /home/moviemgr/public_html/api.moviemanager.biz/e/link.php(25): logNewsletterOpen('116241', NULL)
+#2 {main}
+  thrown in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php on line 34
+[12-Aug-2016 07:40:14 America/New_York] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'newsletter_id' cannot be null' in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php:34
+Stack trace:
+#0 /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php(34): PDOStatement->execute(Array)
+#1 /home/moviemgr/public_html/api.moviemanager.biz/e/link.php(25): logNewsletterOpen('116241', NULL)
+#2 {main}
+  thrown in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php on line 34
+[12-Aug-2016 07:40:14 America/New_York] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'newsletter_id' cannot be null' in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php:34
+Stack trace:
+#0 /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php(34): PDOStatement->execute(Array)
+#1 /home/moviemgr/public_html/api.moviemanager.biz/e/link.php(25): logNewsletterOpen('116241', NULL)
+#2 {main}
+  thrown in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php on line 34
+[12-Aug-2016 07:40:14 America/New_York] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'newsletter_id' cannot be null' in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php:34
+Stack trace:
+#0 /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php(34): PDOStatement->execute(Array)
+#1 /home/moviemgr/public_html/api.moviemanager.biz/e/link.php(25): logNewsletterOpen('116241', NULL)
+#2 {main}
+  thrown in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php on line 34
+[12-Aug-2016 07:40:14 America/New_York] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'newsletter_id' cannot be null' in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php:34
+Stack trace:
+#0 /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php(34): PDOStatement->execute(Array)
+#1 /home/moviemgr/public_html/api.moviemanager.biz/e/link.php(25): logNewsletterOpen('116241', NULL)
+#2 {main}
+  thrown in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php on line 34
+[17-Aug-2016 21:50:35 America/New_York] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'newsletter_id' cannot be null' in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php:34
+Stack trace:
+#0 /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php(34): PDOStatement->execute(Array)
+#1 /home/moviemgr/public_html/api.moviemanager.biz/e/link.php(25): logNewsletterOpen('60201', NULL)
+#2 {main}
+  thrown in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php on line 34
+[22-Feb-2017 13:10:28 America/New_York] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'newsletter_id' cannot be null' in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php:34
+Stack trace:
+#0 /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php(34): PDOStatement->execute(Array)
+#1 /home/moviemgr/public_html/api.moviemanager.biz/e/link.php(25): logNewsletterOpen('60201', NULL)
+#2 {main}
+  thrown in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php on line 34
+[14-Sep-2018 02:00:27 America/New_York] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'newsletter_id' cannot be null' in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php:34
+Stack trace:
+#0 /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php(34): PDOStatement->execute(Array)
+#1 /home/moviemgr/public_html/api.moviemanager.biz/e/link.php(25): logNewsletterOpen('543370', NULL)
+#2 {main}
+  thrown in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php on line 34
+[14-Sep-2018 02:00:27 America/New_York] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'newsletter_id' cannot be null' in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php:34
+Stack trace:
+#0 /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php(34): PDOStatement->execute(Array)
+#1 /home/moviemgr/public_html/api.moviemanager.biz/e/link.php(25): logNewsletterOpen('78814', NULL)
+#2 {main}
+  thrown in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php on line 34
+[14-Sep-2018 02:00:28 America/New_York] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'newsletter_id' cannot be null' in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php:34
+Stack trace:
+#0 /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php(34): PDOStatement->execute(Array)
+#1 /home/moviemgr/public_html/api.moviemanager.biz/e/link.php(25): logNewsletterOpen('45648', NULL)
+#2 {main}
+  thrown in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php on line 34
+[14-Sep-2018 02:00:34 America/New_York] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'newsletter_id' cannot be null' in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php:34
+Stack trace:
+#0 /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php(34): PDOStatement->execute(Array)
+#1 /home/moviemgr/public_html/api.moviemanager.biz/e/link.php(25): logNewsletterOpen('22614', NULL)
+#2 {main}
+  thrown in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php on line 34
+[14-Sep-2018 02:00:35 America/New_York] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'newsletter_id' cannot be null' in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php:34
+Stack trace:
+#0 /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php(34): PDOStatement->execute(Array)
+#1 /home/moviemgr/public_html/api.moviemanager.biz/e/link.php(25): logNewsletterOpen('371809', NULL)
+#2 {main}
+  thrown in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php on line 34
+[14-Sep-2018 02:00:36 America/New_York] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'newsletter_id' cannot be null' in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php:34
+Stack trace:
+#0 /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php(34): PDOStatement->execute(Array)
+#1 /home/moviemgr/public_html/api.moviemanager.biz/e/link.php(25): logNewsletterOpen('19408', NULL)
+#2 {main}
+  thrown in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php on line 34
+[16-Sep-2018 21:50:23 America/New_York] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'newsletter_id' cannot be null' in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php:34
+Stack trace:
+#0 /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php(34): PDOStatement->execute(Array)
+#1 /home/moviemgr/public_html/api.moviemanager.biz/e/link.php(25): logNewsletterOpen('192525', NULL)
+#2 {main}
+  thrown in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php on line 34
+[16-Sep-2018 21:50:23 America/New_York] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'newsletter_id' cannot be null' in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php:34
+Stack trace:
+#0 /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php(34): PDOStatement->execute(Array)
+#1 /home/moviemgr/public_html/api.moviemanager.biz/e/link.php(25): logNewsletterOpen('60553', NULL)
+#2 {main}
+  thrown in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php on line 34
+[16-Sep-2018 21:50:23 America/New_York] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'newsletter_id' cannot be null' in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php:34
+Stack trace:
+#0 /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php(34): PDOStatement->execute(Array)
+#1 /home/moviemgr/public_html/api.moviemanager.biz/e/link.php(25): logNewsletterOpen('179178', NULL)
+#2 {main}
+  thrown in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php on line 34
+[16-Sep-2018 21:50:23 America/New_York] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'newsletter_id' cannot be null' in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php:34
+Stack trace:
+#0 /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php(34): PDOStatement->execute(Array)
+#1 /home/moviemgr/public_html/api.moviemanager.biz/e/link.php(25): logNewsletterOpen('98149', NULL)
+#2 {main}
+  thrown in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php on line 34
+[16-Sep-2018 21:50:23 America/New_York] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'newsletter_id' cannot be null' in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php:34
+Stack trace:
+#0 /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php(34): PDOStatement->execute(Array)
+#1 /home/moviemgr/public_html/api.moviemanager.biz/e/link.php(25): logNewsletterOpen('83468', NULL)
+#2 {main}
+  thrown in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php on line 34
+[16-Sep-2018 21:50:24 America/New_York] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'newsletter_id' cannot be null' in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php:34
+Stack trace:
+#0 /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php(34): PDOStatement->execute(Array)
+#1 /home/moviemgr/public_html/api.moviemanager.biz/e/link.php(25): logNewsletterOpen('305615', NULL)
+#2 {main}
+  thrown in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php on line 34
+[16-Sep-2018 21:50:24 America/New_York] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'newsletter_id' cannot be null' in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php:34
+Stack trace:
+#0 /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php(34): PDOStatement->execute(Array)
+#1 /home/moviemgr/public_html/api.moviemanager.biz/e/link.php(25): logNewsletterOpen('385821', NULL)
+#2 {main}
+  thrown in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php on line 34
+[16-Sep-2018 21:50:24 America/New_York] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'newsletter_id' cannot be null' in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php:34
+Stack trace:
+#0 /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php(34): PDOStatement->execute(Array)
+#1 /home/moviemgr/public_html/api.moviemanager.biz/e/link.php(25): logNewsletterOpen('71301', NULL)
+#2 {main}
+  thrown in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php on line 34
+[16-Sep-2018 21:50:24 America/New_York] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'newsletter_id' cannot be null' in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php:34
+Stack trace:
+#0 /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php(34): PDOStatement->execute(Array)
+#1 /home/moviemgr/public_html/api.moviemanager.biz/e/link.php(25): logNewsletterOpen('308659', NULL)
+#2 {main}
+  thrown in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php on line 34
+[19-Sep-2018 05:50:25 America/New_York] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'newsletter_id' cannot be null' in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php:34
+Stack trace:
+#0 /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php(34): PDOStatement->execute(Array)
+#1 /home/moviemgr/public_html/api.moviemanager.biz/e/link.php(25): logNewsletterOpen('127786', NULL)
+#2 {main}
+  thrown in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php on line 34
+[25-Sep-2018 05:20:23 America/New_York] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'newsletter_id' cannot be null' in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php:34
+Stack trace:
+#0 /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php(34): PDOStatement->execute(Array)
+#1 /home/moviemgr/public_html/api.moviemanager.biz/e/link.php(25): logNewsletterOpen('841747', NULL)
+#2 {main}
+  thrown in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php on line 34
+[25-Sep-2018 05:20:23 America/New_York] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'newsletter_id' cannot be null' in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php:34
+Stack trace:
+#0 /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php(34): PDOStatement->execute(Array)
+#1 /home/moviemgr/public_html/api.moviemanager.biz/e/link.php(25): logNewsletterOpen('04242', NULL)
+#2 {main}
+  thrown in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php on line 34
+[25-Sep-2018 05:20:23 America/New_York] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'newsletter_id' cannot be null' in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php:34
+Stack trace:
+#0 /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php(34): PDOStatement->execute(Array)
+#1 /home/moviemgr/public_html/api.moviemanager.biz/e/link.php(25): logNewsletterOpen('829338', NULL)
+#2 {main}
+  thrown in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php on line 34
+[25-Sep-2018 05:20:23 America/New_York] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'newsletter_id' cannot be null' in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php:34
+Stack trace:
+#0 /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php(34): PDOStatement->execute(Array)
+#1 /home/moviemgr/public_html/api.moviemanager.biz/e/link.php(25): logNewsletterOpen('279272', NULL)
+#2 {main}
+  thrown in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php on line 34
+[25-Sep-2018 05:20:23 America/New_York] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'newsletter_id' cannot be null' in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php:34
+Stack trace:
+#0 /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php(34): PDOStatement->execute(Array)
+#1 /home/moviemgr/public_html/api.moviemanager.biz/e/link.php(25): logNewsletterOpen('2273', NULL)
+#2 {main}
+  thrown in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php on line 34
+[25-Sep-2018 05:20:24 America/New_York] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'newsletter_id' cannot be null' in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php:34
+Stack trace:
+#0 /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php(34): PDOStatement->execute(Array)
+#1 /home/moviemgr/public_html/api.moviemanager.biz/e/link.php(25): logNewsletterOpen('2709', NULL)
+#2 {main}
+  thrown in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php on line 34
+[25-Sep-2018 05:20:27 America/New_York] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'newsletter_id' cannot be null' in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php:34
+Stack trace:
+#0 /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php(34): PDOStatement->execute(Array)
+#1 /home/moviemgr/public_html/api.moviemanager.biz/e/link.php(25): logNewsletterOpen('6286', NULL)
+#2 {main}
+  thrown in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php on line 34
+[12-Nov-2018 19:00:31 America/New_York] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'newsletter_id' cannot be null' in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php:34
+Stack trace:
+#0 /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php(34): PDOStatement->execute(Array)
+#1 /home/moviemgr/public_html/api.moviemanager.biz/e/link.php(25): logNewsletterOpen('218936', NULL)
+#2 {main}
+  thrown in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php on line 34
+[29-Nov-2018 00:10:24 America/New_York] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'newsletter_id' cannot be null' in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php:34
+Stack trace:
+#0 /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php(34): PDOStatement->execute(Array)
+#1 /home/moviemgr/public_html/api.moviemanager.biz/e/link.php(25): logNewsletterOpen('114006', NULL)
+#2 {main}
+  thrown in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php on line 34
+[29-Nov-2018 00:10:26 America/New_York] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'newsletter_id' cannot be null' in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php:34
+Stack trace:
+#0 /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php(34): PDOStatement->execute(Array)
+#1 /home/moviemgr/public_html/api.moviemanager.biz/e/link.php(25): logNewsletterOpen('114199', NULL)
+#2 {main}
+  thrown in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php on line 34
+[29-Nov-2018 00:10:26 America/New_York] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'newsletter_id' cannot be null' in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php:34
+Stack trace:
+#0 /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php(34): PDOStatement->execute(Array)
+#1 /home/moviemgr/public_html/api.moviemanager.biz/e/link.php(25): logNewsletterOpen('114590', NULL)
+#2 {main}
+  thrown in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php on line 34
+[29-Nov-2018 00:11:20 America/New_York] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'newsletter_id' cannot be null' in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php:34
+Stack trace:
+#0 /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php(34): PDOStatement->execute(Array)
+#1 /home/moviemgr/public_html/api.moviemanager.biz/e/link.php(25): logNewsletterOpen('114565', NULL)
+#2 {main}
+  thrown in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php on line 34
+[29-Nov-2018 00:11:26 America/New_York] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'newsletter_id' cannot be null' in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php:34
+Stack trace:
+#0 /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php(34): PDOStatement->execute(Array)
+#1 /home/moviemgr/public_html/api.moviemanager.biz/e/link.php(25): logNewsletterOpen('118014', NULL)
+#2 {main}
+  thrown in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php on line 34
+[29-Nov-2018 00:11:51 America/New_York] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'newsletter_id' cannot be null' in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php:34
+Stack trace:
+#0 /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php(34): PDOStatement->execute(Array)
+#1 /home/moviemgr/public_html/api.moviemanager.biz/e/link.php(25): logNewsletterOpen('111859', NULL)
+#2 {main}
+  thrown in /home/moviemgr/public_html/api.moviemanager.biz/e/inc/common.inc.php on line 34
