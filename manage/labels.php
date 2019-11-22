@@ -306,7 +306,7 @@ if (check_cinema() && has_permission('sessions')) {
 										$movie_session_summary.=' s'.$value;
 									}
 									if (isset($started)) { ?>
-										<tr><td colspan="<?php echo $colspan?>">&nbsp;</td>
+										<tr><td>&nbsp;</td>
 							  <?php } else {
 										$started = true;
 									} ?>

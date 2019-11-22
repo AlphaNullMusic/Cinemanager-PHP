@@ -3,7 +3,7 @@ require('inc/web.inc.php');
 require('inc/smarty_vars.inc.php');
 
 $tpl_name = 'whats-on.tpl';
-$tpl = $config['site_dir'].'tpl/'.$tpl_name;
+$tpl = $config['cinema_dir'].'tpl/'.$tpl_name;
 $cache_id = 'whats-on';
 
 if(!$smarty->isCached($tpl,$cache_id)) {

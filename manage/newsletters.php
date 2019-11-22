@@ -13,8 +13,8 @@ if (check_cinema() && has_permission('newsletters')) {
 		check_referrer();
 
 		// Generate html
-		$message_html=file_get_contents($config['cinema_url']."email_newsletter.php?urloverride=".$cinema_data['url']."&newsletter_id=".$_REQUEST['newsletter_id']);
-		$message_text=strip_tags(file_get_contents($config['cinema_url']."email_newsletter.php?urloverride=".$cinema_data['url']."&newsletter_id=".$_REQUEST['newsletter_id']."&plaintext=y"));
+		$message_html=file_get_contents($config['cinema_url']."email-newsletter.php?newsletter_id=".$_REQUEST['newsletter_id']);
+		$message_text=strip_tags(file_get_contents($config['cinema_url']."email-newsletter.php?newsletter_id=".$_REQUEST['newsletter_id']."&plaintext=y"));
 
 		// Prepare message for sending
 		if ($_REQUEST['recipients']!='self') {
@@ -172,14 +172,14 @@ if (check_cinema() && has_permission('newsletters')) {
 						  <?php } ?>
 								<strong>Email Preview:</strong>
 								<br>
-								<iframe src="<?php echo $config['cinema_url']?>email_newsletter.php?urloverride=<?php echo $cinema_data['url']?>&newsletter_id=<?php echo $_REQUEST['newsletter_id']?>" width="700" height="500" title="Preview" scrolling="yes">
+								<iframe src="<?php echo $config['cinema_url']?>email-newsletter.php?newsletter_id=<?php echo $_REQUEST['newsletter_id']?>" width="700" height="500" title="Preview" scrolling="yes">
 									<p>Your browser does not seem to support this preview function.<br>It is recommended that you use Internet Explorer 5 or higher.</p>
-									<p><a href="<?php echo config['cinema_url']?>email_newsletter.php?urloverride=<?php echo $cinema_data['url']?>&newsletter_id=<?php echo $_REQUEST['newsletter_id']?>" target="_blank">Try clicking here to preview your email in a new window.</a></p>
+									<p><a href="<?php echo config['cinema_url']?>email-newsletter.php?newsletter_id=<?php echo $_REQUEST['newsletter_id']?>" target="_blank">Try clicking here to preview your email in a new window.</a></p>
 								</iframe>
 								<br>
 								<br>
 								<?php
-								$list_res = $mysqli->query("SELECT COUNT(*) AS num FROM user_newsletters");
+								$list_res = $mysqli->query("SELECT COUNT(*) AS num FROM users");
 								$list_data = $list_res->fetch_assoc();
 								$list_num = $list_data['num']; ?>
 								<input type="radio" name="recipients" value="all" id="recipients_all">
@@ -236,8 +236,8 @@ if (check_cinema() && has_permission('newsletters')) {
 								<br>
 								<input type="hidden" name="newsletter_id" value="<?php echo $_REQUEST['newsletter_id']?>">
 								<input type="hidden" name="goto" value="send">
-								<input type="submit" name="goto" class="submit" value="Amend">
-								<input type="submit" name="submit" class="submit" value="Send"></p>
+								<input type="submit" name="goto" class="btn btn-warning submit" value="Amend">
+								<input type="submit" name="submit" class="btn btn-success submit" value="Send"></p>
 					  <?php } else { 
 								if (!isset($_REQUEST['newsletter_id'])) {
 									$t = strtotime("next Thursday");
@@ -282,16 +282,16 @@ if (check_cinema() && has_permission('newsletters')) {
 												size="30" 
 												maxlength="50"
 												value="
-												<?php
-													if (!empty($news_data['subject'])) {
-														if (!empty($news_data['reply_address'])) {
-															echo $news_data['reply_address'];
-														} else {
-															echo $cinema_data['newsletter_email'];
-														}
-													} elseif (!empty($cinema_data['email'])) {
-														echo $cinema_data['email'];
-													} ?>
+<?php if (!empty($news_data['subject'])) {
+	if (!empty($news_data['reply_address'])) {
+		echo $news_data['reply_address'];
+	} else {
+		echo $cinema_data['newsletter_email'];
+	}
+} elseif (!empty($cinema_data['email'])) {
+	echo $cinema_data['email'];
+} 
+?>
 												"
 											>
 										</td>
