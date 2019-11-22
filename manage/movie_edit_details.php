@@ -36,6 +36,7 @@ if (check_cinema()) {
             $original_movie_data = $movie_res->fetch_assoc();
 			echo 'Original data: '.print_r($original_movie_data).' | <br><br>';
             // For the following, only use the post data if it differs from the original movie data
+			$title = (!isset($_POST['title']) || $original_movie_data['title'] === $_POST['title']) ? '' : $_POST['title'];
             $synopsis = (!isset($_POST['synopsis']) || $original_movie_data['synopsis'] === $_POST['synopsis']) ? '' : $_POST['synopsis'];
             $classification_id = (!isset($_POST['classification_id'])) ? '1' : $_POST['classification_id'];
             $runtime  = (!isset($_POST['duration'])) ? '0' : stringtomins($_POST['duration']);
@@ -43,6 +44,9 @@ if (check_cinema()) {
 			$custom_poster  = (!isset($_POST['custom_poster']) || $_POST['custom_poster'] != 1) ? 0 : $_POST['custom_poster'];
 			
 			$extra_sql = '';
+			if (!isset($_POST['title_edit'])) {
+				$extra_sql .= "title = '".$mysqli->real_escape_string($title)."',";
+			}
 			if (!isset($_POST['synopsis_edit'])) {
 				$extra_sql .= "synopsis = '".$mysqli->real_escape_string($synopsis)."',";
 			}
@@ -208,7 +212,10 @@ if (check_cinema()) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="inc/js/generic.js" type="text/javascript"></script>
     <title><?php echo $title_prefix; ?><?php echo (check_cinema()) ? "Movie Lists &amp; Sessions" : "Website Content Management For Cinemas"; ?></title>
-    <link href="inc/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <script src="inc/js/generic.js" type="text/javascript"></script>
+	<script src="inc/js/jquery-3.4.1.min.js" type="text/javascript"></script>
+	<script src="inc/js/movieEdit.js" type="text/javascript"></script>
+	<link href="inc/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="inc/css/dashboard.css" rel="stylesheet">
   </head>
   <body>
@@ -236,12 +243,40 @@ if (check_cinema()) {
 					<table border="0" cellspacing="0" cellpadding="1">
   <?php if (has_permission('sessions')) {?>
 						<tr>
+                            <td align="right" nowrap><strong>Title</strong></td>
+                            <td nowrap>&nbsp;</td>
+                            <td>
+                                <input 
+									name="title" 
+									type="text" 
+									id="title" 
+									value="<?php echo $movie_data['title'];?>"
+									<?php if (!empty($movie_data['title'])) { ?>disabled="disabled" <?php }; ?>
+									size="46" 
+									maxlength="100"
+								>
+								<label>
+									<input 
+										type="checkbox" 
+										name="title_edit" 
+										value="true" 
+										class="edit_toggle" 
+										data-inputid="title" 
+										data-defaultvalue="<?php echo $movie_data['title']?>"
+										checked="checked"
+									>
+									Default
+								</label>
+                            </td>
+                        </tr>
+						<tr>
                             <td align="right"><strong>Classification</strong></td>
                             <td nowrap>&nbsp;</td>
                             <td>
                                 <select 
 									name="classification_id" 
-									id="classification_id"<?php echo (empty($movie_data['classification_id'])) ? ' disabled="disabled"' : '';?>
+									id="classification_id"
+									<?php echo (!empty($movie_data['classification_id'])) ? ' disabled="disabled"' : '';?>
 								>
 								<?php $selected_class_id = $movie_data['classification_id'];
 								foreach ($class_data as $key => $class) {?>
@@ -261,7 +296,7 @@ if (check_cinema()) {
 										class="edit_toggle" 
 										data-inputid="classification_id" 
 										data-defaultvalue="<?php echo $movie_data['class_id'];?>"
-										<?php echo (empty($movie_data['classification_id'])) ? ' checked="checked"' : '';?>
+										checked="checked"
 									>
 									Default
 								</label>
@@ -276,7 +311,7 @@ if (check_cinema()) {
 									type="text" 
 									id="duration" 
 									value="<?php echo mintohr($movie_data['runtime']);?>"
-									<?php echo (empty($movie_data['runtime'])) ? ' disabled="disabled"' : '';?> 
+									<?php echo (!empty($movie_data['runtime'])) ? ' disabled="disabled"' : '';?> 
 									size="46" 
 									maxlength="100"
 								>
@@ -288,7 +323,7 @@ if (check_cinema()) {
 										class="edit_toggle" 
 										data-inputid="duration" 
 										data-defaultvalue="<?php echo $movie_data['duration']?>"
-										<?php echo (empty($movie_data['duration'])) ? ' checked="checked"' : ''?>
+										checked="checked"
 									>
 									Default
 								</label>
@@ -316,6 +351,7 @@ if (check_cinema()) {
 									type="text" 
 									id="trailer" 
 									value="<?php echo $movie_data['trailer'];?>"
+									<?php if (!empty($movie_data['trailer'])) { ?>disabled="disabled" <?php }; ?>
 									size="46" 
 									maxlength="100"
 								>
@@ -327,7 +363,7 @@ if (check_cinema()) {
 										class="edit_toggle" 
 										data-inputid="trailer" 
 										data-defaultvalue="<?php echo $movie_data['trailer']?>"
-										<?php echo (empty($movie_data['trailer'])) ? ' checked="checked"' : ''?>
+										checked="checked"
 									>
 									Default
 								</label>
@@ -342,6 +378,7 @@ if (check_cinema()) {
 									id="synopsis" 
 									cols="60" 
 									rows="6"
+									<?php if (!empty($movie_data['synopsis'])) { ?>disabled="disabled" <?php }; ?>
 								>
 									<?php echo $movie_data['synopsis'];?>
 								</textarea>
@@ -353,7 +390,7 @@ if (check_cinema()) {
 										class="edit_toggle" 
 										data-inputid="synopsis" 
 										data-defaultvalue="<?php echo htmlspecialchars($movie_data['synopsis'])?>"
-										<?php echo (empty($movie_data['synopsis'])) ? ' checked="checked"' : ''?>
+										checked="checked"
 									>
 									Default
 								</label>

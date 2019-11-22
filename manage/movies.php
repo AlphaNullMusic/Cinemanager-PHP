@@ -25,7 +25,7 @@ if (check_cinema() && (has_permission('sessions'))) {
             $release_date = $_POST['y'] . "-" . $_POST['m'] . "-" . $_POST['d'];
         }
         // Add a new movie
-        if ($_REQUEST['movie_id']) {
+        if ($_REQUEST['movie_id'] && $_REQUEST['movie_id'] != 'new') {
             // Check if the submitted title already exists
             $sql = "
 				SELECT title,
@@ -38,13 +38,16 @@ if (check_cinema() && (has_permission('sessions'))) {
             if ($res->num_rows == 0) {
                 // Movie does not exist, add to main database
                 $movie_details = get_movie_basics($_REQUEST['movie_id']);
+				if ($movie_details['runtime'] == 'N/A') {
+					$movie_details['runtime'] = 0;
+				}
                 $sql = "
 					INSERT INTO movies 
 					SET title='" . $mysqli->real_escape_string($movie_details['title']) . "', 
 					imdb_id='" . $mysqli->real_escape_string($movie_details['imdbID']) . "',
 					status='ok', 
 					synopsis = '" . $mysqli->real_escape_string($movie_details['synopsis']) . "',
-					release_date='" . $mysqli->real_escape_string(date('Y-m-d', strtotime($movie_details['released']))) . "', 
+					release_date='" . $mysqli->real_escape_string(date('Y-m-d', strtotime($release_date))) . "', 
 					poster_url='" . $mysqli->real_escape_string($movie_details['poster']) . "',
 					runtime='" . $mysqli->real_escape_string($movie_details['runtime']) . "',
 					classification_id='" . $mysqli->real_escape_string(get_class_id($movie_details['rated'])) . "'
@@ -65,6 +68,15 @@ if (check_cinema() && (has_permission('sessions'))) {
 				";
                 $mysqli->query($sql) or user_error("Gnarly: $sql");
             }
+        } else if ($_REQUEST['movie_id'] && $_REQUEST['movie_id'] == 'new') {
+            $sql = "
+				INSERT INTO movies 
+				SET title='" . $mysqli->real_escape_string($_POST['title']) . "', 
+				status='ok', 
+				release_date='" . $mysqli->real_escape_string(date('Y-m-d', strtotime($release_date))) . "'
+			";
+            $mysqli->query($sql) or user_error("Gnarly: $sql");
+            //update_movie_cache($movie_id);
         }
 
         // Check if this cinema requires posters
@@ -119,7 +131,7 @@ if (check_cinema() && (has_permission('sessions'))) {
         exit;
     }
     
-  }
+}
 
 function expire_movie($movie_id) {
     global $mysqli;
@@ -139,25 +151,25 @@ function expire_movie($movie_id) {
     // Clear smarty cache
     smarty_clear_cache($movie_id);
     return true;
-  }
-
+}
 ?>
+
 <!DOCTYPE HTML>
 <html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="includes/generic.js" type="text/javascript"></script>
-    <title><?php echo $title_prefix?> <?php echo (isset($_SESSION['cinema_data']))?"Movie Lists &amp; Sessions":"Website Content Management For Cinemas";?></title>
-    <link href="inc/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="inc/css/dashboard.css" rel="stylesheet">
-  </head>
-  <body>
-<?php include("inc/header.inc.php");?>
-  <div class="container-fluid">
-    <div class="row">
-<?php include("inc/nav.inc.php");
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="includes/generic.js" type="text/javascript"></script>
+		<title><?php echo $title_prefix?> <?php echo (isset($_SESSION['cinema_data']))?"Movie Lists &amp; Sessions":"Website Content Management For Cinemas";?></title>
+		<link href="inc/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+		<link href="inc/css/dashboard.css" rel="stylesheet">
+	</head>
+	<body>
+		<?php include("inc/header.inc.php");?>
+		<div class="container-fluid">
+			<div class="row">
+				<?php include("inc/nav.inc.php");
 if (check_cinema() && (has_permission('sessions'))) {
 	// Add movie
 	if (isset($_REQUEST['action']) && $_REQUEST['action'] == "addmovie") {
@@ -172,140 +184,116 @@ if (check_cinema() && (has_permission('sessions'))) {
             $y = date('Y');
         }
 ?>
-	  <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-              <div class="btn-toolbar mb-2 mb-md-0">
-                <div class="btn-group mr-2">
-                  <?php button_1("< Back To Movie List", "movies.php", "back", "right"); ?>
-                </div>
-              </div>
-              <h1 class="h2">Add A Movie</h1>
-            </div>
+				<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+					<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+						<div class="btn-toolbar mb-2 mb-md-0">
+							<div class="btn-group mr-2">
+								<?php button_1("< Back To Movie List", "movies.php", "back", "right"); ?>
+							</div>
+						</div>
+						<h1 class="h2">Add A Movie</h1>
+					</div>
             
-	    <?php // Check if movie already exists 
-        $sql = "
+<?php // Check if movie already exists 
+    $sql = "
 		SELECT status 
 		FROM movies 
-		WHERE movie_id='".$mysqli->real_escape_string($_REQUEST['movie_id'])."'
-		  AND status='ok'
-	      ";
-        $res = $mysqli->query($sql) or user_error("Gnarly: $sql");
-        if (is_numeric($_REQUEST['movie_id']) && $res->num_rows > 0) { ?>
-	      <p>This movie is already in your now showing list.</p>
-  <?php } else { ?>
-	      <form action="movies.php" method="post">
-      <?php if ($_REQUEST['movie_id'] == "new") { ?>
-		  <p><strong>Movie Title:</strong><br><input name="title" type="text" size="30" maxlength="100"></p>
-		  <p><strong>Synopsis:</strong><br><textarea name="synopsis" cols="50" rows="6"></textarea></p>
-		  <p><strong>IMDB ID:</strong><br><input name="imdb_id" type="text" size="30" maxlength="100"></input></p>
-		  <p><strong>Distributor:</strong><br><select name="distributor_id"><option></option>
-	  <?php $sql = "
-				SELECT *
-				FROM distributors
-				ORDER BY name
-			";
-            $res = $mysqli->query($sql) or die($mysqli->error);
-            while ($data = $res->fetch_assoc()) {
-                echo "<option value='{$data['distributor_id']}'>{$data['name']}</option>";
-            } ?>
-		  <option></option><option>As specified below...</option></select></p>
-		  <p><strong>Notes:</strong><br>
-		    <em>Any additional information such as the cast, director or distributor (if not in the list above).</em><br>
-		    <textarea name="description" cols="50" rows="6"></textarea>
-		  </p>
-	  <?php } else { ?>
-	          <p>Add "<?php
-                echo $movie_data['title'];
-?>" to your movie list...</p>
-	        <?php
-              }
+		WHERE imdb_id='".$mysqli->real_escape_string($_REQUEST['movie_id'])."'
+			AND status='ok'
+	";
+    $res = $mysqli->query($sql) or user_error("Gnarly: $sql");
+    if (is_numeric($_REQUEST['movie_id']) && $res->num_rows > 0) { 
 ?>
-	        <p><strong>When do you start screening this movie?</strong><br>
-	        <em>Leave this as today's date if the movie is already showing.</em><br>
-	        <select name="d" id="d">
-		  <?php
-            for ($n = 1; $n <= 31; $n++)
-              {
+					<p>This movie is already in your now showing list.</p>
+<?php 
+	} else { 
 ?>
-		    <option value="<?php
-                echo $n;
-?>" <?php 
-                if ($d == $n)
-                  {
-                    echo "selected";
-                  }
-?>><?php 
-                echo $n;
-?></option>
-		  <?php 
-              }
+					<form action="movies.php" method="post">
+<?php 
+	if ($_REQUEST['movie_id'] == "new") { 
 ?>
-	        </select>
-	        <select name="m" id="m">
-		  <?php 
-            $months = array(
-                1 => "January",
-                "February",
-                "March",
-                "April",
-                "May",
-                "June",
-                "July",
-                "August",
-                "September",
-                "October",
-                "November",
-                "December"
-            );
-            for ($n = 1; $n <= count($months); $n++)
-              {
+				    <p><strong>Movie Title:</strong><br><input name="title" type="text" size="30" maxlength="100"></p>
+<?php 
+	} else { 
 ?>
-		    <option value="<?php 
-                echo $n;
-?>" <?php 
-                if ($m == $n)
-                  {
-                    echo "selected";
-                  }
-?>><?php 
-                echo $months[$n];
-?></option>
-		  <?php 
-              }
+					<p>Add "<?php echo $movie_data['title']; ?>" to your movie list...</p>
+<?php
+    }
 ?>
-	        </select>
-	        <select name="y" id="y">
-	          <?php 
-            for ($n = date('Y') - 1; $n <= (date('Y') + 2); $n++)
-              {
+					<p><strong>When do you start screening this movie?</strong><br>
+					<em>Leave this as today's date if the movie is already showing.</em><br>
+					<select name="d" id="d">
+<?php
+    for ($n = 1; $n <= 31; $n++) {
 ?>
-	            <option value="<?php echo $n ?>" <?php echo ($y == $n) ? 'selected' : '' ?>><?php echo $n ?></option>
-	          <?php 
-              }
+						<option value="<?php echo $n;?>" <?php if ($d == $n){ echo "selected"; }?>>
+							<?php echo $n;?>
+						</option>
+<?php 
+    }
 ?>
-	        </select>
-	        <input name="tba" type="checkbox" id="tba" value="y" onClick="disableDate(this.form)">TBA
-	        </p>
-	        <p>
-		  <strong>Where to next?</strong><br>
-		  <input name="redir" type="radio" id="redir_1" value="edit_details" checked>
-		  <label for="redir_1">Edit movie details</label><br>
-		  <input name="redir" type="radio" id="redir_2" value="edit_sessions">
-		  <label for="redir_2">Add movie sessions times</label><br>
-		  <input name="redir" type="radio" id="redir_3" value="movies.php?action=findmovie">
-		  <label for="redir_3">Add another movie</label><br>
-		  <input name="redir" type="radio" id="redir_4" value="movies.php"> 
-		  <label for="redir_4">Return to movie list</label>
-	        </p>
-	        <p>
-		  <input name="movie_id" type="hidden" value="<?php 
-            echo $_REQUEST['movie_id'];
-?>">
-		  <input name="action" type="hidden" value="listmovie">
-		  <input name="Submit" type="submit" class="btn btn-success submit" value="Add This Movie">
-	        </p>
-	      </form>
-	    <?php
+					</select>
+					<select name="m" id="m">
+<?php 
+    $months = array(
+        1 => "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+    );
+    for ($n = 1; $n <= count($months); $n++) {
+?>
+						<option value="<?php echo $n; ?>" <?php if ($m == $n){ echo "selected"; } ?>>
+							<?php echo $months[$n];?>
+						</option>
+<?php 
+	}
+?>
+					</select>
+					<select name="y" id="y">
+<?php 
+    for ($n = date('Y') - 1; $n <= (date('Y') + 2); $n++) {
+?>
+						<option value="<?php echo $n ?>" <?php echo ($y == $n) ? 'selected' : '' ?>>
+							<?php echo $n ?>
+						</option>
+<?php 
+    }
+?>
+					</select>
+					<input name="tba" type="checkbox" id="tba" value="y" onClick="disableDate(this.form)">TBA</p>
+<?php
+	if ($_REQUEST['movie_id'] != "new") { 
+?>
+					<p>
+					    <strong>Where to next?</strong><br>
+					    <input name="redir" type="radio" id="redir_1" value="edit_details" checked>
+					    <label for="redir_1">Edit movie details</label><br>
+					    <input name="redir" type="radio" id="redir_2" value="edit_sessions">
+					    <label for="redir_2">Add movie sessions times</label><br>
+					    <input name="redir" type="radio" id="redir_3" value="movies.php?action=findmovie">
+					    <label for="redir_3">Add another movie</label><br>
+					    <input name="redir" type="radio" id="redir_4" value="movies.php"> 
+					    <label for="redir_4">Return to movie list</label>
+					</p>
+<?php
+	}
+?>
+					<p>
+						<input name="movie_id" type="hidden" value="<?php echo $_REQUEST['movie_id'];?>">
+					    <input name="action" type="hidden" value="listmovie">
+					    <input name="Submit" type="submit" class="btn btn-success submit" value="Add This Movie">
+					</p>
+					</form>
+<?php
           }
 	// Find movie to add
     } elseif (isset($_REQUEST['action']) && $_REQUEST['action'] == "findmovie") {?>
@@ -319,6 +307,9 @@ if (check_cinema() && (has_permission('sessions'))) {
 	      <h1 class="h2">Add A Movie</h1>
         </div>	
 		<?php echo check_msg();?>
+		<h2>Add Custom Film</h2>
+		<a href="?action=addmovie&movie_id=new" class="btn btn-secondary">Add</a>
+		<hr>
 	    <h2>Search By Keyword</h2>
 	    <form action="movies.php" method="get" enctype="multipart/form-data">
 	      <input name="keyword" type="text" size="25" maxlength="50" value="<?php echo (isset($_GET['keyword'])) ? $_GET['keyword'] : '' ?>">
@@ -327,6 +318,7 @@ if (check_cinema() && (has_permission('sessions'))) {
 	    </form>
 	    <hr>
 	    <h2>Get With IMDB ID</h2>
+		<p>E.G: 'tt8242340'</p>
 	    <form action="movies.php" method="get" enctype="multipart/form-data">
 	      <input name="imdbID" type="text" size="25" maxlength="50" value="<?php echo (isset($_GET['imdbID'])) ? $_GET['imdbID'] : '' ?>">
 	      <input name="Search" type="submit" class="btn btn-sm btn-success submit" value="Search">

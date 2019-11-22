@@ -32,7 +32,7 @@ $config = array(
 	"image_overlay_dir"	=> $root_dir."media.moviemanager.biz/overlays/",
 	
 	// Posters
-	"poster_url" => "https://posters.shoreline.nz/",
+	"poster_url" => "http://posters.shoreline.nz/",//"https://posters.shoreline.nz/",
 	"poster_dir" => $root_dir."posters/",
 	"tmp_poster_dir" => $root_dir."posters/tmp/",
 	

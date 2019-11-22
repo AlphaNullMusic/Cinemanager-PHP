@@ -179,7 +179,7 @@
 	//print_r($sessions);
 	//print_r(get_movie(1, false, NULL));
 	
-	require('../manage/inc/manage.inc.php');
+	/*require('../manage/inc/manage.inc.php');
 	
 	if (isset($_POST['submit'])) {
 		global $config;
@@ -238,18 +238,16 @@
 				echo "Sorry, there was an error uploading your file.";
 			}
 		}
-	}
+	}*/
+	require('inc/web.inc.php');
+	$movie_data = get_movie_basics($_REQUEST['movie_id']);
+	if (strtotime($movie_data['year']) > strtotime(date('Y'))) {
+            $d = date('j');
+            $m = date('n');
+            $y = $movie_data['year'];
+        } else {
+            $d = date('j');
+            $m = date('n');
+            $y = date('Y');
+    }
 ?>
-
-<!DOCTYPE html>
-<html>
-<body>
-
-<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" enctype="multipart/form-data">
-    Select image to upload:
-    <input type="file" name="fileToUpload" id="fileToUpload">
-    <input type="submit" value="Upload Image" name="submit">
-</form>
-
-</body>
-</html>
