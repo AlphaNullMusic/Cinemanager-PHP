@@ -19,7 +19,7 @@ if(!$smarty->isCached($tpl,$cache_id)) {
 	$smarty->assign('tpl_name',$tpl_name);
 	
 	// Get session data
-	$smarty->assign('sessions',get_sessions_today($cinema_id,NULL,NULL,"s.time,m.title",true,'large'));
+	$smarty->assign('sessions',get_sessions_today($cinema_id,NULL,NULL,"s.time,m.title",true,false,'large'));
 	$smarty->assign('day',$get_sessions_today_day);
 	$smarty->assign('date',$get_sessions_today_date);
 	

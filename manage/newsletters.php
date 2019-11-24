@@ -2,7 +2,6 @@
 ini_set('display_errors',1); 
 error_reporting(E_ALL);
 require("inc/manage.inc.php");
-
 if (check_cinema() && has_permission('newsletters')) {
 	// Get cinema info
 	$sql = "SELECT * FROM settings WHERE id='1'";
@@ -13,15 +12,15 @@ if (check_cinema() && has_permission('newsletters')) {
 		check_referrer();
 
 		// Generate html
-		$message_html=file_get_contents($config['cinema_url']."email-newsletter.php?newsletter_id=".$_REQUEST['newsletter_id']);
-		$message_text=strip_tags(file_get_contents($config['cinema_url']."email-newsletter.php?newsletter_id=".$_REQUEST['newsletter_id']."&plaintext=y"));
+		$message_html=file_get_contents($config['email_url']."?newsletter_id=".$_REQUEST['newsletter_id']);
+		$message_text=strip_tags(file_get_contents($config['email_url']."?newsletter_id=".$_REQUEST['newsletter_id']."&plaintext=y"));
 
 		// Prepare message for sending
 		if ($_REQUEST['recipients']!='self') {
 
 			// Rewrite links
 			function collectLinks($matches) {
-				global $global, $db;
+				global $config, $mysqli;
 				$prefix = '';
 				$suffix = '';
 				if (count($matches) == 4) {
@@ -40,7 +39,7 @@ if (check_cinema() && has_permission('newsletters')) {
 							url = '".$mysqli->real_escape_string($url)."'
 					";
 					$mysqli->query($sql);
-					$linkId = $mysqli->insert_id();
+					$linkId = $mysqli->insert_id;
 					$url = "{$config['api_url']}e/link.php?l={$linkId}&u=[MMUID]";
 				}
 				$return = $prefix.$url.$suffix;
@@ -80,7 +79,7 @@ if (check_cinema() && has_permission('newsletters')) {
 											WHERE newsletter_id='{$_REQUEST['newsletter_id']}' 
 										");
 			$email_data=$email_res->fetch_assoc($email_res);
-			$cinema_name=$_SESSION['cinema_data']['name']." ".$_SESSION['cinema_data']['city'];
+			$cinema_name="Shoreline Cinema Waikanae";
 			include($config['phpmailer_dir']."class.phpmailer.php");
 			$mail = new PHPMailer();
 			$mail->Subject = $email_data['subject'];
@@ -150,7 +149,6 @@ if (check_cinema() && has_permission('newsletters')) {
 		<script src="includes/generic.js" type="text/javascript"></script>
 		<title><?php echo $title_prefix?>Send and Track Email Newsletters, a Personalised Email Marketing System for Cinemas</title>
 		<link href="inc/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-		<!--<link href="includes/css/styles.css" rel="stylesheet" type="text/css">-->
 		<link href="inc/css/dashboard.css" rel="stylesheet">
 	</head>
 	<body>
@@ -194,7 +192,7 @@ if (check_cinema() && has_permission('newsletters')) {
 								<br>
 								<br>
 								Send on 
-								<?
+								<?php
 									date_default_timezone_set('Pacific/Auckland');
 									$d = date('j');
 									$m = date('n');
@@ -334,8 +332,8 @@ if (check_cinema() && has_permission('newsletters')) {
 									} else {
 										$editorial='';
 									}
-									$tiny_mce_name = 'editorial';
-									$tiny_mce_value = $editorial;
+									$editor_name = 'editorial';
+									$editor_value = $editorial;
 									include('inc/tiny_mce/load.php'); ?>
 								</p>
 								<p>
@@ -420,7 +418,7 @@ if (check_cinema() && has_permission('newsletters')) {
 										<input type="hidden" name="newsletter_id" value="<?php echo $_REQUEST['newsletter_id']?>">
 							  <?php } ?>
 									<input type="hidden" name="goto" value="preview">
-									<input type="submit" name="submit" class="submit" value="Preview">
+									<input type="submit" name="submit" class="btn btn-primary submit" value="Preview">
 								</p>
 					  <?php } ?>
 						</form>

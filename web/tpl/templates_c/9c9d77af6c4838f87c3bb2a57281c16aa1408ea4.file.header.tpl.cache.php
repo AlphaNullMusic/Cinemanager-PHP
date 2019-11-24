@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2019-10-02 21:47:29
+<?php /* Smarty version Smarty-3.1.13, created on 2019-11-24 12:50:45
          compiled from "I:\Cinemanager\www\Cinemanager\web\tpl\inc\tpl\header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:186835d731d59a21bc8-98759320%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '9c9d77af6c4838f87c3bb2a57281c16aa1408ea4' => 
     array (
       0 => 'I:\\Cinemanager\\www\\Cinemanager\\web\\tpl\\inc\\tpl\\header.tpl',
-      1 => 1570006047,
+      1 => 1574553037,
       2 => 'file',
     ),
   ),

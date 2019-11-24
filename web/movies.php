@@ -38,9 +38,9 @@ if(!$smarty->isCached($tpl,$cache_id)) {
 		}
 		
 		if (isset($movie_data['status']) && $movie_data['status']=='cs') {
-			$smarty->assign('movie_list',get_movie_list_full('cs','m.release_date,m.title',0,'%M %e','%e %b',9,'today',null,null,true));
+			$smarty->assign('movie_list',get_movie_list_full('cs','m.release_date,m.title',0,'%M %e','%e %b',9,'today',null,null,false,'medium'));
 		} else {
-			$smarty->assign('movie_list',get_movie_list_full('ns','m.title',0,'%W %D','%e %b',9,'today',null,null,true));
+			$smarty->assign('movie_list',get_movie_list_full('ns','m.title',0,'%W %D','%e %b',9,'today',null,null,true,'medium'));
 		}
 	} else {
 		// No movie id sent

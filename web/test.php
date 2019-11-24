@@ -240,14 +240,8 @@
 		}
 	}*/
 	require('inc/web.inc.php');
-	$movie_data = get_movie_basics($_REQUEST['movie_id']);
-	if (strtotime($movie_data['year']) > strtotime(date('Y'))) {
-            $d = date('j');
-            $m = date('n');
-            $y = $movie_data['year'];
-        } else {
-            $d = date('j');
-            $m = date('n');
-            $y = date('Y');
-    }
+	$movies = array(7, 8, 10, 12, 14, 17, 18, 19, 20, 21, 22, 23);
+	foreach($movies as $m) {
+		echo $m." | ";
+	}
 ?>

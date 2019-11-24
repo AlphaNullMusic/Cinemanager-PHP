@@ -568,7 +568,7 @@ function get_movie_list_full($type = 'ns', $order_by = 'm.title', $num_sessions 
                 $movies[$n]['class_explanation'] = (isset($movie_list_data['class_explanation'])) ? get_class_explanation($movies[$n]['classification']) : NULL;
                 $movies[$n]['runtime']           = (isset($movie_list_data['runtime'])) ? $movie_list_data['runtime'] : NULL;
 				$movies[$n]['duration']          = (isset($movie_list_data['runtime'])) ? mintohr($movie_list_data['runtime']) : NULL;
-                $movies[$n]['poster_url']        = ($movie_list_data['custom_poster']==1 ? $config['poster_url'].$movie_list_data['movie_id'].'-'.$size.'-custom.jpg' : $config['poster_url'].$movie_list_data['movie_id'].'-'.$size.'-default.jpg');
+                $movies[$n]['poster_url']        = ($movie_list_data['custom_poster']==1) ? $config['poster_url'].$movie_list_data['movie_id'].'-'.$size.'-custom.jpg' : $config['poster_url'].$movie_list_data['movie_id'].'-'.$size.'-default.jpg';
 				$movies[$n]['comments']           = (isset($movie_list_data['comments'])) ? $movie_list_data['comments'] : NULL;
                 $movies[$n]['trailer']           = (isset($movie_list_data['trailer'])) ? $movie_list_data['trailer'] : NULL;
                 $movies[$n]['release_date_raw']  = (isset($movie_list_data['release_date'])) ? $movie_list_data['release_date'] : NULL;

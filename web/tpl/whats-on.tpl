@@ -61,6 +61,7 @@
 				    </ul>
 			        </div>
 			    </div>
+				<hr>
 			</li>
 		{/foreach}
 	</ul>

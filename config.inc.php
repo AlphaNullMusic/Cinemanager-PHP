@@ -24,6 +24,7 @@ $config = array(
 	// Cinema Sites
 	"cinema_url" => "https://shoreline.nz/",
 	"cinema_dir" => $root_dir."web/",
+	"template_dir" => $root_dir."web/tpl/",
 
 	// Movie Images
 	"movie_image_url" => "https://media.moviemanager.biz/movies/",
@@ -61,6 +62,7 @@ $config = array(
 	"bounce_email" => "bounces@cinemanager.ga",
 	"support_email"	=> "support@cinemanager.ga",
 	"sessions_email" => "sessions@cinemanager.ga",
+	"email_url" => "http://shoreline.nz/email-newsletter.php",
 	
 	"cookie" => "Cinemanager",
 	"title_pre" => "Cinemanager: ",

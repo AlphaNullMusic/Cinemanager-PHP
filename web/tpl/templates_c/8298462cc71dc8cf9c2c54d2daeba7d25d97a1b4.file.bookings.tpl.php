@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2019-10-02 22:47:00
+<?php /* Smarty version Smarty-3.1.13, created on 2019-11-24 14:18:07
          compiled from "tpl\bookings.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:321795d9466ee161b95-37929303%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '8298462cc71dc8cf9c2c54d2daeba7d25d97a1b4' => 
     array (
       0 => 'tpl\\bookings.tpl',
-      1 => 1570009618,
+      1 => 1574558287,
       2 => 'file',
     ),
   ),
@@ -21,9 +21,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   array (
     'movie' => 0,
     'tpl_name' => 0,
-    'movie_id' => 0,
+    'booking_id' => 0,
     'booking' => 0,
     'session' => 0,
+    'er' => 0,
     't_adults' => 0,
     't_children' => 0,
     't_seniors' => 0,
@@ -32,6 +33,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c_name' => 0,
     'c_email' => 0,
     'c_phone' => 0,
+    'c_wheelchair' => 0,
     'm' => 0,
     'd' => 0,
     's' => 0,
@@ -172,7 +174,7 @@ function YY_checkform() { //v4.71
     	    <div class="content">
     	        <div class="content-wrapper text">
     	            <p><i>Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
-    	            <form action="/bookings/<?php echo $_smarty_tpl->tpl_vars['movie_id']->value;?>
+    	            <form action="/bookings/<?php echo $_smarty_tpl->tpl_vars['booking_id']->value;?>
 /" method="post" name="bookings" onSubmit="YY_checkform('bookings','c_name','#q','0','Please enter your name.','c_email','#S','2','Please enter your email address.','c_phone','#q','0','Please enter your phone number.');return document.MM_returnValue">
                         <?php if (!$_smarty_tpl->tpl_vars['booking']->value){?>
 							<span class="h3">Screening Details</span><br />
@@ -183,8 +185,16 @@ function YY_checkform() { //v4.71
 							<p>Time: <strong><?php echo $_smarty_tpl->tpl_vars['session']->value['session_time'];?>
 </strong></p><br />
 						<?php }?>
+						<?php if ($_smarty_tpl->tpl_vars['er']->value=='incomplete'){?>
+							<script>alert('Request incomplete.\r\nPlease check your details and try again.');</script>
+							<h4 class="booking-failed"><i>Please try again.</i></h4><br />
+						<?php }?>
+						<?php if ($_smarty_tpl->tpl_vars['session']->value['label_name']){?>
+						<h4 class="booking-failed"><i>Note, this session is labelled as: </i><br><strong><?php echo $_smarty_tpl->tpl_vars['session']->value['label_name'];?>
+<strong></h4><br />
+						<?php }?>
                         <?php if ($_smarty_tpl->tpl_vars['booking']->value=='complete'){?>
-							<script>alert('Booking Complete!');</script>
+							<script>alert('Request completed.');</script>
                             <span class="booking-succeeded"><br>Tickets Requested!<br />
                             <i>We will call you to confirm your booking.</i></span><hr />
 							<span><strong>Your Session Details</strong></span><br />
@@ -193,7 +203,7 @@ function YY_checkform() { //v4.71
 							<p>Date: <strong><?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['session']->value['session_timestamp'],'%A %e %b');?>
 </strong></p>
 							<p>Time: <strong><?php echo $_smarty_tpl->tpl_vars['session']->value['session_time'];?>
-</strong></p><br />
+</strong></p>
                             <?php if ($_smarty_tpl->tpl_vars['t_adults']->value){?>
                               <p>Adults: <strong><?php echo $_smarty_tpl->tpl_vars['t_adults']->value;?>
 </strong></p>
@@ -211,7 +221,7 @@ function YY_checkform() { //v4.71
 </strong></p>
                             <?php }?>
                         <?php }elseif($_smarty_tpl->tpl_vars['booking']->value=='failed'){?>
-							<script>alert('Booking Failed.');</script>
+							<script>alert('Request failed.\r\nPlease try again soon.');</script>
                             <span class="booking-failed"><br>Booking Failed<br />
                             <i>Please try booking again later, or <a href="/contact-us/"><strong><em>contact us</em></strong></a>.</i></span>
 						<?php }else{ ?>
@@ -263,6 +273,12 @@ function YY_checkform() { //v4.71
                               <td><input name="c_phone" type="text" id="c_phone" value="<?php echo $_smarty_tpl->tpl_vars['c_phone']->value;?>
 " size="15" maxlength="50"></td>
                             </tr>
+							<tr>
+                              <td align="right">Request Wheelchair Access?</td>
+                              <td>&nbsp;</td>
+                              <td><input name="c_wheelchair" type="checkbox" id="c_wheelchair" <?php echo $_smarty_tpl->tpl_vars['c_wheelchair']->value;?>
+></td>
+                            </tr>
                             <tr>
                               <td>&nbsp;</td>
                               <td>&nbsp;</td>
@@ -274,7 +290,7 @@ function YY_checkform() { //v4.71
                                 <input type="hidden" name="s" value="<?php echo $_smarty_tpl->tpl_vars['s']->value;?>
 ">
                                 <input type="hidden" name="action" value="place_booking">
-                                <button class="btn dark" type="submit">Request Ticket</button></td>
+                                <button class="btn green" type="submit">Request Ticket</button></td>
                             </table>
                         <?php }?>
                 		</form>

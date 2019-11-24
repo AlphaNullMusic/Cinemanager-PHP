@@ -11,17 +11,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '717357d2a229876ed218782ea98cbddfc6796dab' => 
     array (
       0 => 'I:\\Cinemanager\\www\\Cinemanager\\web\\tpl\\inc\\tpl\\footer.tpl',
-      1 => 1569987668,
+      1 => 1574588139,
       2 => 'file',
     ),
   ),
   'nocache_hash' => '86115d94711060df17-46239643',
   'cache_lifetime' => 600,
   'version' => 'Smarty-3.1.13',
-  'unifunc' => 'content_5dd7d58207bae2_12441660',
+  'unifunc' => 'content_5dda5f5a851639_06546659',
   'has_nocache_code' => false,
 ),true); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5dd7d58207bae2_12441660')) {function content_5dd7d58207bae2_12441660($_smarty_tpl) {?><!DOCTYPE html>
+<?php if ($_valid && !is_callable('content_5dda5f5a851639_06546659')) {function content_5dda5f5a851639_06546659($_smarty_tpl) {?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
@@ -91,6 +91,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         </div>
     </div>
 
-    <footer><div id="text"><p>Web design and content &copy; 2019, Shoreline Cinema, Waikanae, New Zealand. <a id="improve-visibility">Improve Visibility.</a></p></div></footer></div><script src="/tpl/inc/js/jquery-3.4.1.min.js"></script><script src="/tpl/inc/js/js.cookie-2.2.1.min.js"></script><script src="/tpl/inc/js/scripts.js"></script></body></html>
+    <footer><div id="text"><p>Web design and content &copy; 2019, Shoreline Cinema Waikanae, New Zealand. <a id="improve-visibility">Improve Visibility.</a></p></div></footer></div><script src="/tpl/inc/js/jquery-3.4.1.min.js"></script><script src="/tpl/inc/js/js.cookie-2.2.1.min.js"></script><script src="/tpl/inc/js/scripts.js"></script></body></html>
 
 <?php }} ?>

@@ -33,7 +33,6 @@ input, select {
     display: block;
     height: calc(1.5em + .75rem + 2px);
     padding: .375rem .75rem;
-    margin-bottom: 15px;
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
@@ -44,6 +43,7 @@ input, select {
     border-radius: .25rem;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
+input#c_wheelchair { width: auto; }
 ul {
     margin-top: 0;
     margin-bottom: 1rem;
@@ -222,6 +222,7 @@ footer.text {
 }
 footer a { color: #dfdccd; }
 footer p { margin: 0; }
+#unsubscribe { color: #d1ffb0; }
 #improve-visibility { color: #d1ffb0; }
 #improve-visibility:hover { cursor: pointer; }
 
@@ -274,7 +275,7 @@ img {
 }
 .btn.green {
     color: #fff!important;
-    background-color: #50bf00!important;
+    background-color: #3e9400!important;
     border-color: #50bf00!important;
     margin-bottom: 25px;
 }
@@ -424,7 +425,7 @@ span.icon-text { font-size: 0.9rem; }
 .content-wrapper .content .content-wrapper ul.sessions { min-height: auto; }
 ul.movie-times ul { margin-top: 1em; }
 ul.sessions {
-    min-height: 220px;
+	min-height: 220px;
     list-style: none;
 }
 ul.sessions ul, ul.movie-times li {
@@ -450,12 +451,20 @@ ul.movie-times .content {
     margin-bottom: 25px;
     margin-top: 15px;
 }
+ul.movie-times li hr { visibility: hidden }
 ul.sessions a:hover {
     margin: -8px;
     padding: 8px;
     background-color: #2f2c1a;
     border-radius: 8px;
     transition: all 0.1s;
+}
+@media (max-width: 767.999px) {
+	ul.sessions { min-height: 0; }
+    ul.movie-times li hr { 
+		visibility: visible!important;
+		margin-bottom: 25px;
+	}
 }
 
 /* ========================================================================== */
