@@ -30,7 +30,7 @@ if(!$smarty->isCached($tpl)) {
 		if ($res->num_rows) {
 			$data = $res->fetch_assoc();
 			$movie_id = $data['movie_id'];
-			$movie_data = get_movie($movie_id,false,NULL);
+			$movie_data = get_movie($movie_id,false,NULL,'medium');
 			$session = get_session($_REQUEST['booking_id']);
 			if (is_array($movie_data) && $session) {
 				
@@ -56,7 +56,7 @@ if(!$smarty->isCached($tpl)) {
 				// Booking display and process
 				} else {
 					$smarty->assign('ticket_nums', array(0,1,2,3,4,5,6,7,8,9,10));
-					$smarty->assign('movie_list',get_movie_list_full('ns','m.title',0,'%W %D','%e %b',100,'today',null,null,true));
+					$smarty->assign('movie_list',get_movie_list_full('ns','m.title',0,'%W %D','%e %b',100,'today',null,null,true,'medium'));
 					// Send booking request
 					if (isset($_POST['action']) && $_POST['action']=='place_booking') {
 						// Send booking email
@@ -70,7 +70,7 @@ if(!$smarty->isCached($tpl)) {
 								(isset($_POST['t_students']) && $_POST['t_students']!=0)
 							)
 						) {
-							$message="The following booking was made via the {$cinema_data['cinema_name']} {$cinema_data['city']} website on ".date('l, j M Y \a\t g:ia')."\n";
+							$message="The following booking was made via the {$cinema_data['name']} {$cinema_data['city']} website on ".date('l, j M Y \a\t g:ia')."\n";
 							$message.="\n";
 							$message.="Customer Name = {$_POST['c_name']}\n";
 							$message.="Customer Phone = {$_POST['c_phone']}\n";
@@ -84,6 +84,7 @@ if(!$smarty->isCached($tpl)) {
 							if (isset($_POST['t_children'])) { $message.="Child Tickets = {$_POST['t_children']}\n"; }
 							if (isset($_POST['t_seniors'])) { $message.="Senior Tickets = {$_POST['t_seniors']}\n"; }
 							if (isset($_POST['t_students'])) { $message.="Student Tickets = {$_POST['t_students']}\n"; }
+							if (isset($_POST['c_wheelchair'])) { $message.="*/ Requested Wheelchair Access \*\n"; }
 							$message.="\n";
 							$subject="{$cinema_data['cinema_name']} {$cinema_data['city']} Online Booking";
 							$subject.=" from {$_POST['c_email']}";
@@ -94,7 +95,7 @@ if(!$smarty->isCached($tpl)) {
 							if (has_permission('email_booking_reply',$cinema_id)) {
 								$message_cust="Dear {$_POST['c_name']}\n";
 								$message_cust.="\n";
-								$message_cust.="Thank you for placing your booking through the Empire Cinema website � we have received your request and will be in touch shortly to confirm your booking.\n";
+								$message_cust.="Thank you for placing your booking through the Shoreline Cinema website � we have received your request and will be in touch shortly to confirm your booking.\n";
 								$message_cust.="\n";
 								$message_cust.="Please note that this e-mail is not a confirmation of your booking, as seats are subject to availability.\n";
 								$message_cust.="\n";
@@ -126,6 +127,7 @@ if(!$smarty->isCached($tpl)) {
 							$smarty->assign('c_name',$_POST['c_name']);
 							$smarty->assign('c_email',$_POST['c_email']);
 							$smarty->assign('c_phone',$_POST['c_phone']);
+							$smarty->assign('c_wheelchair',(isset($_POST['c_wheelchair']))?'checked':'');
 							$smarty->assign('t_adults',(isset($_POST['t_adults']))?$_POST['t_adults']:'');
 							$smarty->assign('t_children',(isset($_POST['t_children']))?$_POST['t_children']:'');
 							$smarty->assign('t_seniors',(isset($_POST['t_seniors']))?$_POST['t_seniors']:'');
@@ -134,6 +136,8 @@ if(!$smarty->isCached($tpl)) {
 					}
 				}
 			}
+		} else {
+			header("Location: ".$cinema_domain."404/");
 		}
 	}
 	

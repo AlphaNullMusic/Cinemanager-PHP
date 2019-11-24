@@ -22,7 +22,8 @@ if (check_cinema() && (has_permission('sessions'))) {
         if (isset($_POST['tba'])) {
             $release_date = "0000-00-00";
         } else {
-            $release_date = $_POST['y'] . "-" . $_POST['m'] . "-" . $_POST['d'];
+            $r_date = $_POST['y'] . "-" . $_POST['m'] . "-" . $_POST['d'];
+			$release_date = date('Y-m-d', strtotime($r_date));
         }
         // Add a new movie
         if ($_REQUEST['movie_id'] && $_REQUEST['movie_id'] != 'new') {
@@ -47,7 +48,7 @@ if (check_cinema() && (has_permission('sessions'))) {
 					imdb_id='" . $mysqli->real_escape_string($movie_details['imdbID']) . "',
 					status='ok', 
 					synopsis = '" . $mysqli->real_escape_string($movie_details['synopsis']) . "',
-					release_date='" . $mysqli->real_escape_string(date('Y-m-d', strtotime($release_date))) . "', 
+					release_date='" . $mysqli->real_escape_string($release_date) . "', 
 					poster_url='" . $mysqli->real_escape_string($movie_details['poster']) . "',
 					runtime='" . $mysqli->real_escape_string($movie_details['runtime']) . "',
 					classification_id='" . $mysqli->real_escape_string(get_class_id($movie_details['rated'])) . "'
@@ -160,8 +161,10 @@ function expire_movie($movie_id) {
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<script src="includes/generic.js" type="text/javascript"></script>
+		<script src="inc/js/generic.js" type="text/javascript"></script>
 		<title><?php echo $title_prefix?> <?php echo (isset($_SESSION['cinema_data']))?"Movie Lists &amp; Sessions":"Website Content Management For Cinemas";?></title>
+		<script src="inc/js/jquery-3.4.1.min.js" type="text/javascript"></script>
+		<script src="inc/js/movieEdit.js" type="text/javascript"></script>
 		<link href="inc/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 		<link href="inc/css/dashboard.css" rel="stylesheet">
 	</head>

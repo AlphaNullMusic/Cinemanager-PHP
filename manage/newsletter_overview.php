@@ -10,13 +10,11 @@ if (check_cinema() && has_permission('newsletters')) {
 		$sql = "
 			DELETE FROM newsletters
 			WHERE newsletter_id = :newsletter_id
-				AND cinema_id = :cinema_id
 				AND status = 'new'
 		";
 		$stmt = $db->prepare($sql);
 		$stmt->execute(array(
-			':newsletter_id' => $_GET['newsletter_id'],
-			':cinema_id' => $_SESSION['cinema_data']['cinema_id']
+			':newsletter_id' => $_GET['newsletter_id']
 		));
 		$stmt = NULL;
 		header("Location: newsletter_overview.php?conf=Newsletter deleted successfully");
@@ -123,16 +121,17 @@ if (check_cinema() && has_permission('newsletters')) {
 		<div class="container-fluid">
 		<div class="row">
 			<?php include("inc/nav.inc.php");?>
-			<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-				<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-					<h1 class="h2">Email Newsletters</h1>
-					<div class="btn-toolbar mb-2 mb-md-0">
-						<div class="btn-group mr-2">
-							<?php button_1("Create a Newsletter","newsletters.php","plus","right") ?>
+			<?php if (check_cinema() && has_permission('newsletters')) { ?>
+				<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+					<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+						<h1 class="h2">Email Newsletters</h1>
+						<div class="btn-toolbar mb-2 mb-md-0">
+							<div class="btn-group mr-2">
+								<?php button_1("Create a Newsletter","newsletters.php","plus","right") ?>
+							</div>
 						</div>
 					</div>
-				</div>
-		  <?php if (check_cinema() && has_permission('newsletters')) { 
+					<?php
 					if (isset($_GET['conf'])) { confirm($_GET['conf']); } 
 					if (isset($_GET['er'])) { confirm($_GET['er'],'er'); } ?>
 					<h3>Quarterly Trend</h3>

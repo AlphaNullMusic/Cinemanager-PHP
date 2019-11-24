@@ -1,0 +1,1 @@
+RewriteRule ^beacon-([0-9]+)-([0-9]+)\.gif$ beacon.php?n=$1&u=$2 [L]

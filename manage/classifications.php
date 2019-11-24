@@ -170,7 +170,7 @@ if (check_cinema() && has_permission('sessions')) {
 						</tr>
 						<tr>
 							<td valign="top">
-								<h2><?php echo (isset($_REQUEST['edit']))?'Edit a different':'Edit an existing'?> label</h2>
+								<h2><?php echo (isset($_REQUEST['edit']))?'Edit a different':'Edit an existing'?> classification</h2>
 										<ul>
 									<?php
 										$sql = "

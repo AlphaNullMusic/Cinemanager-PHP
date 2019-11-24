@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2019-11-13 16:40:19
+<?php /* Smarty version Smarty-3.1.13, created on 2019-11-24 22:15:45
          compiled from "I:\Cinemanager\www\Cinemanager\web\tpl\whats-on.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:3155dcb7b23bc4075-59637908%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '47caeab8388f0f0d58b0a2b0655a35d73d9a6fdb' => 
     array (
       0 => 'I:\\Cinemanager\\www\\Cinemanager\\web\\tpl\\whats-on.tpl',
-      1 => 1570174141,
+      1 => 1574586944,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'cache_lifetime' => 600,
+  'version' => 'Smarty-3.1.13',
+  'unifunc' => 'content_5dcb7b2406c2d9_29950444',
   'variables' => 
   array (
     'now_showing' => 0,
@@ -27,8 +30,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'cnt' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.13',
-  'unifunc' => 'content_5dcb7b2406c2d9_29950444',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5dcb7b2406c2d9_29950444')) {function content_5dcb7b2406c2d9_29950444($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_date_format')) include 'I:\\Cinemanager\\www\\Cinemanager/_deps/smarty/plugins\\modifier.date_format.php';
 ?><?php echo $_smarty_tpl->getSubTemplate ("inc/tpl/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 9999, null, array(), 0);?>
@@ -71,5 +72,5 @@ $_smarty_tpl->tpl_vars['st']->_loop = true;
 </strong><?php }?><?php }?><?php $_smarty_tpl->tpl_vars["cnt"] = new Smarty_variable($_smarty_tpl->tpl_vars['cnt']->value+1, null, 0);?><?php if (!$_smarty_tpl->getVariable('smarty')->value['foreach']['st']['first']){?>, <?php }?><a href="/bookings/<?php echo $_smarty_tpl->tpl_vars['st']->value['id'];?>
 /"><?php echo $_smarty_tpl->tpl_vars['st']->value['time'];?>
 </a><?php if ($_smarty_tpl->tpl_vars['st']->value['label']){?> <i>(<?php echo $_smarty_tpl->tpl_vars['st']->value['label'];?>
-)</i><?php }?><?php }?><?php } ?><?php } ?></li></ul></div></div></li><?php } ?></ul><?php }else{ ?><p>Currently we don't have any session times listed.<br />Please <a href="/contact-us/"><strong><em>contact us</em></strong></a> or check back later.</p><?php }?></div><?php echo $_smarty_tpl->getSubTemplate ("inc/tpl/footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 9999, null, array(), 0);?>
+)</i><?php }?><?php }?><?php } ?><?php } ?></li></ul></div></div><hr></li><?php } ?></ul><?php }else{ ?><p>Currently we don't have any session times listed.<br />Please <a href="/contact-us/"><strong><em>contact us</em></strong></a> or check back later.</p><?php }?></div><?php echo $_smarty_tpl->getSubTemplate ("inc/tpl/footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 9999, null, array(), 0);?>
 <?php }} ?>

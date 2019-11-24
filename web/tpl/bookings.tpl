@@ -124,21 +124,28 @@ function YY_checkform() { //v4.71
     	    <div class="content">
     	        <div class="content-wrapper text">
     	            <p><i>Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
-    	            <form action="/bookings/{$movie_id}/" method="post" name="bookings" onSubmit="YY_checkform('bookings','c_name','#q','0','Please enter your name.','c_email','#S','2','Please enter your email address.','c_phone','#q','0','Please enter your phone number.');return document.MM_returnValue">
+    	            <form action="/bookings/{$booking_id}/" method="post" name="bookings" onSubmit="YY_checkform('bookings','c_name','#q','0','Please enter your name.','c_email','#S','2','Please enter your email address.','c_phone','#q','0','Please enter your phone number.');return document.MM_returnValue">
                         {if !$booking}
 							<span class="h3">Screening Details</span><br />
 							<p>Movie: <strong>{$movie.title}</strong></p>
 							<p>Date: <strong>{$session.session_timestamp|date_format:'%A %e %b'}</strong></p>
 							<p>Time: <strong>{$session.session_time}</strong></p><br />
 						{/if}
+						{if $er=='incomplete'}
+							<script>alert('Request incomplete.\r\nPlease check your details and try again.');</script>
+							<h4 class="booking-failed"><i>Please try again.</i></h4><br />
+						{/if}
+						{if $session.label_name}
+						<h4 class="booking-failed"><i>Note, this session is labelled as: </i><br><strong>{$session.label_name}<strong></h4><br />
+						{/if}
                         {if $booking=='complete'}
-							<script>alert('Booking Complete!');</script>
+							<script>alert('Request completed.');</script>
                             <span class="booking-succeeded"><br>Tickets Requested!<br />
                             <i>We will call you to confirm your booking.</i></span><hr />
 							<span><strong>Your Session Details</strong></span><br />
 							<p>Movie: <strong>{$movie.title}</strong></p>
 							<p>Date: <strong>{$session.session_timestamp|date_format:'%A %e %b'}</strong></p>
-							<p>Time: <strong>{$session.session_time}</strong></p><br />
+							<p>Time: <strong>{$session.session_time}</strong></p>
                             {if $t_adults}
                               <p>Adults: <strong>{$t_adults}</strong></p>
                             {/if}
@@ -152,7 +159,7 @@ function YY_checkform() { //v4.71
                               <p>Students: <strong>{$t_students}</strong></p>
                             {/if}
                         {elseif $booking=='failed'}
-							<script>alert('Booking Failed.');</script>
+							<script>alert('Request failed.\r\nPlease try again soon.');</script>
                             <span class="booking-failed"><br>Booking Failed<br />
                             <i>Please try booking again later, or <a href="/contact-us/"><strong><em>contact us</em></strong></a>.</i></span>
 						{else}
@@ -197,6 +204,11 @@ function YY_checkform() { //v4.71
                               <td>&nbsp;</td>
                               <td><input name="c_phone" type="text" id="c_phone" value="{$c_phone}" size="15" maxlength="50"></td>
                             </tr>
+							<tr>
+                              <td align="right">Request Wheelchair Access?</td>
+                              <td>&nbsp;</td>
+                              <td><input name="c_wheelchair" type="checkbox" id="c_wheelchair" {$c_wheelchair}></td>
+                            </tr>
                             <tr>
                               <td>&nbsp;</td>
                               <td>&nbsp;</td>
@@ -205,7 +217,7 @@ function YY_checkform() { //v4.71
                                 <input type="hidden" name="d" value="{$d}">
                                 <input type="hidden" name="s" value="{$s}">
                                 <input type="hidden" name="action" value="place_booking">
-                                <button class="btn dark" type="submit">Request Ticket</button></td>
+                                <button class="btn green" type="submit">Request Ticket</button></td>
                             </table>
                         {/if}
                 		</form>

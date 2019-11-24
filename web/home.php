@@ -27,7 +27,9 @@ if (!$smarty->isCached($tpl,$cache_id)) {
 	}
 	
 	// Get full movie list (type, order by, number of sessions, date format, alt date format, limit, session start, movie array, days of sessions, get session labels, small poster)
-	$smarty->assign('now_showing',get_movie_list_full('ns','m.title',14,'%W %D','%e %b',100,'today',null,null,false,'small'));
+	$movie_list = get_movie_list_full('ns','m.title',14,'%W %D','%e %b',100,'today',null,null,false,'small');
+	shuffle($movie_list);
+	$smarty->assign('now_showing', $movie_list);
 	
 	// Common functions
 	include('inc/local.inc.php');

@@ -11,7 +11,7 @@ For more information on any of our movies please visit www.shorelinecinema.co.nz
 
 {$now_showing[ns].class}{if $now_showing[ns].class_explanation} ({$now_showing[ns].class_explanation}){/if} - {$now_showing[ns].duration}
 
-{summary text=`$now_showing[ns].synopsis` chars=400}
+{* summary text='$now_showing[ns].synopsis' chars=400 *}
 
 Visit this web page for more information:
 http://www.shorelinecinema.co.nz/movies/{$now_showing[ns].movie_id}.php
@@ -81,13 +81,13 @@ a.nav:hover {
 }
 -->
 {/literal}
-{include_php file="/home/moviemgr/public_html/cinemas.moviemanager.biz/1121/editor.css"}
+{include file="inc/css/styles.css"}
 </style>
 </HEAD>
 <BODY bgcolor="#8B886C" text="#DFDCCD" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
 <table width="500" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#9C997E">
   <tr>
-    <td width="500"><a href="http://www.shorelinecinema.co.nz/" target="_blank"><img src="images/email_logo.jpg" alt="Shoreline Cinema" width="500" height="94" border="0"></a></td>
+    <td width="500"><a href="http://www.shorelinecinema.co.nz/" target="_blank"><img src="inc/img/sl_logo.png" alt="Shoreline Cinema" width="500" height="94" border="0"></a></td>
   </tr>
   <tr>
   	<td>
@@ -122,7 +122,7 @@ a.nav:hover {
 								{if $now_showing[ns].comments}
 								<font color="#AD3914">{$now_showing[ns].comments}</font><br>
 								{/if}
-								{summary text=`$now_showing[ns].synopsis` chars=195}<br><br>
+								{* summary text=`$now_showing[ns].synopsis` chars=195 *}<br><br>
                 <table border="0" cellspacing="0" cellpadding="0">
                   {foreach from=$now_showing[ns].sessions item=s key=date name=s}
 									<tr>

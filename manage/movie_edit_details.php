@@ -31,10 +31,8 @@ if (check_cinema()) {
                     ON c.classification_id = m.classification_id
                 WHERE movie_id = '{$_REQUEST['movie_id']}'
             ";
-			echo 'Original SQL: '.$sql.' | <br><br>';
             $movie_res = query($sql);
             $original_movie_data = $movie_res->fetch_assoc();
-			echo 'Original data: '.print_r($original_movie_data).' | <br><br>';
             // For the following, only use the post data if it differs from the original movie data
 			$title = (!isset($_POST['title']) || $original_movie_data['title'] === $_POST['title']) ? '' : $_POST['title'];
             $synopsis = (!isset($_POST['synopsis']) || $original_movie_data['synopsis'] === $_POST['synopsis']) ? '' : $_POST['synopsis'];
@@ -173,6 +171,7 @@ if (check_cinema()) {
                 m.synopsis, 
                 m.classification_id,  
 				m.custom_poster,
+				m.poster_url,
                 m.runtime, 
                 m.trailer,
 				m.comments,
@@ -263,7 +262,7 @@ if (check_cinema()) {
 										class="edit_toggle" 
 										data-inputid="title" 
 										data-defaultvalue="<?php echo $movie_data['title']?>"
-										checked="checked"
+										<?php if (!empty($movie_data['title'])) { ?>checked="checked" <?php }; ?>
 									>
 									Default
 								</label>
@@ -295,8 +294,8 @@ if (check_cinema()) {
 										value="true" 
 										class="edit_toggle" 
 										data-inputid="classification_id" 
-										data-defaultvalue="<?php echo $movie_data['class_id'];?>"
-										checked="checked"
+										data-defaultvalue="<?php echo $movie_data['classification_id'];?>"
+										<?php if (!empty($movie_data['classification_id'])) { ?>checked="checked" <?php }; ?>
 									>
 									Default
 								</label>
@@ -322,8 +321,8 @@ if (check_cinema()) {
 										value="true" 
 										class="edit_toggle" 
 										data-inputid="duration" 
-										data-defaultvalue="<?php echo $movie_data['duration']?>"
-										checked="checked"
+										data-defaultvalue="<?php echo $movie_data['runtime']?>"
+										<?php if (!empty($movie_data['runtime'])) { ?>checked="checked" <?php }; ?>
 									>
 									Default
 								</label>
@@ -363,7 +362,7 @@ if (check_cinema()) {
 										class="edit_toggle" 
 										data-inputid="trailer" 
 										data-defaultvalue="<?php echo $movie_data['trailer']?>"
-										checked="checked"
+										<?php if (!empty($movie_data['trailer'])) { ?>checked="checked" <?php }; ?>
 									>
 									Default
 								</label>
@@ -379,8 +378,7 @@ if (check_cinema()) {
 									cols="60" 
 									rows="6"
 									<?php if (!empty($movie_data['synopsis'])) { ?>disabled="disabled" <?php }; ?>
-								>
-									<?php echo $movie_data['synopsis'];?>
+								><?php echo $movie_data['synopsis'];?>
 								</textarea>
 								<label>
 									<input 
@@ -390,7 +388,7 @@ if (check_cinema()) {
 										class="edit_toggle" 
 										data-inputid="synopsis" 
 										data-defaultvalue="<?php echo htmlspecialchars($movie_data['synopsis'])?>"
-										checked="checked"
+										<?php if (!empty($movie_data['synopsis'])) { ?>checked="checked" <?php }; ?>
 									>
 									Default
 								</label>
@@ -481,7 +479,7 @@ if (check_cinema()) {
 											class="form-check-input" 
 											value="1" 
 											name="custom_poster" 
-											<?php echo ($movie_data['custom_poster']) ? ' checked="checked"' : ''; ?>
+											<?php echo ($movie_data['custom_poster'] == 1 || empty($movie_data['poster_url'])) ? ' checked="checked"' : ''; ?>
 										>&nbsp;
 									</label>
 								</div>
@@ -529,8 +527,9 @@ if (check_cinema()) {
 									value="<?php echo $_REQUEST['movie_id'];?>"
 								>
 								<input name="submit" type="submit" class="btn btn-success submit" value="Save Changes">
-									<br /><br /><br /><br />
-									<?php button_3("Remove From List","movies.php?delete_movie=".$_REQUEST['movie_id'],"x","","y","Are you sure you want to remove this movie from your list?");?>
+								<br /><br />
+								<?php button_3("Remove From List","movies.php?delete_movie=".$_REQUEST['movie_id'],"x","","y","Are you sure you want to remove this movie from your list?");?>
+								<br /><br />
 							</td>
 						</tr>
 					</table>
