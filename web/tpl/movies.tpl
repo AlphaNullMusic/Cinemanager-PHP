@@ -108,7 +108,7 @@
                               {/foreach}
                                </li>
                             </ul>
-                          	<p><i>To place a booking, click on the session time you are interested. Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
+                          	<p><i>To place a booking, click on the session time you are interested in. Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
                         {/if}
     		    </div>
     		    <div class="content-wrapper details">
