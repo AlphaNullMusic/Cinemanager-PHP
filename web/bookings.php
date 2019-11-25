@@ -86,7 +86,7 @@ if(!$smarty->isCached($tpl)) {
 							if (isset($_POST['t_students'])) { $message.="Student Tickets = {$_POST['t_students']}\n"; }
 							if (isset($_POST['c_wheelchair'])) { $message.="*/ Requested Wheelchair Access \*\n"; }
 							$message.="\n";
-							$subject="{$cinema_data['cinema_name']} {$cinema_data['city']} Online Booking";
+							$subject="{$cinema_data['name']} {$cinema_data['city']} Online Booking";
 							$subject.=" from {$_POST['c_email']}";
 							//$to="{$cinema_data['cinema_name']} <{$cinema_data['booking_email']}>";
 							//$headers="From: {$cinema_data['cinema_name']} Website <{$cinema_data['booking_email']}>";
@@ -94,15 +94,15 @@ if(!$smarty->isCached($tpl)) {
 							$mail = new PHPMailer();
 							$mail->IsSMTP();
 							$mail->SMTPAuth = true;
-							$mail->SMTPSecure = 'ssl';
+							$mail->SMTPSecure = 'tls';
 							$mail->Host = $config['smtp_server'];
 							$mail->Mailer = "smtp";
 							$mail->Port = 587;
 							$mail->Username = $config['booking_send_email'];
 							$mail->Password = $config['booking_password'];
-							$mail->setFrom($cinema_data['booking_email'], "{$cinema_data['cinema_name']} Website");
+							$mail->From = $config['booking_send_email'];
 							$mail->addAddress($cinema_data['booking_email']);
-							$mail->FromName	= $cinema_data['cinema_name'];
+							$mail->FromName	= $cinema_data['name']." Website";
 							$mail->Sender = $global['bounce_email'];
 							$mail->ReturnPath = $global['bounce_email'];
 							$mail->Subject = $subject;
@@ -110,44 +110,41 @@ if(!$smarty->isCached($tpl)) {
 							$mail->Send();
 							$mail->ClearAddresses();
 							// Email the customer back
-							if (has_permission('email_booking_reply',$cinema_id)) {
+							if (has_permission('email_booking_reply')) {
 								$message_cust="Dear {$_POST['c_name']}\n";
 								$message_cust.="\n";
-								$message_cust.="Thank you for placing your booking through the Shoreline Cinema website � we have received your request and will be in touch shortly to confirm your booking.\n";
+								$message_cust.="Thank you for placing your booking through the {$cinema_data['name']} website \r\nWe have received your request and will be in touch shortly to confirm your booking.\n";
 								$message_cust.="\n";
 								$message_cust.="Please note that this e-mail is not a confirmation of your booking, as seats are subject to availability.\n";
 								$message_cust.="\n";
 								$message_cust.="We look forward to seeing you.\n";
 								$message_cust.="\n";
-								$message_cust.=$cinema_data['cinema_name']."\n";
+								$message_cust.=$cinema_data['name'].",\n";
 								$message_cust.=$cinema_data['city']."\n";
 								$message_cust.="\n";
 								$message_cust.="----------------------------------------\n";
 								$message_cust.="\n";
 								$message_cust.=$message;
-								$subject="{$cinema_data['cinema_name']} {$cinema_data['city']} Online Booking";
-								$to="{$_POST['c_name']} <{$_POST['c_email']}>";
-								$headers="From: {$cinema_data['cinema_name']} <{$cinema_data['booking_email']}>";
+								$subject="{$cinema_data['name']} {$cinema_data['city']} Online Booking";
+								//$to="{$_POST['c_name']} <{$_POST['c_email']}>";
+								//$headers="From: {$cinema_data['cinema_name']} <{$cinema_data['booking_email']}>";
 								//mail($to,$subject,$message_cust,$headers);
-								$mail = new PHPMailer();
-								$mail->IsSMTP();
-								$mail->SMTPAuth = true;
-								$mail->SMTPSecure = 'ssl';
-								$mail->Host = $config['smtp_server'];
-								$mail->Mailer = "smtp";
-								$mail->Port = 587;
-								$mail->Username = $config['booking_send_email'];
-								$mail->Password = $config['booking_password'];
-								$mail->Subject = $subject;
-								$mail->setFrom	= $cinema_data['booking_email'];
-								$mail->FromName	= $cinema_data['cinema_name'];
-								$mail->Sender = $global['bounce_email'];
-								$mail->ReturnPath = $global['bounce_email'];
-								$mail->Body	= $message_cust;
-								$mail->AddReplyTo($from_email, $from_name);
-								$mail->AddAddress($_POST['c_email']);
-								$mail->Send();
-								$mail->ClearAddresses();
+								$reply = new PHPMailer();
+								$reply->IsSMTP();
+								$reply->SMTPAuth = true;
+								$reply->SMTPSecure = 'tls';
+								$reply->Host = $config['smtp_server'];
+								$reply->Mailer = "smtp";
+								$reply->Port = 587;
+								$reply->Username = $config['booking_send_email'];
+								$reply->Password = $config['booking_password'];
+								$reply->Subject = $subject;
+								$reply->From = $config['booking_send_email'];
+								$reply->FromName = $cinema_data['name']." ".$cinema_data['city'];
+								$reply->Body = $message_cust;
+								$reply->AddAddress($_POST['c_email']);
+								$reply->Send();
+								$reply->ClearAddresses();
 							}
 							// Redirect
 							$url = "/bookings/{$_REQUEST['booking_id']}/";
