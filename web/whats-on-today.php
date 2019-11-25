@@ -14,9 +14,8 @@ if(!$smarty->isCached($tpl,$cache_id)) {
 	$smarty->assign('domain',$cinema_domain);
 	$smarty->assign('name',$cinema_data['cinema_name']);
 	$smarty->assign('city',$cinema_data['city']);
-	$smarty->assign('movie_image_url',$global['movie_image_url']);
-	$smarty->assign('movie_image_url_secure',$global['movie_image_url_secure']);
 	$smarty->assign('tpl_name',$tpl_name);
+	$smarty->assign('gacode',$config['ga_code']);
 	
 	// Get session data
 	$smarty->assign('sessions',get_sessions_today($cinema_id,NULL,NULL,"s.time,m.title",true,false,'large'));
@@ -28,11 +27,6 @@ if(!$smarty->isCached($tpl,$cache_id)) {
 	
 	// Common functions
 	include('inc/local.inc.php');
-	
-	// Register functions / filters
-	//$smarty->registerPlugin("function", "summary", "smarty_summary");
-	//$smarty->registerFilter("pre", "edit_image_path");
-
 }
 
 $smarty->display($tpl,$cache_id);
