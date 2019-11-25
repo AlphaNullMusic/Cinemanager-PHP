@@ -31,11 +31,13 @@ function dbv($value) {
 
 // Get difference between timezones
 function differenceBetweenTimezones($zone1, $zone2 = null, $format = 'hours') {
+    die($zone1." | ".$zone2." | ".$format);
     if (!$zone2) {
-        $zone2 = date_default_timezone_get();
+        $zone2 = ini_get('date.timezone');
     }
     $offset1 = timezone_offset_get(new DateTimeZone($zone1), new DateTime());
     $offset2 = timezone_offset_get(new DateTimeZone($zone2), new DateTime());
+die($zone1." | ".$zone2." | ".$format);
     $offset  = $offset1 - $offset2;
     if ($format == 'seconds') {
         return $offset;
