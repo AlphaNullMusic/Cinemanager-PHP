@@ -1,30 +1,31 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2019-11-24 22:36:28
-         compiled from "tpl\404.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:86115d94711060df17-46239643%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
-$_valid = $_smarty_tpl->decodeProperties(array (
+<?php
+/* Smarty version 3.1.33, created on 2019-11-25 17:00:22
+  from '/var/www/Cinemanager/web/tpl/404.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.33',
+  'unifunc' => 'content_5ddb51d680ce88_05163364',
+  'has_nocache_code' => true,
   'file_dependency' => 
   array (
-    'dddb37976060680ffbd685d1c7f2c0e121c836ad' => 
+    'cc9a9c9f7a0917a1a53ea197fc99e7d8293de378' => 
     array (
-      0 => 'tpl\\404.tpl',
-      1 => 1570009501,
+      0 => '/var/www/Cinemanager/web/tpl/404.tpl',
+      1 => 1574633434,
+      2 => 'file',
+    ),
+    '12f3ac630680bc6778753de8bb98e13015ec9d16' => 
+    array (
+      0 => '/var/www/Cinemanager/web/tpl/inc/tpl/footer.tpl',
+      1 => 1574633434,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '86115d94711060df17-46239643',
-  'function' => 
-  array (
-  ),
   'cache_lifetime' => 600,
-  'version' => 'Smarty-3.1.13',
-  'unifunc' => 'content_5d94711063e2f2_90552173',
-  'variables' => 
-  array (
-    'tpl_name' => 0,
-  ),
-  'has_nocache_code' => false,
-),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5d94711063e2f2_90552173')) {function content_5d94711063e2f2_90552173($_smarty_tpl) {?><!DOCTYPE html>
+),true)) {
+function content_5ddb51d680ce88_05163364 (Smarty_Internal_Template $_smarty_tpl) {
+?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
@@ -51,25 +52,25 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <div class="collapse jc-center" id="navbar">
             <ul class="nav-links">
                 <li class="nav-item">
-                    <a class="nav-link <?php if ($_smarty_tpl->tpl_vars['tpl_name']->value=='home.tpl'){?>active<?php }?>" href="/home/">HOME</a>
+                    <a class="nav-link " href="/home/">HOME</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?php if ($_smarty_tpl->tpl_vars['tpl_name']->value=='whats-on-today.tpl'){?>active<?php }?>" href="/whats-on-today/">WHAT&apos;S ON TODAY</a>
+                    <a class="nav-link " href="/whats-on-today/">WHAT&apos;S ON TODAY</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?php if ($_smarty_tpl->tpl_vars['tpl_name']->value=='whats-on.tpl'){?>active<?php }?>" href="/whats-on/">WHAT&apos;S ON</a>
+                    <a class="nav-link " href="/whats-on/">WHAT&apos;S ON</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?php if ($_smarty_tpl->tpl_vars['tpl_name']->value=='coming-soon.tpl'){?>active<?php }?>" href="/coming-soon/">COMING SOON</a>
+                    <a class="nav-link " href="/coming-soon/">COMING SOON</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?php if ($_smarty_tpl->tpl_vars['tpl_name']->value=='venue-hire.tpl'){?>active<?php }?>" href="/venue-hire/">VENUE HIRE</a>
+                    <a class="nav-link " href="/venue-hire/">VENUE HIRE</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?php if ($_smarty_tpl->tpl_vars['tpl_name']->value=='about-us.tpl'){?>active<?php }?>" href="/about-us/">ABOUT US</a>
+                    <a class="nav-link " href="/about-us/">ABOUT US</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?php if ($_smarty_tpl->tpl_vars['tpl_name']->value=='contact-us.tpl'){?>active<?php }?>" href="/contact-us/">CONTACT US</a>
+                    <a class="nav-link " href="/contact-us/">CONTACT US</a>
                 </li>
             </ul>
         </div>
@@ -85,7 +86,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             <div class="content-wrapper">
                 <div class="box">
                     <h2>Sorry... we couldn't find the page you were looking for.</h2>
-	                <p><<?php ?>?=($_REQUEST['er'])?'Error: '.$_REQUEST['er']:'';?<?php ?>></p>
+	                <p><?php echo '<?=';?>($_REQUEST['er'])?'Error: '.$_REQUEST['er']:'';<?php echo '?>';?></p>
 	                <p></p>
 	                <p>Click the button below to go back home.</p>
 	                <a class="btn dark" href="/home/">Home</a>
@@ -94,7 +95,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         </div>
     </div>
 
-    <?php echo $_smarty_tpl->getSubTemplate ("inc/tpl/footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 9999, null, array(), 0);?>
-
-
-<?php }} ?>
+    <footer><div id="text"><p>Web design and content &copy; 2019, Shoreline Cinema Waikanae, New Zealand. <a id="improve-visibility">Improve Visibility.</a></p></div></footer></div><script src="/tpl/inc/js/jquery-3.4.1.min.js"></script><script src="/tpl/inc/js/js.cookie-2.2.1.min.js"></script><script src="/tpl/inc/js/scripts.js"></script></body></html>
+<?php }
+}
