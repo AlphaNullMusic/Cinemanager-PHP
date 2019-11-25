@@ -22,6 +22,7 @@ $smarty->compile_check = true;
 $smarty->assign('domain',$cinema_domain);
 $smarty->assign('name',$cinema_data['cinema_name']);
 $smarty->assign('city',$cinema_data['city']);
+$smarty->assign('gacode',$config['ga_code']);
 if (isset($_REQUEST['plaintext'])) { $smarty->assign('plaintext','y'); }
 
 // Ordering
