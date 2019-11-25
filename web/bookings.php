@@ -14,10 +14,9 @@ if(!$smarty->isCached($tpl)) {
 		$smarty->assign('domain',$cinema_domain);
 		$smarty->assign('name',$cinema_data['cinema_name']);
 		$smarty->assign('city',$cinema_data['city']);
-		$smarty->assign('movie_image_url',$global['movie_image_url']);
-		$smarty->assign('movie_image_url_secure',$global['movie_image_url_secure']);
-		//die($cinema_data['booking_email']);
 		$smarty->assign('booking_id',$_REQUEST['booking_id']);
+		$smarty->assign('gacode',$config['ga_code']);
+		
 		global $mysqli;
 		// Get session data
 		$sql = "
@@ -143,11 +142,6 @@ if(!$smarty->isCached($tpl)) {
 	
 	// Common functions
 	include('inc/local.inc.php');
-	
-	//register functions / filters
-	//$smarty->registerPlugin("function", "summary", "smarty_summary");
-	//$smarty->registerFilter("pre", "edit_image_path");
-
 }
 
 //include template
