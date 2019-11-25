@@ -26,7 +26,7 @@
 	<script async src="https://www.googletagmanager.com/gtag/js?id={$gacode}"></script>
 	<script>
   	    window.dataLayer = window.dataLayer || [];
-  	    function gtag(){dataLayer.push(arguments);}
+  	    function gtag(){ldelim}dataLayer.push(arguments);{rdelim}
   	    gtag('js', new Date());
 
   	    gtag('config', '{$gacode}');

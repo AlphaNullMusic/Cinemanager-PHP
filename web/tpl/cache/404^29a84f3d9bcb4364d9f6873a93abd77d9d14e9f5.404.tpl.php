@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-11-25 17:20:43
+/* Smarty version 3.1.33, created on 2019-11-25 17:35:42
   from '/var/www/Cinemanager/web/tpl/404.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5ddb569b77aec8_99350914',
+  'unifunc' => 'content_5ddb5a1eea1a93_79496837',
   'has_nocache_code' => true,
   'file_dependency' => 
   array (
@@ -18,13 +18,13 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     '12f3ac630680bc6778753de8bb98e13015ec9d16' => 
     array (
       0 => '/var/www/Cinemanager/web/tpl/inc/tpl/footer.tpl',
-      1 => 1574633434,
+      1 => 1574656539,
       2 => 'file',
     ),
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_5ddb569b77aec8_99350914 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ddb5a1eea1a93_79496837 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
@@ -95,6 +95,7 @@ function content_5ddb569b77aec8_99350914 (Smarty_Internal_Template $_smarty_tpl)
         </div>
     </div>
 
-    <footer><div id="text"><p>Web design and content &copy; 2019, Shoreline Cinema Waikanae, New Zealand. <a id="improve-visibility">Improve Visibility.</a></p></div></footer></div><script src="/tpl/inc/js/jquery-3.4.1.min.js"></script><script src="/tpl/inc/js/js.cookie-2.2.1.min.js"></script><script src="/tpl/inc/js/scripts.js"></script></body></html>
+    <footer><div id="text"><p>Web design and content &copy; 2019, Shoreline Cinema Waikanae, New Zealand. <a id="improve-visibility">Improve Visibility.</a></p></div></footer></div><script src="/tpl/inc/js/jquery-3.4.1.min.js"></script><script src="/tpl/inc/js/js.cookie-2.2.1.min.js"></script><script src="/tpl/inc/js/scripts.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-137475424-2"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'UA-137475424-2');</script></body></html>
+
 <?php }
 }
