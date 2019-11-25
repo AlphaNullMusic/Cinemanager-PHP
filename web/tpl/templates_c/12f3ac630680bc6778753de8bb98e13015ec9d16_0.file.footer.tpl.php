@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-11-25 17:09:22
+/* Smarty version 3.1.33, created on 2019-11-25 17:12:37
   from '/var/www/Cinemanager/web/tpl/inc/tpl/footer.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5ddb53f2660fe8_45753221',
+  'unifunc' => 'content_5ddb54b53d91f6_47625118',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,10 +20,8 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ddb53f2660fe8_45753221 (Smarty_Internal_Template $_smarty_tpl) {
-$_smarty_tpl->compiled->nocache_hash = '7234596455ddb53f265ec13_89244988';
-?>
-<footer><div id="text"><p>Web design and content &copy; <?php echo date('Y');?>
+function content_5ddb54b53d91f6_47625118 (Smarty_Internal_Template $_smarty_tpl) {
+?><footer><div id="text"><p>Web design and content &copy; <?php echo date('Y');?>
 , Shoreline Cinema Waikanae, New Zealand. <a id="improve-visibility">Improve Visibility.</a></p></div></footer></div><?php echo '<script'; ?>
  src="/tpl/inc/js/jquery-3.4.1.min.js"><?php echo '</script'; ?>
 ><?php echo '<script'; ?>

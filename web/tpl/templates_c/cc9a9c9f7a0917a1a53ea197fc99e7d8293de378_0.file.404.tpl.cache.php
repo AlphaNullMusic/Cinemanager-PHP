@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-11-25 16:37:12
+/* Smarty version 3.1.33, created on 2019-11-25 17:09:22
   from '/var/www/Cinemanager/web/tpl/404.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5ddb4c6883d594_47158550',
+  'unifunc' => 'content_5ddb53f2b53a11_32478388',
   'has_nocache_code' => true,
   'file_dependency' => 
   array (
@@ -21,8 +21,8 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:inc/tpl/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5ddb4c6883d594_47158550 (Smarty_Internal_Template $_smarty_tpl) {
-$_smarty_tpl->compiled->nocache_hash = '9415651385ddb4c68831853_82432122';
+function content_5ddb53f2b53a11_32478388 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->compiled->nocache_hash = '10939195555ddb53f2b48ce5_66334525';
 ?>
 <!DOCTYPE html>
 <html lang="en-nz">
@@ -85,8 +85,8 @@ $_smarty_tpl->compiled->nocache_hash = '9415651385ddb4c68831853_82432122';
             <div class="content-wrapper">
                 <div class="box">
                     <h2>Sorry... we couldn't find the page you were looking for.</h2>
-	                <p><?php echo '/*%%SmartyNocache:9415651385ddb4c68831853_82432122%%*/<?php echo \'<?=\';?>/*/%%SmartyNocache:9415651385ddb4c68831853_82432122%%*/';?>
-($_REQUEST['er'])?'Error: '.$_REQUEST['er']:'';<?php echo '/*%%SmartyNocache:9415651385ddb4c68831853_82432122%%*/<?php echo \'?>\';?>/*/%%SmartyNocache:9415651385ddb4c68831853_82432122%%*/';?>
+	                <p><?php echo '/*%%SmartyNocache:10939195555ddb53f2b48ce5_66334525%%*/<?php echo \'<?=\';?>/*/%%SmartyNocache:10939195555ddb53f2b48ce5_66334525%%*/';?>
+($_REQUEST['er'])?'Error: '.$_REQUEST['er']:'';<?php echo '/*%%SmartyNocache:10939195555ddb53f2b48ce5_66334525%%*/<?php echo \'?>\';?>/*/%%SmartyNocache:10939195555ddb53f2b48ce5_66334525%%*/';?>
 </p>
 	                <p></p>
 	                <p>Click the button below to go back home.</p>

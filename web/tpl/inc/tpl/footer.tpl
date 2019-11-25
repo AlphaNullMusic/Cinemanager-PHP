@@ -21,6 +21,17 @@
         });
     </script>
     {/if}
+    {if $gacode}
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id={$gacode}"></script>
+	<script>
+  	    window.dataLayer = window.dataLayer || [];
+  	    function gtag(){dataLayer.push(arguments);}
+  	    gtag('js', new Date());
+
+  	    gtag('config', '{$gacode}');
+	</script>
+    {/if}
 </body>
 </html>
 {/strip}
