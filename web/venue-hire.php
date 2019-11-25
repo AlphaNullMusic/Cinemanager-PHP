@@ -24,8 +24,8 @@ if(!$smarty->isCached($tpl,$cache_id)) {
 	include('inc/local.inc.php');
 	
 	// Register functions / filters
-	$smarty->registerPlugin("function", "summary", "smarty_summary");
-	$smarty->registerFilter("pre", "edit_image_path");
+	//$smarty->registerPlugin("function", "summary", "smarty_summary");
+	//$smarty->registerFilter("pre", "edit_image_path");
 
 }
 
