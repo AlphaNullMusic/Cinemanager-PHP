@@ -1,4 +1,4 @@
-<?
+<?php
 
 require('inc/common.inc.php');
 
