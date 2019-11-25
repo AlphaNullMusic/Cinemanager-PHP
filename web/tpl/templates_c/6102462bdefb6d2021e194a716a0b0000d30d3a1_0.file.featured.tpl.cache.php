@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-11-25 16:37:12
+/* Smarty version 3.1.33, created on 2019-11-25 17:09:22
   from '/var/www/Cinemanager/web/tpl/inc/tpl/featured.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5ddb4c680c0dc6_15696660',
+  'unifunc' => 'content_5ddb53f265d282_47653976',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,8 +20,8 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ddb4c680c0dc6_15696660 (Smarty_Internal_Template $_smarty_tpl) {
-$_smarty_tpl->compiled->nocache_hash = '15356403575ddb4c680b1a85_00525843';
+function content_5ddb53f265d282_47653976 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->compiled->nocache_hash = '9726276435ddb53f2659559_73003186';
 ?>
 <div class="featured"><div class="content"><div class="featured-carousel"><?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['now_showing']->value, 'n', false, NULL, 'n', array (

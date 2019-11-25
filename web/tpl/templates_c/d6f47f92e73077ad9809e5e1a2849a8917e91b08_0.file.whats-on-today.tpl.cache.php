@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-11-25 17:01:13
+/* Smarty version 3.1.33, created on 2019-11-25 17:09:23
   from '/var/www/Cinemanager/web/tpl/whats-on-today.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5ddb52090bce54_83907719',
+  'unifunc' => 'content_5ddb53f3cfecb3_23465147',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -22,9 +22,9 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:inc/tpl/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5ddb52090bce54_83907719 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ddb53f3cfecb3_23465147 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/Cinemanager/_deps/smarty/plugins/function.cycle.php','function'=>'smarty_function_cycle',),));
-$_smarty_tpl->compiled->nocache_hash = '874506895ddb520903ab75_17586048';
+$_smarty_tpl->compiled->nocache_hash = '6908864535ddb53f3cf2122_61711178';
 $_smarty_tpl->_subTemplateRender("file:inc/tpl/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 9999, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?><div class="information"><h1>What's on Today</h1><?php if ($_smarty_tpl->tpl_vars['sessions']->value) {
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['sessions']->value, 's', false, NULL, 's', array (
