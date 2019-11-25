@@ -32,7 +32,6 @@ if (check_cinema() && has_permission('edit_pages')) {
 				AND page_id = '".$mysqli->real_escape_string($_POST['edit'])."'
 			LIMIT 1
 		";
-		die(print_r($_POST));
 		$mysqli->query($sql) or user_error("Gnarly: $sql");
 		smarty_clear_cache(NULL,$page['reference']);
 		smarty_clear_cache(NULL,'homepage');

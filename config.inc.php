@@ -58,11 +58,12 @@ $config = array(
 	"phpmailer_dir"	=> $root_dir."_deps/phpmailer/",
 	
 	// Emails
-	"no_reply_email" => "noreply@cinemanager.ga",
-	"bounce_email" => "bounces@cinemanager.ga",
-	"support_email"	=> "support@cinemanager.ga",
-	"sessions_email" => "sessions@cinemanager.ga",
+	"no_reply_email" => "noreply@shoreline.nz",
+	"bounce_email" => "bounces@shoreline.nz",
+	"support_email"	=> "support@shoreline.nz",
+	"sessions_email" => "sessions@shoreline.nz",
 	"email_url" => "http://shoreline.nz/email-newsletter.php",
+	"smtp_server" => "mail.shoreline.nz",
 	
 	"cookie" => "Cinemanager",
 	"title_pre" => "Cinemanager: ",

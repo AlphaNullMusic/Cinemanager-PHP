@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-11-25 19:40:49
+/* Smarty version 3.1.33, created on 2019-11-25 19:40:56
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5ddb7771c034a5_45988902',
+  'unifunc' => 'content_5ddb7778c6d3a9_00367063',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -24,14 +24,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_5ddb7771c034a5_45988902 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ddb7778c6d3a9_00367063 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>After The Wedding - Info</title>
+<title>Ailo's Journey - Info</title>
 <meta name="description" content="Shoreline Cinema is Waikanae's premiere cinema complex. Find out who we are, what's on, what's coming up, how to contact us and much more.">
 <link href="/tpl/inc/css/editor.css" rel="stylesheet" type="text/css" />
 <link href="/tpl/inc/css/styles.css" rel="stylesheet" type="text/css" />
@@ -82,15 +82,15 @@ function content_5ddb7771c034a5_45988902 (Smarty_Internal_Template $_smarty_tpl)
 
 
 <div class="information">
-    <h2>After The Wedding</h2>
+    <h2>Ailo's Journey</h2>
     <div class="content">
     	<div class="content-wrapper poster">
-    		<img src="https://posters.shoreline.nz/7-medium-default.jpg" width="190" alt="After The Wedding Poster" />
+    		<img src="https://posters.shoreline.nz/8-medium-default.jpg" width="190" alt="Ailo's Journey Poster" />
     	</div>
     	<div class="content-wrapper text"> 
     		<div class="content">
     		    <div class="content-wrapper text">
-    		        <p>Plot. Isabel (Williams), a co-founder of an orphanage in South India travels to New York to meet a potential benefactor, Theresa (Moore). Despite her frustration by the need to justify a charitable donation, she agrees to the meeting, which falls a day before the wedding of Theresa's daughter (Quinn).																										</p>
+    		        <p>Aïlo: an odyssey in Lapland tells the fight for the survival of a small wild reindeer, frail and vulnerable to the challenges that punctuate his first year. Its awakening to the wild world is a real tale in the heart of the grandiose landscapes of Lapland.																									</p>
 					    		                                        <span class="h3">Upcoming Screening Times</span>
                             <ul class="sessions">
                                                             	                              	
@@ -100,7 +100,7 @@ function content_5ddb7771c034a5_45988902 (Smarty_Internal_Template $_smarty_tpl)
                 
                     					                    				                    				
                     				                    				
-                    				<a href="/bookings/21/">8:30pm</a>
+                    				<a href="/bookings/25/">4:30pm</a>
                     		                                      		                                                      			                                                                                                	                              	
                               	                                                                        	                    			                    			
                     			                    				                    					                    						<li>
@@ -108,17 +108,25 @@ function content_5ddb7771c034a5_45988902 (Smarty_Internal_Template $_smarty_tpl)
                 
                     					                    				                    				
                     				                    				
-                    				<a href="/bookings/22/">8:15pm</a>
+                    				<a href="/bookings/26/">2:30pm</a>
+                    		                                      		                                                      			                                                                                                	                              	
+                              	                                                                        	                    			                    			
+                    			                    				                    					                    						<li>
+                    					              <strong>Wednesday 27 Nov</strong>
+                
+                    					                    				                    				
+                    				                    				
+                    				<a href="/bookings/27/">10:15am</a>
                     		                                      		                                                      			                                                                                                 </li>
                             </ul>
                           	<p><i>To place a booking, click on the session time you are interested in. Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
                             		    </div>
     		    <div class="content-wrapper details">
     		                			<p>
-        				<strong>Rated:</strong> PG<br />
-        				 <em>Parental Guidance is Recommended</em>        			</p>
+        				<strong>Rated:</strong> G<br />
+        				 <em>Suitable for General Audiences</em>        			</p>
         		            		    <p>
-        			        			        			        				<a class="btn dark" href="https://youtu.be/RJ4QxPjU2Lk" target="_blank">Official Trailer</a>
+        			        			        			        				<a class="btn dark" href="https://www.youtube.com/watch?v=acGQRnpXXYE" target="_blank">Official Trailer</a>
         			        		    </p>
             		  
     		    </div>

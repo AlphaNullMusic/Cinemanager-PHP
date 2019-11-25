@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-11-25 19:40:49
+/* Smarty version 3.1.33, created on 2019-11-25 22:36:37
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5ddb7771c034a5_45988902',
+  'unifunc' => 'content_5ddba0a5987583_17159887',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -24,14 +24,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_5ddb7771c034a5_45988902 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ddba0a5987583_17159887 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>After The Wedding - Info</title>
+<title>Jojo Rabbit - Info</title>
 <meta name="description" content="Shoreline Cinema is Waikanae's premiere cinema complex. Find out who we are, what's on, what's coming up, how to contact us and much more.">
 <link href="/tpl/inc/css/editor.css" rel="stylesheet" type="text/css" />
 <link href="/tpl/inc/css/styles.css" rel="stylesheet" type="text/css" />
@@ -82,15 +82,15 @@ function content_5ddb7771c034a5_45988902 (Smarty_Internal_Template $_smarty_tpl)
 
 
 <div class="information">
-    <h2>After The Wedding</h2>
+    <h2>Jojo Rabbit</h2>
     <div class="content">
     	<div class="content-wrapper poster">
-    		<img src="https://posters.shoreline.nz/7-medium-default.jpg" width="190" alt="After The Wedding Poster" />
+    		<img src="https://posters.shoreline.nz/18-medium-default.jpg" width="190" alt="Jojo Rabbit Poster" />
     	</div>
     	<div class="content-wrapper text"> 
     		<div class="content">
     		    <div class="content-wrapper text">
-    		        <p>Plot. Isabel (Williams), a co-founder of an orphanage in South India travels to New York to meet a potential benefactor, Theresa (Moore). Despite her frustration by the need to justify a charitable donation, she agrees to the meeting, which falls a day before the wedding of Theresa's daughter (Quinn).																										</p>
+    		        <p>A young boy in Hitler's army finds out his mother is hiding a Jewish girl in their home.</p>
 					    		                                        <span class="h3">Upcoming Screening Times</span>
                             <ul class="sessions">
                                                             	                              	
@@ -100,7 +100,11 @@ function content_5ddb7771c034a5_45988902 (Smarty_Internal_Template $_smarty_tpl)
                 
                     					                    				                    				
                     				                    				
-                    				<a href="/bookings/21/">8:30pm</a>
+                    				<a href="/bookings/50/">10:00am</a>
+                    		                                      		                                                      			                                                                        	                    			                    			
+                    			                    				                    					                    				                    				
+                    				                    				
+                    				, <a href="/bookings/51/">4:00pm</a>
                     		                                      		                                                      			                                                                                                	                              	
                               	                                                                        	                    			                    			
                     			                    				                    					                    						<li>
@@ -108,17 +112,33 @@ function content_5ddb7771c034a5_45988902 (Smarty_Internal_Template $_smarty_tpl)
                 
                     					                    				                    				
                     				                    				
-                    				<a href="/bookings/22/">8:15pm</a>
+                    				<a href="/bookings/52/">10:15am</a>
+                    		                                      		                                                      			                                                                        	                    			                    			
+                    			                    				                    					                    				                    				
+                    				                    				
+                    				, <a href="/bookings/53/">4:15pm</a>
+                    		                                      		                                                      			                                                                                                	                              	
+                              	                                                                        	                    			                    			
+                    			                    				                    					                    						<li>
+                    					              <strong>Wednesday 27 Nov</strong>
+                
+                    					                    				                    				
+                    				                    				
+                    				<a href="/bookings/54/">10:15am</a>
+                    		                                      		                                                      			                                                                        	                    			                    			
+                    			                    				                    					                    				                    				
+                    				                    				
+                    				, <a href="/bookings/55/">4:00pm</a>
                     		                                      		                                                      			                                                                                                 </li>
                             </ul>
                           	<p><i>To place a booking, click on the session time you are interested in. Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
                             		    </div>
     		    <div class="content-wrapper details">
     		                			<p>
-        				<strong>Rated:</strong> PG<br />
-        				 <em>Parental Guidance is Recommended</em>        			</p>
+        				<strong>Rated:</strong> M<br />
+        				 <em>Suitable for Mature Audiences</em>        			</p>
         		            		    <p>
-        			        			        			        				<a class="btn dark" href="https://youtu.be/RJ4QxPjU2Lk" target="_blank">Official Trailer</a>
+        			        			        			        				<a class="btn dark" href="https://www.youtube.com/watch?v=tL4McUzXfFI" target="_blank">Official Trailer</a>
         			        		    </p>
             		  
     		    </div>

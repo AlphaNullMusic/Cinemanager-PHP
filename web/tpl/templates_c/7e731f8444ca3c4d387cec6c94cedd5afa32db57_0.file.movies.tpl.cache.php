@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-11-25 17:12:30
+/* Smarty version 3.1.33, created on 2019-11-25 17:40:53
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5ddb54ae9f2524_25043983',
+  'unifunc' => 'content_5ddb5b55a68967_01407908',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7e731f8444ca3c4d387cec6c94cedd5afa32db57' => 
     array (
       0 => '/var/www/Cinemanager/web/tpl/movies.tpl',
-      1 => 1574633434,
+      1 => 1574656759,
       2 => 'file',
     ),
   ),
@@ -21,9 +21,9 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:inc/tpl/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5ddb54ae9f2524_25043983 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ddb5b55a68967_01407908 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/Cinemanager/_deps/smarty/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
-$_smarty_tpl->compiled->nocache_hash = '7984289425ddb54ae9c7492_74312749';
+$_smarty_tpl->compiled->nocache_hash = '18404823235ddb5b55a24cf8_00748720';
 ?>
 <!DOCTYPE html>
 <html lang="en-nz">
@@ -170,7 +170,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                                </li>
                             </ul>
-                          	<p><i>To place a booking, click on the session time you are interested. Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
+                          	<p><i>To place a booking, click on the session time you are interested in. Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
                         <?php }?>
     		    </div>
     		    <div class="content-wrapper details">
@@ -227,6 +227,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
 <?php $_smarty_tpl->_subTemplateRender("file:inc/tpl/footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 9999, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
+
 
 <?php }
 }

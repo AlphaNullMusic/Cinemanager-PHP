@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-11-25 19:40:49
+/* Smarty version 3.1.33, created on 2019-11-25 19:39:58
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5ddb7771c034a5_45988902',
+  'unifunc' => 'content_5ddb773e3b9605_47310414',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -24,14 +24,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_5ddb7771c034a5_45988902 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ddb773e3b9605_47310414 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>After The Wedding - Info</title>
+<title>All My Sons - Info</title>
 <meta name="description" content="Shoreline Cinema is Waikanae's premiere cinema complex. Find out who we are, what's on, what's coming up, how to contact us and much more.">
 <link href="/tpl/inc/css/editor.css" rel="stylesheet" type="text/css" />
 <link href="/tpl/inc/css/styles.css" rel="stylesheet" type="text/css" />
@@ -82,43 +82,35 @@ function content_5ddb7771c034a5_45988902 (Smarty_Internal_Template $_smarty_tpl)
 
 
 <div class="information">
-    <h2>After The Wedding</h2>
+    <h2>All My Sons</h2>
     <div class="content">
     	<div class="content-wrapper poster">
-    		<img src="https://posters.shoreline.nz/7-medium-default.jpg" width="190" alt="After The Wedding Poster" />
+    		<img src="https://posters.shoreline.nz/10-medium-default.jpg" width="190" alt="All My Sons Poster" />
     	</div>
     	<div class="content-wrapper text"> 
     		<div class="content">
     		    <div class="content-wrapper text">
-    		        <p>Plot. Isabel (Williams), a co-founder of an orphanage in South India travels to New York to meet a potential benefactor, Theresa (Moore). Despite her frustration by the need to justify a charitable donation, she agrees to the meeting, which falls a day before the wedding of Theresa's daughter (Quinn).																										</p>
+    		        <p>America, 1947, Joe and Kate Keller are a success story. But their contented lives are about to shatter. A figure from the past forces long buried truths to the surface lying bare the price of their American dream.																													</p>
 					    		                                        <span class="h3">Upcoming Screening Times</span>
                             <ul class="sessions">
                                                             	                              	
                               	                                                                        	                    			                    			
                     			                    				                    					                    						<li>
-                    					              <strong>Monday 25 Nov</strong>
+                    					              <strong>Thursday 28 Nov</strong>
                 
                     					                    				                    				
                     				                    				
-                    				<a href="/bookings/21/">8:30pm</a>
-                    		                                      		                                                      			                                                                                                	                              	
-                              	                                                                        	                    			                    			
-                    			                    				                    					                    						<li>
-                    					              <strong>Tuesday 26 Nov</strong>
-                
-                    					                    				                    				
-                    				                    				
-                    				<a href="/bookings/22/">8:15pm</a>
+                    				<a href="/bookings/28/">12:30pm</a>
                     		                                      		                                                      			                                                                                                 </li>
                             </ul>
                           	<p><i>To place a booking, click on the session time you are interested in. Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
                             		    </div>
     		    <div class="content-wrapper details">
     		                			<p>
-        				<strong>Rated:</strong> PG<br />
-        				 <em>Parental Guidance is Recommended</em>        			</p>
+        				<strong>Rated:</strong> E<br />
+        				 <em>Suitable for Everyone</em>        			</p>
         		            		    <p>
-        			        			        			        				<a class="btn dark" href="https://youtu.be/RJ4QxPjU2Lk" target="_blank">Official Trailer</a>
+        			        			        			        				<a class="btn dark" href="https://youtu.be/cF3FqZAVFTo" target="_blank">Official Trailer</a>
         			        		    </p>
             		  
     		    </div>
