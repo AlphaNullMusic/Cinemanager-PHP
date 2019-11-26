@@ -101,17 +101,24 @@ if ($newsletters_res->num_rows >= 1) {
 					//send email
 					$token = md5('mm'.$num1.microtime());
 					$mail = new PHPMailer();
-					$mail->Subject		= $subject;
-					$mail->From				= $from_email;
-					$mail->FromName		= $from_name;
-					$mail->Sender			= $global['bounce_email'];
-					$mail->ReturnPath	= $global['bounce_email'];
+					$mail->IsSMTP;
+					$mail->SMTPAuth = true;
+					$mail->SMTPSecure = 'tls';
+					$mail->Host = $config['smtp_server'];
+					$mail->Mailer = "smtp";
+					$mail->Port = 587;
+					$mail->Username = $config['sessions_email'];
+					$mail->Password = $config['booking_password'];
+					$mail->Subject = $subject;
+					$mail->From = $from_email;
+					$mail->FromName	= $from_name;
+					$mail->ReturnPath = $config['bounce_email'];
 					$mail->AddCustomHeader("X-CinemanagerToken: $token");
 					if ($recipients['plain_text']==1) {
-						$mail->Body			= $message_text;
+						$mail->Body = $message_text;
 					} else {
-						$mail->Body			= $message_html;
-						$mail->AltBody	= $message_text;
+						$mail->Body = $message_html;
+						$mail->AltBody = $message_text;
 					}
 					$mail->AddReplyTo($from_email, $from_name);
 					$mail->AddAddress($to_email);
