@@ -1,0 +1,247 @@
+html {
+	font-family: sans-serif;
+	line-height: 1.15;
+	-webkit-text-size-adjust: 100%;
+	-webkit-tap-highlight-color: transparent;
+}
+body {
+	margin: 0;
+	padding: 0;
+	background: top left #8b886c repeat url(https://shoreline.nz/tpl/inc/img/page-bgnd.jpg);
+	color: #fff;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 0.9em;
+	font-weight 400;
+	line-height: 1.5;
+	text-align: left;
+}
+table.full {
+	width: 100%;
+}
+.wrapper {
+	max-width: 1024px;
+	margin: 0 auto;
+}
+thead {
+	background: #9c9a84;
+}
+tbody {
+	max-width: 1024px;
+}
+tfoot {
+	max-width: 1024px;
+}
+.header-container {
+	padding: 30px 0 30px 0;
+}
+.large-logo {
+	visibility: visible;
+}
+.small-logo {
+	visibility: hidden;
+	
+}
+.small-logo td {
+	position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    align-items: center;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: .5rem 1rem;
+    background-color: transparent!important;
+}
+.small-logo td a {
+	display: inline-block;
+    padding-top: .3125rem;
+    padding-bottom: .3125rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+}
+.sl-logo {
+	margin-right: auto!important;
+	margin-left: auto!important;
+	display: block!important;
+	max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    border-style: none;
+	height: 60px;
+}
+p, span { font-size: 1rem; }
+h1, h2 {
+	margin-top: 0;
+    margin-bottom: .5rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+h1 { 
+	color: #921a1d;
+	font-size: 1.5rem; 
+}
+h2 {
+	color: #fff;
+    font-family: Georgia, sans-serif;
+    font-size: 1.7rem;
+}
+p {
+	margin-top: 0;
+	margin-bottom: 1rem;
+	font-size: 14px;
+}
+a {
+	color: #fff;
+    text-decoration: none;
+    background-color: transparent;
+	cursor: pointer;
+}
+a:hover {
+    color: #f7f3dc;
+    text-decoration: underline;
+}
+ul.sessions a:hover {
+    margin: -8px;
+    padding: 8px;
+    background-color: #2f2c1a;
+    border-radius: 8px;
+    transition: all 0.1s;
+}
+span.details { font-style: italic; }
+b, strong { font-weight: bold; }
+.featured {
+	background-color: #2f2c1a;
+}
+.featured td {
+	padding: 35px;
+}
+.information {
+	background: #8a8259;
+	display: block;
+	padding-top: 6%;
+	padding-left: 6%;
+	padding-bottom: 3px;
+	padding-right: 6%;
+}
+.movie-item {
+	margin-bottom: 25px;
+    margin-top: 15px;
+	-ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+.movie-times {
+	background: #8a8259;
+	display: block;
+	padding-top: 3px;
+	padding-left: 6%;
+	padding-bottom: 6%;
+	padding-right: 6%;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+.movie-poster {
+	-ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+	max-width: 100%;
+	flex-basis: 0;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    max-width: 100%;
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+	-ms-flex-preferred-size: 0;
+}
+.movie-text {
+	-ms-flex-preferred-size: 0;
+    flex-basis: 0;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    max-width: 100%;
+    position: relative;
+    width: 100%;
+    padding-left: 15px;
+	vertical-align: top;
+}
+ul { padding: 0; }
+ul.sessions {
+	margin-top: 1em;
+	min-height: 0!important;
+}
+ul.sessions li {
+	list-style: none;
+    margin: 0;
+    border-top: 1px solid #fff;
+    padding: 0.3em 0;
+    min-height: 0;
+    font-size: 1.05rem;
+}
+ul.sessions strong {
+    display: inline-block;
+    width: 10.5em;
+}
+img {
+    margin: 0 0.5em 0.25em 0;
+    vertical-align: middle;
+    border-style: none;
+}
+.footer {
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    background-color: #484738;
+    font-size: 0.8em;
+    color: #dfdccd;
+}
+.footer p {
+    margin: 0;
+	font-size: 0.8rem;
+}
+ul.movie-times li hr {
+    visibility: hidden;
+}
+#unsubscribe { color: #d1ffb0; }
+@media (max-width: 768px) {
+	.large-logo {
+		visibility: hidden;
+		display: none;
+	}
+	.small-logo {
+		visibility: visible;
+	}
+	.movie-text {
+		display: block;
+		padding-left: 0;
+		padding-top: 8px;
+	}
+	.movie-poster {
+		display: block;
+	}
+	ul.sessions {
+		min-height: 0;
+	}
+	td.movie-text hr {
+		visibility: visible!important;
+		margin-bottom: 25px;
+	}
+}
+
+@media (min-width: 768px) {
+	.large-logo {
+		visibility: visible;
+	}
+	.small-logo {
+		visibility: hidden;
+		display: none;
+	}
+	.movie-text {
+		width: 80%;
+	}
+	.movie-poster {
+	    -ms-flex: 0 0 auto;
+		flex: 0 0 auto;
+		width: auto;
+		max-width: 100%;
+	}
+}
