@@ -103,14 +103,12 @@ if(!$smarty->isCached($tpl)) {
 							$mail->From = $config['booking_send_email'];
 							$mail->addAddress($cinema_data['booking_email']);
 							$mail->FromName	= $cinema_data['name']." Website";
-							$mail->Sender = $global['bounce_email'];
-							$mail->ReturnPath = $global['bounce_email'];
 							$mail->Subject = $subject;
-							$mail->Body	= $message;
-							$mail->Send();
-							$mail->ClearAddresses();
-							// Email the customer back
-							if (has_permission('email_booking_reply')) {
+							$mail->Body = $message;
+							if($mail->Send()) {
+							    $mail->ClearAddresses();
+							    // Email the customer back
+							    if (has_permission('email_booking_reply')) {
 								$message_cust="Dear {$_POST['c_name']}\n";
 								$message_cust.="\n";
 								$message_cust.="Thank you for placing your booking through the {$cinema_data['name']} website \r\nWe have received your request and will be in touch shortly to confirm your booking.\n";
@@ -145,16 +143,26 @@ if(!$smarty->isCached($tpl)) {
 								$reply->AddAddress($_POST['c_email']);
 								$reply->Send();
 								$reply->ClearAddresses();
+							    }
+							    // Redirect
+							    $url = "/bookings/{$_REQUEST['booking_id']}/";
+							    $url .= "/complete/?";
+							    $url .= (isset($_POST['t_adults'])) ? "&ta={$_POST['t_adults']}" : "" ;
+							    $url .= (isset($_POST['t_children'])) ? "&tc={$_POST['t_children']}" : "" ;
+							    $url .= (isset($_POST['t_seniors'])) ? "&ts={$_POST['t_seniors']}" : "" ;
+							    $url .= (isset($_POST['t_students'])) ? "&tu={$_POST['t_students']}" : "" ;
+							    header("Location: $url");
+							    exit;
+							} else {
+							    $url = "/bookings/{$_REQUEST['booking_id']}/";
+							    $url .= "/failed/?";
+							    $url .= (isset($_POST['t_adults'])) ? "&ta={$_POST['t_adults']}" : "" ;
+							    $url .= (isset($_POST['t_children'])) ? "&tc={$_POST['t_children']}" : "" ;
+							    $url .= (isset($_POST['t_seniors'])) ? "&ts={$_POST['t_seniors']}" : "" ;
+							    $url .= (isset($_POST['t_students'])) ? "&tu={$_POST['t_students']}" : "" ;
+							    header("Location: $url");
+							    exit; 
 							}
-							// Redirect
-							$url = "/bookings/{$_REQUEST['booking_id']}/";
-							$url .= "/complete/?";
-							$url .= (isset($_POST['t_adults'])) ? "&ta={$_POST['t_adults']}" : "" ;
-							$url .= (isset($_POST['t_children'])) ? "&tc={$_POST['t_children']}" : "" ;
-							$url .= (isset($_POST['t_seniors'])) ? "&ts={$_POST['t_seniors']}" : "" ;
-							$url .= (isset($_POST['t_students'])) ? "&tu={$_POST['t_students']}" : "" ;
-							header("Location: $url");
-							exit;
 						// Return with variables and error message
 						} else {
 							$smarty->assign('er','incomplete');
