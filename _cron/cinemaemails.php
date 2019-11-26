@@ -1,5 +1,9 @@
-#!/usr/local/bin/php
+#!/usr/bin/php
 <?php
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 //send out scheduled emails / newsletters from cinemas
 $root_dir = dirname(dirname(__FILE__)).'/';
@@ -44,16 +48,16 @@ if ($newsletters_res->num_rows >= 1) {
 			//get list of recipients for this newsletter
 			$sql="
 				SELECT u.email,u.user_id,u.first_name,u.last_name,
-					u.plain_text,
+					u.plain_text
 				FROM users u
 				WHERE CHAR_LENGTH(u.email) > 5
 			";
 			//some cinemas require that users have status=ok (confirmed email address)
-			if (has_permission('signup_confirmation',$newsletters['cinema_id'])) {
-				$sql.=" AND u.status='ok'";
-			}
+			//if (has_permission('signup_confirmation',$newsletters['cinema_id'])) {
+			//	$sql.=" AND u.status='ok'";
+			//}
 			//complete query
-			$sql.=" GROUP BY u.email LIMIT $maximum_sends";
+			$sql.=" GROUP BY u.user_id LIMIT $maximum_sends";
 			$recipients_res=$mysqli->query($sql) or user_error($sql);
 			//if there are no recipients, mark this newsletter as sent
 			if ($recipients_res->num_rows==0) {
@@ -99,7 +103,7 @@ if ($newsletters_res->num_rows >= 1) {
 					$beacon_html = "<img src='{$beacon_url}' width='1' height='1'>";
 					$message_html = str_ireplace("</body>", "$beacon_html</body>", $message_html);
 					//send email
-					$token = md5('mm'.$num1.microtime());
+					$token = md5('cm'.$num1.microtime());
 					$mail = new PHPMailer();
 					$mail->IsSMTP;
 					$mail->SMTPAuth = true;
@@ -122,7 +126,9 @@ if ($newsletters_res->num_rows >= 1) {
 					}
 					$mail->AddReplyTo($from_email, $from_name);
 					$mail->AddAddress($to_email);
-					$mail->Send();
+					if (!$mail->Send()) {
+						die("Could not send.");
+					}
 					//log to database
 					$sql = "
 						INSERT INTO newsletter_log 

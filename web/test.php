@@ -1,12 +1,14 @@
 <?php
-require('inc/web.inc.php');
-require('inc/smarty_vars.inc.php');
-require($config['phpmailer_dir']."class.phpmailer.php");
+//require('inc/web.inc.php');
+//require('inc/smarty_vars.inc.php');
+require('/var/www/Cinemanager/_cron/cinemaemails.php');
+
+/*require($config['phpmailer_dir']."class.phpmailer.php");
 
 $subject = "Hello";
 $message = "This is a test email";
 
-/*$mail = new PHPMailer(true);
+$mail = new PHPMailer(true);
 $mail->isSMTP();
 $mail->SMTPDebug = 3;
 $mail->SMTPAuth = true;

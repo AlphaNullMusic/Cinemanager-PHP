@@ -139,9 +139,9 @@ function replace_urls($html, $target = NULL, $color = NULL) {
 function trim_value(&$value, $key, $chars = NULL) { $value = (isset($chars)) ? trim($value, $chars) : trim($value); }
 
 // Encode
-function encode($num1, $num2) {
+function encode($num1) {
     global $config;
-    $num = (($num1 + $num2) * $config['salt_int']) + ($num1 + $num2) + substr($config['salt_int'], 2, 8);
+    $num = ($num1 * $config['salt_int']) + $num1 + substr($config['salt_int'], 2, 8);
     $num = md5($num);
     $num = substr($num, 2, 8);
     return $num;
