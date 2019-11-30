@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-11-25 19:41:05
+/* Smarty version 3.1.33, created on 2019-11-27 10:34:26
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5ddb7781afbf78_94593955',
+  'unifunc' => 'content_5ddd9a62f2c021_66805097',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -24,14 +24,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_5ddb7781afbf78_94593955 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ddd9a62f2c021_66805097 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Knives Out - Info</title>
+<title>Vita & Virginia - Info</title>
 <meta name="description" content="Shoreline Cinema is Waikanae's premiere cinema complex. Find out who we are, what's on, what's coming up, how to contact us and much more.">
 <link href="/tpl/inc/css/editor.css" rel="stylesheet" type="text/css" />
 <link href="/tpl/inc/css/styles.css" rel="stylesheet" type="text/css" />
@@ -82,25 +82,22 @@ function content_5ddb7781afbf78_94593955 (Smarty_Internal_Template $_smarty_tpl)
 
 
 <div class="information">
-    <h2>Knives Out</h2>
+    <h2>Vita & Virginia</h2>
     <div class="content">
     	<div class="content-wrapper poster">
-    		<img src="https://posters.shoreline.nz/24-medium-default.jpg" width="190" alt="Knives Out Poster" />
+    		<img src="https://posters.shoreline.nz/30-medium-default.jpg" width="190" alt="Vita & Virginia Poster" />
     	</div>
     	<div class="content-wrapper text"> 
     		<div class="content">
     		    <div class="content-wrapper text">
-    		        <p>When renowned crime novelist Harlan Thrombey (Christopher Plummer) is found dead at his estate just after his 85th birthday, the inquisitive and debonair Detective Benoit Blanc (Daniel Craig) is mysteriously enlisted to investigate. From Harlan's dysfunctional family to his devoted staff, Blanc sifts through a web of red herrings and self-serving lies to uncover the truth behind Harlan's untimely death.<br />
-<br />
-Genre: Comedy, Crime, Drama<br />
-Stars: Chris Evans, Ana de Armas, Daniel Craig, Daniel Redcliff</p>
+    		        <p>VITA & VIRGINIA is a love story of the affair between author Virginia Woolf ( Elizabeth Debicki) and aristocrat Vita Sackville-West (Gemma Arteton). In 1922 when Vita receives an invitation to a party in Bloomsbury, her path crosses with Virginia's. Their subsequesnt romance overcomes all social boundaries. However Virginia's mental health suffers over Vita's recklessness and neither will ever be the same without the other.</p>
 					    		                		    </div>
     		    <div class="content-wrapper details">
     		                			<p>
-        				<strong>Rated:</strong> PG<br />
-        				 <em>Parental Guidance is Recommended</em>        			</p>
+        				<strong>Rated:</strong> M<br />
+        				 <em>Suitable for Mature Audiences</em>        			</p>
         		            		    <p>
-        			        			        			        				<a class="btn dark" href="https://youtu.be/sE6fTeuKZkg" target="_blank">Official Trailer</a>
+        			        			        			        				<a class="btn dark" href="https://youtu.be/RzyVuP6HZ9U" target="_blank">Official Trailer</a>
         			        		    </p>
             		  
     		    </div>

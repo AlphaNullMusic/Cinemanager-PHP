@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-11-26 11:58:20
+/* Smarty version 3.1.33, created on 2019-11-27 10:34:10
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5ddc5c8cd7c6e4_64635510',
+  'unifunc' => 'content_5ddd9a528d0461_16347059',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -24,14 +24,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_5ddc5c8cd7c6e4_64635510 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ddd9a528d0461_16347059 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hillary: Ocean to Sky - Info</title>
+<title>The Good Liar - Info</title>
 <meta name="description" content="Shoreline Cinema is Waikanae's premiere cinema complex. Find out who we are, what's on, what's coming up, how to contact us and much more.">
 <link href="/tpl/inc/css/editor.css" rel="stylesheet" type="text/css" />
 <link href="/tpl/inc/css/styles.css" rel="stylesheet" type="text/css" />
@@ -82,35 +82,22 @@ function content_5ddc5c8cd7c6e4_64635510 (Smarty_Internal_Template $_smarty_tpl)
 
 
 <div class="information">
-    <h2>Hillary: Ocean to Sky</h2>
+    <h2>The Good Liar</h2>
     <div class="content">
     	<div class="content-wrapper poster">
-    		<img src="https://posters.shoreline.nz/17-medium-custom.jpg" width="190" alt="Hillary: Ocean to Sky Poster" />
+    		<img src="https://posters.shoreline.nz/29-medium-default.jpg" width="190" alt="The Good Liar Poster" />
     	</div>
     	<div class="content-wrapper text"> 
     		<div class="content">
     		    <div class="content-wrapper text">
-    		        <p>Sir Edmund Hillary's journey from the Ocean to the Sky along India's holy River Ganges was his last major expedition. For the people of India, it was a pilgrimage led by a hero of almost god-like status and millions lined the river to watch him pass in his 'miraculous' jet boats. For Ed and his 22-year-old son, Peter, it was a healing journey too, as they came to terms with the recent loss of Ed's beloved wife, Louise and daughter Belinda. To Sir Ed, it always remained 'the best journey of them all.'															</p>
-					    		                                        <span class="h3">Upcoming Screening Times</span>
-                            <ul class="sessions">
-                                                            	                              	
-                              	                                                                        	                    			                    			
-                    			                    				                    					                    						<li>
-                    					              <strong>Tuesday 26 Nov</strong>
-                
-                    					                    				                    				
-                    				                    				
-                    				<a href="/bookings/45/">2:15pm</a>
-                    		                                      		                                                      			                                                                                                 </li>
-                            </ul>
-                          	<p><i>To place a booking, click on the session time you are interested in. Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
-                            		    </div>
+    		        <p>Career con artist Roy Courtnay can hardly believe his luck when he meets well-to-do widow Betty McLeish online. As Betty opens her home and life to him, Roy is surprised to find himself caring about her, turning what should be a cut-and-dry swindle into the most treacherous tightrope walk of his life.</p>
+					    		                		    </div>
     		    <div class="content-wrapper details">
     		                			<p>
-        				<strong>Rated:</strong> E<br />
-        				 <em>Suitable for Everyone</em>        			</p>
+        				<strong>Rated:</strong> M<br />
+        				 <em>Suitable for Mature Audiences</em>        			</p>
         		            		    <p>
-        			        			        			        				<a class="btn dark" href="https://www.youtube.com/watch?v=7LUQhBP5fZc" target="_blank">Official Trailer</a>
+        			        			        			        				<a class="btn dark" href="https://youtu.be/ljKzFGpPHhw" target="_blank">Official Trailer</a>
         			        		    </p>
             		  
     		    </div>
