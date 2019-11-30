@@ -1,5 +1,14 @@
 <?php
 
+function fatal_handler() {
+    $error = error_get_last();
+    if($error['type'] === E_ERROR) {
+        header("Location: movies.php?er=A+fatal+error+occured.+Please+check+your+formatting+and+try+again");
+        die();
+    }
+}
+register_shutdown_function("fatal_handler");
+
 //////////
 // AUTH //
 //////////
@@ -497,7 +506,7 @@ class manage_sessions {
         );
         if (!$mins) {
             $mins = ":00";
-        } else {
+	} else {
             $mins = str_replace($bad_separators, ':', $mins);
         }
         
@@ -521,9 +530,8 @@ class manage_sessions {
         // Convert to timestamp
         $session_time = $this->session_date . ' ' . $hour . $mins . $ampm;
         $session_time = strtotime($session_time);
-        $res          = $mysqli->query("SELECT FROM_UNIXTIME($session_time)");
-        $data         = $res->fetch_assoc();
-        
+	$res = $mysqli->query("SELECT FROM_UNIXTIME($session_time)");
+	$data = $res->fetch_assoc();
         // Check if session exists
         $sql = "
 			SELECT session_id
