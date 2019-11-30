@@ -127,6 +127,7 @@ if (check_cinema() && has_permission('sessions')) {
 						</div>
 					</div>
 				</div>
+				<?php echo check_msg();?>
 				<form name="form1" method="post" action="<?php echo $_SERVER['PHP_SELF']?>"> 
 					<h3><?php echo $movie_data['title'] ?></h3>
 					<ul>

@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-11-27 01:57:56
+/* Smarty version 3.1.33, created on 2019-11-27 10:35:02
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5ddd2154eecb77_01567610',
+  'unifunc' => 'content_5ddd9a86ca6b42_31888128',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -24,14 +24,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_5ddd2154eecb77_01567610 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ddd9a86ca6b42_31888128 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Turandot - Info</title>
+<title>Happy Ending - Info</title>
 <meta name="description" content="Shoreline Cinema is Waikanae's premiere cinema complex. Find out who we are, what's on, what's coming up, how to contact us and much more.">
 <link href="/tpl/inc/css/editor.css" rel="stylesheet" type="text/css" />
 <link href="/tpl/inc/css/styles.css" rel="stylesheet" type="text/css" />
@@ -82,35 +82,22 @@ function content_5ddd2154eecb77_01567610 (Smarty_Internal_Template $_smarty_tpl)
 
 
 <div class="information">
-    <h2>Turandot</h2>
+    <h2>Happy Ending</h2>
     <div class="content">
     	<div class="content-wrapper poster">
-    		<img src="https://posters.shoreline.nz/23-medium-custom.jpg" width="190" alt="Turandot Poster" />
+    		<img src="https://posters.shoreline.nz/32-medium-default.jpg" width="190" alt="Happy Ending Poster" />
     	</div>
     	<div class="content-wrapper text"> 
     		<div class="content">
     		    <div class="content-wrapper text">
-    		        <p>Two of opera’s most thrilling dramatic sopranos, Christine Goerke and Nina Stemme, reprise their fierce portrayals of the title princess. Yannick Nézet-Séguin takes the podium to conduct Franco Zeffirelli’s dazzling production of Puccini’s final masterpiece, which also features tenors Yusif Eyvazov and Riccardo Massi as Calàf, sopranos Eleonora Buratto and Hibla Gerzmava as Liù, and bass-baritone James Morris as Timur																																						</p>
-					    		                                        <span class="h3">Upcoming Screening Times</span>
-                            <ul class="sessions">
-                                                            	                              	
-                              	                                                                        	                    			                    			
-                    			                    				                    					                    						<li>
-                    					              <strong>Sunday  1 Dec</strong>
-                
-                    					                    				                    				
-                    				                    				
-                    				<a href="/bookings/75/">6:30pm</a>
-                    		                                      		                                                      			                                                                                                 </li>
-                            </ul>
-                          	<p><i>To place a booking, click on the session time you are interested in. Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
-                            		    </div>
+    		        <p>Helle (Neumann) has been waiting forever for her workaholic husband Peter (Ravn) to retire, so they can enjoy their twilight years in each other’s company. Her dreams to travel and explore the world with her husband are crushed when Peter comes home from his last day at work with a big surprise; he is pursuing a new career as a wine importer and has invested all their savings in an exclusive vineyard in Austria! Unable to overcome their differing outlooks, Helle and Peter split up and they each set out on a blazing journey of discovery, filled with new opportunities, problems and dreams... But can you start again after 50 years of marriage? And will they be able to cope without each other?</p>
+					    		                		    </div>
     		    <div class="content-wrapper details">
     		                			<p>
-        				<strong>Rated:</strong> E<br />
-        				 <em>Suitable for Everyone</em>        			</p>
+        				<strong>Rated:</strong> TBC<br />
+        				 <em>To Be Confirmed</em>        			</p>
         		            		    <p>
-        			        			        			        				<a class="btn dark" href="https://youtu.be/RrC9TaC42I4" target="_blank">Official Trailer</a>
+        			        			        			        				<a class="btn dark" href="https://youtu.be/ne8YlKfn8Dw" target="_blank">Official Trailer</a>
         			        		    </p>
             		  
     		    </div>
