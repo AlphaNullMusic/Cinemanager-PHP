@@ -137,6 +137,12 @@ if ($newsletters_res->num_rows >= 1) {
 							token = '{$token}'
 					";
 					$mysqli->query($sql) or user_error($sql);
+					$sql = "
+						UPDATE newsletters
+						SET status = 'sent'
+						WHERE newsletter_id = '{$newsletters['newsletter_id']}'
+					";
+					$mysqli->query($sql) or user_error($sql);
 					$mail->ClearAddresses();
 					$total_sends++;
 				}
