@@ -78,7 +78,7 @@ if (check_cinema() && has_permission('newsletters')) {
 											FROM newsletters 
 											WHERE newsletter_id='{$_REQUEST['newsletter_id']}' 
 										");
-			$email_data=$email_res->fetch_assoc($email_res);
+			$email_data=$email_res->fetch_assoc();
 			$cinema_name="Shoreline Cinema Waikanae";
 			include($config['phpmailer_dir']."class.phpmailer.php");
 			$mail = new PHPMailer();
@@ -172,7 +172,7 @@ if (check_cinema() && has_permission('newsletters')) {
 								<br>
 								<iframe src="<?php echo $config['cinema_url']?>email-newsletter.php?newsletter_id=<?php echo $_REQUEST['newsletter_id']?>" width="700" height="500" title="Preview" scrolling="yes">
 									<p>Your browser does not seem to support this preview function.<br>It is recommended that you use Internet Explorer 5 or higher.</p>
-									<p><a href="<?php echo config['cinema_url']?>email-newsletter.php?newsletter_id=<?php echo $_REQUEST['newsletter_id']?>" target="_blank">Try clicking here to preview your email in a new window.</a></p>
+									<p><a href="<?php echo $config['cinema_url']?>email-newsletter.php?newsletter_id=<?php echo $_REQUEST['newsletter_id']?>" target="_blank">Try clicking here to preview your email in a new window.</a></p>
 								</iframe>
 								<br>
 								<br>
