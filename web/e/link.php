@@ -27,7 +27,7 @@ if (isset($_GET['l']) && is_numeric($_GET['l'])) {
 			INSERT INTO newsletter_user_log
 			SET user_id = ?,
 				newsletter_id = ?,
-				link_id = ?,
+				id = ?,
 				action = 'click',
 				time = NOW()
 		";
@@ -46,10 +46,9 @@ if (isset($_GET['l']) && is_numeric($_GET['l'])) {
 // process unsubscribe
 //
 
-elseif (isset($_GET['u']) && isset($_GET['c']) && isset($_GET['un'])) {
-	if (encode($_GET['u'],$_GET['c'])==$_GET['un']) {
+elseif (isset($_GET['u']) && isset($_GET['un'])) {
+	if (encode($_GET['u'])==$_GET['un']) {
 		$db = new db;
-
 		// log the activity
 		if (!empty($_GET['n'])) {
 			logNewsletterOpen($_GET['u'], $_GET['n']);
@@ -67,32 +66,31 @@ elseif (isset($_GET['u']) && isset($_GET['c']) && isset($_GET['un'])) {
 		
 		// unsubscribe
 		$user_id = $_GET['u'];
-		$cinema_id = $_GET['c'];
 		$sql = "
-			DELETE FROM user_newsletters 
-			WHERE user_id=?
-				AND cinema_id=? 
+			UPDATE users 
+			SET status='deleted' 
+			WHERE user_id=? 
 			LIMIT 1
 		";
 		$stmt = $db->prepare($sql);
-		$stmt->execute(array($user_id,$cinema_id));
+		$stmt->execute(array($user_id));
 		$stmt = NULL;
 
 		// get cinema name for confirmation
 		$sql = "
-			SELECT cinema_name, homepage_url
-			FROM cinemas 
-			WHERE cinema_id=? 
+			SELECT name, url
+			FROM settings 
+			WHERE id=? 
 			LIMIT 1
 		";
 		$stmt = $db->prepare($sql);
-		$stmt->execute(array($cinema_id));
+		$stmt->execute(array('1'));
 		$data = $stmt->fetch(PDO::FETCH_ASSOC);
 		$stmt = NULL;
 		
 		// report back
 		echo "<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN' 'http://www.w3.org/TR/html4/loose.dtd'><html><head><meta http-equiv='Content-Type' content='text/html; charset=UTF-8'><title>{$data['cinema_name']} Email Newsletter</title><style type='text/css'><!-- body { font-family: 'Lucida Grande', Verdana, Arial, Helvetica, sans-serif; font-size: 16px; margin: 30px 30px 30px 30px; } --></style></head><body>";
-		echo "&#10003; You have been un-subscribed from the <a href='{$data['homepage_url']}'>{$data['cinema_name']}</a> email list.";
+		echo "&#10003; You have been un-subscribed from the <a href='{$data['url']}'>{$data['name']}</a> email list.";
 		echo "</body></html>";
 		exit;
 		

@@ -15,7 +15,7 @@ if (check_cinema() && has_permission('user_list')) {
 	
 	// Save email change
 	if (isset($_REQUEST['edit']) && isset($_POST['save']) && (isset($_POST['email']) || isset($_POST['multi']))) {
-		$plain_text = (isset($_POST['plain_text']) && !empty($_POST['plain_text'])) ? intval($_POST['plain_text']) : 0 ;
+		$plain_text = ($_POST['plain_text']==1) ? 1 : 0 ;
 		// Add new user
 		if ($_REQUEST['edit']=='new') {
 			if (isset($_REQUEST['multi']) && !empty($_REQUEST['multi'])) {
@@ -49,7 +49,7 @@ if (check_cinema() && has_permission('user_list')) {
 						} else {
 							$user_check = $user_check_res->fetch_assoc();
 							$user_id = $user_check['user_id'];
-							query("UPDATE users SET status='ok' WHERE user_id='$user_id'");
+							query("UPDATE users SET status='ok', plain_text='$plain_text' WHERE user_id='$user_id'");
 						}
 						$n++;
 					}
@@ -62,7 +62,11 @@ if (check_cinema() && has_permission('user_list')) {
 				$user_check_res = $mysqli->query("SELECT user_id FROM users WHERE email='".$mysqli->real_escape_string($_POST['email'])."'");
 				if ($user_check_res->num_rows==0) {
 					if (is_email($_POST['email'])) {
-						$sql="INSERT INTO users SET email='".$mysqli->real_escape_string($_POST['email'])."',  date_joined=CURDATE(), status='ok'";
+						$sql="INSERT INTO users 
+							SET email='".$mysqli->real_escape_string($_POST['email'])."',  
+							date_joined=CURDATE(), 
+							plain_text = '$plain_text',
+							status='ok'";
 						$mysqli->query($sql);
 						$user_id=$mysqli->insert_id;
 					} else {
@@ -87,18 +91,6 @@ if (check_cinema() && has_permission('user_list')) {
 					$sql .= " WHERE user_id='$user_id'";
 					$mysqli->query($sql);
 				}
-				/*if (has_permission('alternate_mailing_lists')) {
-					$list1 = (!empty($_POST['list1'])) ? 1 : 0 ;
-					$list2 = (!empty($_POST['list2'])) ? 1 : 0 ;
-					$sql = "
-						UPDATE user_newsletters 
-						SET alternate_list1=$list1,
-							alternate_list2=$list2
-						WHERE user_id='$user_id' 
-							AND cinema_id='{$_SESSION['cinema_data']['cinema_id']}'
-					";
-					$mysqli->query($sql) or $mysqli->error;
-				}*/
 				header("Location: users.php?conf=The+new+subscriber+was+added+successfully.");
 				exit;
 		}

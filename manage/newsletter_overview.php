@@ -183,7 +183,7 @@ if (check_cinema() && has_permission('newsletters')) {
 							FROM newsletters n
 							LEFT JOIN newsletter_log nl
 								ON nl.newsletter_id = n.newsletter_id
-							WHERE n.last_edited > '2013-03-01'
+							WHERE n.last_edited > '2019-12-08'
 								AND n.status = :status
 							GROUP BY n.newsletter_id
 							ORDER BY $order
@@ -249,7 +249,7 @@ if (check_cinema() && has_permission('newsletters')) {
 							<tbody>
 					      <?php foreach ($newsletters['pending']['data'] as $n) { ?>
 									<tr>
-										<td><a href="<?php echo $config['cinema_url']?>email_newsletter.php?urloverride=<?php echo $url?>&newsletter_id=<?php echo $n['newsletter_id']?>" onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=700,height=700'); return false;"><?php echo $n['subject']?></a></td>
+										<td><a href="<?php echo $config['cinema_url'];?>email-newsletter.php?newsletter_id=<?php echo $n['newsletter_id']?>" onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=700,height=700'); return false;"><?php echo $n['subject']?></a></td>
 										<td><?php echo "Scheduled for {$n['sendDate']} at {$n['sendTime']}"?></td>
 										<td><a href="newsletters.php?newsletter_id=<?php echo $n['newsletter_id']?>">Edit or Reschedule</a></td>
 										<td><a href="?action=delete&newsletter_id=<?php echo $n['newsletter_id']?>" onClick="confirmDelete()">Delete</a></td>
@@ -266,7 +266,7 @@ if (check_cinema() && has_permission('newsletters')) {
 							<tbody>
 					      <?php foreach ($newsletters['sent']['data'] as $n) { ?>
 									<tr>
-										<td><a href="email_newsletter.php?urloverride=<?php echo $url?>&newsletter_id=<?php echo $n['newsletter_id']?>&static=true" onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=700,height=700'); return false;"><?php echo $n['subject']?></a></td>
+										<td><a href="<?php echo $config['cinema_url'];?>email-newsletter.php?newsletter_id=<?php echo $n['newsletter_id']?>&static=true" onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=700,height=700'); return false;"><?php echo $n['subject']?></a></td>
 										<td><?php echo "Sent on {$n['sendDate']}"?></td>
 										<td><?php echo"Recipients: {$n['totalRecipients']}"?></td>
 									<?php

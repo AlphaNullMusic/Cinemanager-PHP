@@ -74,38 +74,28 @@
                               	{if $smarty.foreach.s.first}
                               		<li>
                     		              <strong>{$date|date_format:'%A %e %b'}</strong>
-                              	{/if}
+                              	{/if}{strip}
                                     {foreach from=$s item=st name=st}
-                                    	{assign var="newDate" value=$date|cat:' '|cat:$st.time}
-                    			{assign var="mmDate" value=$date|cat:' '|cat:'02:00am'}
-                    			
-                    			{if $newDate|date_format:"%Y-%m-%d %H:%M:%S" <= $mmDate|date_format:"%Y-%m-%d %H:%M:%S"}
-                    				{if $smarty.foreach.s.first}
-                    					{assign var="cnt" value=$cnt+1}
-                    				{else}
-                    					{if !$smarty.foreach.st.first}, {/if}<a href="/bookings/{$st.id}/">{$st.time}</a>
-                    			                  {if $st.comment} ({$st.comment}){/if}
-                    			                  {if $st.label} ({$st.label}){/if}
-                    				{/if}
-                    			{else}
-                    				{if $smarty.foreach.s.first}
-                    												
-                    				{else}
-                    					{if $cnt == 0}
-                    						<li>
-                    					              <strong>{$date|date_format:'%A %e %b'}</strong>
-                
-                    					{/if}
-                    				{/if}
-                    				
-                    				{assign var="cnt" value=$cnt+1}
-                    				
-                    				{if !$smarty.foreach.st.first}, {/if}<a href="/bookings/{$st.id}/">{$st.time}</a>
-                    		                  {if $st.comment} ({$st.comment}){/if}
-                    		                  {if $st.label} ({$st.label}){/if}
-                                    			{/if}
-                                    {/foreach}
-                              {/foreach}
+					{assign var="newDate" value=$date|cat:' '|cat:$st.time}
+					{assign var="mmDate" value=$date|cat:' '|cat:'02:00am'}
+					{if $newDate|date_format:"%Y-%m-%d %H:%M:%S" <= $mmDate|date_format:"%Y-%m-%d %H:%M:%S"}
+						{if $smarty.foreach.s.first}
+							{assign var="cnt" value=$cnt+1}
+						{else}
+							{if !$smarty.foreach.st.first}, {/if}<a href="/bookings/{$st.id}/">{$st.time}</a>
+							{if $st.label} ({$st.label}){/if}
+						{/if}
+					{else}
+						{if $smarty.foreach.s.first}
+						{else}
+							{if $cnt == 0}
+								<li>
+									<strong>{$date|date_format:'%A %e %b'}</strong>
+							{/if}
+						{/if}
+						{assign var="cnt" value=$cnt+1}
+						{if !$smarty.foreach.st.first}, {/if}<a href="/bookings/{$st.id}/">{$st.time}</a>{if $st.label} <i>({$st.label})</i>{/if}{/if}{/foreach}
+				{/foreach}{/strip}
                                </li>
                             </ul>
                           	<p><i>To place a booking, click on the session time you are interested in. Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>

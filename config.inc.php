@@ -62,6 +62,7 @@ $config = array(
 	"bounce_email" => "bounces@shoreline.nz",
 	"support_email"	=> "support@shoreline.nz",
 	"sessions_email" => "sessions@shoreline.nz",
+	"newsletter_email" => "sessions$shoreline.nz",
 	"booking_send_email" => "bookings@shoreline.nz",
 	"booking_receive_email" => "boss.shoreline.cinema@gmail.com",
 	"booking_password" => "xNbaMYjpWAhN",

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-11-26 21:48:34
+/* Smarty version 3.1.33, created on 2019-12-08 21:15:44
   from '/var/www/Cinemanager/web/tpl/inc/css/email.css' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5ddce6e2bef006_80552958',
+  'unifunc' => 'content_5decb130db63c9_03120091',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd7eebfd14a321d3991350fd949e35cb7e5286853' => 
     array (
       0 => '/var/www/Cinemanager/web/tpl/inc/css/email.css',
-      1 => 1574758111,
+      1 => 1575792887,
       2 => 'file',
     ),
   ),
@@ -20,21 +20,21 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ddce6e2bef006_80552958 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5decb130db63c9_03120091 (Smarty_Internal_Template $_smarty_tpl) {
 ?>html {
 	font-family: sans-serif;
 	line-height: 1.15;
 	-webkit-text-size-adjust: 100%;
 	-webkit-tap-highlight-color: transparent;
 }
-body {
+.SL_body {
 	margin: 0;
 	padding: 0;
 	background: top left #8b886c repeat url(https://shoreline.nz/tpl/inc/img/page-bgnd.jpg);
 	color: #fff;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 0.9em;
-	font-weight 400;
+	font-weight: 400;
 	line-height: 1.5;
 	text-align: left;
 }
@@ -56,28 +56,22 @@ tfoot {
 }
 .header-container {
 	padding: 30px 0 30px 0;
-}
-.large-logo {
-	visibility: visible;
-}
-.small-logo {
-	visibility: hidden;
 	
 }
 .small-logo td {
-	position: relative;
+    position: relative;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     align-items: center;
     -ms-flex-pack: justify;
-    justify-content: space-between;
+    justify-content: center;
     padding: .5rem 1rem;
     background-color: transparent!important;
 }
 .small-logo td a {
-	display: inline-block;
+    display: inline-block;
     padding-top: .3125rem;
     padding-bottom: .3125rem;
     margin-right: 1rem;
@@ -226,13 +220,6 @@ ul.movie-times li hr {
 }
 #unsubscribe { color: #d1ffb0; }
 @media (max-width: 768px) {
-	.large-logo {
-		visibility: hidden;
-		display: none;
-	}
-	.small-logo {
-		visibility: visible;
-	}
 	.movie-text {
 		display: block;
 		padding-left: 0;
@@ -251,13 +238,6 @@ ul.movie-times li hr {
 }
 
 @media (min-width: 768px) {
-	.large-logo {
-		visibility: visible;
-	}
-	.small-logo {
-		visibility: hidden;
-		display: none;
-	}
 	.movie-text {
 		width: 80%;
 	}
