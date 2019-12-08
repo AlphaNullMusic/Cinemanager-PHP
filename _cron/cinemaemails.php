@@ -128,6 +128,7 @@ if ($newsletters_res->num_rows >= 1) {
 					$mail->AddAddress($to_email);
 					if (!$mail->Send()) {
 						die("Could not send.");
+						exit;
 					}
 					//log to database
 					$sql = "

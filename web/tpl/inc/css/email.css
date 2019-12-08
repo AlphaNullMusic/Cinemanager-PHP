@@ -4,14 +4,14 @@ html {
 	-webkit-text-size-adjust: 100%;
 	-webkit-tap-highlight-color: transparent;
 }
-body {
+.SL_body {
 	margin: 0;
 	padding: 0;
 	background: top left #8b886c repeat url(https://shoreline.nz/tpl/inc/img/page-bgnd.jpg);
 	color: #fff;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 0.9em;
-	font-weight 400;
+	font-weight: 400;
 	line-height: 1.5;
 	text-align: left;
 }
@@ -33,28 +33,22 @@ tfoot {
 }
 .header-container {
 	padding: 30px 0 30px 0;
-}
-.large-logo {
-	visibility: visible;
-}
-.small-logo {
-	visibility: hidden;
 	
 }
 .small-logo td {
-	position: relative;
+    position: relative;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     align-items: center;
     -ms-flex-pack: justify;
-    justify-content: space-between;
+    justify-content: center;
     padding: .5rem 1rem;
     background-color: transparent!important;
 }
 .small-logo td a {
-	display: inline-block;
+    display: inline-block;
     padding-top: .3125rem;
     padding-bottom: .3125rem;
     margin-right: 1rem;
@@ -203,13 +197,6 @@ ul.movie-times li hr {
 }
 #unsubscribe { color: #d1ffb0; }
 @media (max-width: 768px) {
-	.large-logo {
-		visibility: hidden;
-		display: none;
-	}
-	.small-logo {
-		visibility: visible;
-	}
 	.movie-text {
 		display: block;
 		padding-left: 0;
@@ -228,13 +215,6 @@ ul.movie-times li hr {
 }
 
 @media (min-width: 768px) {
-	.large-logo {
-		visibility: visible;
-	}
-	.small-logo {
-		visibility: hidden;
-		display: none;
-	}
 	.movie-text {
 		width: 80%;
 	}

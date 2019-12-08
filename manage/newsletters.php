@@ -40,7 +40,7 @@ if (check_cinema() && has_permission('newsletters')) {
 					";
 					$mysqli->query($sql);
 					$linkId = $mysqli->insert_id;
-					$url = "{$config['api_url']}e/link.php?l={$linkId}&u=[MMUID]";
+					$url = "{$config['cinema_url']}e/link.php?l={$linkId}&u=[MMUID]";
 				}
 				$return = $prefix.$url.$suffix;
 				return $return;
@@ -256,9 +256,6 @@ if (check_cinema() && has_permission('newsletters')) {
 										</td>
 										<td>&nbsp; &nbsp;</td>
 										<td>
-									  <?php if (count($news_data) == 0) {
-												$news_data['subject'] = $config['cinema_name']." Session Times";
-											} ?>
 											<input 
 												name="subject" 
 												type="text" 
@@ -286,9 +283,11 @@ if (check_cinema() && has_permission('newsletters')) {
 	} else {
 		echo $cinema_data['newsletter_email'];
 	}
-} elseif (!empty($cinema_data['email'])) {
-	echo $cinema_data['email'];
-} 
+} elseif (!empty($cinema_data['newsletter_email'])) {
+	echo $cinema_data['newsletter_email'];
+} else {
+	echo $config['newsletter_email'];
+}
 ?>
 												"
 											>

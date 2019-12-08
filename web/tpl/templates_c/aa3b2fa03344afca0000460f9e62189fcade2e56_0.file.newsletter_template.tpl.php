@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-11-26 21:48:34
+/* Smarty version 3.1.33, created on 2019-12-08 21:49:03
   from '/var/www/Cinemanager/web/tpl/newsletter_template.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5ddce6e2be8726_80841619',
+  'unifunc' => 'content_5decb8ffab3775_45443705',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'aa3b2fa03344afca0000460f9e62189fcade2e56' => 
     array (
       0 => '/var/www/Cinemanager/web/tpl/newsletter_template.tpl',
-      1 => 1574758111,
+      1 => 1575794941,
       2 => 'file',
     ),
   ),
@@ -21,26 +21,40 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:inc/css/email.css' => 1,
   ),
 ),false)) {
-function content_5ddce6e2be8726_80841619 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5decb8ffab3775_45443705 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/Cinemanager/_deps/smarty/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
-if ($_smarty_tpl->tpl_vars['plaintext']->value) {
-$_smarty_tpl->_assignInScope('divider', '<br><br>========================================<br><br>');
-echo $_smarty_tpl->tpl_vars['plain_editorial']->value;?>
-<br><br>For more information on any of our movies please visit www.shorelinecinema.co.nz.<?php
+if ($_smarty_tpl->tpl_vars['plaintext']->value) {?>Shoreline Cinema Weekly Newsletter<?php echo "\n\n";
+$_smarty_tpl->_assignInScope('divider', '========================================');
+if ($_smarty_tpl->tpl_vars['plain_editorial']->value) {
+echo $_smarty_tpl->tpl_vars['plain_editorial']->value;
+}
+echo "\n\n";?>
+For more information on any of our movies please visit www.shorelinecinema.co.nz.<?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['ns']->value, 'n', false, NULL, 'n', array (
 ));
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['n']->value) {
+echo "\n\n";
 echo $_smarty_tpl->tpl_vars['divider']->value;
-echo $_smarty_tpl->tpl_vars['n']->value['title'];?>
-<br><?php echo $_smarty_tpl->tpl_vars['n']->value['classification'];
+echo "\n\n";
+echo $_smarty_tpl->tpl_vars['n']->value['title'];
+echo "\n";
+echo $_smarty_tpl->tpl_vars['n']->value['classification'];
 if ($_smarty_tpl->tpl_vars['n']->value['class_explanation']) {?> (<?php echo $_smarty_tpl->tpl_vars['n']->value['class_explanation'];?>
 )<?php }
 if ($_smarty_tpl->tpl_vars['n']->value['duration']) {?> - <?php echo $_smarty_tpl->tpl_vars['n']->value['duration'];
-}?><br><br><?php if ($_smarty_tpl->tpl_vars['n']->value['synopsis']) {?>Synopsis:<br>&emsp;<?php echo $_smarty_tpl->tpl_vars['n']->value['synopsis'];
-}?><br><br><?php if ($_smarty_tpl->tpl_vars['n']->value['comments']) {?><em><?php echo $_smarty_tpl->tpl_vars['n']->value['comments'];?>
-</em><br><br><?php }
-if ($_smarty_tpl->tpl_vars['n']->value['sessions']) {?>Sessions:<br><?php
+}
+echo "\n\n";
+if ($_smarty_tpl->tpl_vars['n']->value['synopsis']) {?>Synopsis:<?php echo "\n";
+echo preg_replace('!^!m',str_repeat(' ',10),$_smarty_tpl->tpl_vars['n']->value['synopsis']);
+}
+echo "\n";
+echo "\n";
+if ($_smarty_tpl->tpl_vars['n']->value['comments']) {?>Comments:<?php echo "\n";?>
+<em><?php echo preg_replace('!^!m',str_repeat(' ',10),$_smarty_tpl->tpl_vars['n']->value['comments']);?>
+</em><?php echo "\n\n";
+}
+if ($_smarty_tpl->tpl_vars['n']->value['sessions']) {?>Sessions:<?php echo "\n";
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['n']->value['sessions'], 's', false, 'date', 's', array (
   'first' => true,
   'index' => true,
@@ -49,7 +63,7 @@ if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['date']->value => $_smarty_tpl->tpl_vars['s']->value) {
 $_smarty_tpl->tpl_vars['__smarty_foreach_s']->value['index']++;
 $_smarty_tpl->tpl_vars['__smarty_foreach_s']->value['first'] = !$_smarty_tpl->tpl_vars['__smarty_foreach_s']->value['index'];
-?>&emsp;<?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['date']->value,'%A %e %b');?>
+echo preg_replace('!^!m',str_repeat(' ',10),smarty_modifier_date_format($_smarty_tpl->tpl_vars['date']->value,'%A %e %b'));?>
 : <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['s']->value, 'st', false, NULL, 'st', array (
   'first' => true,
@@ -67,19 +81,24 @@ if ($_smarty_tpl->tpl_vars['st']->value['label']) {?> (<?php echo $_smarty_tpl->
 )<?php }
 }
 }
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?><br><?php
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
+echo "\n";
 }
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
-}?><br>Visit this web page for more information:&nbsp;http://www.shorelinecinema.co.nz/movies/<?php echo $_smarty_tpl->tpl_vars['n']->value['movie_id'];
+}
+echo "\n";?>
+Visit this web page for more information:&nbsp;http://www.shorelinecinema.co.nz/movies/<?php echo $_smarty_tpl->tpl_vars['n']->value['movie_id'];
 }
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
+echo "\n\n";
 echo $_smarty_tpl->tpl_vars['divider']->value;
-} else { ?><!DOCTYPE html><html lang="en-nz"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8" /><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><style><?php $_smarty_tpl->_subTemplateRender("file:inc/css/email.css", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
-?>ul.sessions {min-height: 0!important;}</style></head><body><table class="full" cellspacing="0" cellpadding="0"><thead><tr class="small-logo"><td><a class="logo hide-med" href="#"><img src="https://shoreline.nz/tpl/inc/img/sl_logo.png" class="sl-logo-sm" height="25"></a></td></tr><tr class="large-logo"><td class="header-container"><img src="https://shoreline.nz/tpl/inc/img/sl_logo.png" class="sl-logo"></td></tr></thead></table><table class="full wrapper" cellspacing="0" cellpadding="0"><tbody><?php if ($_smarty_tpl->tpl_vars['editorial']->value) {?><tr class="featured"><td><?php echo $_smarty_tpl->tpl_vars['editorial']->value;?>
+echo "\n\n";
+} else { ?><!DOCTYPE html><html lang="en-nz"><head><title>Shoreline Cinema Newsletter</title><meta http-equiv="Content-Type" content="text/html;charset=UTF-8" /><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><style type="text/css"><?php $_smarty_tpl->_subTemplateRender("file:inc/css/email.css", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>ul.sessions {min-height: 0!important;}</style></head><body class="SL_body"><table class="full" cellspacing="0" cellpadding="0"><thead><tr class="small-logo"><td><a class="logo hide-med" href="#" style="margin:0 auto;"><img src="https://shoreline.nz/tpl/inc/img/sl_logo.png" class="sl-logo-sm" height="25"></a></td></tr></thead></table><table class="full wrapper" cellspacing="0" cellpadding="0"><tbody><?php if ($_smarty_tpl->tpl_vars['editorial']->value) {?><tr class="featured"><td style="color:#ffffff;"><?php echo $_smarty_tpl->tpl_vars['editorial']->value;?>
 </td></tr><?php }
-if ($_smarty_tpl->tpl_vars['ns']->value) {?><tr class="information"><td><h1>Weekly Session Times</h1></td></tr><tr><td><table class="movie-times" cellspacing="0" cellpadding="0"><tbody><?php
+if ($_smarty_tpl->tpl_vars['ns']->value) {?><tr class="information"><td><h1 style="font-weight:400;">Weekly Session Times</h1></td></tr><tr><td><table class="movie-times" cellspacing="0" cellpadding="10"><tbody><?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['ns']->value, 'n', false, NULL, 'n', array (
 ));
 if ($_from !== null) {
@@ -87,14 +106,14 @@ foreach ($_from as $_smarty_tpl->tpl_vars['n']->value) {
 ?><tr class="movie-item"><td class="movie-poster"><a href="https://shoreline.nz/movies/<?php echo $_smarty_tpl->tpl_vars['n']->value['movie_id'];?>
 /"><img src="<?php echo $_smarty_tpl->tpl_vars['n']->value['poster_url'];?>
 " alt="<?php echo $_smarty_tpl->tpl_vars['n']->value['title'];?>
-" width="190" border="0"></a></td><td class="movie-text"><table class="content" cellspacing="0" cellpadding="0"><tr><td style="vertical-align: top;"><h2><a href="https://shoreline.nz/movies/<?php echo $_smarty_tpl->tpl_vars['n']->value['movie_id'];?>
-/"><?php echo $_smarty_tpl->tpl_vars['n']->value['title'];?>
+" style="height:281px;" border="0"></a></td><td class="movie-text" style="border-bottom: 1px solid #ffffff;"><table class="content" cellspacing="0" cellpadding="0"><tr><td style="vertical-align: top;"><h2><a href="https://shoreline.nz/movies/<?php echo $_smarty_tpl->tpl_vars['n']->value['movie_id'];?>
+/" style="color:#ffffff;"><?php echo $_smarty_tpl->tpl_vars['n']->value['title'];?>
 </a><span class="details">&nbsp;&nbsp;[<strong><?php echo $_smarty_tpl->tpl_vars['n']->value['classification'];?>
 </strong><?php if ($_smarty_tpl->tpl_vars['n']->value['class_explanation']) {?> (<?php echo $_smarty_tpl->tpl_vars['n']->value['class_explanation'];?>
 )<?php }
 if ($_smarty_tpl->tpl_vars['n']->value['duration']) {?> - <?php echo $_smarty_tpl->tpl_vars['n']->value['duration'];
-}?>]</span></h2><strong><em><?php if ($_smarty_tpl->tpl_vars['n']->value['comments']) {?> (<?php echo $_smarty_tpl->tpl_vars['n']->value['comments'];?>
-)<?php }?></em></strong><p><?php echo $_smarty_tpl->tpl_vars['n']->value['synopsis'];?>
+}?>]</span></h2><b style="font-weight:bold;"><em style="font-style:italic;color:#ffffff;"><?php if ($_smarty_tpl->tpl_vars['n']->value['comments']) {?> (<?php echo $_smarty_tpl->tpl_vars['n']->value['comments'];?>
+)<?php }?></em></b><p style="color:#ffffff;"><?php echo $_smarty_tpl->tpl_vars['n']->value['synopsis'];?>
 </p><ul class="sessions"><?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['n']->value['sessions'], 's', false, 'date', 's', array (
   'first' => true,
@@ -105,8 +124,8 @@ foreach ($_from as $_smarty_tpl->tpl_vars['date']->value => $_smarty_tpl->tpl_va
 $_smarty_tpl->tpl_vars['__smarty_foreach_s']->value['index']++;
 $_smarty_tpl->tpl_vars['__smarty_foreach_s']->value['first'] = !$_smarty_tpl->tpl_vars['__smarty_foreach_s']->value['index'];
 $_smarty_tpl->_assignInScope('cnt', 0);
-if ((isset($_smarty_tpl->tpl_vars['__smarty_foreach_s']->value['first']) ? $_smarty_tpl->tpl_vars['__smarty_foreach_s']->value['first'] : null)) {?><li><strong><?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['date']->value,'%A %e %b');?>
-</strong><?php }
+if ((isset($_smarty_tpl->tpl_vars['__smarty_foreach_s']->value['first']) ? $_smarty_tpl->tpl_vars['__smarty_foreach_s']->value['first'] : null)) {?><li><b style="color:#ffffff;display:inline-block;width:10.5em;"><?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['date']->value,'%A %e %b');?>
+</b><?php }
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['s']->value, 'st', false, NULL, 'st', array (
   'first' => true,
   'index' => true,
@@ -122,24 +141,26 @@ if ((isset($_smarty_tpl->tpl_vars['__smarty_foreach_s']->value['first']) ? $_sma
 $_smarty_tpl->_assignInScope('cnt', $_smarty_tpl->tpl_vars['cnt']->value+1);
 } else {
 if (!(isset($_smarty_tpl->tpl_vars['__smarty_foreach_st']->value['first']) ? $_smarty_tpl->tpl_vars['__smarty_foreach_st']->value['first'] : null)) {?>, <?php }?><a href="https://shoreline.nz/bookings/<?php echo $_smarty_tpl->tpl_vars['st']->value['id'];?>
-/"><?php echo $_smarty_tpl->tpl_vars['st']->value['time'];?>
+/" style="color:#ffffff;"><?php echo $_smarty_tpl->tpl_vars['st']->value['time'];?>
 </a>														<?php }
 } else {
 if ((isset($_smarty_tpl->tpl_vars['__smarty_foreach_s']->value['first']) ? $_smarty_tpl->tpl_vars['__smarty_foreach_s']->value['first'] : null)) {
 } else {
-if ($_smarty_tpl->tpl_vars['cnt']->value == 0) {?><li><strong><?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['date']->value,'%A %e %b');?>
-</strong><?php }
+if ($_smarty_tpl->tpl_vars['cnt']->value == 0) {?><li><b style="color:#ffffff;display:inline-block;width:10.5em;"><?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['date']->value,'%A %e %b');?>
+</b><?php }
 }
 $_smarty_tpl->_assignInScope('cnt', $_smarty_tpl->tpl_vars['cnt']->value+1);
 if (!(isset($_smarty_tpl->tpl_vars['__smarty_foreach_st']->value['first']) ? $_smarty_tpl->tpl_vars['__smarty_foreach_st']->value['first'] : null)) {?>, <?php }?><a href="https://shoreline.nz/bookings/<?php echo $_smarty_tpl->tpl_vars['st']->value['id'];?>
-/"><?php echo $_smarty_tpl->tpl_vars['st']->value['time'];?>
-</a>													<?php }
+/" style="color:#ffffff;"><?php echo $_smarty_tpl->tpl_vars['st']->value['time'];?>
+</a><?php if ($_smarty_tpl->tpl_vars['st']->value['label']) {?> <i>(<?php echo $_smarty_tpl->tpl_vars['st']->value['label'];?>
+)</i><?php }
+}
 }
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
 }
 }
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?></li></ul></td></tr></table><hr></td></tr><?php
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?></li></ul></td></tr></table></td></tr><?php
 }
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?></tbody></table></td></tr><?php }?></tbody><tfoot><tr><td class="footer"><p style="text-align:center;">To unsubscribe from this email newsletter, <a href="<!--unsub-->" id="unsubscribe">click here</a>.<br>While every attempt is made to ensure this website is accurate,<br>we are not liable for any omissions or errors.<br>Web design and content &copy; <?php echo date('Y');?>

@@ -7,7 +7,7 @@ if (!empty($_REQUEST['static']) && !empty($_REQUEST['newsletter_id'])) {
 	$sql = "
 		SELECT message_html
 		FROM newsletters
-		WHERE newsletter_id = '" . mysql_real_escape_string($_REQUEST['newsletter_id']) . "'
+		WHERE newsletter_id = '" . $mysqli->real_escape_string($_REQUEST['newsletter_id']) . "'
 	";
 	$res = $mysqli->query($sql);
 	$data = $res->fetch_assoc();
