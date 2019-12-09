@@ -104,6 +104,70 @@ ul.sessions a:hover {
 }
 span.details { font-style: italic; }
 b, strong { font-weight: bold; }
+.featured a {
+    color: #fff; /* #dfdccd; */
+    text-decoration: none;
+    background-color: transparent;
+}
+.featured h1 {
+	color: #921a1d;
+	font-size: 16px;
+	font-weight: normal;
+}
+.featured p.h1 {
+	color: #921a1d;
+	font-size: 1.3rem;
+	font-weight: normal;
+}
+.featured h2 {
+	color: #fff;
+	font-family: Georgia, serif;
+	font-weight: normal;
+	font-size: 1.7rem;
+}
+.featured p.h2 {
+	color: #ffffff;
+	font-family: Georgia, serif;
+	font-weight: normal;
+	font-size: 1.2rem;
+}
+.featured h3, .featured p.h3 {
+	color: #921a1d;
+	font-weight: bold;
+	margin-top: 0;
+	margin-bottom: .5rem;
+	line-height: 1.2;
+}
+.featured h3 span { font-weight: bold; }
+.featured h4 {
+	font-weight: normal;
+	font-size: 16px;
+}
+.featured .h1, 
+.featured .h2, 
+.featured .h4, 
+.featured .h5, 
+.featured .h6, 
+.featured h1, 
+.featured h2, 
+.featured h4, 
+.featured h5, 
+.featured h6 {
+    margin-top: 0;
+    margin-bottom: .5rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+.featured .normal {
+	font-family:Arial,Helvetica,sans-serif;
+	font-size:12px;
+	color:#FFF;
+}
+.featured p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+.featured pre { font-size: 1.2rem; }
 .featured {
 	background-color: #2f2c1a;
 }
