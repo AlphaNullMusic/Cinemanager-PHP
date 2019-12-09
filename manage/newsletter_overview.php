@@ -10,7 +10,7 @@ if (check_cinema() && has_permission('newsletters')) {
 		$sql = "
 			DELETE FROM newsletters
 			WHERE newsletter_id = :newsletter_id
-				AND status = 'new'
+				AND (status = 'new' OR status = 'pending')
 		";
 		$stmt = $db->prepare($sql);
 		$stmt->execute(array(
@@ -90,10 +90,8 @@ if (check_cinema() && has_permission('newsletters')) {
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<script src="includes/generic.js" type="text/javascript"></script>
-		<title><?php echo $title_prefix?> <?php echo (isset($_SESSION['cinema_data']))?"Movie Lists &amp; Sessions":"Website Content Management For Cinemas";?></title>
+		<title>Newsletter Overview</title>
 		<link href="inc/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-		<!--<link href="includes/css/styles.css" rel="stylesheet" type="text/css">-->
 		<link href="inc/css/dashboard.css" rel="stylesheet">
 	</head>
 	<body>
@@ -111,9 +109,7 @@ if (check_cinema() && has_permission('newsletters')) {
 							</div>
 						</div>
 					</div>
-					<?php
-					if (isset($_GET['conf'])) { confirm($_GET['conf']); } 
-					if (isset($_GET['er'])) { confirm($_GET['er'],'er'); } ?>
+					<?php echo check_msg(); ?>
 					<h3>Quarterly Trend</h3>
 					<div id="chart_div"></div>
 						<script type="text/javascript" src="https://www.google.com/jsapi"></script>
@@ -123,11 +119,9 @@ if (check_cinema() && has_permission('newsletters')) {
 							function drawChart() {
 								var data = google.visualization.arrayToDataTable([
 									['Week', 'Opens', 'Clicks']
-								  <?php foreach ($weeklyStats as $s) {
-											//if ($s['total'] > 0) {
-												echo ",['{$s['fromDateShort']}', {$s['opened']}, {$s['clicked']} ]";
-											//}
-										} ?>
+									<?php foreach ($weeklyStats as $s) {
+										echo ",['{$s['fromDateShort']}', {$s['opened']}, {$s['clicked']} ]";
+									} ?>
 								]);
 								var options = {
 									isStacked: false,

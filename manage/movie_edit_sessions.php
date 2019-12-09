@@ -107,8 +107,7 @@ if (check_cinema() && has_permission('sessions')) {
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="includes/generic.js" type="text/javascript"></script>
-    <title><?=$title_prefix?><?=($_SESSION['cinema_data'])?"Movie Lists &amp; Sessions":"Website Content Management For Cinemas";?></title>
+    <title>Movie Lists &amp; Sessions</title>
     <link href="inc/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="inc/css/dashboard.css" rel="stylesheet">
   </head>

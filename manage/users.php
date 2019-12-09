@@ -132,10 +132,8 @@ if (check_cinema() && has_permission('user_list')) {
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<script src="includes/generic.js" type="text/javascript"></script>
-		<title><?php echo $title_prefix?>Email Database Manager, Bulk Email Marketing Software for Cinemas</title>
+		<title>Email Subscriber Manager</title>
 		<link href="inc/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-		<!--<link href="includes/css/styles.css" rel="stylesheet" type="text/css">-->
 		<link href="inc/css/dashboard.css" rel="stylesheet">
 	</head>
 	<body>

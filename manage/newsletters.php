@@ -146,8 +146,7 @@ if (check_cinema() && has_permission('newsletters')) {
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<script src="includes/generic.js" type="text/javascript"></script>
-		<title><?php echo $title_prefix?>Send and Track Email Newsletters, a Personalised Email Marketing System for Cinemas</title>
+		<title>Send and Track Email Newsletters</title>
 		<link href="inc/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 		<link href="inc/css/dashboard.css" rel="stylesheet">
 	</head>
@@ -161,6 +160,7 @@ if (check_cinema() && has_permission('newsletters')) {
 					<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
 						<h1 class="h2">Bulk Email Newsletters</h1>
 					</div>
+					<?php echo check_msg(); ?>
 						<form name="newsletter" action="newsletters.php" method="post" enctype="multipart/form-data">
 					  <?php if (isset($_REQUEST['complete']) && $_REQUEST['complete']=='scheduled') { ?>
 								<p>Your newsletter has successfully been scheduled for sending.</p>
