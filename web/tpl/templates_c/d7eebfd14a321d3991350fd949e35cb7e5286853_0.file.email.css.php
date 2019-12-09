@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-12-09 23:26:58
+/* Smarty version 3.1.33, created on 2019-12-09 23:47:19
   from '/var/www/Cinemanager/web/tpl/inc/css/email.css' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5dee21726e7992_12199553',
+  'unifunc' => 'content_5dee263767aa42_31589183',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd7eebfd14a321d3991350fd949e35cb7e5286853' => 
     array (
       0 => '/var/www/Cinemanager/web/tpl/inc/css/email.css',
-      1 => 1575887135,
+      1 => 1575888396,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5dee21726e7992_12199553 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5dee263767aa42_31589183 (Smarty_Internal_Template $_smarty_tpl) {
 ?>html {
 	font-family: sans-serif;
 	line-height: 1.15;
@@ -82,17 +82,17 @@ tfoot {
 	margin-left: auto!important;
 	display: block!important;
 	max-width: 100%;
-    height: auto;
-    vertical-align: middle;
-    border-style: none;
+	height: auto;
+	vertical-align: middle;
+	border-style: none;
 	height: 60px;
 }
 p, span { font-size: 1rem; }
 h1, h2 {
 	margin-top: 0;
-    margin-bottom: .5rem;
-    font-weight: 500;
-    line-height: 1.2;
+	margin-bottom: .5rem;
+	font-weight: 500;
+	line-height: 1.2;
 }
 h1 { 
 	color: #921a1d;
@@ -135,12 +135,12 @@ b, strong { font-weight: bold; }
 .featured h1 {
 	color: #921a1d;
 	font-size: 16px;
-	font-weight: normal;
+	font-weight: 300;
 }
 .featured p.h1 {
 	color: #921a1d;
 	font-size: 1.3rem;
-	font-weight: normal;
+	font-weight: 300;
 }
 .featured h2 {
 	color: #fff;
@@ -156,6 +156,7 @@ b, strong { font-weight: bold; }
 }
 .featured h3, .featured p.h3 {
 	color: #921a1d;
+	font-size: 1.17em;
 	font-weight: bold;
 	margin-top: 0;
 	margin-bottom: .5rem;
