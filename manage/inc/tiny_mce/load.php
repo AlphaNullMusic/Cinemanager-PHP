@@ -4,7 +4,7 @@
 	tinyMCE.init({
 		mode : "textareas",
 		theme : "advanced",
-		plugins : "safari,spellchecker,style,searchreplace,contextmenu,paste,spellchecker,table,youtubeIframe",
+		plugins : "safari,spellchecker,style,searchreplace,contextmenu,paste,spellchecker,table",
 		theme_advanced_buttons1 : "styleselect,bold,italic,strikethrough,|,justifyleft,justifycenter,justifyright,|,bullist,numlist,|,link,unlink,image,insertfile,youtubeIframe,|,pasteword,pastetext,removeformat,code",
 		theme_advanced_buttons2 : "tablecontrols,|,hr,spellchecker,undo,redo",
 		theme_advanced_buttons3 : false,
