@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-12-08 22:04:47
+/* Smarty version 3.1.33, created on 2019-12-09 23:02:14
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5decbcaf9a8538_69992319',
+  'unifunc' => 'content_5dee1ba62c8088_12572017',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7e731f8444ca3c4d387cec6c94cedd5afa32db57' => 
     array (
       0 => '/var/www/Cinemanager/web/tpl/movies.tpl',
-      1 => 1575795885,
+      1 => 1575885654,
       2 => 'file',
     ),
   ),
@@ -21,9 +21,9 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:inc/tpl/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5decbcaf9a8538_69992319 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5dee1ba62c8088_12572017 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/Cinemanager/_deps/smarty/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
-$_smarty_tpl->compiled->nocache_hash = '4974734355decbcaf97cdd6_11192937';
+$_smarty_tpl->compiled->nocache_hash = '4938687215dee1ba62741e4_69282280';
 ?>
 <!DOCTYPE html>
 <html lang="en-nz">
@@ -34,7 +34,6 @@ $_smarty_tpl->compiled->nocache_hash = '4974734355decbcaf97cdd6_11192937';
 <title><?php echo $_smarty_tpl->tpl_vars['movie']->value['title'];?>
  - Info</title>
 <meta name="description" content="Shoreline Cinema is Waikanae's premiere cinema complex. Find out who we are, what's on, what's coming up, how to contact us and much more.">
-<link href="/tpl/inc/css/editor.css" rel="stylesheet" type="text/css" />
 <link href="/tpl/inc/css/styles.css" rel="stylesheet" type="text/css" />
 <link href="/tpl/inc/css/print.css" rel="stylesheet" type="text/css" media="print" />
 </head>

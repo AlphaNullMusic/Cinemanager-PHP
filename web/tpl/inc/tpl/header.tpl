@@ -16,7 +16,6 @@
     {if $tpl_name == 'contact-us.tpl'}Contact Us{/if}
 </title>
 <meta name="description" content="Shoreline Cinema is Waikanae's premiere cinema complex. Find out who we are, what's on, what's coming up, how to contact us and much more.">
-<link href="/tpl/inc/css/editor.css" rel="stylesheet" type="text/css" />
 <link href="/tpl/inc/css/styles.css" rel="stylesheet" type="text/css" />
 <link href="/tpl/inc/css/print.css" rel="stylesheet" type="text/css" media="print" />
 {if $js_checkform}

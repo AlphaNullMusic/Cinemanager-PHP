@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-11-25 17:09:22
+/* Smarty version 3.1.33, created on 2019-12-09 22:57:41
   from '/var/www/Cinemanager/web/tpl/404.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5ddb53f2b53a11_32478388',
+  'unifunc' => 'content_5dee1a95eb3615_22308083',
   'has_nocache_code' => true,
   'file_dependency' => 
   array (
     'cc9a9c9f7a0917a1a53ea197fc99e7d8293de378' => 
     array (
       0 => '/var/www/Cinemanager/web/tpl/404.tpl',
-      1 => 1574633434,
+      1 => 1575885459,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,8 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:inc/tpl/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5ddb53f2b53a11_32478388 (Smarty_Internal_Template $_smarty_tpl) {
-$_smarty_tpl->compiled->nocache_hash = '10939195555ddb53f2b48ce5_66334525';
+function content_5dee1a95eb3615_22308083 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->compiled->nocache_hash = '19821678305dee1a95e11ed6_34073801';
 ?>
 <!DOCTYPE html>
 <html lang="en-nz">
@@ -32,7 +32,6 @@ $_smarty_tpl->compiled->nocache_hash = '10939195555ddb53f2b48ce5_66334525';
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>404 - Page Not Found</title>
 <meta name="description" content="Shoreline Cinema is Waikanae's premiere cinema complex. Find out who we are, what's on, what's coming up, how to contact us and much more.">
-<link href="/tpl/inc/css/editor.css" rel="stylesheet" type="text/css" />
 <link href="/tpl/inc/css/styles.css" rel="stylesheet" type="text/css" />
 <link href="/tpl/inc/css/print.css" rel="stylesheet" type="text/css" media="print" />
 </head>
@@ -85,8 +84,8 @@ $_smarty_tpl->compiled->nocache_hash = '10939195555ddb53f2b48ce5_66334525';
             <div class="content-wrapper">
                 <div class="box">
                     <h2>Sorry... we couldn't find the page you were looking for.</h2>
-	                <p><?php echo '/*%%SmartyNocache:10939195555ddb53f2b48ce5_66334525%%*/<?php echo \'<?=\';?>/*/%%SmartyNocache:10939195555ddb53f2b48ce5_66334525%%*/';?>
-($_REQUEST['er'])?'Error: '.$_REQUEST['er']:'';<?php echo '/*%%SmartyNocache:10939195555ddb53f2b48ce5_66334525%%*/<?php echo \'?>\';?>/*/%%SmartyNocache:10939195555ddb53f2b48ce5_66334525%%*/';?>
+	                <p><?php echo '/*%%SmartyNocache:19821678305dee1a95e11ed6_34073801%%*/<?php echo \'<?=\';?>/*/%%SmartyNocache:19821678305dee1a95e11ed6_34073801%%*/';?>
+($_REQUEST['er'])?'Error: '.$_REQUEST['er']:'';<?php echo '/*%%SmartyNocache:19821678305dee1a95e11ed6_34073801%%*/<?php echo \'?>\';?>/*/%%SmartyNocache:19821678305dee1a95e11ed6_34073801%%*/';?>
 </p>
 	                <p></p>
 	                <p>Click the button below to go back home.</p>
@@ -98,6 +97,7 @@ $_smarty_tpl->compiled->nocache_hash = '10939195555ddb53f2b48ce5_66334525';
 
     <?php $_smarty_tpl->_subTemplateRender("file:inc/tpl/footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 9999, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
+
 
 <?php }
 }
