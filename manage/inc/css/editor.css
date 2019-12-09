@@ -2,34 +2,53 @@
 /* Styles used by the client's page editor */
 
 /* Editor defaults (background color and font style in particular) */
-body {background-color:#9A9262;}
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #ffffff;
+	background-color:#9A9262;
+	font-size: 0.9em;
+}
 img {margin: 0 0.5em 0.25em 0.5em;}
 a {color:#dfdccd;}
 
 /* Default text style */
-body, .normal, td {
-	font-family:Arial,Helvetica,sans-serif;
-	font-size:12px;
-	color:#FFF;
+p, .h4, .h5, .h6 {
+	font-size: 1rem;
+	margin-top: 0;
+	margin-bottom: 1rem;
 }
 
 /* Heading */
-.h1 {
+h1, .h1 {
 	color: #921a1d;
-	font-size: 1.3rem;
 	font-weight: normal;
 }
+h1 { font-size: 1.5rem; }
+.h1 { font-size: 1.3rem; }
 
 /* Subheading */
-.h2 {
+h2, .h2 {
 	color: #ffffff;
 	font-family: Georgia, serif;
 	font-weight: normal;
-	font-size: 1.2rem;
 }
+h2 { font-size: 1.7rem; }
+.h2 { font-size: 1.2rem; }
 
 /* Emphasis */
-.h3 {
+h3, .h3 {
 	color: #921a1d;
 	font-weight: bold;
 }
+
+h1, .h1, h2, .h2, h3, .h3 {
+	margin-top: 0;
+	margin-bottom: .5rem;
+}
+.h1, .h2, .h4, .h5, .h6, h1, h2, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: .5rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+pre { font-size: 1.2rem; }
