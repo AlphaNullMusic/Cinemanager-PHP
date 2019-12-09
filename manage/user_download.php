@@ -118,5 +118,7 @@ if (check_cinema() && has_permission('user_list')) {
 	} else {
 		header("Location: users.php?er=No+subscribers+found+for+".$_GET['show']);
 	}
+} else {
+	header("Location: users.php");
 }
 ?>

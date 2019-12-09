@@ -55,54 +55,29 @@ if (check_cinema() && (has_permission('sessions'))) {
 				";
                 $mysqli->query($sql) or user_error("Gnarly: $sql");
                 $movie_id = $mysqli->insert_id;
-				save_poster($movie_details['poster'], $movie_id, $custom = false);
-                //update_movie_cache($movie_id);
+		save_poster($movie_details['poster'], $movie_id, $custom = false);
             } else {
                 // Movie exists, set movie_id to existing movie
                 $data     = $res->fetch_assoc();
                 $movie_id = $data['movie_id'];
                 $class_id = $data['classification_id'];
-				$sql = "
-					UPDATE movies 
-					SET status='ok'
-					WHERE movie_id = '" . $mysqli->real_escape_string($movie_id) . "'
-				";
+		$sql = "
+			UPDATE movies 
+			SET status='ok'
+			WHERE movie_id = '" . $mysqli->real_escape_string($movie_id) . "'
+		";
                 $mysqli->query($sql) or user_error("Gnarly: $sql");
             }
         } else if ($_REQUEST['movie_id'] && $_REQUEST['movie_id'] == 'new') {
             $sql = "
-				INSERT INTO movies 
-				SET title='" . $mysqli->real_escape_string($_POST['title']) . "', 
-				status='ok', 
-				release_date='" . $mysqli->real_escape_string(date('Y-m-d', strtotime($release_date))) . "'
-			";
+		INSERT INTO movies 
+		SET title='" . $mysqli->real_escape_string($_POST['title']) . "', 
+		status='ok', 
+		release_date='" . $mysqli->real_escape_string(date('Y-m-d', strtotime($release_date))) . "'
+	    ";
             $mysqli->query($sql) or user_error("Gnarly: $sql");
-            //update_movie_cache($movie_id);
         }
 
-        // Check if this cinema requires posters
-        /*$sql = "SELECT cinema_id FROM cinema_site_settings WHERE image_cat_id=2 AND cinema_id='{$_SESSION['cinema_data']['cinema_id']}' LIMIT 1";
-        $tmp_res = $mysqli->query($sql) or user_error("Gnarly: $sql");
-        if ($tmp_res->num_rows == 1)
-          {
-            //check if there is a poster for this movie
-            $sql = "
-	SELECT i.image_id 
-	FROM images i
-	INNER JOIN movie_images mi
-	  ON mi.image_id = i.image_id
-	  AND mi.movie_id='$movie_id' 
-	WHERE i.image_cat_id=2 
-	  AND i.status='ok' 
-	LIMIT 1
-      ";
-            $tmp_res = $mysqli->query($sql) or user_error("Gnarly: $sql");
-            if ($tmp_res->num_rows != 1)
-              {
-                //notify staff of new movie addition
-                notification_no_poster($movie_id);
-              }
-          }*/
         // Clear smarty cache
         smarty_clear_cache($_SESSION['cinema_data']['cinema_id'], $movie_id);
         // Redirect
@@ -515,8 +490,8 @@ if (check_cinema() && (has_permission('sessions'))) {
             <h1 class="h2">Website Content Management For Cinemas</h1>
           </div>
 	<p><?php check_notice("Either you are not logged in or you do not have permission to use this feature.");?></p>
-	<p>This page allows cinemas to update their free NZ Cinema movie listing in minutes. Registered cinemas can also control their own website: modify and add pages, changes session times and movie details, maintain their upcoming features list and much more.</p>
-	<p>This content management system has been built specifically for New Zealand cinema operators to streamline the website updating process. If you are a cinema operator and would like more information on any of our services, please don't hesitate to <a href="contact.php">contact us</a>.</p>				
+	<p>This page allows cinemas to control their own website: modify and add pages, changes session times and movie details, maintain their upcoming features list and much more.</p>
+	<p>This content management system has been built specifically for New Zealand cinema operators to streamline the website updating process.</p>				
       <?php 
   }
 ?>				

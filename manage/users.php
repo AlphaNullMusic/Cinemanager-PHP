@@ -110,18 +110,6 @@ if (check_cinema() && has_permission('user_list')) {
 			if (has_permission('newsletter_merge')) {
 				$mysqli->query("UPDATE users SET first_name='".$mysqli->real_escape_string($_POST['first_name'])."', last_name='".$mysqli->real_escape_string($_POST['last_name'])."' WHERE user_id='{$user_data['user_id']}'");
 			}
-			/*if (has_permission('alternate_mailing_lists')) {
-				$list1 = (!empty($_POST['list1'])) ? 1 : 0 ;
-				$list2 = (!empty($_POST['list2'])) ? 1 : 0 ;
-				$sql = "
-					UPDATE user_newsletters 
-					SET alternate_list1=$list1,
-						alternate_list2=$list2
-					WHERE user_id='{$user_data['user_id']}' 
-						AND cinema_id='{$_SESSION['cinema_data']['cinema_id']}'
-				";
-				$mysqli->query($sql) or $mysqli->error;
-			}*/
 		}
 		header("Location: users.php");
 		exit;
@@ -355,8 +343,9 @@ jane@doe.co.nz
 									}
 								</script>
 					  <?php } ?>
+							<hr>
 							<p>
-								<h2>Find Subscribers</h2>
+								<h2>Find Subscribers By Email</h2>
 								<p>Search for a subscriber to remove or edit them.</p>
 								<form name="movie_search" method="get" action="users.php">
 									<input name="search" type="text" id="search" value="<?=(isset($_GET['search']))?$_GET['search']:''?>" size="20" maxlength="100">
@@ -393,7 +382,6 @@ jane@doe.co.nz
 						</div>
 						<p><?php check_notice("Either you are not logged in or you do not have permission to use this feature.") ?></p>
 						<p>This page is used to manage email newsletter subscriptions. Although people can join cinema email list themselves, directly through the cinema's own website, members can also be manually added or removed here at any time. If you have multiple mailing lists you can even transfer members from one list to the other.</p>
-						<p>If you are a cinema operator and would like more information on any of our email marketing services or any other feature mentioned on this website, please don't hesitate to <a href="contact.php">contact us</a>.</p>
 	  <?php } ?>
   <?php include("inc/footer.inc.php") ?>
 	</body>
