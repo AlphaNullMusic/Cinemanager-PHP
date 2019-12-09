@@ -2,6 +2,7 @@
 ini_set('display_errors',1); 
 date_default_timezone_set("Pacific/Auckland");
 error_reporting(E_ALL ^ E_NOTICE);
+//error_reporting(0);
 
 /////////////////
 // Global Vars //
@@ -62,7 +63,9 @@ $config = array(
 	"bounce_email" => "bounces@shoreline.nz",
 	"support_email"	=> "support@shoreline.nz",
 	"sessions_email" => "sessions@shoreline.nz",
-	"newsletter_email" => "sessions$shoreline.nz",
+	"newsletter_email" => "sessions@shoreline.nz",
+	"error_email" => "errors@shoreline.nz",
+	"admin_email" => "roman@shoreline.nz",
 	"booking_send_email" => "bookings@shoreline.nz",
 	"booking_receive_email" => "boss.shoreline.cinema@gmail.com",
 	"booking_password" => "xNbaMYjpWAhN",
