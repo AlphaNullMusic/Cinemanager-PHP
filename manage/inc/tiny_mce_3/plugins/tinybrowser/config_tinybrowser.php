@@ -28,7 +28,7 @@ $tinybrowser = array();
 // Get the default cinema settings file
 session_start();
 $_SESSION[$tinybrowser['sessioncheck']] = true; // Skip the security stuff
-include_once(dirname(__FILE__).'/../../../../../global_settings.inc.php');
+include_once(dirname(__FILE__).'/../../../../../config.inc.php');
 
 // Session control and security check - to enable please uncomment
 //if(isset($_GET['sessidpass'])) session_id($_GET['sessidpass']); // workaround for Flash session bug
@@ -51,14 +51,14 @@ $tinybrowser['docroot'] = '';
 $tinybrowser['unixpermissions'] = 0777;
 
 // File upload paths (set to absolute by default)
-$tinybrowser['path']['image'] = $global['cinema_dir'].$_SESSION['cinema_data']['cinema_id'].'/uploads/images/'; // Image files location - also creates a '_thumbs' subdirectory within this path to hold the image thumbnails
-$tinybrowser['path']['media'] = $global['cinema_dir'].$_SESSION['cinema_data']['cinema_id'].'/uploads/media/'; // Media files location
-$tinybrowser['path']['file']  = $global['cinema_dir'].$_SESSION['cinema_data']['cinema_id'].'/uploads/files/'; // Other files location
+$tinybrowser['path']['image'] = $config['cinema_dir'].'uploads/images/'; // Image files location - also creates a '_thumbs' subdirectory within this path to hold the image thumbnails
+$tinybrowser['path']['media'] = $config['cinema_dir'].'uploads/media/'; // Media files location
+$tinybrowser['path']['file']  = $config['cinema_dir'].'uploads/files/'; // Other files location
 
 // File link paths - these are the paths that get passed back to TinyMCE or your application (set to equal the upload path by default)
-$tinybrowser['link']['image'] = $global['cinema_url'].$_SESSION['cinema_data']['cinema_id'].'/uploads/images/'; // Image links
-$tinybrowser['link']['media'] = $global['cinema_url'].$_SESSION['cinema_data']['cinema_id'].'/uploads/media/'; // Media links
-$tinybrowser['link']['file']  = $global['cinema_url'].$_SESSION['cinema_data']['cinema_id'].'/uploads/files/'; // Other file links
+$tinybrowser['link']['image'] = $config['cinema_url'].'uploads/images/'; // Image links
+$tinybrowser['link']['media'] = $config['cinema_url'].'uploads/media/'; // Media links
+$tinybrowser['link']['file']  = $config['cinema_url'].'uploads/files/'; // Other file links
 
 // File upload size limit (0 is unlimited)
 $tinybrowser['maxsize']['image'] = 0; // Image file maximum size

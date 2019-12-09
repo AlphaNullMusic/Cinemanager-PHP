@@ -1,5 +1,8 @@
 <script type="text/javascript" src="inc/tiny_mce/tiny_mce.js"></script>
-<script type="text/javascript" src="inc/tiny_mce/plugins/tinybrowser/tb_tinymce.js.php"></script>
+<!--<script type="text/javascript" src="inc/tiny_mce/plugins/tinybrowser/tb_tinymce.js.php"></script>-->
+<script type="text/javascript">
+	<?php include('plugins/tinybrowser/tb_tinymce.js.php'); ?>
+</script>
 <script type="text/javascript">
 	tinyMCE.init({
 		mode : "textareas",
