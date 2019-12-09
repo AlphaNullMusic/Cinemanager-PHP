@@ -112,16 +112,16 @@ $(function() {
 });
 */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+function sidebarToggle() {
+	if ($('body').width() <= 768) {
+		var width = $('.sidebar').width();
+		var left = $('.sidebar').css('left');
+		if (left != '0px') {
+			$('.sidebar').animate({left:0});
+		} else {
+			$('.sidebar').animate({left:-width});
+		}
+	} else {
+		$('.sidebar').animate({left:0});
+	}
+}

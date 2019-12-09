@@ -24,7 +24,6 @@ if (check_cinema()) {
     <h1 class="h3 mb-3 font-weight-normal">Welcome to Cinemanager</h3>
 	          <p>
 	          	Please log in to proceed.<br>
-	          	<a href="http://www.cinemanager.ga">Learn more about Cinemanager.</a>
 	     	  </p>
 	          <input id="login" class="form-control login-box-input" type="text" name="login" size="14" maxlength="20" value="<?=(isset($_GET['login']))?$_GET['login']:''?>" placeholder="Username" />
 	          <input id="password" class="form-control login-box-input" type="password" name="password" size="14" maxlength="20" placeholder="Password" />
