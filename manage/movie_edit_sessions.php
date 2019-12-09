@@ -132,7 +132,7 @@ if (check_cinema() && has_permission('sessions')) {
 					<h3><?php echo $movie_data['title'] ?></h3>
 					<ul>
 						<li>Sessions may be automatically ordered chronologically and/or re-formatted for consistancy.</li>
-						<li>Sessions should be entered in the format &quot;10:30am, 1:00pm, 3:30pm&quot;. Common variations are also acceptable, please check our <a href="session_guide.php" onClick="flvFPW1(this.href,'ps','width=400,height=320,status=yes,scrollbars=yes,resizable=yes',1,2,2);return document.MM_returnValue">session time entry guidelines</a> for more details.</li>
+						<li>Sessions should be entered in the format &quot;10:30am, 1:00pm, 3:30pm&quot;. Common variations are also acceptable.</li>
 						<li>Sessions marked with a <img src="inc/icons/icon_exclaim_onyellow.gif" width="15" height="15" align="absmiddle"> have custom labels applied.<br>
 							If you modify one of these sessions, the labels will be removed.</li>
 					</ul>

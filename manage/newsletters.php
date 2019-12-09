@@ -156,11 +156,11 @@ if (check_cinema() && has_permission('newsletters')) {
 		<div class="container-fluid">
 			<div class="row">
 				<?php include("inc/nav.inc.php");?>
+			<?php if (check_cinema() && has_permission('newsletters')) { ?>
 				<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
 					<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
 						<h1 class="h2">Bulk Email Newsletters</h1>
 					</div>
-			  <?php if (check_cinema() && has_permission('newsletters')) { ?>
 						<form name="newsletter" action="newsletters.php" method="post" enctype="multipart/form-data">
 					  <?php if (isset($_REQUEST['complete']) && $_REQUEST['complete']=='scheduled') { ?>
 								<p>Your newsletter has successfully been scheduled for sending.</p>
@@ -428,7 +428,6 @@ if (check_cinema() && has_permission('newsletters')) {
 						</div>
 						<p><?php check_notice("Either you are not logged in or you do not have permission to use this feature.") ?></p>
 						<p>This page gives access to our automated email marketing system exclusively developed for New Zealand cinemas. You can send personalised, branded, formatted,  bulk HTML email messages to your website members. Session times and movie details are automatically gathered from your movie list and embedded in your emails, potentially saving your hours of work.</p>
-						<p> If you are a cinema operator and would like more information on any of our email marketing services or any other feature mentioned on this website, please don't hesitate to <a href="contact.php">contact us</a>.</p>
 			  <?php } ?>
 	  <?php include("inc/footer.inc.php") ?>
 	</body>
