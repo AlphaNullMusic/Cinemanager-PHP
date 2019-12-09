@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-12-08 21:15:44
+/* Smarty version 3.1.33, created on 2019-12-09 23:26:58
   from '/var/www/Cinemanager/web/tpl/inc/css/email.css' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5decb130db63c9_03120091',
+  'unifunc' => 'content_5dee21726e7992_12199553',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd7eebfd14a321d3991350fd949e35cb7e5286853' => 
     array (
       0 => '/var/www/Cinemanager/web/tpl/inc/css/email.css',
-      1 => 1575792887,
+      1 => 1575887135,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5decb130db63c9_03120091 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5dee21726e7992_12199553 (Smarty_Internal_Template $_smarty_tpl) {
 ?>html {
 	font-family: sans-serif;
 	line-height: 1.15;
@@ -127,6 +127,70 @@ ul.sessions a:hover {
 }
 span.details { font-style: italic; }
 b, strong { font-weight: bold; }
+.featured a {
+    color: #fff; /* #dfdccd; */
+    text-decoration: none;
+    background-color: transparent;
+}
+.featured h1 {
+	color: #921a1d;
+	font-size: 16px;
+	font-weight: normal;
+}
+.featured p.h1 {
+	color: #921a1d;
+	font-size: 1.3rem;
+	font-weight: normal;
+}
+.featured h2 {
+	color: #fff;
+	font-family: Georgia, serif;
+	font-weight: normal;
+	font-size: 1.7rem;
+}
+.featured p.h2 {
+	color: #ffffff;
+	font-family: Georgia, serif;
+	font-weight: normal;
+	font-size: 1.2rem;
+}
+.featured h3, .featured p.h3 {
+	color: #921a1d;
+	font-weight: bold;
+	margin-top: 0;
+	margin-bottom: .5rem;
+	line-height: 1.2;
+}
+.featured h3 span { font-weight: bold; }
+.featured h4 {
+	font-weight: normal;
+	font-size: 16px;
+}
+.featured .h1, 
+.featured .h2, 
+.featured .h4, 
+.featured .h5, 
+.featured .h6, 
+.featured h1, 
+.featured h2, 
+.featured h4, 
+.featured h5, 
+.featured h6 {
+    margin-top: 0;
+    margin-bottom: .5rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+.featured .normal {
+	font-family:Arial,Helvetica,sans-serif;
+	font-size:12px;
+	color:#FFF;
+}
+.featured p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+.featured pre { font-size: 1.2rem; }
 .featured {
 	background-color: #2f2c1a;
 }
