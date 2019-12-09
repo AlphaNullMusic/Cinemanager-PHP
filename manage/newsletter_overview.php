@@ -30,23 +30,6 @@ if (check_cinema() && has_permission('newsletters')) {
 	$startOfWeek = date('N'); 	// eg Thursday = 4
 	
 	// prepared statements
-	/*
-	$sql = "
-		SELECT COUNT(DISTINCT nl.user_id) AS total
-		FROM newsletter_log nl
-		INNER JOIN newsletters n
-			ON n.newsletter_id = nl.newsletter_id
-			AND n.cinema_id = '{$_SESSION['cinema_data']['cinema_id']}'
-			AND n.status = 'sent'
-		WHERE nl.timestamp >= FROM_UNIXTIME(:from)
-			AND nl.timestamp <= FROM_UNIXTIME(:to)
-			AND nl.status = 'sent'
-	";
-	$stmtWeeklyTotal = $db->prepare($sql);
-	$stmtWeeklyTotal->bindParam(':from', $from);
-	$stmtWeeklyTotal->bindParam(':to', $to);
-	*/
-	
 	$sql = "
 		SELECT COUNT(DISTINCT nul.user_id) AS opened
 		FROM newsletter_user_log nul
@@ -82,8 +65,6 @@ if (check_cinema() && has_permission('newsletters')) {
 	for ($n=1; $n<=12; $n++) {
 		$from = mktime(0, 0, 0, $finalDayParts[1], $finalDayParts[2]-$n*7, $finalDayParts[0]);
 		$to = mktime(23, 59, 59, $finalDayParts[1], $finalDayParts[2]-$n*7+6, $finalDayParts[0]);
-		//$stmtWeeklyTotal->execute();
-		//$total = $stmtWeeklyTotal->fetch(PDO::FETCH_ASSOC);
 		$stmtWeeklyOpened->execute();
 		$opened = $stmtWeeklyOpened->fetch(PDO::FETCH_ASSOC);
 		$stmtWeeklyClicked->execute();
@@ -94,7 +75,6 @@ if (check_cinema() && has_permission('newsletters')) {
 			'fromDateShort' => date('j M', $from),
 			'fromDate' => date('Y-m-d', $from),
 			'toDate' => date('Y-m-d', $to),
-			//'total' => $total['total'],
 			'opened' => $opened['opened'],
 			'clicked' => $clicked['clicked']
 		);
@@ -223,11 +203,6 @@ if (check_cinema() && has_permission('newsletters')) {
 					$stmtFetchStats->bindParam(':newsletter_id', $newsletter_id);
 					
 					$url = urlencode('https://'.$cinemaUrl['url'].'/');
-					
-					//echo "<pre>";
-					//print_r($newsletters);
-					//echo "</pre>";
-					
 					if (!empty($newsletters['new']['data'])) { ?>
 						<h2>Draft Newsletters</h2>
 						<table class="sortable" width="100%" cellpadding="0" cellspacing="0">
@@ -292,7 +267,6 @@ if (check_cinema() && has_permission('newsletters')) {
 						</div>
 						<p><?php echo check_notice("Either you are not logged in or you do not have permission to use this feature.") ?></p>
 						<p>This page gives access to our automated email marketing system exclusively developed for New Zealand cinemas. You can send personalised, branded, formatted,  bulk HTML email messages to your website members. Session times and movie details are automatically gathered from your movie list and embedded in your emails, potentially saving your hours of work.</p>
-						<p> If you are a cinema operator and would like more information on any of our email marketing services or any other feature mentioned on this website, please don't hesitate to <a href="contact.php">contact us</a>.</p>
 		  <?php } ?>
 		<?php include("inc/footer.inc.php") ?>
 	</body>

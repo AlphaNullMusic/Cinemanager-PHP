@@ -197,7 +197,8 @@ if (check_cinema() && has_permission('sessions')) {
 					<h1 class="h2">Classifications</h1>
 				</div>
 				<p><?php check_notice("Either you are not logged in or you do not have permission to use this feature.") ?></p>
-  <?php } ?>
+  				<p>On this page you can manage and add different classification types for movies.</p>
+	<?php } ?>
 <?php include("inc/footer.inc.php") ?> 
 </body>
 </html>

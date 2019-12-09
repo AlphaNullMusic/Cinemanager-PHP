@@ -130,7 +130,7 @@ if (check_cinema() && has_permission('edit_pages')) {
 						 <h1 class="h2">Edit Your Webpages</h1>
 					</div>
 					<p><?php check_notice("Either you are not logged in or you do not have permission to use this feature.") ?></p>
-					<p>On this page you can edit the content of any pages on your website. If you are a cinema operator and would like more information on any of our services, please don't hesitate to <a href="contact.php">contact us</a>.</p>
+					<p>On this page you can edit the content of custom pages on your website.</p>
 	  <?php } ?>
 		<?php include("inc/footer.inc.php") ?>
 	</body>
