@@ -27,4 +27,19 @@ if (!isset($bypass_cid)) {
 
 $er = false;
 
+register_shutdown_function("fatal_handler");
+
+function fatal_handler() {
+	$error = error_get_last();
+	if ($error !== NULL && $error['type'] == E_ERROR) {
+		error_log("Fatal error ({$error['type']}) in {$error['file']} on line {$error['line']}: {$error['message']}",3,"web-bad-errors.log");
+		exit;
+	} else if ($error !== NULL && $error['type'] == E_WARNING) {
+		error_log("Warning");
+		exit;
+	} else {
+		error_log("Check");
+	}
+}
+
 ?>
