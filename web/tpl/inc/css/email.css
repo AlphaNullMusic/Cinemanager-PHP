@@ -59,17 +59,17 @@ tfoot {
 	margin-left: auto!important;
 	display: block!important;
 	max-width: 100%;
-    height: auto;
-    vertical-align: middle;
-    border-style: none;
+	height: auto;
+	vertical-align: middle;
+	border-style: none;
 	height: 60px;
 }
 p, span { font-size: 1rem; }
 h1, h2 {
 	margin-top: 0;
-    margin-bottom: .5rem;
-    font-weight: 500;
-    line-height: 1.2;
+	margin-bottom: .5rem;
+	font-weight: 500;
+	line-height: 1.2;
 }
 h1 { 
 	color: #921a1d;
@@ -112,12 +112,12 @@ b, strong { font-weight: bold; }
 .featured h1 {
 	color: #921a1d;
 	font-size: 16px;
-	font-weight: normal;
+	font-weight: 300;
 }
 .featured p.h1 {
 	color: #921a1d;
 	font-size: 1.3rem;
-	font-weight: normal;
+	font-weight: 300;
 }
 .featured h2 {
 	color: #fff;
@@ -133,6 +133,7 @@ b, strong { font-weight: bold; }
 }
 .featured h3, .featured p.h3 {
 	color: #921a1d;
+	font-size: 1.17em;
 	font-weight: bold;
 	margin-top: 0;
 	margin-bottom: .5rem;
