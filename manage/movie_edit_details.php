@@ -209,9 +209,7 @@ if (check_cinema()) {
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="inc/js/generic.js" type="text/javascript"></script>
-    <title><?php echo $title_prefix; ?><?php echo (check_cinema()) ? "Movie Lists &amp; Sessions" : "Website Content Management For Cinemas"; ?></title>
-    <script src="inc/js/generic.js" type="text/javascript"></script>
+    <title>Movie Lists &amp; Sessions</title>
 	<script src="inc/js/jquery-3.4.1.min.js" type="text/javascript"></script>
 	<script src="inc/js/movieEdit.js" type="text/javascript"></script>
 	<link href="inc/css/bootstrap.min.css" rel="stylesheet" type="text/css">
