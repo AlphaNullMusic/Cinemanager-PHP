@@ -5,7 +5,7 @@ require($config['phpmailer_dir']."class.phpmailer.php");
 
 $smarty->caching = 0;
 $tpl_name = 'bookings.tpl';
-$tpl = $global['cinema_dir'].'tpl/'.$tpl_name;
+$tpl = $config['cinema_dir'].'tpl/'.$tpl_name;
 
 if(!$smarty->isCached($tpl)) {
 
@@ -72,7 +72,11 @@ if(!$smarty->isCached($tpl)) {
 						) {
 							$message="The following booking was made via the {$cinema_data['name']} {$cinema_data['city']} website on ".date('l, j M Y \a\t g:ia')."\n";
 							$message.="\n";
-							$message.="Customer Name = {$_POST['c_name']}\n";
+							$message.="Customer Name = {$_POST['c_name']}";
+							if (isset($_POST['c_wheelchair'])) {
+								$message.=" - [Wheelchair Access]";
+							}
+							$message.="\n";
 							$message.="Customer Phone = {$_POST['c_phone']}\n";
 							$message.="Customer Email = {$_POST['c_email']}\n";
 							$message.="\n";
@@ -84,7 +88,6 @@ if(!$smarty->isCached($tpl)) {
 							if (isset($_POST['t_children'])) { $message.="Child Tickets = {$_POST['t_children']}\n"; }
 							if (isset($_POST['t_seniors'])) { $message.="Senior Tickets = {$_POST['t_seniors']}\n"; }
 							if (isset($_POST['t_students'])) { $message.="Student Tickets = {$_POST['t_students']}\n"; }
-							if (isset($_POST['c_wheelchair'])) { $message.="*/ Requested Wheelchair Access \*\n"; }
 							$message.="\n";
 							$subject="{$cinema_data['name']} {$cinema_data['city']} Online Booking";
 							$subject.=" from {$_POST['c_email']}";
@@ -95,13 +98,14 @@ if(!$smarty->isCached($tpl)) {
 							$mail->IsSMTP();
 							$mail->SMTPAuth = true;
 							$mail->SMTPSecure = 'tls';
-							$mail->Host = $config['smtp_server'];
+							$mail->Host = $config['booking_smtp_server'];
 							$mail->Mailer = "smtp";
 							$mail->Port = 587;
 							$mail->Username = $config['booking_send_email'];
-							$mail->Password = $config['booking_password'];
+							$mail->Password = $config['booking_email_pass'];
+							$mail->AddReplyTo($config['reply_email'], 'Shoreline Crew');
 							$mail->From = $config['booking_send_email'];
-							$mail->addAddress($cinema_data['booking_email']);
+							$mail->addAddress($cinema_data['booking_send_email']);
 							$mail->FromName	= $cinema_data['name']." Website";
 							$mail->Subject = $subject;
 							$mail->Body = $message;
@@ -131,12 +135,13 @@ if(!$smarty->isCached($tpl)) {
 								$reply->IsSMTP();
 								$reply->SMTPAuth = true;
 								$reply->SMTPSecure = 'tls';
-								$reply->Host = $config['smtp_server'];
+								$reply->Host = $config['booking_smtp_server'];
 								$reply->Mailer = "smtp";
 								$reply->Port = 587;
 								$reply->Username = $config['booking_send_email'];
-								$reply->Password = $config['booking_password'];
+								$reply->Password = $config['booking_email_pass'];
 								$reply->Subject = $subject;
+								$reply->AddReplyTo($config['reply_email'], 'Shoreline Crew');
 								$reply->From = $config['booking_send_email'];
 								$reply->FromName = $cinema_data['name']." ".$cinema_data['city'];
 								$reply->Body = $message_cust;

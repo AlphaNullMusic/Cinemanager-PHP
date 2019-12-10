@@ -108,11 +108,11 @@ if ($newsletters_res->num_rows >= 1) {
 					$mail->IsSMTP;
 					$mail->SMTPAuth = true;
 					$mail->SMTPSecure = 'tls';
-					$mail->Host = $config['smtp_server'];
+					$mail->Host = $config['newsletter_smtp_server'];
 					$mail->Mailer = "smtp";
 					$mail->Port = 587;
-					$mail->Username = $config['sessions_email'];
-					$mail->Password = $config['booking_password'];
+					$mail->Username = $config['newsletter_email'];
+					$mail->Password = $config['newsletter_email_pass'];
 					$mail->Subject = $subject;
 					$mail->From = $from_email;
 					$mail->FromName	= $from_name;
