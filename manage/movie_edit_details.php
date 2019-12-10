@@ -236,6 +236,7 @@ if (check_cinema()) {
 					<ul>
 						<li>Please use the boxes below to change the details of this movie.</li>
 						<li>If you have no confirmed release date please select the TBC box.</li>
+						<li>If the custom poster doesn't work, make the file name shorter and try again.</li>
 					</ul>
 					<table border="0" cellspacing="0" cellpadding="1">
   <?php if (has_permission('sessions')) {?>
