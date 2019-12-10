@@ -66,8 +66,8 @@ $config = array(
 	"email_url" => "https://shorelinecinema.co.nz/email-newsletter.php",
 
 	// Booking Email Settings
-	"booking_send_email" => "escape@shorelinecinema.co.nz",
-	"booking_receive_email" => "manage.shoreline.cinema@gmail.com",
+	"booking_send_email" => "bookings@shoreline.nz",
+	"booking_receive_email" => "manager.shoreline.cinema@gmail.com",
 	"booking_smtp_server" => "mail.shoreline.nz",
 	"booking_email_pass" => "xNbaMYjpWAhN",
 

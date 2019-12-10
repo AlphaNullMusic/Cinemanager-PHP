@@ -105,10 +105,11 @@ if(!$smarty->isCached($tpl)) {
 							$mail->Password = $config['booking_email_pass'];
 							$mail->AddReplyTo($config['reply_email'], 'Shoreline Crew');
 							$mail->From = $config['booking_send_email'];
-							$mail->addAddress($cinema_data['booking_send_email']);
+							$mail->addAddress($config['booking_receive_email']);
 							$mail->FromName	= $cinema_data['name']." Website";
 							$mail->Subject = $subject;
 							$mail->Body = $message;
+							//die(print_r($mail));
 							if($mail->Send()) {
 							    $mail->ClearAddresses();
 							    // Email the customer back
