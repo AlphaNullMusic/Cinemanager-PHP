@@ -23,7 +23,7 @@ $config = array(
 	"api_dir" => $root_dir."api/",
 
 	// Cinema Sites
-	"cinema_url" => "https://shoreline.nz/",
+	"cinema_url" => "https://shorelinecinema.co.nz/",
 	"cinema_dir" => $root_dir."web/",
 	"template_dir" => $root_dir."web/tpl/",
 
@@ -60,17 +60,27 @@ $config = array(
 	
 	// Emails
 	"no_reply_email" => "noreply@shoreline.nz",
-	"bounce_email" => "bounces@shoreline.nz",
-	"support_email"	=> "support@shoreline.nz",
-	"sessions_email" => "sessions@shoreline.nz",
-	"newsletter_email" => "sessions@shoreline.nz",
-	"error_email" => "errors@shoreline.nz",
+	"reply_email" => "escape@shorelinecinema.co.nz",
+	"bounce_email" => "bounces@shorelinecinema.co.nz",
+	"support_email"	=> "support@shorelinecinema.co.nz",
+	"email_url" => "https://shorelinecinema.co.nz/email-newsletter.php",
+
+	// Booking Email Settings
+	"booking_send_email" => "escape@shorelinecinema.co.nz",
+	"booking_receive_email" => "manage.shoreline.cinema@gmail.com",
+	"booking_smtp_server" => "mail.shoreline.nz",
+	"booking_email_pass" => "xNbaMYjpWAhN",
+
+	// Error Email Settings
 	"admin_email" => "roman@shoreline.nz",
-	"booking_send_email" => "bookings@shoreline.nz",
-	"booking_receive_email" => "boss.shoreline.cinema@gmail.com",
-	"booking_password" => "xNbaMYjpWAhN",
-	"email_url" => "http://shoreline.nz/email-newsletter.php",
-	"smtp_server" => "mail.shoreline.nz",
+	"error_email" => "errors@shoreline.nz",
+	"error_smtp_server" => "mail.shoreline.nz",
+	"error_email_pass" => "3mqqZNED7dka",
+
+	// Newsletter Email Settings
+	"newsletter_smtp_server" => "mail.shoreline.nz",
+	"newsletter_email" => "sessions@shoreline.nz",
+	"newsletter_email_pass" => "xNbaMYjpWAhN",
 	
 	"cookie" => "Cinemanager",
 	"title_pre" => "Cinemanager: ",
@@ -186,6 +196,5 @@ function db_direct() {
 	$mysqli = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME) or die("Could not connect to db");
         $mysqli->query("SET NAMES utf8");
 }
-
 
 ?>
