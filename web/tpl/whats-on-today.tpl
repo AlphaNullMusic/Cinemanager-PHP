@@ -4,6 +4,7 @@
 
 <div class="information">
     <h1>What's on Today</h1>
+	<div class="movie-list">
 	{if $sessions}
 		{foreach from=$sessions item=s name=s}
 		<div class="featured-poster item">
@@ -26,6 +27,7 @@
 			Please <a href="/contact-us/"><strong><em>contact us</em></strong></a> or check back later.
 		</p>
 	{/if}
+	</div>
 </div>
 
 {include file="inc/tpl/footer.tpl"}
