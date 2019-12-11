@@ -149,22 +149,15 @@ if (check_cinema() && has_permission('log_bookings')) {
 							<?php echo check_msg(); ?>
 							<?php 
 								$sql="
-									SELECT *
+									SELECT bl.id, bl.name, bl.email, bl.phone
 									FROM booking_log bl
 								";
-								if (isset($_GET['search']) && $_GET['search'] != '') {
-									$sql.="
-										WHERE (bl.email like '%".$mysqli->real_escape_string($_GET['search'])."%')
-										OR (bl.name like '%".$mysqli->real_escape_string($_GET['search'])."%')
-										OR (bl.phone like '%".$mysqli->real_escape_string($_GET['search'])."%')
-									";
-								}
-								$sql.=" ORDER BY bl.booked_on DESC";
+								$sql .= "ORDER BY bl.booked_on DESC";
 								$booking_res=$mysqli->query($sql) or user_error("Error at: $sql");
 								$num_bookings = $booking_res->num_rows;
 							?>
 							<p>
-								<?php echo $num_bookings; ?> requests found <?php if (isset($_GET['search'])&&$_GET['search']!='') { echo "matching \"".$_GET['search']."\""; } else { echo "in total"; } ?>
+								<?php echo $num_bookings; ?> requests found <? if (isset($_GET['search'])) { echo "matching \"".$_GET['search']."\""; } else { echo "in total"; } ?>
 							</p>
 
 					  	<?php 
@@ -172,74 +165,69 @@ if (check_cinema() && has_permission('log_bookings')) {
 							$startOfWeek = 4; // eg Thursday = 4
 
 							date_default_timezone_set($_SESSION['cinema_data']['timezone']);
-							 
+							for ($n=1; $n<=$weeks; $n++) {
+								$from = mktime(0, 0, 0, $finalDayParts[1], $finalDayParts[2]-$n*7, $finalDayParts[0]);
+								$to = mktime(23, 59, 59, $finalDayParts[1], $finalDayParts[2]-$n*7+6, $finalDayParts[0]);
+								$sql="
+									SELECT COUNT(DISTINCT bl.id) AS bookings
+									FROM booking_log bl
+									WHERE bl.booked_on >= FROM_UNIXTIME('$from')
+									AND bl.booked_on <= FROM_UNIXTIME('$to')
+								";
+								$bookingRes = $mysqli->query($sql) or user_error("Error at: $sql");
+								$bookingData = $bookingRes->fetch_assoc();
+								if (!isset($total)) {
+									$total = $num_bookings;
+								}
+								$weeklyStats[] = array(
+									'from' => $from,
+									'to' => $to,
+									'fromDateShort' => date('j M', $from),
+									'fromDate' => date('Y-m-d', $from),
+									'toDate' => date('Y-m-d', $to),
+									'subscribers' => $subscriberData['subscribers'],
+									'unSubscribers' => $unSubscriberData['unSubscribers'],
+									'total' => $total
+								);
+							}
+							$weeklyStats = array_reverse($weeklyStats); 
 							?>
+							<h2>Quarterly Trend</h2>
+							<div id="chart_div"></div>
+								
+							<hr>
 							<p>
-								<h2>Find Request By Details</h2>
-								<p>Search for a specific request by either name, email or phone number.</p>
-								<form name="booking_search" method="get" action="bookings.php">
+								<h2>Find Subscribers By Email</h2>
+								<p>Search for a subscriber to remove or edit them.</p>
+								<form name="movie_search" method="get" action="users.php">
 									<input name="search" type="text" id="search" value="<?=(isset($_GET['search']))?$_GET['search']:''?>" size="20" maxlength="100">
-									<input name="Submit" class="btn btn-sm btn-primary" type="submit" class="submit" value="Search">
+									<input name="Submit" class="btn btn-sm btn-primary" type="submit" class="submit" value="Search Subscribers">
 								</form>
 							</p>
-							<hr>
-					  <?php if ($booking_res->num_rows != 0) { ?>
-								<table class="table">
-									<thead class="thead-light">
-										<th scope="col">#</th>
-                                                                                <th scope="col">Name</th>
-                                                                                <th scope="col">Email</th>
-                                                                                <th scope="col">Phone</th>
-                                                                                <th scope="col">Tickets</th>
-                                                                                <th scope="col">Date</th>
-									</thead>
-							  <?php while ($booking_data=$booking_res->fetch_assoc()) { ?>
+					  <?php if (isset($_GET['search']) && $num_users > 0) { ?>
+								<table cellpadding="0" cellspacing="0">
+							  <?php while ($user_data=$user_res->fetch_assoc()) { ?>
 										<tr>
-											<th scope="row"><?php echo $booking_data['id'];?></th>
-											<td><?php echo $booking_data['name'];?></td>
-											<td><?php echo $booking_data['email'];?></td>
-                                                                                        <td><?php echo $booking_data['phone'];?></td>
-                                                                                        <td>
-												<button 
-													type="button" 
-													class="btn btn-secondary btn-sm" 
-													data-toggle="tooltip" 
-													data-html="true" 
-													data-placement="left" 
-													title="
-													<?php
-														$title = '';
-														if ($booking_data['adults'] != 0) {
-															$title .= "<b>Adults:</b> {$booking_data['adults']}<br>";
-														}
-														if ($booking_data['children'] != 0) {
-                                                                                                                        $title .= "<b>Adults:</b> {$booking_data['children']}<br>";
-                                                                                                                }
-														if ($booking_data['seniors'] != 0) {
-                                                                                                                        $title .= "<b>Seniors:</b> {$booking_data['seniors']}<br>";
-                                                                                                                }
-														if ($booking_data['students'] != 0) {
-                                                                                                                        $title .= "<b>Students:</b> {$booking_data['students']}<br>";
-                                                                                                                }
-														if ($booking_data['wheelchair'] == 1) {
-															$title .= '<em>Requested Wheelchair</em> ';
-														}
-														echo $title;
-													?>
-													"
-												>
-													Show
-												</button>
+											<td>
+												<img src="images/bullet_arrow_circle_green.gif" width="13" height="13" vspace="1" align="absmiddle"> 
+												<a href="?edit=<?php echo $user_data['user_id']?>">
+													<?php echo $user_data['email']?>
+												</a>
 											</td>
-                                                                                        <td><?php echo $booking_data['booked_on'];?></td>
 										</tr>
 							  <?php } ?>
 								</table>
-					<?php } ?>
+					  <?php } ?>
+							<br><hr><br>
+							<p><?php button_1("Add One Subscriber","?edit=new") ?></p>
+							<p><?php button_1("Add Many Subscribers","?edit=new&multi=true") ?></p>
+							<p><?php button_1("Download All Subscribers","user_download.php") ?></p>
+							<p>Download new subscribers from <a href="user_download.php?show=today">today</a>, <a href="user_download.php?show=yesterday">yesterday</a>, the last <a href="user_download.php?show=week">week</a>, <a href="user_download.php?show=month">month</a> or <a href="user_download.php?show=year">year</a>.</p>
+
 			  <?php } else { ?>
 					<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
 						<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-							<h1 class="h2">View Booking Requests</h1>
+							<h1 class="h2">Manage Email Newsletter Subscriptions</h1>
 						</div>
 						<p><?php check_notice("Either you are not logged in or you do not have permission to use this feature.") ?></p>
 						<p>This page is used to view bookings made through the cinema website.</p>
