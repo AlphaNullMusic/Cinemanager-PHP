@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-12-12 00:26:58
+/* Smarty version 3.1.33, created on 2019-12-12 08:16:57
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5df0d2828dff60_67217050',
+  'unifunc' => 'content_5df140a9454c71_00628256',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -24,14 +24,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_5df0d2828dff60_67217050 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5df140a9454c71_00628256 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bombshell - Info</title>
+<title>Manon - Info</title>
 <meta name="description" content="Shoreline Cinema is Waikanae's premiere cinema complex. Find out who we are, what's on, what's coming up, how to contact us and much more.">
 <link href="/tpl/inc/css/styles.css" rel="stylesheet" type="text/css" />
 <link href="/tpl/inc/css/print.css" rel="stylesheet" type="text/css" media="print" />
@@ -81,22 +81,28 @@ function content_5df0d2828dff60_67217050 (Smarty_Internal_Template $_smarty_tpl)
 
 
 <div class="information">
-    <h2>Bombshell</h2>
+    <h2>Manon</h2>
     <div class="content">
     	<div class="content-wrapper poster">
-    		<img src="https://posters.shoreline.nz/43-medium-default.jpg" width="190" alt="Bombshell Poster" />
+    		<img src="https://posters.shoreline.nz/27-medium-custom.jpg" width="190" alt="Manon Poster" />
     	</div>
     	<div class="content-wrapper text"> 
     		<div class="content">
     		    <div class="content-wrapper text">
-    		        <p>Bombshell (2019 film) Bombshell is an upcoming American drama film directed by Jay Roach and written by Charles Randolph. It stars Charlize Theron, Nicole Kidman, and Margot Robbie, and is based upon several women at Fox News who set out to expose CEO Roger Ailes for sexual harassment.</p>
-					    		                		    </div>
+    		        <p>Exhilarating soprano Lisette Oropesa stars as the irresistible title character, the tragic beauty who yearns for the finer things in life, in Laurent Pelly’s revealing production. Tenor Michael Fabiano is the besotted Chevalier des Grieux, whose desperate love for Manon proves their undoing. Maurizio Benini conducts Massenet’s sensual score.</p>
+					    		                                        <span class="h3">Upcoming Screening Times</span>
+                            <ul class="sessions">
+                                                            	                              	
+                              	<li><strong>Thursday 12 Dec</strong><a href="/bookings/135/">12:30pm</a> <i>(FINAL SCREENING)</i>                               </li>
+                            </ul>
+                          	<p><i>To place a booking, click on the session time you are interested in. Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
+                            		    </div>
     		    <div class="content-wrapper details">
     		                			<p>
-        				<strong>Rated:</strong> M<br />
-        				 <em>Suitable for Mature Audiences</em>        			</p>
+        				<strong>Rated:</strong> E<br />
+        				 <em>Suitable for Everyone</em>        			</p>
         		            		    <p>
-        			        			        			        				<a class="btn dark" href="https://youtu.be/51t-y1nHDT8" target="_blank">Official Trailer</a>
+        			        			        			        				<a class="btn dark" href="http://www.youtube.com/watch?v=XMk3gp3g5GE" target="_blank">Official Trailer</a>
         			        		    </p>
             		  
     		    </div>

@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-12-11 23:04:56
+/* Smarty version 3.1.33, created on 2019-12-12 04:41:19
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5df0bf48e953b5_41568125',
+  'unifunc' => 'content_5df10e1f282fe7_68739079',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -24,7 +24,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_5df0bf48e953b5_41568125 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5df10e1f282fe7_68739079 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
@@ -90,13 +90,7 @@ function content_5df0bf48e953b5_41568125 (Smarty_Internal_Template $_smarty_tpl)
     		<div class="content">
     		    <div class="content-wrapper text">
     		        <p>A young boy in Hitler's army finds out his mother is hiding a Jewish girl in their home.</p>
-					    		                                        <span class="h3">Upcoming Screening Times</span>
-                            <ul class="sessions">
-                                                            	                              	
-                              	<li><strong>Wednesday 11 Dec</strong><a href="/bookings/155/">2:15pm</a> <i>(FINAL SCREENING)</i>                               </li>
-                            </ul>
-                          	<p><i>To place a booking, click on the session time you are interested in. Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
-                            		    </div>
+					    		                		    </div>
     		    <div class="content-wrapper details">
     		                			<p>
         				<strong>Rated:</strong> M<br />

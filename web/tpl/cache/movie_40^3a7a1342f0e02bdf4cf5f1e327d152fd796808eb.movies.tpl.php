@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-12-12 09:08:28
-  from '/var/www/Cinemanager/web/tpl/404.tpl' */
+/* Smarty version 3.1.33, created on 2019-12-12 00:26:33
+  from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5df14cbc901512_95031835',
-  'has_nocache_code' => true,
+  'unifunc' => 'content_5df0d2699c23a6_39218108',
+  'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'cc9a9c9f7a0917a1a53ea197fc99e7d8293de378' => 
+    '7e731f8444ca3c4d387cec6c94cedd5afa32db57' => 
     array (
-      0 => '/var/www/Cinemanager/web/tpl/404.tpl',
-      1 => 1575885459,
+      0 => '/var/www/Cinemanager/web/tpl/movies.tpl',
+      1 => 1575885654,
       2 => 'file',
     ),
     '12f3ac630680bc6778753de8bb98e13015ec9d16' => 
@@ -24,14 +24,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_5df14cbc901512_95031835 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5df0d2699c23a6_39218108 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>404 - Page Not Found</title>
+<title>Little Women - Info</title>
 <meta name="description" content="Shoreline Cinema is Waikanae's premiere cinema complex. Find out who we are, what's on, what's coming up, how to contact us and much more.">
 <link href="/tpl/inc/css/styles.css" rel="stylesheet" type="text/css" />
 <link href="/tpl/inc/css/print.css" rel="stylesheet" type="text/css" media="print" />
@@ -79,22 +79,32 @@ function content_5df14cbc901512_95031835 (Smarty_Internal_Template $_smarty_tpl)
     <div class="wrapper">
 			
 
-    
-    <div class="information">
-        <div class="content">
-            <div class="content-wrapper">
-                <div class="box">
-                    <h2>Sorry... we couldn't find the page you were looking for.</h2>
-	                <p><?php echo '<?=';?>($_REQUEST['er'])?'Error: '.$_REQUEST['er']:'';<?php echo '?>';?></p>
-	                <p></p>
-	                <p>Click the button below to go back home.</p>
-	                <a class="btn dark" href="/home/">Home</a>
-                </div>
-            </div>    
-        </div>
+
+<div class="information">
+    <h2>Little Women</h2>
+    <div class="content">
+    	<div class="content-wrapper poster">
+    		<img src="https://posters.shoreline.nz/40-medium-default.jpg" width="190" alt="Little Women Poster" />
+    	</div>
+    	<div class="content-wrapper text"> 
+    		<div class="content">
+    		    <div class="content-wrapper text">
+    		        <p>Four sisters come of age in America in the aftermath of the Civil War.</p>
+					    		                		    </div>
+    		    <div class="content-wrapper details">
+    		                			<p>
+        				<strong>Rated:</strong> PG<br />
+        				 <em>Parental Guidance is Recommended</em>        			</p>
+        		            		    <p>
+        			        			        			        		    </p>
+            		  
+    		    </div>
+    		</div>
+    	</div>
+      </div> 
     </div>
 
-    <footer><div id="text"><p>Web design and content &copy; 2019, Shoreline Cinema Waikanae, New Zealand. <a id="improve-visibility">Improve Visibility.</a></p></div></footer></div><script src="/tpl/inc/js/jquery-3.4.1.min.js"></script><script src="/tpl/inc/js/js.cookie-2.2.1.min.js"></script><script src="/tpl/inc/js/scripts.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-137475424-1"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'UA-137475424-1');</script></body></html>
+<footer><div id="text"><p>Web design and content &copy; 2019, Shoreline Cinema Waikanae, New Zealand. <a id="improve-visibility">Improve Visibility.</a></p></div></footer></div><script src="/tpl/inc/js/jquery-3.4.1.min.js"></script><script src="/tpl/inc/js/js.cookie-2.2.1.min.js"></script><script src="/tpl/inc/js/scripts.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-137475424-1"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'UA-137475424-1');</script></body></html>
 
 
 <?php }

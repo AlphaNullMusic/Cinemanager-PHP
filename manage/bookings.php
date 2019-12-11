@@ -29,7 +29,9 @@ require("inc/manage.inc.php");
 										s.movie_id, 
 										s.time, 
 										LOWER(DATE_FORMAT(s.time,'%l:%i%p')) AS session_time,
-										DATE_FORMAT(s.time,'%e %b') AS session_date,
+										DATE_FORMAT(s.time,'%e %b %Y') AS session_date,
+										LOWER(DATE_FORMAT(bl.booked_on,'%l:%i%p')) AS booked_time,
+										DATE_FORMAT(bl.booked_on, '%e %b %Y') AS booked_date,
 										m.title
 									FROM booking_log bl
 									INNER JOIN sessions s
@@ -109,7 +111,7 @@ require("inc/manage.inc.php");
 													Show
 												</button>
 											</td>
-                                                                                        <td><?php echo $booking_data['booked_on'];?></td>
+                                                                                        <td><?php echo $booking_data['booked_time'].", ".$booking_data['booked_date'];?></td>
 										</tr>
 							  <?php } ?>
 								</table>
