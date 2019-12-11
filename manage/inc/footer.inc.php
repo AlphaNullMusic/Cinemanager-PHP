@@ -15,11 +15,15 @@
 		}
 	});
 	$(document).ready(function() {
+		// Responsive Navbar
 		if ($('body').width() >= 768) {
                         $('.sidebar').css({left:0});
                 } else {
                         var w = $('.sidebar').width();
                         $('.sidebar').css({left:-w});
                 }
+
+		// Tooltips
+		$('body').tooltip({ selector: '[data-toggle=tooltip]' });
 	});
 </script>
