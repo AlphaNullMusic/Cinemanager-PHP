@@ -8,6 +8,7 @@ if (check_cinema() && has_permission('user_list')) {
 			SELECT u.*
 			FROM users u
 			WHERE u.user_id='{$_REQUEST['edit']}' 
+			AND status != 'ok'
 		";
 		$user_res = $mysqli->query($sql) or user_error("Gnarly: $sql");
 		$user_data = $user_res->fetch_assoc();
@@ -143,7 +144,7 @@ if (check_cinema() && has_permission('user_list')) {
 				<?php include("inc/nav.inc.php"); 
 				if (check_cinema() && has_permission('user_list')) {
 					if (isset($_REQUEST['edit'])) { ?>
-						<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+						<main role="main" class="col-md-9 ml-sm-auto col-lg-12 pt-3 px-4">
 						<?php echo check_msg(); ?>
 							<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
 								<h1 class="h2"><?php echo ($_REQUEST['edit']=='new')?"Add A New":"Edit"?> Subscriber</h1>
@@ -167,46 +168,40 @@ Joe Bloggs, joe@bloggs.co.nz
 John Doe, john@doe.co.nz
 jane@doe.co.nz
 </pre>
-									<p>
-										<strong>Enter your addresses:</strong>
-									</p>
-									<textarea name="data" cols="80" rows="15"></textarea>
-									<input name="multi" type="hidden" value="<?php echo $_REQUEST['multi']?>">	
+									<div class="form-group">
+										<label for="data"><strong>Enter your addresses:</strong></label>
+										<textarea name="data" class="form-control" cols="80" rows="15"></textarea>
+										<input name="multi" type="hidden" value="<?php echo $_REQUEST['multi']?>">	
+									</div>
 						  <?php } else { ?>
-									<table border="0" cellspacing="0" cellpadding="0">
-										<tr>
-											<td valign="top">
-												<strong>Email Address</strong>
-												<br>
-												<input name="email" type="text" value="<?php echo isset($user_data['email'])?$user_data['email']:''?>" size="25" maxlength="100">
-											</td>
-											<td>&nbsp;&nbsp;&nbsp;</td>
-											<td valign="top">
-										  <?php if (has_permission('newsletter_merge')) { ?>
-													<strong>Name</strong><br>
-													<input 
-														name="first_name" 
-														type="text" 
-														value="<?php echo isset($user_data['first_name'])?$user_data['first_name']:''?>" 
-														size="15" 
-														maxlength="100"
-													> 
-													<em>(First)</em>
-													<br>
-													<input 
-														name="last_name" 
-														type="text" 
-														value="<?php echo isset($user_data['last_name'])?$user_data['last_name']:''?>" 
-														size="15" 
-														maxlength="100"
-													> 
-													<em>(Last)</em>
-										  <?php } else { ?>
-													&nbsp;
-										  <?php } ?>
-											</td>
-										</tr>
-									</table>
+									<div class="form-group">
+										<label for="email"><strong>Email Address</strong></label>
+										<input name="email" class="form-control" type="text" value="<?php echo isset($user_data['email'])?$user_data['email']:''?>" size="25" maxlength="100">
+									</div>
+									<?php if (has_permission('newsletter_merge')) { ?>
+										<div class="form-group">
+											<label for="first_name"><strong>First Name</strong></label>
+											<input 
+												name="first_name" 
+												class="form-control"
+												type="text" 
+												value="<?php echo isset($user_data['first_name'])?$user_data['first_name']:''?>" 
+												size="15" 
+												maxlength="100"
+											> 
+										</div>
+										<div class="form-group">
+											<label for="last_name"><strong>Last Name</strong></label>
+											<input 
+												name="last_name" 
+												class="form-control"
+												type="text" 
+												value="<?php echo isset($user_data['last_name'])?$user_data['last_name']:''?>" 
+												size="15" 
+												maxlength="100"
+											> 
+										</div>
+									<?php } ?>
 									<p>
 										<strong>Email Format</strong>
 										<br>
@@ -236,7 +231,7 @@ jane@doe.co.nz
 								<?php button_3("Remove From List","?delete=user&edit=".$_REQUEST['edit'],"y","Are you sure you want to remove this user from your list?"); ?>
 							</p>
 			  <?php } else { ?>
-						<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+						<main role="main" class="col-md-9 ml-sm-auto col-lg-12 pt-3 px-4">
 							<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
 					            <h1 class="h2">Subscribers</h1>
 					        </div>
@@ -246,7 +241,7 @@ jane@doe.co.nz
 									SELECT u.user_id, u.first_name, u.last_name, u.email
 									FROM users u
 								";
-								if (isset($_GET['search'])) { 
+								if (isset($_GET['search']) && $_GET['search'] != '') { 
 									$sql.="WHERE u.email LIKE '%".$mysqli->real_escape_string($_GET['search'])."%' AND status = 'ok' "; 
 								} else {
 									$sql .= "WHERE status = 'ok' ";
@@ -256,7 +251,7 @@ jane@doe.co.nz
 								$num_users = $user_res->num_rows;
 							?>
 							<p>
-								<?php echo $num_users; ?> users found <? if (isset($_GET['search'])) { echo "matching \"".$_GET['search']."\""; } else { echo "in total"; } ?>
+								<?php echo $num_users; ?> users found <?php if (isset($_GET['search'])&&$_GET['search']!='') { echo "matching \"".$_GET['search']."\""; } else { echo "in total"; } ?>
 							</p>
 
 					  <?php if (empty($_GET['search'])) {
@@ -310,6 +305,7 @@ jane@doe.co.nz
 							}
 							$weeklyStats = array_reverse($weeklyStats); 
 							?>
+							<div class="d-none d-md-block">
 							<h2>Quarterly Trend</h2>
 							<div id="chart_div"></div>
 								<script type="text/javascript" src="https://www.google.com/jsapi"></script>
@@ -333,32 +329,30 @@ jane@doe.co.nz
 											vAxis: {titleTextStyle: {color: '#666666'}},
 											width: 680,
 											height: 200,
-											chartArea: {left:"8%", top:"4%", width:"88%", height:"84%"},
+											chartArea: {left:"6%", top:"4%", width:"82%", height:"84%"},
 											legend: {'position': 'none'}
 										};
 										var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
 										chart.draw(data, options);
 									}
 								</script>
+							</div>
 					  <?php } ?>
 							<hr>
 							<p>
 								<h2>Find Subscribers By Email</h2>
 								<p>Search for a subscriber to remove or edit them.</p>
 								<form name="movie_search" method="get" action="users.php">
-									<input name="search" type="text" id="search" value="<?=(isset($_GET['search']))?$_GET['search']:''?>" size="20" maxlength="100">
+									<input name="search" type="text" id="search" value="<?=(isset($_GET['search']))?$_GET['search']:''?>" size="20" maxlength="100" style="margin-bottom:10px;">
 									<input name="Submit" class="btn btn-sm btn-primary" type="submit" class="submit" value="Search Subscribers">
 								</form>
 							</p>
 					  <?php if (isset($_GET['search']) && $num_users > 0) { ?>
-								<table cellpadding="0" cellspacing="0">
+								<table class="table table-striped">
 							  <?php while ($user_data=$user_res->fetch_assoc()) { ?>
 										<tr>
 											<td>
-												<img src="images/bullet_arrow_circle_green.gif" width="13" height="13" vspace="1" align="absmiddle"> 
-												<a href="?edit=<?php echo $user_data['user_id']?>">
-													<?php echo $user_data['email']?>
-												</a>
+												<a href="?edit=<?php echo $user_data['user_id'];?>"><?php echo $user_data['email']?></a>
 											</td>
 										</tr>
 							  <?php } ?>
@@ -369,9 +363,6 @@ jane@doe.co.nz
 							<p><?php button_1("Add Many Subscribers","?edit=new&multi=true") ?></p>
 							<p><?php button_1("Download All Subscribers","user_download.php") ?></p>
 							<p>Download new subscribers from <a href="user_download.php?show=today">today</a>, <a href="user_download.php?show=yesterday">yesterday</a>, the last <a href="user_download.php?show=week">week</a>, <a href="user_download.php?show=month">month</a> or <a href="user_download.php?show=year">year</a>.</p>
-
-					
-					
 			  <?php }
 				} else { ?>
 					<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">

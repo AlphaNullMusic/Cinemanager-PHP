@@ -100,7 +100,7 @@ if (check_cinema() && has_permission('newsletters')) {
 		<div class="row">
 			<?php include("inc/nav.inc.php");?>
 			<?php if (check_cinema() && has_permission('newsletters')) { ?>
-				<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+				<main role="main" class="col-md-9 ml-sm-auto col-lg-12 pt-3 px-4">
 					<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
 						<h1 class="h2">Email Newsletters</h1>
 						<div class="btn-toolbar mb-2 mb-md-0">
@@ -110,6 +110,7 @@ if (check_cinema() && has_permission('newsletters')) {
 						</div>
 					</div>
 					<?php echo check_msg(); ?>
+					<div class="d-none d-md-block">
 					<h3>Quarterly Trend</h3>
 					<div id="chart_div"></div>
 						<script type="text/javascript" src="https://www.google.com/jsapi"></script>
@@ -133,13 +134,14 @@ if (check_cinema() && has_permission('newsletters')) {
 									vAxis: {titleTextStyle: {color: '#666666'}},
 									width: 680,
 									height: 200,
-									chartArea: {left:"8%", top:"4%", width:"88%", height:"84%"},
+									chartArea: {left:"3%", top:"4%", width:"84%", height:"84%"},
 									legend: {'position': 'none'}
 								};
 								var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
 								chart.draw(data, options);
 							}
 						</script>
+					</div>
 					<?php 
 					// get a list of all the newsletters, grouped by status
 					$db = new db;
@@ -180,9 +182,6 @@ if (check_cinema() && has_permission('newsletters')) {
 						";
 					}
 					$stmt = $db->prepare($sql);
-					$stmt->execute(array(
-						':cinema_id' => $_SESSION['cinema_data']['cinema_id']
-					));
 					$cinemaUrl = $stmt->fetch(PDO::FETCH_ASSOC);
 					$stmt = NULL;
 			    
@@ -199,63 +198,69 @@ if (check_cinema() && has_permission('newsletters')) {
 					$url = urlencode('https://'.$cinemaUrl['url'].'/');
 					if (!empty($newsletters['new']['data'])) { ?>
 						<h2>Draft Newsletters</h2>
-						<table class="sortable" width="100%" cellpadding="0" cellspacing="0">
-							<tbody>
-						  <?php foreach ($newsletters['new']['data'] as $n) { ?>
-									<tr>
-										<td><a href="newsletters.php?newsletter_id=<?php echo $n['newsletter_id']?>"><?php echo $n['subject']?></a></td>
-										<td>Last edited on <?php echo $n['editDate']?> at <?php echo $n['editTime']?></td>
-										<td><a href="?action=delete&newsletter_id=<?php echo $n['newsletter_id']?>" onClick="confirmDelete()">Delete</a></td>
-									</tr>
-						  <?php } ?>
-							</tbody>
-						</table>
+						<div class="table-responsive">
+							<table class="table table-bordered table-striped" style="width:auto;">
+								<tbody>
+							  <?php foreach ($newsletters['new']['data'] as $n) { ?>
+										<tr>
+											<td><a href="newsletters.php?newsletter_id=<?php echo $n['newsletter_id']?>"><?php echo $n['subject']?></a></td>
+											<td>Last edited on <?php echo $n['editDate']?> at <?php echo $n['editTime']?></td>
+											<td><a href="?action=delete&newsletter_id=<?php echo $n['newsletter_id']?>" onClick="confirmDelete()">Delete</a></td>
+										</tr>
+							  <?php } ?>
+								</tbody>
+							</table>
+						</div>
 			  <?php } 
 
 					if (!empty($newsletters['pending']['data'])) { ?>
 						<h2>Scheduled Newsletters</h2>
-						<table class="sortable" width="100%" cellpadding="0" cellspacing="0">
-							<tbody>
-					      <?php foreach ($newsletters['pending']['data'] as $n) { ?>
-									<tr>
-										<td><a href="<?php echo $config['cinema_url'];?>email-newsletter.php?newsletter_id=<?php echo $n['newsletter_id']?>" onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=700,height=700'); return false;"><?php echo $n['subject']?></a></td>
-										<td><?php echo "Scheduled for {$n['sendDate']} at {$n['sendTime']}"?></td>
-										<td><a href="newsletters.php?newsletter_id=<?php echo $n['newsletter_id']?>">Edit or Reschedule</a></td>
-										<td><a href="?action=delete&newsletter_id=<?php echo $n['newsletter_id']?>" onClick="confirmDelete()">Delete</a></td>
-										<!--<td><a href='?action=cancelSend&newsletter_id={$n['newsletter_id']}'>Cancel</a></td>-->
-									</tr>
-					      <?php } ?>
-							</tbody>
-						</table>
+						<div class="table-responsive">
+							<table class="table table-bordered table-striped" style="width:auto;">
+								<tbody>
+						      <?php foreach ($newsletters['pending']['data'] as $n) { ?>
+										<tr>
+											<td><a href="<?php echo $config['cinema_url'];?>email-newsletter.php?newsletter_id=<?php echo $n['newsletter_id']?>" onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=700,height=700'); return false;"><?php echo $n['subject']?></a></td>
+											<td><?php echo "Scheduled for {$n['sendDate']} at {$n['sendTime']}"?></td>
+											<td><a href="newsletters.php?newsletter_id=<?php echo $n['newsletter_id']?>">Edit or Reschedule</a></td>
+											<td><a href="?action=delete&newsletter_id=<?php echo $n['newsletter_id']?>" onClick="confirmDelete()">Delete</a></td>
+											<!--<td><a href='?action=cancelSend&newsletter_id={$n['newsletter_id']}'>Cancel</a></td>-->
+										</tr>
+						      <?php } ?>
+								</tbody>
+							</table>
+						</div>
 			  <?php } 
 
 					if (!empty($newsletters['sent']['data'])) { ?>
 						<h2>Sent Newsletters</h2>
-						<table class="sortable" width="100%" cellpadding="0" cellspacing="0">
-							<tbody>
-					      <?php foreach ($newsletters['sent']['data'] as $n) { ?>
-									<tr>
-										<td><a href="<?php echo $config['cinema_url'];?>email-newsletter.php?newsletter_id=<?php echo $n['newsletter_id']?>&static=true" onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=700,height=700'); return false;"><?php echo $n['subject']?></a></td>
-										<td><?php echo "Sent on {$n['sendDate']}"?></td>
-										<td><?php echo"Recipients: {$n['totalRecipients']}"?></td>
-									<?php
-										$newsletter_id = $n['newsletter_id'];
-										$stmtFetchStats->execute();
-										$stats = $stmtFetchStats->fetch(PDO::FETCH_ASSOC);
-										if ($stats) {
-											echo "<td>Opens: {$stats['opened']}</td>";
-											echo "<td>Clicks: {$stats['clicked']}</td>";
-										} else {
-											echo "<td>&nbsp;</td><td>&nbsp;</td>";
-										}
-									?>
-									</tr>
-					      <?php } ?>
-							</tbody>
-						</table>
+						<div class="table-responsive">
+							<table class="table table-bordered table-striped" style="width:auto;">
+								<tbody>
+						      <?php foreach ($newsletters['sent']['data'] as $n) { ?>
+										<tr>
+											<td><a href="<?php echo $config['cinema_url'];?>email-newsletter.php?newsletter_id=<?php echo $n['newsletter_id']?>&static=true" onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=700,height=700'); return false;"><?php echo $n['subject']?></a></td>
+											<td><?php echo "Sent on {$n['sendDate']}"?></td>
+											<td><?php echo"Recipients: {$n['totalRecipients']}"?></td>
+										<?php
+											$newsletter_id = $n['newsletter_id'];
+											$stmtFetchStats->execute();
+											$stats = $stmtFetchStats->fetch(PDO::FETCH_ASSOC);
+											if ($stats) {
+												echo "<td>Opens: {$stats['opened']}</td>";
+												echo "<td>Clicks: {$stats['clicked']}</td>";
+											} else {
+												echo "<td>&nbsp;</td><td>&nbsp;</td>";
+											}
+										?>
+										</tr>
+						      <?php } ?>
+								</tbody>
+							</table>
+						</div>
 			  <?php } 
 				} else { ?>
-					<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+					<main role="main" class="col-md-9 ml-sm-auto col-lg-12 pt-3 px-4">
 						<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
 							<h1 class="h2">Email Newsletters</h1>
 						</div>

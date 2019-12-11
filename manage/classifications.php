@@ -106,7 +106,7 @@ if (check_cinema() && has_permission('sessions')) {
     <div class="row">
       <?php include("inc/nav.inc.php");
 		if (check_cinema() && has_permission('sessions')) { ?>
-				<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+				<main role="main" class="col-md-9 ml-sm-auto col-lg-12 pt-3 px-4">
 					<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
 						<h1 class="h2">Manage Classifications</h1>
 					</div>
@@ -191,7 +191,7 @@ if (check_cinema() && has_permission('sessions')) {
 						</tr>
 					</table>		
   <?php } else { ?>
-			<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+			<main role="main" class="col-md-9 ml-sm-auto col-lg-12 pt-3 px-4">
 				<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
 					<h1 class="h2">Classifications</h1>
 				</div>

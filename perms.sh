@@ -16,7 +16,13 @@ else
     echo "[FAILED]: Can't set permissions on folder 'posters'."
 fi
 
-
+# Set owner of config.inc.php to www-data
+chown www-data /var/www/Cinemanager/config.inc.php
+if [ $? -eq 0 ]; then
+    echo "[OK]: Successfully owned file 'config.inc.php'."
+else
+    echo "[FAILED]: Can't own file 'config.inc.php'."
+fi
 
 # Finish script
 echo "[INFO]: Script finished."

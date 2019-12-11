@@ -85,31 +85,7 @@ if (check_cinema() && has_permission('sessions')) {
 				$sql .= ($_POST['edit'] == 'new') ? "" : "WHERE label_id = '{$_POST['edit']}' " ;
 				$mysqli->query($sql);
 				$label_id = ($_POST['edit'] != 'new') ? $_POST['edit'] : $mysqli->insert_id;
-				//clear out old prices
-				/*$sql = "
-					DELETE FROM session_preset
-					WHERE session_preset_group_id = '{$_POST['edit']}'
-				";
-				$mysqli->query($sql);
-				//enter new prices (if custom prices are selected)
-				if (isset($_POST['prices']) && $_POST['prices'] == 'custom') {
-					foreach ($types as $id => $name) {
-						if (isset($_POST['price'.$id]) && $_POST['price'.$id]>0) {
-							$sql = "
-								INSERT INTO session_preset
-								SET session_preset_group_id = '$session_preset_group_id',
-								session_type_id = '$id',
-								price = '{$_POST['price'.$id]}'
-							";
-							$mysqli->query($sql);
-						}
-					}
-				}
-				//update pricing of sessions using this preset
-				$sp=new manage_sessions();
-				$sp->cinema_id = $_SESSION['cinema_data']['cinema_id'];
-				$sp->prices = false;
-				$sp->set_custom_prices_type($_POST['edit']);*/
+
 				// Clear Smarty cache
 				smarty_clear_cache();
 			}
@@ -180,7 +156,7 @@ if (check_cinema() && has_permission('sessions')) {
       <?php include("inc/nav.inc.php");
 		if (check_cinema() && has_permission('sessions')) {
 			if (isset($_REQUEST['edit'])) { ?>
-				<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+				<main role="main" class="col-md-9 ml-sm-auto col-lg-12 pt-3 px-4">
 					<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
 						<h1 class="h2">Manage Labels</h1>
 						<div class="btn-toolbar mb-2 mb-md-0">
@@ -278,7 +254,7 @@ if (check_cinema() && has_permission('sessions')) {
 						</tr>
 					</table>		
 	  <?php } else { ?>
-				<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+				<main role="main" class="col-md-9 ml-sm-auto col-lg-12 pt-3 px-4">
 					<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
 						<h1 class="h2">Label Your Sessions</h1>
 						<?php button_1("Add or Edit Labels","?edit=new","back","right") ?>
@@ -295,7 +271,7 @@ if (check_cinema() && has_permission('sessions')) {
 						</ul>
 				  <?php if (isset($movie_sessions['array_data'])) { ?>
 							<h5>1) Select the sessions you would like to label...</h5>
-							<table class="table table-striped table-sm">
+							<table class="table table-striped table-sm labels">
 							<?php 
 								$max_sessions_per_day=$movie_sessions['array_data']['max_sessions_per_day'];
 								$colspan=$max_sessions_per_day*2+2;
@@ -304,11 +280,11 @@ if (check_cinema() && has_permission('sessions')) {
 									foreach ($movie_data['movie_data']['session_summary'] as $value) {
 										$movie_session_summary.=' s'.$value;
 									}
-									if (isset($started)) { ?>
-										<tr><td>&nbsp;</td>
-							  <?php } else {
+									//if (isset($started)) { ?>
+										<!--<tr><td>&nbsp;</td>-->
+							  <?php /*} else {
 										$started = true;
-									} ?>
+									} */?>
 									<thead>
 										<tr>
 											<td colspan="<?php echo $colspan?>">
@@ -328,16 +304,15 @@ if (check_cinema() && has_permission('sessions')) {
 											$select_all_list.=' s'.$session_id;
 										} ?>
 										<tr>
-											<td nowrap width="18">&nbsp; &nbsp; &nbsp;</td>
-											<td nowrap align="right">
+											<td nowrap>
 												<a href="javascript:checkMultiple('<?php echo trim($select_all_list)?>');">
 													<?php echo date('D j M',strtotime($session_date))?>
 												</a>
 											</td>
+											<td nowrap>
 									  <?php foreach ($session_data as $session_id => $sessions) { 
 												$checkbox_id='s'.$session_id; ?>
-												<td>&nbsp;</td>
-												<td nowrap>
+												<div class="label-item">
 													<input 
 														type="checkbox" 
 														name="s[]" 
@@ -348,8 +323,9 @@ if (check_cinema() && has_permission('sessions')) {
 													<label for="<?php echo $checkbox_id?>"<?php echo ($sessions['label']) ? " class=\"custom_session\" title=\"{$sessions['label']}\"" : "";?>>
 														<?php echo ($sessions['label']) ? "<mark>&nbsp;".$sessions['time']."</mark>" : "&nbsp;".$sessions['time'];?>
 													</label>
-												</td>
+												</div>
 									  <?php } ?>
+												</td>
 										</tr>
 							  <?php } 
 								} ?>
@@ -400,7 +376,7 @@ if (check_cinema() && has_permission('sessions')) {
 				  <?php } ?>
 	  <?php } 
 	    } else { ?>
-			<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+			<main role="main" class="col-md-9 ml-sm-auto col-lg-12 pt-3 px-4">
 				<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
 					<h1 class="h2">Session Labels</h1>
 				</div>
