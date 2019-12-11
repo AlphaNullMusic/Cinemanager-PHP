@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-12-11 23:31:34
+/* Smarty version 3.1.33, created on 2019-12-12 08:57:18
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5df0c586bc8a56_57510240',
+  'unifunc' => 'content_5df14a1ee03b20_85715025',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -24,7 +24,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_5df0c586bc8a56_57510240 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5df14a1ee03b20_85715025 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
@@ -93,7 +93,6 @@ function content_5df0c586bc8a56_57510240 (Smarty_Internal_Template $_smarty_tpl)
 					    		                                        <span class="h3">Upcoming Screening Times</span>
                             <ul class="sessions">
                                                             	                              	
-                              	<li><strong>Wednesday 11 Dec</strong><a href="/bookings/203/">10:30pm</a>                              	                              	
                               	<li><strong>Thursday 12 Dec</strong><a href="/bookings/208/">10:30am</a>                              	                              	
                               	<li><strong>Friday 13 Dec</strong><a href="/bookings/209/">4:15pm</a>                              	                              	
                               	<li><strong>Saturday 14 Dec</strong><a href="/bookings/210/">6:15pm</a>                              	                              	

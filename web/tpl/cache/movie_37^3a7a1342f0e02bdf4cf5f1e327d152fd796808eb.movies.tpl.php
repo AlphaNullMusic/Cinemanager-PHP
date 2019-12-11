@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-12-12 00:26:58
+/* Smarty version 3.1.33, created on 2019-12-12 00:26:19
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5df0d2828dff60_67217050',
+  'unifunc' => 'content_5df0d25bc78a07_27237312',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -24,14 +24,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_5df0d2828dff60_67217050 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5df0d25bc78a07_27237312 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bombshell - Info</title>
+<title>The Peanut Butter Falcon - Info</title>
 <meta name="description" content="Shoreline Cinema is Waikanae's premiere cinema complex. Find out who we are, what's on, what's coming up, how to contact us and much more.">
 <link href="/tpl/inc/css/styles.css" rel="stylesheet" type="text/css" />
 <link href="/tpl/inc/css/print.css" rel="stylesheet" type="text/css" media="print" />
@@ -81,22 +81,22 @@ function content_5df0d2828dff60_67217050 (Smarty_Internal_Template $_smarty_tpl)
 
 
 <div class="information">
-    <h2>Bombshell</h2>
+    <h2>The Peanut Butter Falcon</h2>
     <div class="content">
     	<div class="content-wrapper poster">
-    		<img src="https://posters.shoreline.nz/43-medium-default.jpg" width="190" alt="Bombshell Poster" />
+    		<img src="https://posters.shoreline.nz/37-medium-default.jpg" width="190" alt="The Peanut Butter Falcon Poster" />
     	</div>
     	<div class="content-wrapper text"> 
     		<div class="content">
     		    <div class="content-wrapper text">
-    		        <p>Bombshell (2019 film) Bombshell is an upcoming American drama film directed by Jay Roach and written by Charles Randolph. It stars Charlize Theron, Nicole Kidman, and Margot Robbie, and is based upon several women at Fox News who set out to expose CEO Roger Ailes for sexual harassment.</p>
+    		        <p>The Peanut Butter Falcon is a prison break movie and Western where horses and desert prairie are replaced with crab boats, rafts & sand islands. It's a Southern living in the world of a modern Mark Twain that begins when Zak, a 22-year-old young man with Down syndrome runs away from a nursing home to chase his dream of becoming a professional wrestler by attending the wrestling school of The Salt Water Redneck. Through circumstances beyond their control Tyler (29), a small time outlaw on the run becomes Zak's unlikely wrestling coach and ally, and together they wind through deltas & marshes, elude capture, drink whisky, find God, catch fish, and convince Eleanor (27) a beautiful nursing home employee to join them on their journey rather than returning Zak to his previous life.</p>
 					    		                		    </div>
     		    <div class="content-wrapper details">
     		                			<p>
-        				<strong>Rated:</strong> M<br />
-        				 <em>Suitable for Mature Audiences</em>        			</p>
+        				<strong>Rated:</strong> PG<br />
+        				 <em>Parental Guidance is Recommended</em>        			</p>
         		            		    <p>
-        			        			        			        				<a class="btn dark" href="https://youtu.be/51t-y1nHDT8" target="_blank">Official Trailer</a>
+        			        			        			        				<a class="btn dark" href="https://youtu.be/ACze83fG4wM" target="_blank">Official Trailer</a>
         			        		    </p>
             		  
     		    </div>
