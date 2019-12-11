@@ -63,7 +63,7 @@ if (check_cinema() && has_permission('edit_pages')) {
 			if (check_cinema() && has_permission('edit_pages')) {
 				if (isset($_REQUEST['edit']) && !empty($_REQUEST['edit'])) {
 					if ($page_count == 0) {?>
-						<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+						<main role="main" class="col-md-9 ml-sm-auto col-lg-12 pt-3 px-4">
 						    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
 						        <h1 class="h2">Edit Your Webpages</h1>
 						    </div>
@@ -71,7 +71,7 @@ if (check_cinema() && has_permission('edit_pages')) {
 							<p><em>Sorry but the page you are requesting could not be found or you don't have permission to edit it.</em></p>
 						</main>
 			  <?php } else { ?>
-						<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+						<main role="main" class="col-md-9 ml-sm-auto col-lg-12 pt-3 px-4">
 						    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
 								<h1 class="h2">Editing <?php echo $page['title']?></h1>
 						    </div>
@@ -82,7 +82,6 @@ if (check_cinema() && has_permission('edit_pages')) {
 								$editor_name = 'content';
 								$editor_value = $page['content'];
 								include('inc/tiny_mce/load.php');
-								//include('inc/quill/load.php');
 								?>
 								<input type="hidden" name="edit" value="<?php echo $_REQUEST['edit']?>">
 								<p>
@@ -94,7 +93,7 @@ if (check_cinema() && has_permission('edit_pages')) {
 						</main>
 			  <?php }
 				} else { ?>
-					<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+					<main role="main" class="col-md-9 ml-sm-auto col-lg-12 pt-3 px-4">
 						<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
 						    <h1 class="h2">Edit Your Webpages</h1>
 						</div>
@@ -123,7 +122,7 @@ if (check_cinema() && has_permission('edit_pages')) {
 					</main>
 		  <?php } 
 			} else { ?>
-				<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+				<main role="main" class="col-md-9 ml-sm-auto col-lg-12 pt-3 px-4">
 					<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
 						 <h1 class="h2">Edit Your Webpages</h1>
 					</div>

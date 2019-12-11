@@ -15,7 +15,7 @@ if (check_cinema() && has_permission('sessions')) {
 		exit;
 	} 
 	
-	//apply session preset changes
+	// Apply label changes
 	elseif (isset($_POST['action']) && $_POST['action']=='apply_presets' && isset($_POST['session_labels'])) {
 		// Validation
 		if (!isset($_POST['s']) || !is_array($_POST['s'])) {
@@ -207,7 +207,9 @@ if (check_cinema() && has_permission('sessions')) {
 											<td>&nbsp;</td>
 											<td>
 												<br>
-												<input name="submit" class="btn btn-success submit" type="submit" value="Save This Label">
+												<div class="form-group">
+													<input name="submit" class="btn btn-success submit" type="submit" value="Save This Label">
+												</div>
 											</td>
 										</tr>
 								  <?php if ($_REQUEST['edit'] != 'new') { ?>
@@ -249,7 +251,10 @@ if (check_cinema() && has_permission('sessions')) {
 											<li><a href="?edit=<?php echo $id?>"><?php echo $name?></a></li>
 								  <?php } ?>
 										</ul>
-											<br><a href="?edit=new" class="btn btn-sm btn-outline-info">Add New Label</a>
+										<br>
+										<div class="form-group">
+											<a href="?edit=new" class="btn btn-sm btn-outline-info">Add New Label</a>
+										</div>
 							</td>
 						</tr>
 					</table>		
@@ -270,8 +275,9 @@ if (check_cinema() && has_permission('sessions')) {
 							<li><a href="?edit=new">Click here to add or edit your labels.</a></li>
 						</ul>
 				  <?php if (isset($movie_sessions['array_data'])) { ?>
-							<h5>1) Select the sessions you would like to label...</h5>
-							<table class="table table-striped table-sm labels">
+						<h5>1) Select the sessions you would like to label...</h5>
+						<div class="table-responsive">
+							<table class="table table-bordered table-striped table-sm labels" style="width:auto;">
 							<?php 
 								$max_sessions_per_day=$movie_sessions['array_data']['max_sessions_per_day'];
 								$colspan=$max_sessions_per_day*2+2;
@@ -279,12 +285,7 @@ if (check_cinema() && has_permission('sessions')) {
 									$movie_session_summary='';
 									foreach ($movie_data['movie_data']['session_summary'] as $value) {
 										$movie_session_summary.=' s'.$value;
-									}
-									//if (isset($started)) { ?>
-										<!--<tr><td>&nbsp;</td>-->
-							  <?php /*} else {
-										$started = true;
-									} */?>
+									} ?>
 									<thead>
 										<tr>
 											<td colspan="<?php echo $colspan?>">
@@ -320,7 +321,7 @@ if (check_cinema() && has_permission('sessions')) {
 														id="<?php echo $checkbox_id?>" 
 														class="inline_input"
 													>
-													<label for="<?php echo $checkbox_id?>"<?php echo ($sessions['label']) ? " class=\"custom_session\" title=\"{$sessions['label']}\"" : "";?>>
+													<label for="<?php echo $checkbox_id?>"<?php echo ($sessions['label']) ? " class=\"custom_session\" title=\"{$sessions['label']}\" data-toggle=\"tooltip\" data-placement=\"right\"" : "";?>>
 														<?php echo ($sessions['label']) ? "<mark>&nbsp;".$sessions['time']."</mark>" : "&nbsp;".$sessions['time'];?>
 													</label>
 												</div>
@@ -331,6 +332,7 @@ if (check_cinema() && has_permission('sessions')) {
 								} ?>
 									</tbody>
 								</table>
+							</div>
 								<br><br>
 								<h5>2) Select the label to apply...</h5>
 								<?php $res=$mysqli->query("SELECT label_id,name FROM session_labels ORDER BY name");
@@ -369,7 +371,9 @@ if (check_cinema() && has_permission('sessions')) {
 										<input type="hidden" name="movie_id_array[]" value="<?php echo $m?>">
 							  <?php }
 								} ?>
-								<input name="submit" type="submit" class="btn btn-success submit" value="Save Changes">
+								<div class="form-group">
+									<input name="submit" type="submit" class="btn btn-success submit" value="Save Changes">
+								</div>
 				  <?php } else { ?>
 							<em>No sessions found matching your selection.</em>
 					</form>				

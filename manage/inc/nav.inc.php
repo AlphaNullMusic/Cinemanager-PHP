@@ -78,5 +78,15 @@
 					$_REQUEST['conf'] = 'Successfully cleared cache.';
 				}
             } ?>
+	    <?php if (check_cinema() && check_admin()) { ?>
+	    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Administration</span>
+            </h6>
+            <ul class="nav flex-column mb-2">
+              <li class="nav-item">
+                <a class="nav-link <?php if (basename($_SERVER['PHP_SELF'])==="settings.php"){?>active<?php }?>" href="settings.php">Settings</a>
+              </li>
+            </ul>
+	    <?php } ?>
           </div>
         </nav>

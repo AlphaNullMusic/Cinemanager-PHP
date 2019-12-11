@@ -19,9 +19,22 @@ function check_cinema() {
 		*/isset($_SESSION['all_cinema_data'])/* &&
         is_array($_SESSION['cinema_data']) && 
         count($_SESSION['cinema_data']) >= 4*/) {
-        return true;
+	return true;
     } else {
         return false;
+    }
+}
+
+// Check admin
+function check_admin() {
+    if (check_cinema()) {
+	if (isset($_SESSION['all_cinema_data']['login_admin']) && $_SESSION['all_cinema_data']['login_admin'] == 1) {
+		return true;
+	} else {
+		return false;
+	}
+    } else {
+	return false;
     }
 }
 
@@ -576,7 +589,7 @@ class manage_sessions {
 			$sql = "
 				UPDATE sessions
 				SET label_id = NULL
-				WHERE session_id = $session_id
+				WHERE session_id = $s
 			";
 		}
 		$mysqli->query($sql) or user_error("Error at: ".$sql);

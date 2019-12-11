@@ -80,7 +80,7 @@ $config = array(
 	// Newsletter Email Settings
 	"newsletter_smtp_server" => "mail.shoreline.nz",
 	"newsletter_email" => "sessions@shoreline.nz",
-	"newsletter_email_pass" => "xNbaMYjpWAhN",
+	"newsletter_email_pass" => "xNbaMYjpWAhN", 
 	
 	"cookie" => "Cinemanager",
 	"title_pre" => "Cinemanager: ",

@@ -49,20 +49,12 @@ elseif (isset($_POST['action']) && $_POST['action']=='login') {
 			header("Location: $login_url?er=mv&login={$_POST['login']}");
 			exit;
 		} else {
-            if ($_POST['login']=="test" && $_POST['password']=="test") {
-                $sql = "
-                    SELECT id, name
-				    FROM logins
-				    WHERE login = 'shoreline'
-					AND password = '661e2f281017ff1a941e6068c184254d'
-                ";
-            } else {
-			    $sql = "
-				    SELECT id, name
-				    FROM logins
-				    WHERE login = '".$mysqli->real_escape_string($_POST['login'])."'
-					AND password = MD5('".$mysqli->real_escape_string($_POST['password'])."')";
-            }
+   			$sql = "
+				SELECT id, name, admin
+				FROM logins
+				WHERE login = '".$mysqli->real_escape_string($_POST['login'])."'
+					AND password = MD5('".$mysqli->real_escape_string($_POST['password'])."')
+			";
 			$login_res = $mysqli->query($sql) or user_error("Error at: $sql");
 			// Check for login
 			if ($login_res->num_rows != 1) {
@@ -79,6 +71,7 @@ elseif (isset($_POST['action']) && $_POST['action']=='login') {
 				$_SESSION['all_cinema_data'] = array(
 					'login_id' => $login_data['id'],
 					'login_name' => $login_data['name'],
+					'login_admin' => $login_data['admin']
 				);
 
 				// Get a list of accesible cinemas
