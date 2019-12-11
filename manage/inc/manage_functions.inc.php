@@ -140,11 +140,8 @@ function save_poster($url, $movie_id, $custom = false) {
 	$dir = $config['poster_dir'];
 	list($width_orig, $height_orig) = getimagesize($url);
 	$ids = array();
-	//$url_split = explode('SX300.jpg',$url);
-	//$url_split1 = explode('.jpg',$url_split[0]);
-	//$img_url = $url_split1[0].'.jpg';
 	$img_url = $url;
-		
+	
 	if ($custom == false) {
 		$status = 'default';
 	} else {

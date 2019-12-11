@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-12-10 11:56:05
+/* Smarty version 3.1.33, created on 2019-12-11 11:44:45
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5deed10590ff98_23962195',
+  'unifunc' => 'content_5df01fdd96a7f2_07911953',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -24,7 +24,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_5deed10590ff98_23962195 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5df01fdd96a7f2_07911953 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
@@ -93,7 +93,6 @@ function content_5deed10590ff98_23962195 (Smarty_Internal_Template $_smarty_tpl)
 					    		                                        <span class="h3">Upcoming Screening Times</span>
                             <ul class="sessions">
                                                             	                              	
-                              	<li><strong>Tuesday 10 Dec</strong><a href="/bookings/176/">12:15pm</a>, <a href="/bookings/177/">4:15pm</a>                              	                              	
                               	<li><strong>Wednesday 11 Dec</strong><a href="/bookings/178/">12:30pm</a>, <a href="/bookings/179/">4:30pm</a>                              	                              	
                               	<li><strong>Thursday 12 Dec</strong><a href="/bookings/242/">12:15pm</a>                              	                              	
                               	<li><strong>Friday 13 Dec</strong><a href="/bookings/243/">2:30pm</a>                              	                              	
@@ -119,7 +118,7 @@ function content_5deed10590ff98_23962195 (Smarty_Internal_Template $_smarty_tpl)
       </div> 
     </div>
 
-<footer><div id="text"><p>Web design and content &copy; 2019, Shoreline Cinema Waikanae, New Zealand. <a id="improve-visibility">Improve Visibility.</a></p></div></footer></div><script src="/tpl/inc/js/jquery-3.4.1.min.js"></script><script src="/tpl/inc/js/js.cookie-2.2.1.min.js"></script><script src="/tpl/inc/js/scripts.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-137475424-2"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'UA-137475424-2');</script></body></html>
+<footer><div id="text"><p>Web design and content &copy; 2019, Shoreline Cinema Waikanae, New Zealand. <a id="improve-visibility">Improve Visibility.</a></p></div></footer></div><script src="/tpl/inc/js/jquery-3.4.1.min.js"></script><script src="/tpl/inc/js/js.cookie-2.2.1.min.js"></script><script src="/tpl/inc/js/scripts.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-137475424-1"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'UA-137475424-1');</script></body></html>
 
 
 <?php }

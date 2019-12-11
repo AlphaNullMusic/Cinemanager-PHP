@@ -40,8 +40,7 @@
 		automatic_uploads: false,
 		images_upload_handler: function(blobInfo, success, faliure) {
 
-		}
-	});
+		}	});
 </script>
 <textarea name="<?php echo $editor_name?>" style="width:100%;height:300px;"><?php echo $editor_value?></textarea>
 <div id="editor_tips">

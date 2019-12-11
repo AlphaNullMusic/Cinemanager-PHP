@@ -67,7 +67,7 @@
                 <a class="nav-link" href="<?php echo $_SERVER['PHP_SELF']?>?clear_cache=true">Clear Cache</a>
               </li>
             </ul>
-		  <?php if ($_REQUEST['clear_cache'] == 'true') { 
+		  <?php if (isset($_REQUEST['clear_cache']) && $_REQUEST['clear_cache'] == 'true') { 
 					smarty_clear_cache(NULL,NULL,NULL,false,true); 
 					$_REQUEST['conf'] = 'Successfully cleared cache.';
 				}

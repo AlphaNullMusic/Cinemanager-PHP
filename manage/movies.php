@@ -21,9 +21,9 @@ if (check_cinema() && (has_permission('sessions'))) {
         // Format date
         if (isset($_POST['tba'])) {
             $release_date = "0000-00-00";
-        } else {
+	} else {
             $r_date = $_POST['y'] . "-" . $_POST['m'] . "-" . $_POST['d'];
-			$release_date = date('Y-m-d', strtotime($r_date));
+	    $release_date = date('Y-m-d', strtotime($r_date));
         }
         // Add a new movie
         if ($_REQUEST['movie_id'] && $_REQUEST['movie_id'] != 'new') {
@@ -73,7 +73,7 @@ if (check_cinema() && (has_permission('sessions'))) {
 		INSERT INTO movies 
 		SET title='" . $mysqli->real_escape_string($_POST['title']) . "', 
 		status='ok', 
-		release_date='" . $mysqli->real_escape_string(date('Y-m-d', strtotime($release_date))) . "'
+		release_date='" . $mysqli->real_escape_string(date($release_date)) . "' 
 	    ";
             $mysqli->query($sql) or user_error("Gnarly: $sql");
         }

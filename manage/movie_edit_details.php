@@ -1,6 +1,10 @@
 <?php
 require("inc/manage.inc.php");
 
+ini_set('upload_max_filesize' , '20M');
+ini_set('post_max_size', '22M');
+$max_file_size = array(20971520,'20MB');
+
 if (check_cinema()) {
     
     $sessions_displayed   = 21;
@@ -24,7 +28,7 @@ if (check_cinema()) {
                     m.classification_id, 
                     m.runtime, 
                     m.trailer,
-					m.custom_poster,
+		    m.custom_poster,
                     c.classification
                 FROM movies m
                 LEFT JOIN classifications c
@@ -82,15 +86,19 @@ if (check_cinema()) {
 				$check = getimagesize($_FILES["poster"]["tmp_name"]);
 				// Check if file already exists
 				if (file_exists($target_file)) {
-					$location = "movie_edit_details.php?movie_id=".$_POST['movie_id']."&er=Sorry,+the+file+already+exists.";
-					header("Location: $location");
-					$uploadOk = 0;
+					if (delete_poster($_POST['movie_id'])) {
+						$_REQUEST['er']='';$_REQUEST['conf']='';
+						$_REQUEST['warn'] = 'Poster already exists, overwriting.';
+					} else {
+						$uploadOk = 0;
+					}
 				}
 				// Check file size
-				if ($_FILES["poster"]["size"] > 500000) {
-					$location = "movie_edit_details.php?movie_id=".$_POST['movie_id']."&er=File+is+too+large,+must+be+under+500MB.";
+				if ($_FILES["poster"]["size"] > $max_file_size[0]) {
+					$location = "movie_edit_details.php?movie_id=".$_POST['movie_id']."&er=File+is+too+large,+must+be+under+{$max_file_size[1]}.";
 					header("Location: $location");
 					$uploadOk = 0;
+					exit;
 				}
 				// Allow certain file formats
 				if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
@@ -98,6 +106,7 @@ if (check_cinema()) {
 					$location = "movie_edit_details.php?movie_id=".$_POST['movie_id']."&er=Sorry,+only+JPG,+JPEG,+PNG+%26+GIF+files+are+allowed.";
 					header("Location: $location");
 					$uploadOk = 0;
+					exit;
 				}
 				// Convert PNG
 				if ($imageFileType == "png") {
@@ -113,18 +122,52 @@ if (check_cinema()) {
 				if ($uploadOk == 0) {
 					$location = "movie_edit_details.php?movie_id=".$_POST['movie_id']."&er=Something+went+wrong+uploading+the+poster,+please+try+again.";
 					header("Location: $location");
+					exit;
 				// if everything is ok, try to upload file
 				} else {
 					if (rename($tmp_file, $target_file)) {
 						if (save_poster($target_file, $_POST['movie_id'], true)) {
 							@unlink($target_file);
+							$_REQUEST['er']='';$_REQUEST['warn']='';
+							$_REQUEST['conf'] = 'Poster+added.';
+						} else {
+							$location = "movie_edit_details.php?movie_id=".$_POST['movie_id']."&er=Error+saving+new+poster,+please+try+again.";
+                                        		header("Location: $location");
+							exit;
 						}
 					} else {
-						echo "Sorry, there was an error uploading your file.";
+						$location = "movie_edit_details.php?movie_id=".$_POST['movie_id']."&er=Error+renaming+new+poster,+please+try+again.";
+                                        	header("Location: $location");
+						exit;
 					}
 				}
 			}
-		}
+		} elseif (isset($_FILES['poster']['error']) && $_FILES['poster']['error'] == 1) {
+			// UPLOAD_ERR_INI_SIZE
+			$location = "movie_edit_details.php?movie_id=".$_POST['movie_id']."&er=Poster+exceeded+max+upload+size+of+{$max_file_size[1]}.+Please+try+again+with+a+smaller+image.";
+                        header("Location: $location");
+			exit;
+		} elseif (isset($_FILES['poster']['error']) && $_FILES['poster']['error'] == 2) {
+			// UPLOAD_ERR_FORM_SIZE
+                        $location = "movie_edit_details.php?movie_id=".$_POST['movie_id']."&er=Poster+exceeded+max+form+upload+size+of+{$max_file_size[1]}.+Please+try+again+with+a+smaller+image.";
+                        header("Location: $location");
+                        exit;
+                } elseif (isset($_FILES['poster']['error']) && $_FILES['poster']['error'] == 3) {
+			// UPLOAD_ERR_PARTIAL
+                        $location = "movie_edit_details.php?movie_id=".$_POST['movie_id']."&er=Poster+only+partially+uploaded.+Please+check+your+details+and+try+again.";
+                        header("Location: $location");
+                        exit;
+                } elseif (isset($_FILES['poster']['error']) && $_FILES['poster']['error'] == 6) {
+			// UPLOAD_ERR_NO_TEMP_DIR
+                        $location = "movie_edit_details.php?movie_id=".$_POST['movie_id']."&er=No+temp+directory+to+place+poster.+Please+try+again+or+contact+your+administrator ({$config['admin_email']}).";
+                        header("Location: $location");
+                        exit;
+                } elseif (isset($_FILES['poster']['error']) && $_FILES['poster']['error'] == 7) {
+			// UPLOAD_ERR_CANT_WRITE
+                        $location = "movie_edit_details.php?movie_id=".$_POST['movie_id']."&er=Cannot+write+poster+to+disk.+Please+try+again+or+contact+your+administrator ({$config['admin_email']}).";
+                        header("Location: $location");
+                        exit;
+                }
         
         // Tidy up
 		smarty_clear_cache($_POST['movie_id'], NULL, NULL, false, false);

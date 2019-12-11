@@ -112,7 +112,7 @@ $config = array(
 	"omdb_api" => "cb84a757",
 
 	// Google Analytics Code
-	"ga_code" => "UA-137475424-2"
+	"ga_code" => "UA-137475424-1"
 	
 );
 

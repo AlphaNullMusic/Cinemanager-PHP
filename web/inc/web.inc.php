@@ -35,10 +35,8 @@ function fatal_handler() {
 		error_log("Fatal error ({$error['type']}) in {$error['file']} on line {$error['line']}: {$error['message']}",3,"web-bad-errors.log");
 		exit;
 	} else if ($error !== NULL && $error['type'] == E_WARNING) {
-		error_log("Warning");
+		error_log("Warning ({$error['type']}) in {$error['file']} on line {$error['line']}: {$error['message']}",3,"web-bad-warnings.log");
 		exit;
-	} else {
-		error_log("Check");
 	}
 }
 
