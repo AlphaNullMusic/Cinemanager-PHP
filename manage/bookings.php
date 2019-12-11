@@ -115,13 +115,6 @@ if (check_cinema() && has_permission('log_bookings')) {
 		exit;
 		
 	}
-	
-	// Delete email from list
-	if (isset($_GET['delete']) && isset($_REQUEST['edit'])) {
-		$sql="UPDATE users SET status='deleted' WHERE user_id='".$mysqli->real_escape_string($user_data['user_id'])."'";
-		$mysqli->query($sql) or user_error("Gnarly: $sql");
-		header("Location: users.php");
-	}
 
 }
 
@@ -148,9 +141,19 @@ if (check_cinema() && has_permission('log_bookings')) {
 					        </div>
 							<?php echo check_msg(); ?>
 							<?php 
+								date_default_timezone_set($_SESSION['cinema_data']['timezone']);
 								$sql="
-									SELECT *
+									SELECT bl.*, 
+										s.movie_id, 
+										s.time, 
+										LOWER(DATE_FORMAT(s.time,'%l:%i%p')) AS session_time,
+										DATE_FORMAT(s.time,'%e %b') AS session_date,
+										m.title
 									FROM booking_log bl
+									INNER JOIN sessions s
+										ON bl.session_id = s.session_id
+									INNER JOIN movies m
+										ON s.movie_id = m.movie_id
 								";
 								if (isset($_GET['search']) && $_GET['search'] != '') {
 									$sql.="
@@ -166,14 +169,6 @@ if (check_cinema() && has_permission('log_bookings')) {
 							<p>
 								<?php echo $num_bookings; ?> requests found <?php if (isset($_GET['search'])&&$_GET['search']!='') { echo "matching \"".$_GET['search']."\""; } else { echo "in total"; } ?>
 							</p>
-
-					  	<?php 
-							$weeks = 12; // How many weeks of stats to show
-							$startOfWeek = 4; // eg Thursday = 4
-
-							date_default_timezone_set($_SESSION['cinema_data']['timezone']);
-							 
-							?>
 							<p>
 								<h2>Find Request By Details</h2>
 								<p>Search for a specific request by either name, email or phone number.</p>
@@ -190,7 +185,7 @@ if (check_cinema() && has_permission('log_bookings')) {
                                                                                 <th scope="col">Name</th>
                                                                                 <th scope="col">Email</th>
                                                                                 <th scope="col">Phone</th>
-                                                                                <th scope="col">Tickets</th>
+                                                                                <th scope="col">Details</th>
                                                                                 <th scope="col">Date</th>
 									</thead>
 							  <?php while ($booking_data=$booking_res->fetch_assoc()) { ?>
@@ -208,7 +203,7 @@ if (check_cinema() && has_permission('log_bookings')) {
 													data-placement="left" 
 													title="
 													<?php
-														$title = '';
+														$title = "<b><em>{$booking_data['title']}<br>{$booking_data['session_date']} - {$booking_data['session_time']}</em></b><br><br>";
 														if ($booking_data['adults'] != 0) {
 															$title .= "<b>Adults:</b> {$booking_data['adults']}<br>";
 														}

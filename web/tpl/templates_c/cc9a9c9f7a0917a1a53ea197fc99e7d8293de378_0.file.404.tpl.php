@@ -1,12 +1,12 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-12-11 17:25:51
+/* Smarty version 3.1.33, created on 2019-12-11 17:12:36
   from '/var/www/Cinemanager/web/tpl/404.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5df06fcf3a4790_42052876',
-  'has_nocache_code' => true,
+  'unifunc' => 'content_5df06cb4e13382_22580382',
+  'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'cc9a9c9f7a0917a1a53ea197fc99e7d8293de378' => 
@@ -15,16 +15,13 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
       1 => 1575885459,
       2 => 'file',
     ),
-    '12f3ac630680bc6778753de8bb98e13015ec9d16' => 
-    array (
-      0 => '/var/www/Cinemanager/web/tpl/inc/tpl/footer.tpl',
-      1 => 1575886306,
-      2 => 'file',
-    ),
   ),
-  'cache_lifetime' => 600,
-),true)) {
-function content_5df06fcf3a4790_42052876 (Smarty_Internal_Template $_smarty_tpl) {
+  'includes' => 
+  array (
+    'file:inc/tpl/footer.tpl' => 1,
+  ),
+),false)) {
+function content_5df06cb4e13382_22580382 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
@@ -51,25 +48,25 @@ function content_5df06fcf3a4790_42052876 (Smarty_Internal_Template $_smarty_tpl)
         <div class="collapse jc-center" id="navbar">
             <ul class="nav-links">
                 <li class="nav-item">
-                    <a class="nav-link " href="/home/">HOME</a>
+                    <a class="nav-link <?php if ($_smarty_tpl->tpl_vars['tpl_name']->value == 'home.tpl') {?>active<?php }?>" href="/home/">HOME</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="/whats-on-today/">WHAT&apos;S ON TODAY</a>
+                    <a class="nav-link <?php if ($_smarty_tpl->tpl_vars['tpl_name']->value == 'whats-on-today.tpl') {?>active<?php }?>" href="/whats-on-today/">WHAT&apos;S ON TODAY</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="/whats-on/">WHAT&apos;S ON</a>
+                    <a class="nav-link <?php if ($_smarty_tpl->tpl_vars['tpl_name']->value == 'whats-on.tpl') {?>active<?php }?>" href="/whats-on/">WHAT&apos;S ON</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="/coming-soon/">COMING SOON</a>
+                    <a class="nav-link <?php if ($_smarty_tpl->tpl_vars['tpl_name']->value == 'coming-soon.tpl') {?>active<?php }?>" href="/coming-soon/">COMING SOON</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="/venue-hire/">VENUE HIRE</a>
+                    <a class="nav-link <?php if ($_smarty_tpl->tpl_vars['tpl_name']->value == 'venue-hire.tpl') {?>active<?php }?>" href="/venue-hire/">VENUE HIRE</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="/about-us/">ABOUT US</a>
+                    <a class="nav-link <?php if ($_smarty_tpl->tpl_vars['tpl_name']->value == 'about-us.tpl') {?>active<?php }?>" href="/about-us/">ABOUT US</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="/contact-us/">CONTACT US</a>
+                    <a class="nav-link <?php if ($_smarty_tpl->tpl_vars['tpl_name']->value == 'contact-us.tpl') {?>active<?php }?>" href="/contact-us/">CONTACT US</a>
                 </li>
             </ul>
         </div>
@@ -94,7 +91,8 @@ function content_5df06fcf3a4790_42052876 (Smarty_Internal_Template $_smarty_tpl)
         </div>
     </div>
 
-    <footer><div id="text"><p>Web design and content &copy; 2019, Shoreline Cinema Waikanae, New Zealand. <a id="improve-visibility">Improve Visibility.</a></p></div></footer></div><script src="/tpl/inc/js/jquery-3.4.1.min.js"></script><script src="/tpl/inc/js/js.cookie-2.2.1.min.js"></script><script src="/tpl/inc/js/scripts.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-137475424-1"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'UA-137475424-1');</script></body></html>
+    <?php $_smarty_tpl->_subTemplateRender("file:inc/tpl/footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
 
 
 <?php }
