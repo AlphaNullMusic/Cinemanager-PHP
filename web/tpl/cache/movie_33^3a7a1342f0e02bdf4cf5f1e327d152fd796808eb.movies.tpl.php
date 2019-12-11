@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-12-11 16:09:56
+/* Smarty version 3.1.33, created on 2019-12-11 15:42:02
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5df05e040a5b07_95462439',
+  'unifunc' => 'content_5df0577a28e183_49659125',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -24,14 +24,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_5df05e040a5b07_95462439 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5df0577a28e183_49659125 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>1917 - Info</title>
+<title>National Theatre Live: Small Island - Info</title>
 <meta name="description" content="Shoreline Cinema is Waikanae's premiere cinema complex. Find out who we are, what's on, what's coming up, how to contact us and much more.">
 <link href="/tpl/inc/css/styles.css" rel="stylesheet" type="text/css" />
 <link href="/tpl/inc/css/print.css" rel="stylesheet" type="text/css" media="print" />
@@ -81,22 +81,30 @@ function content_5df05e040a5b07_95462439 (Smarty_Internal_Template $_smarty_tpl)
 
 
 <div class="information">
-    <h2>1917</h2>
+    <h2>National Theatre Live: Small Island</h2>
     <div class="content">
     	<div class="content-wrapper poster">
-    		<img src="https://posters.shoreline.nz/39-medium-default.jpg" width="190" alt="1917 Poster" />
+    		<img src="https://posters.shoreline.nz/33-medium-default.jpg" width="190" alt="National Theatre Live: Small Island Poster" />
     	</div>
     	<div class="content-wrapper text"> 
     		<div class="content">
     		    <div class="content-wrapper text">
-    		        <p>Two young British privates during the First World War are given an impossible mission: deliver a message deep in enemy territory that will stop 1,600 men, and one of the soldier's brothers, from walking straight into a deadly trap.</p>
-					    		                		    </div>
+    		        <p>Live Relay - later showing as recorded version - of stage play at The Nationa Theatre London. Based on Andrea Levy's novel about a journey from Jamaica to Britain, through the Second World ...</p>
+					    		                                        <span class="h3">Upcoming Screening Times</span>
+                            <ul class="sessions">
+                                                            	                              	
+                              	<li><strong>Sunday 15 Dec</strong><a href="/bookings/136/">12:30pm</a>                              	                              	
+                              	<li><strong>Thursday 19 Dec</strong><a href="/bookings/137/">12:30pm</a>                               </li>
+                            </ul>
+                          	<p><i>To place a booking, click on the session time you are interested in. Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
+                            		    </div>
     		    <div class="content-wrapper details">
     		                			<p>
-        				<strong>Rated:</strong> R<br />
-        				 <em>Restricted</em>        			</p>
+        				<strong>Rated:</strong> E<br />
+        				 <em>Suitable for Everyone</em>        			</p>
         		            		    <p>
-        			        			        			        		    </p>
+        			        			        			        				<a class="btn dark" href="https://youtu.be/81UHOUZLjNs" target="_blank">Official Trailer</a>
+        			        		    </p>
             		  
     		    </div>
     		</div>

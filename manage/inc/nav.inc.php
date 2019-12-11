@@ -21,11 +21,11 @@
               </li>
               <?php } ?>
               
-			  <?php if (has_permission('export_sessions')) { ?>
+	      <?php if (has_permission('export_sessions')) { ?>
               <li class="nav-item">
                 <a class="nav-link <?php if (basename($_SERVER['PHP_SELF'])==="export_sessions.php"){?>active<?php }?>" href="export_sessions.php">Export Sessions</a>
               </li>
-			  <?php } ?>
+	      <?php } ?>
             </ul>
             
             <?php if (has_permission('edit_pages') || has_permission('newsletters')) { ?>
@@ -55,6 +55,12 @@
               </li>
               <?php } ?>
               
+	     <?php if (has_permission('log_bookings')) { ?>
+              <li class="nav-item">
+                <a class="nav-link <?php if (basename($_SERVER['PHP_SELF'])==="bookings.php"){?>active<?php }?>" href="bookings.php">View Bookings</a>
+              </li>
+              <?php } ?>
+
             </ul>
             <?php } ?>
             
