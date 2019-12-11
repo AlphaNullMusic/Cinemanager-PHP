@@ -1,7 +1,0 @@
-Array
-(
-    [__cfduid] => de971737ddab0d07e24f541e5deb25ee41550287866
-    [_ga] => GA1.2.886969266.1554621832
-    [__utmz] => 195368880.1554621833.1.1.utmcsr=my.moviemanager.biz|utmccn=(referral)|utmcmd=referral|utmcct=/movies.php
-    [__utma] => 195368880.886969266.1554621832.1554709337.1555306898.3
-)
