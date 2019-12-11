@@ -60,6 +60,7 @@ RewriteEngine on
 	RewriteRule ^bookings\/((.*)\/)?([0-9]+)\/$ /bookings.php?booking_id=$3 [QSA,L]
 	RewriteRule ^bookings\/((.*)\/)?([0-9]+)\/complete/(.*)$ /bookings.php?booking_id=$3&booking=complete$4 [QSA,L]
 	RewriteRule ^bookings\/((.*)\/)?([0-9]+)\/failed/(.*)$ /bookings.php?booking_id=$3&booking=failed&4 [QSA,L]
+	RewriteRule ^uploads\/(.*)$ https://manage.shoreline.nz/uploads/$1 [QSA,L]
 	
 # Enforce trailing slash
 RewriteCond %{REQUEST_FILENAME} !-f
