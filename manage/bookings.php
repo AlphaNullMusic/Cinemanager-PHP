@@ -17,7 +17,7 @@ require("inc/manage.inc.php");
 			<div class="row">
 				<?php include("inc/nav.inc.php"); 
 				if (check_cinema() && has_permission('log_bookings')) { ?>
-						<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+						<main role="main" class="col-md-9 ml-sm-auto col-lg-12 pt-3 px-4">
 							<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
 					            <h1 class="h2">Booking Request List</h1>
 					        </div>
@@ -61,6 +61,7 @@ require("inc/manage.inc.php");
 							</p>
 							<hr>
 					  <?php if ($booking_res->num_rows != 0) { ?>
+							<div class="table-responsive">
 								<table class="table">
 									<thead class="thead-light">
 										<th scope="col">#</th>
@@ -112,9 +113,10 @@ require("inc/manage.inc.php");
 										</tr>
 							  <?php } ?>
 								</table>
+							</div>
 					<?php } ?>
 			  <?php } else { ?>
-					<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+					<main role="main" class="col-md-9 ml-sm-auto col-lg-12 pt-3 px-4">
 						<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
 							<h1 class="h2">View Booking Requests</h1>
 						</div>

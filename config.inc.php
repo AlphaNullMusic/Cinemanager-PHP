@@ -1,5 +1,5 @@
 <?php
-ini_set('display_errors',1); 
+ini_set('display_errors',1);
 date_default_timezone_set("Pacific/Auckland");
 error_reporting(E_ALL ^ E_NOTICE);
 //error_reporting(0);
@@ -51,7 +51,7 @@ $config = array(
 	//"cinema_news_dir" => $root_dir."media.cinemanager.ga/cinema_news/",
 
 	// External Data Directory
-	"external_dir" => $root_dir."_external/",	
+	//"external_dir" => $root_dir."_external/",	
 
 	// Lib Directories
 	"libs_dir" => $root_dir."_deps/",
@@ -91,9 +91,9 @@ $config = array(
 	"salt_string" => "l9fg430gj2-f-30d0s048",
 	
 	// External Booking Systems
-	"bms_session_booking_url" => "http://www.bookmyshow.co.nz/go.aspx",
-	"sentry_session_booking_launchpad_url" => "/sentry.php",
-	"veezi_session_booking_url" => "https://ticketing.us.veezi.com/purchase/",
+	//"bms_session_booking_url" => "http://www.bookmyshow.co.nz/go.aspx",
+	//"sentry_session_booking_launchpad_url" => "/sentry.php",
+	//"veezi_session_booking_url" => "https://ticketing.us.veezi.com/purchase/",
 	
 	// Allowed Mime Types
 	"safe_mime_types" => array('

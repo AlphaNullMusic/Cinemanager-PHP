@@ -156,7 +156,7 @@ if (check_cinema() && has_permission('newsletters')) {
 			<div class="row">
 				<?php include("inc/nav.inc.php");?>
 			<?php if (check_cinema() && has_permission('newsletters')) { ?>
-				<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+				<main role="main" class="col-md-9 ml-sm-auto col-lg-12 pt-3 px-4">
 					<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
 						<h1 class="h2">Bulk Email Newsletters</h1>
 					</div>
@@ -422,7 +422,7 @@ if (check_cinema() && has_permission('newsletters')) {
 					  <?php } ?>
 						</form>
 			  <?php } else { ?>
-					<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+					<main role="main" class="col-md-9 ml-sm-auto col-lg-12 pt-3 px-4">
 						<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
 							<h1 class="h2">Bulk Email Newsletters</h1>
 						</div>
