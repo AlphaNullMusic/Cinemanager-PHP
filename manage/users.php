@@ -8,7 +8,7 @@ if (check_cinema() && has_permission('user_list')) {
 			SELECT u.*
 			FROM users u
 			WHERE u.user_id='{$_REQUEST['edit']}' 
-			AND status != 'ok'
+			AND status = 'ok'
 		";
 		$user_res = $mysqli->query($sql) or user_error("Gnarly: $sql");
 		$user_data = $user_res->fetch_assoc();

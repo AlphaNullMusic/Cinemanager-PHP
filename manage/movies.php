@@ -161,7 +161,7 @@ if (check_cinema() && (has_permission('sessions'))) {
             $y = date('Y');
         }
 ?>
-				<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+				<main role="main" class="col-md-9 ml-sm-auto col-lg-12 pt-3 px-4">
 					<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
 						<div class="btn-toolbar mb-2 mb-md-0">
 							<div class="btn-group mr-2">
@@ -274,7 +274,7 @@ if (check_cinema() && (has_permission('sessions'))) {
           }
 	// Find movie to add
     } elseif (isset($_REQUEST['action']) && $_REQUEST['action'] == "findmovie") {?>
-	  <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+	  <main role="main" class="col-md-9 ml-sm-auto col-lg-12 pt-3 px-4">
 		<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
 		  <div class="btn-toolbar mb-2 mb-md-0">
                 <div class="btn-group mr-2">
@@ -310,7 +310,8 @@ if (check_cinema() && (has_permission('sessions'))) {
 		<hr>
 		<h2>Search Results</h2>
 		<p class="subtle">Click a movie below to add it to your own movie list.</p>
-		<table class="table table-striped table-sm">
+		<div class="table-responsive">
+		  <table class="table table-bordered table-striped table-sm">
 		    <tbody>
 				<?php foreach ($movie_list['result'] as $f) { ?>
 		        <tr>
@@ -324,6 +325,7 @@ if (check_cinema() && (has_permission('sessions'))) {
 				<?php } ?>
 		    </tbody>
 		  </table>
+		</div>
 		  <?php } else { ?>
         <hr>
         <h2>Error</h2>
@@ -344,7 +346,8 @@ if (check_cinema() && (has_permission('sessions'))) {
 		<hr>
 		<h2>Search Results</h2>
 	    <p class="subtle">Click a movie below to add it to your own movie list.</p>
-		<table class="table table-striped table-sm">
+		<div class="table-responsive">
+		<table class="table table-bordered table-striped table-sm">
 		    <tbody>
 		        <tr>
 					<td class="title autowidth" bgcolor="#ffffff">
@@ -356,6 +359,7 @@ if (check_cinema() && (has_permission('sessions'))) {
 				</tr>
 		    </tbody>
 		</table>
+		</div>
 		  <?php } else { ?>
         <hr>
         <h2>Error</h2>
@@ -365,7 +369,7 @@ if (check_cinema() && (has_permission('sessions'))) {
         }
 	// Main view
 	} else { ?>
-	<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+	<main role="main" class="col-md-9 ml-sm-auto col-lg-12 pt-3 px-4">
 	    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
 	        <h1 class="h2">Your Movies</h1>
 	        <div class="btn-toolbar mb-2 mb-md-0">
@@ -385,6 +389,7 @@ if (check_cinema() && (has_permission('sessions'))) {
 ?>
 		<h1 class="h2"><?php echo $name ?></h1>
 	        <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data">
+		  <div class="table-responsive">
 		  <table class="table table-striped table-sm">
 		    <tbody>
 		      <?php 
@@ -479,12 +484,13 @@ if (check_cinema() && (has_permission('sessions'))) {
               }
 ?>
 		  </table>
+		  </div>
 	        </form>
               <?php 
           }
 		}
 	} else { ?>
-	<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+	<main role="main" class="col-md-9 ml-sm-auto col-lg-12 pt-3 px-4">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
             <h1 class="h2">Website Content Management For Cinemas</h1>
           </div>

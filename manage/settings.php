@@ -2,7 +2,7 @@
 
 include("inc/manage.inc.php");
 
-if (check_cinema()) { // && check_admin()
+if (check_cinema() && check_admin()) {
 	// Save Changes
 	if (isset($_POST['submit'])) {
 		$fn = dirname(dirname(__FILE__)).'/config.inc.php';
@@ -38,7 +38,7 @@ if (check_cinema()) { // && check_admin()
     		<div class="container-fluid">
       			<div class="row">
 			<?php include("inc/nav.inc.php");
-	  		if (check_cinema()) { ?>
+	  		if (check_cinema() && check_admin()) { ?>
 	    			<main role="main" class="col-md-9 ml-sm-auto col-lg-12 pt-3 px-4">
 	      				<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
                 				<h1 class="h2">Manage Settings</h1>
@@ -62,7 +62,7 @@ if (check_cinema()) { // && check_admin()
 						<textarea name="config_content" rows="<?php echo $line_count;?>" class="form-control"><?php echo $text;?></textarea>
 					</div>
 					<div class="form-group">
-						<input name="submit" type="submit" class="btn btn-success submit" value="Save Changes">
+						<input name="submit" onClick="return confirmDelete('Are you sure you want to save?');" type="submit" class="btn btn-success submit" value="Save Changes">
               				</div>
 					</form>
 
