@@ -11,11 +11,7 @@
 			>
         <?php 
 			foreach ($_SESSION['all_cinema_data']['cinemas'] as $c) { ?>
-				<option value="<?php echo $c['cinema_id']?>"
-		  <?php if ($_SESSION['cinema_data']['cinema_id'] == $c['cinema_id']) { ?> 
-					selected
-		  <?php } ?>
-				>
+				<option	selected>
 					<?php echo str_replace(', '.$c['city'], '', $c['name'])?>, <?php echo $c['city']?>
 				</option>
 	  <?php } ?>

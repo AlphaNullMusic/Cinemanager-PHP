@@ -1536,24 +1536,29 @@ function smarty_clear_cache($movie_id = NULL, $area = NULL, $user_id = NULL, $re
 ///////////////
 
 // Checks for both confirmation and error messages 
-function check_msg($conf = null, $er = null) {
+function check_msg($conf = null, $er = null, $warn = null) {
     if ($conf == null && isset($_REQUEST['conf'])) {
         $conf = $_REQUEST['conf'];
     }
     if ($er == null && isset($_REQUEST['er'])) {
         $er = $_REQUEST['er'];
     }
+    if ($warn == null && isset($_REQUEST['warn'])) {
+        $warn = $_REQUEST['warn'];
+    }
     if ($er = check_er($er, false)) {
         return $er;
     } else if ($conf = check_confirm($conf, false)) {
         return $conf;
+    } else if ($warn = check_notice($warn, false)) {
+	return $warn; 
     } else {
         return false;
     }
 }
 
 function check_confirm($msg, $echo_message = true) {
-    global $global;
+    global $config;
     if ($msg) {
         $msg = "
 			<div class=\"alert alert-success alert-dismissible fade show\" role=\"alert\"><img src='".$config['manage_url']."inc/icons/icon_tick_greenbutton.gif' alt='ok' width='15' height='15' align='absmiddle'> 
@@ -1574,7 +1579,7 @@ function check_confirm($msg, $echo_message = true) {
 }
 
 function check_er($msg, $echo_message = true) {
-    global $global;
+    global $config;
     if ($msg) {
         $msg = "
 			<div class=\"alert alert-danger alert-dismissible fade show\" role=\"alert\"><img src='".$config['manage_url']."inc/icons/icon_exclaim_onyellow.gif' alt='ok' width='15' height='15' align='absmiddle'> 
