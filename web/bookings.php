@@ -119,6 +119,7 @@ if(!$smarty->isCached($tpl)) {
 										INSERT INTO booking_log
 										SET name = '" . $mysqli->real_escape_string($_POST['c_name']) . "',
 										email = '" . $mysqli->real_escape_string($_POST['c_email']) . "',
+										session_id = '" . $mysqli->real_escape_string($_REQUEST['booking_id']) . "',
 									";
 									if (isset($_POST['t_adults'])) {
 										$sql .= " adults = '" . $mysqli->real_escape_string($_POST['t_adults']) . "',";
