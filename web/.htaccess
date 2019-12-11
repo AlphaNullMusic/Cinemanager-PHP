@@ -96,7 +96,7 @@ RewriteRule ^(.*[^/])$ /$1/ [L,R]
 	RewriteRule ^event-([a-z]?[0-9]+).php$ /session_times.php?event_id=$1 [L]
 	RewriteRule ^label-([a-z0-9]+).php$ /session_times.php?session_label_filter=$1 [L]
 	RewriteRule ^type-([A-Za-z0-9]+).php$ /session_times.php?session_comment_filter=$1 [L]
-	RewriteRule ^sitemap.xml$ /sitemap.xml.php [L]
+	#RewriteRule ^sitemap.xml$ /sitemap.xml.php [L]
 	
 	RewriteCond %{REQUEST_FILENAME} !-f
 	RewriteRule ^([0-9]+)/([a-z]+).css$ /$1/css/$2.css [L]
