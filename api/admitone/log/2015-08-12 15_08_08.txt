@@ -1,6 +1,0 @@
-Array
-(
-    [__cfduid] => d639df7bbe44bc48f56d9c23b5ce8a5a01381278220796
-    [__utma] => 195368880.48297404.1386804523.1438572867.1439273335.42
-    [__utmz] => 195368880.1439273335.42.9.utmcsr=lidocinema.co.nz|utmccn=(referral)|utmcmd=referral|utmcct=/
-)
