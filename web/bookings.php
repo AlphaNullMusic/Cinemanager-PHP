@@ -103,7 +103,7 @@ if(!$smarty->isCached($tpl)) {
 							$mail->Port = 587;
 							$mail->Username = $config['booking_send_email'];
 							$mail->Password = $config['booking_email_pass'];
-							$mail->AddReplyTo($config['reply_email'], 'Shoreline Crew');
+							//$mail->AddReplyTo($config['reply_email'], 'Shoreline Crew');
 							$mail->From = $config['booking_send_email'];
 							$mail->addAddress($config['booking_receive_email']);
 							$mail->FromName	= $cinema_data['name']." Website";
@@ -111,7 +111,34 @@ if(!$smarty->isCached($tpl)) {
 							$mail->Body = $message;
 							//die(print_r($mail));
 							if($mail->Send()) {
-							    $mail->ClearAddresses();
+								$mail->ClearAddresses();
+
+								// Log booking
+								if (has_permission('log_bookings')) {
+									$sql = "
+										INSERT INTO booking_log
+										SET name = '" . $mysqli->real_escape_string($_POST['c_name']) . "',
+										email = '" . $mysqli->real_escape_string($_POST['c_email']) . "',
+									";
+									if (isset($_POST['t_adults'])) {
+										$sql .= " adults = '" . $mysqli->real_escape_string($_POST['t_adults']) . "',";
+									}
+									if (isset($_POST['t_children'])) {
+                                                                                $sql .= " children = '" . $mysqli->real_escape_string($_POST['t_children']) . "',";
+                                                                        }
+									if (isset($_POST['t_seniors'])) {
+                                                                                $sql .= " seniors = '" . $mysqli->real_escape_string($_POST['t_seniors']) . "',";
+                                                                        }
+									if (isset($_POST['t_students'])) {
+                                                                                $sql .= " students = '" . $mysqli->real_escape_string($_POST['t_students']) . "',";
+                                                                        }
+									if (isset($_POST['c_wheelchair'])) {
+                                                                                $sql .= " wheelchair = '1',";
+                                                                        }
+									$sql .= "phone = '" . $mysqli->real_escape_string($_POST['c_phone']) . "'";
+									$mysqli->query($sql) or user_error("Error at: ".$sql);
+								}
+
 							    // Email the customer back
 							    if (has_permission('email_booking_reply')) {
 								$message_cust="Dear {$_POST['c_name']}\n";

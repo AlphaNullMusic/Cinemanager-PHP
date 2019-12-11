@@ -39,7 +39,10 @@
 		images_upload_url: 'upload.php',
 		automatic_uploads: false,
 		images_upload_handler: function(blobInfo, success, faliure) {
-
+			var xhr, formData;
+			
+			xhr = new XMLHttpRequest();
+			xhr.withCredentials = false;
 		}
 	});
 </script>

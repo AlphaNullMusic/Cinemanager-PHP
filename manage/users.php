@@ -379,7 +379,7 @@ jane@doe.co.nz
 							<h1 class="h2">Manage Email Newsletter Subscriptions</h1>
 						</div>
 						<p><?php check_notice("Either you are not logged in or you do not have permission to use this feature.") ?></p>
-						<p>This page is used to manage email newsletter subscriptions. Although people can join cinema email list themselves, directly through the cinema's own website, members can also be manually added or removed here at any time. If you have multiple mailing lists you can even transfer members from one list to the other.</p>
+						<p>This page is used to manage email newsletter subscriptions. Although people can join cinema email list themselves, directly through the cinema's own website, members can also be manually added or removed here at any time.</p>
 	  <?php } ?>
   <?php include("inc/footer.inc.php") ?>
 	</body>
