@@ -126,7 +126,6 @@ $config['poster_sizes'] = array(
 		'name' => 'tiny',
 		'width' => 30,
 		'height' => 44
-		/*'output' => 'jpg:85'*/
 	),
 	// Featured
 	'small' => array(

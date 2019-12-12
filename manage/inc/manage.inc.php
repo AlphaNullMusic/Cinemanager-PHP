@@ -88,7 +88,7 @@ elseif (isset($_POST['action']) && $_POST['action']=='login') {
 				}
 				$sql="
 					INSERT INTO activity_log 
-					SET login_id = '{$login_data['login_id']}', 
+					SET login_id = '".$login_data['id']."', 
 						timestamp = NOW()
 				";
 				$mysqli->query($sql) or user_error("Error at: $sql");

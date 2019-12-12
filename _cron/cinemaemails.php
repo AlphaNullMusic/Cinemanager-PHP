@@ -74,7 +74,7 @@ if ($newsletters_res->num_rows >= 1) {
 					//compile new message for user
 					$subject=$newsletters['subject'];
 					$from_name=(strpos($cinema_data['name'], $cinema_data['city'])) ? $cinema_data['name'] : $cinema_data['name'] . ' ' . $cinema_data['city'];
-					$from_email=$newsletters['reply_address'];
+					$from_email=$config['newsletter_email'];
 					$to_email=$recipients['email'];
 					//generate unsubscribe link
 					$num1=$recipients['user_id'];
@@ -116,7 +116,7 @@ if ($newsletters_res->num_rows >= 1) {
 					$mail->Subject = $subject;
 					$mail->From = $from_email;
 					$mail->FromName	= $from_name;
-					$mail->ReturnPath = $config['bounce_email'];
+					//$mail->ReturnPath = $config['bounce_email'];
 					$mail->AddCustomHeader("X-CinemanagerToken: $token");
 					if ($recipients['plain_text']==1) {
 						$mail->Body = $message_text;

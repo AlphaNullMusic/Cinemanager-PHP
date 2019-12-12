@@ -117,6 +117,7 @@ RewriteRule ^(.*[^/])$ /$1/ [L,R]
 	# Coming Soon
 	Redirect 301 /page_coming_soon.php https://shorelinecinema.co.nz/coming-soon
 	Redirect 301 /page-coming-soon.php https://shorelinecinema.co.nz/coming-soon
+	Redirect 301 /coming_soon.php https://shorelinecinema.co.nz/coming-soon
 
 	# Venue Hire
         Redirect 301 /page_venue_hire.php https://shorelinecinema.co.nz/venue-hire

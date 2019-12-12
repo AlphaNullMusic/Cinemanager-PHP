@@ -176,24 +176,46 @@ function save_poster($url, $movie_id, $custom = false) {
 			$dst_width = $width_orig;
 			$dst_height = $height_orig;
 		}
-			
-		$img = imagecreatetruecolor($dst_width,$dst_height);
-		$tmp_img = imagecreatefromjpeg($img_url);
-		imagecopyresampled($img, $tmp_img, 0, 0, 0, 0, $dst_width, $dst_height, $width_orig, $height_orig);
 		
-		$name = $movie_id.'-'.$size['name'].'-'.$status.'.jpg';
-		// Add data to posters table
-		$sql = "
-			INSERT IGNORE INTO posters
-			SET 
-				movie_id = '".$mysqli->real_escape_string($movie_id)."',
-				size = '".$mysqli->real_escape_string($size['name'])."',
-				name = '".$mysqli->real_escape_string($name)."',
-				status = '".$mysqli->real_escape_string($status)."'
-		";
-		$mysqli->query($sql) or user_error("Error at ".$sql);
-		imagejpeg($img,$dir.$name);
-		imagedestroy($img);
+		// Create blank image with correct dimensions
+		if ($img = imagecreatetruecolor($dst_width,$dst_height)) {
+			// Get poster image, with @ to ignore buggy/large JPEGs
+			$tmp_img = @imagecreatefromjpeg($img_url);
+			if (!$tmp_img) {
+				$tmp_img = imagecreatefromstring(file_get_contents($img_url));
+			}
+			// Copy and resample poster onto blank with correct dimensions
+			if (imagecopyresampled($img, $tmp_img, 0, 0, 0, 0, $dst_width, $dst_height, $width_orig, $height_orig)) {
+				$name = $movie_id.'-'.$size['name'].'-'.$status.'.jpg';
+				// Output image to file
+				if (imagejpeg($img,$dir.$name)) {
+					// Free poster from memory
+					imagedestroy($img);
+               				// Add data to posters table
+               				$sql = "
+                       				INSERT IGNORE INTO posters
+                       				SET
+                               				movie_id = '".$mysqli->real_escape_string($movie_id)."',
+                              				size = '".$mysqli->real_escape_string($size['name'])."',
+                               				name = '".$mysqli->real_escape_string($name)."',
+                               				status = '".$mysqli->real_escape_string($status)."'
+                			";
+                			$mysqli->query($sql) or user_error("Error at ".$sql);
+				} else {
+					header("Location: ?movie_id={$movie_id}&er=Can't+save+image,+poster+likely+corrupt.+Please+try+again+with+a+new+poster."); 
+					//return false; 
+					exit;
+				}
+			} else { 
+				header("Location: ?movie_id={$movie_id}&er=Can't+resize+image,+poster+likely+corrupt.+Please+try+again+with+a+new+poster.");
+                                //return false;
+                                exit; 
+			}
+		} else { 
+			header("Location: ?movie_id={$movie_id}&er=Can't+create+blank+image,+poster+likely+corrupt.+Please+try+again+with+a+new+poster.");
+                        //return false;
+                        exit;
+		}
 	}
 		
 	// Set custom_poster to true in movies table
@@ -231,13 +253,21 @@ function delete_poster($movie_id, $type = 'custom') {
 			@unlink($path);
 		}
 	}
-		
+	
+	// Set custom_poster to 0
 	$sql = "
 		UPDATE movies
 		SET custom_poster = '0'
 		WHERE movie_id = '".$mysqli->real_escape_string($movie_id)."'
 	";
 	$mysqli->query($sql) or user_error("Error at ".$sql);
+
+	// Delete from posters table
+	$sql = "
+		DELETE FROM posters
+		WHERE movie_id = '".$mysqli->real_escape_string($movie_id)."'
+		AND status = '".$mysqli->real_escape_string($type)."'
+	";
 	return true;
 }
 	
