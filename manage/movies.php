@@ -3,6 +3,7 @@ require("inc/manage.inc.php");
 
 // For processing large posters
 ini_set('memory_limit', '512M');
+error_reporting(0);
 
 if (check_cinema() && (has_permission('sessions'))) {
 
@@ -405,7 +406,13 @@ if (check_cinema() && (has_permission('sessions'))) {
 			    <tr id="imdbId_<?php echo $movie_item['imdb_id'] ?>">
 			      <td class="title" nowrap>
 				        <a href="movie_edit_details.php?movie_id=<?php echo $movie_item['movie_id'] ?>">
-				            <img src="<?php echo $movie_item['poster_url'] ?>" width="30" height="44" border="0" alt="<?php echo $movie_item['title'] ?> Mini Poster" />
+				            <img 
+						src="<?php echo $movie_item['poster_url'] ?>?<?php echo filemtime($config['poster_dir'].basename($movie_item['poster_url'])); ?>" 
+						width="30" 
+						height="44" 
+						border="0" 
+						alt="<?php echo $movie_item['title'] ?> Mini Poster" 
+					    />
 				        </a>
 				
 			      

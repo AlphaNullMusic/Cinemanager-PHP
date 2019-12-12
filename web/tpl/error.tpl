@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>404 - Page Not Found</title>
+<title>{$er} - {$desc}</title>
 <meta name="description" content="Shoreline Cinema is Waikanae's premiere cinema complex. Find out who we are, what's on, what's coming up, how to contact us and much more.">
 <link href="/tpl/inc/css/styles.css" rel="stylesheet" type="text/css" />
 <link href="/tpl/inc/css/print.css" rel="stylesheet" type="text/css" media="print" />
@@ -57,8 +57,16 @@
         <div class="content">
             <div class="content-wrapper">
                 <div class="box">
+		  {if $er == '404'}
                     <h2>Sorry... we couldn't find the page you were looking for.</h2>
-	                <p><?=($_REQUEST['er'])?'Error: '.$_REQUEST['er']:'';?></p>
+		  {elseif $er == '403'}
+		    <h2>Sorry... you don't have permission to access that file.</h2>
+		  {elseif $er == '410'}
+		    <h2>Sorry... file deleted permanently.</h2>
+		  {else}
+		    <h2>Sorry... this was a bad request.</h2>  
+		  {/if}
+	                <p><?php echo ($_REQUEST['er'])?'Error: '.$_REQUEST['er']:'';?></p>
 	                <p></p>
 	                <p>Click the button below to go back home.</p>
 	                <a class="btn dark" href="/home/">Home</a>
