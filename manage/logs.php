@@ -71,6 +71,9 @@ if (check_cinema() && check_admin()) {
 		$size = filesize($fn);
 		if ($size > 0) {
 			$text = fread($file,$size);
+			if (trim($text) == '') {
+				$text = "No file content";
+			}
 		} else {
 			$text = "No file content";
 		}

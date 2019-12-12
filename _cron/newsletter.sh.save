@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Run cinemaemails.php
+/usr/bin/php /var/www/Cinemanager/_cron/cinemaemails.php
+
+# Copy log files
+cp /var/log/apache2/manage
+
+-error.log /tmp/manage-error.log
+cp /var/log/apache2/web-error.log /tmp/web-error.log

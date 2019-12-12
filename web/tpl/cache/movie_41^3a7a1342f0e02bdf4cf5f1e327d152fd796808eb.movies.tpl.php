@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-12-12 10:54:39
+/* Smarty version 3.1.33, created on 2019-12-12 23:12:11
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5df1659f335be8_66250826',
+  'unifunc' => 'content_5df2127b0aaae1_58335427',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -24,7 +24,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_5df1659f335be8_66250826 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5df2127b0aaae1_58335427 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
@@ -96,7 +96,8 @@ function content_5df1659f335be8_66250826 (Smarty_Internal_Template $_smarty_tpl)
         				<strong>Rated:</strong> TBC<br />
         				 <em>To Be Confirmed</em>        			</p>
         		            		    <p>
-        			        			        			        		    </p>
+        			        			        			        				<a class="btn dark" href="https://www.youtube.com/watch?v=ysjwg-MnZao" target="_blank">Official Trailer</a>
+        			        		    </p>
             		  
     		    </div>
     		</div>

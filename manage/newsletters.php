@@ -13,6 +13,7 @@ if (check_cinema() && has_permission('newsletters')) {
 
 		// Generate html
 		$message_html=file_get_contents($config['email_url']."?newsletter_id=".$_REQUEST['newsletter_id']);
+		$message_html=str_replace("uploads/",$config['cinema_url']."uploads/",$message_html);
 		$message_text=strip_tags(file_get_contents($config['email_url']."?newsletter_id=".$_REQUEST['newsletter_id']."&plaintext=y"));
 
 		// Prepare message for sending
@@ -82,15 +83,27 @@ if (check_cinema() && has_permission('newsletters')) {
 			$cinema_name="Shoreline Cinema Waikanae";
 			include($config['phpmailer_dir']."class.phpmailer.php");
 			$mail = new PHPMailer();
+			$mail->IsSMTP;
+			$mail->SMTPAuth = true;
+			$mail->SMTPSecure = 'tls';
+			$mail->Host = $config['newsletter_smtp_server'];
+			$mail->Mailer = "smtp";
+			$mail->Port = 587;
+			$mail->Username = $config['newsletter_email'];
+			$mail->Password = $config['newsletter_email_pass'];
 			$mail->Subject = $email_data['subject'];
-			$mail->From	= $email_data['reply_address'];
+			$mail->From	= $config['newsletter_email'];
 			$mail->FromName	= $cinema_name;
 			$mail->Body	= $message_html;
 			$mail->AltBody = $message_text;
 			$mail->AddAddress($_REQUEST['test_recipient']);
-			$mail->Send();
-			header("Location: newsletters.php?complete=test&show=preview&newsletter_id={$_REQUEST['newsletter_id']}");
-			exit;
+			if ($mail->Send()) {
+				header("Location: newsletters.php?complete=test&show=preview&newsletter_id={$_REQUEST['newsletter_id']}");
+				exit;
+			} else {
+				header("Location: newsletters.php?show=preview&er=Cannot+send+test,+please+try+again.&newsletter_id={$_REQUEST['newsletter_id']}");
+				exit;
+			}
 		}
 	}
 	

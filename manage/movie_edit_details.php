@@ -1,10 +1,13 @@
 <?php
 require("inc/manage.inc.php");
 
+ini_set('memory_limit','512M');
 ini_set('upload_max_filesize' , '20M');
 ini_set('post_max_size', '22M');
 $max_file_size = array(20971520,'20MB');
 error_reporting(0);
+//error_reporting(E_ALL);
+//ini_set('display_errors',TRUE);
 
 if (check_cinema()) {
     
@@ -95,14 +98,22 @@ if (check_cinema()) {
 					}
 				}
 				
-				// Delete in case custom posters exist
-				if (delete_poster($_POST['movie_id'])) {
+				// Delete existing custom posters for movie
+				$sql = "
+					SELECT *
+					FROM posters
+					WHERE movie_id = '".$mysqli->real_escape_string($_POST['movie_id'])."'
+					AND status = 'custom'
+				";
+				$poster_res = $mysqli->query($sql) or user_error("Error at: ".$sql);
+				if ($poster_res->num_rows!=0) {
 					$_REQUEST['er']='';$_REQUEST['conf']='';
-					$_REQUEST['warn'] = 'Custom poster already exists, overwriting.';
-				} else {
-					$uploadOk = 0;
+                                        $_REQUEST['warn'] = 'Custom poster already exists, overwriting.';
+					while ($poster_data = $poster_res->fetch_assoc()) {
+						@unlink($config['poster_dir'].$poster_data['name']);
+					}
 				}
-				
+
 				// Check file size
 				if ($_FILES["poster"]["size"] > $max_file_size[0]) {
 					$location = "movie_edit_details.php?movie_id=".$_POST['movie_id']."&er=File+is+too+large,+must+be+under+{$max_file_size[1]}.";
@@ -142,7 +153,7 @@ if (check_cinema()) {
 							$_REQUEST['conf'] = 'Poster+added.';
 						} else {
 							$location = "movie_edit_details.php?movie_id=".$_POST['movie_id']."&er=Error+saving+new+poster,+please+try+again.";
-                                        		header("Location: $location");
+							header("Location: $location");
 							exit;
 						}
 					} else {
