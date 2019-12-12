@@ -84,7 +84,10 @@
             </h6>
             <ul class="nav flex-column mb-2">
               <li class="nav-item">
-                <a class="nav-link <?php if (basename($_SERVER['PHP_SELF'])==="settings.php"){?>active<?php }?>" href="settings.php">Settings</a>
+                <a class="nav-link <?php if (basename($_SERVER['PHP_SELF'])==="settings.php"){?>active<?php }?>" href="settings.php">Change Settings</a>
+              </li>
+	     <li class="nav-item">
+                <a class="nav-link <?php if (basename($_SERVER['PHP_SELF'])==="logs.php"){?>active<?php }?>" href="logs.php">View Log Files</a>
               </li>
             </ul>
 	    <?php } ?>

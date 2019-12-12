@@ -68,8 +68,9 @@ RewriteRule ^(.*[^/])$ /$1/ [L,R]
 
 # Default to 404.php on 404
     RewriteEngine On
-	ErrorDocument 404 /404.php
-	
+	ErrorDocument 403 /error.php?403
+	ErrorDocument 404 /error.php?404
+	ErrorDocument 410 /error.php?410
 	RedirectMatch 403 ^/inc/?$
 	RedirectMatch 403 ^/tpl/?$
 
@@ -102,3 +103,39 @@ RewriteRule ^(.*[^/])$ /$1/ [L,R]
 	RewriteCond %{REQUEST_FILENAME} !-f
 	RewriteRule ^([0-9]+)/([a-z]+).css$ /$1/css/$2.css [L]
 	
+# Permanent redirect (301) old pages
+	# Home
+	Redirect 301 /index.php https://shorelinecinema.co.nz/home
+
+	# What's On
+	Redirect 301 /session_times.php https://shorelinecinema.co.nz/whats-on
+
+
+	# What's On Today
+	Redirect 301 /session_times_today.php https://shorelinecinema.co.nz/whats-on-today
+
+	# Coming Soon
+	Redirect 301 /page_coming_soon.php https://shorelinecinema.co.nz/coming-soon
+	Redirect 301 /page-coming-soon.php https://shorelinecinema.co.nz/coming-soon
+
+	# Venue Hire
+        Redirect 301 /page_venue_hire.php https://shorelinecinema.co.nz/venue-hire
+        Redirect 301 /page-venue-hire.php https://shorelinecinema.co.nz/venue-hire
+
+	# About Us
+        Redirect 301 /page_about_us.php https://shorelinecinema.co.nz/about-us
+        Redirect 301 /page-about-us.php https://shorelinecinema.co.nz/about-us
+
+	# Contact Us
+	Redirect 301 /page_contact_us.php https://shorelinecinema.co.nz/contact-us
+	Redirect 301 /page-contact-us.php https://shorelinecinema.co.nz/contact-us
+
+	# Movies
+	RewriteRule ^movies\/(.*).php/$ https://shorelinecinema.co.nz/movies/$1 [R=301,QSA,L]
+
+	# Bookings
+	
+
+	# Delete (410) old pages
+	Redirect gone /ticket_prices.php
+	Redirect gone /page_ticket_prices.php

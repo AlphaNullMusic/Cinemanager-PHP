@@ -4,6 +4,7 @@ require("inc/manage.inc.php");
 ini_set('upload_max_filesize' , '20M');
 ini_set('post_max_size', '22M');
 $max_file_size = array(20971520,'20MB');
+error_reporting(0);
 
 if (check_cinema()) {
     
@@ -86,13 +87,22 @@ if (check_cinema()) {
 				$check = getimagesize($_FILES["poster"]["tmp_name"]);
 				// Check if file already exists
 				if (file_exists($target_file)) {
-					if (delete_poster($_POST['movie_id'])) {
+					if(unlink($target_file)) {
 						$_REQUEST['er']='';$_REQUEST['conf']='';
-						$_REQUEST['warn'] = 'Poster already exists, overwriting.';
+                                                $_REQUEST['warn'] = 'Poster already exists in temp folder, overwriting.';
 					} else {
 						$uploadOk = 0;
 					}
 				}
+				
+				// Delete in case custom posters exist
+				if (delete_poster($_POST['movie_id'])) {
+					$_REQUEST['er']='';$_REQUEST['conf']='';
+					$_REQUEST['warn'] = 'Custom poster already exists, overwriting.';
+				} else {
+					$uploadOk = 0;
+				}
+				
 				// Check file size
 				if ($_FILES["poster"]["size"] > $max_file_size[0]) {
 					$location = "movie_edit_details.php?movie_id=".$_POST['movie_id']."&er=File+is+too+large,+must+be+under+{$max_file_size[1]}.";
@@ -533,9 +543,9 @@ if (check_cinema()) {
 							<td>
 								<input type="file" name="poster"><br>
 							  <?php if ($movie_data['custom_poster'] == 1) { ?>
-									<img src="<?php echo $config['poster_url'].$movie_data['movie_id'];?>-medium-custom.jpg" height="118" />
+									<img src="<?php echo $config['poster_url'].$movie_data['movie_id'];?>-medium-custom.jpg?<?php echo filemtime($config['poster_dir'].$movie_data['movie_id'].'-medium-custom.jpg'); ?>" height="118" />
 							  <?php } elseif ($movie_data['custom_poster'] == 0) { ?>
-									<img src="<?php echo $config['poster_url'].$movie_data['movie_id'];?>-medium-default.jpg" height="118" />
+									<img src="<?php echo $config['poster_url'].$movie_data['movie_id'];?>-medium-default.jpg?<?php echo filemtime($config['poster_dir'].$movie_data['movie_id'].'-medium-default.jpg');?>" height="118" />
 							  <?php } else { ?>
 									<em>This movie has no poster</em>
 							  <?php } ?>

@@ -25,6 +25,12 @@ if(!$smarty->isCached($tpl,$cache_id)) {
 			header("Location: {$movie_data['movie']['alias']}");
 			die;
 		}
+
+		// 410 if movie doesn't exist.
+		if (empty($movie_data['movie'])) {
+			header("Location: error.php?410");
+			exit;
+		}
 		
 		if (is_array($movie_data)) {
 			$smarty->assign($movie_data);
