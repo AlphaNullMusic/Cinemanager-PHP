@@ -71,7 +71,7 @@ ul.sessions {
 		<thead>
 			<tr class="small-logo">
 				<td>
-					<a class="logo hide-med" href="#" style="margin:0 auto;">
+					<a class="logo hide-med" href="https://shorelinecinema.co.nz/" style="margin:0 auto;">
 					<img src="https://shoreline.nz/tpl/inc/img/sl_logo.png" class="sl-logo-sm" width="316">
 					</a>
 				</td>

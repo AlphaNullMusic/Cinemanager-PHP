@@ -1,6 +1,8 @@
 #!/usr/bin/php
 <?php
 
+ini_set('memory_limit','512M');
+ini_set('max_execution_time',600);
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -13,7 +15,7 @@ require($config['phpmailer_dir']."class.phpmailer.php");
 
 //prepare variables
 $total_sends=0;
-$maximum_sends=1000; //per newsletter
+$maximum_sends=2000; //per newsletter
 
 //get list of all pending newsletters
 $sql = "
@@ -54,7 +56,7 @@ if ($newsletters_res->num_rows >= 1) {
 			";
 			//some cinemas require that users have status=ok (confirmed email address)
 			//if (has_permission('signup_confirmation',$newsletters['cinema_id'])) {
-			//	$sql.=" AND u.status='ok'";
+			$sql.=" AND u.status='ok'";
 			//}
 			//complete query
 			$sql.=" GROUP BY u.user_id LIMIT $maximum_sends";
@@ -70,7 +72,7 @@ if ($newsletters_res->num_rows >= 1) {
 			//otherwise send to selected recipients
 			} else {
 				while ($recipients=$recipients_res->fetch_assoc()) {
-					unset($message_html,$message_text);
+					unset($message_html,$message_text,$mail);
 					//compile new message for user
 					$subject=$newsletters['subject'];
 					$from_name=(strpos($cinema_data['name'], $cinema_data['city'])) ? $cinema_data['name'] : $cinema_data['name'] . ' ' . $cinema_data['city'];
@@ -124,29 +126,29 @@ if ($newsletters_res->num_rows >= 1) {
 						$mail->Body = $message_html;
 						$mail->AltBody = $message_text;
 					}
-					$mail->AddReplyTo($from_email, $from_name);
+					//$mail->AddReplyTo($from_email, $from_name);
 					$mail->AddAddress($to_email);
-					if (!$mail->Send()) {
-						die("Could not send.");
-						exit;
-					}
-					//log to database
-					$sql = "
-						INSERT INTO newsletter_log 
-						SET newsletter_id = '{$newsletters['newsletter_id']}', 
+					if ($mail->Send()) {
+						// Log to database
+						$sql = "
+							INSERT INTO newsletter_log 
+							SET newsletter_id = '{$newsletters['newsletter_id']}', 
 							user_id = '{$recipients['user_id']}',
 							token = '{$token}'
-					";
-					$mysqli->query($sql) or user_error($sql);
-					$sql = "
-						UPDATE newsletters
-						SET status = 'sent'
-						WHERE newsletter_id = '{$newsletters['newsletter_id']}'
-					";
-					$mysqli->query($sql) or user_error($sql);
+						";
+						$mysqli->query($sql) or user_error($sql);
+					} else {
+						error_log("[WARN]: Could not send to email: ".$to_email.".\n",3,"/var/www/logs/error-email.log");
+					}
 					$mail->ClearAddresses();
 					$total_sends++;
 				}
+				$sql = "
+                                	UPDATE newsletters
+                                        SET status = 'sent'
+                                        WHERE newsletter_id = '{$newsletters['newsletter_id']}'
+                                ";
+                                $mysqli->query($sql) or user_error($sql);
 			}
 		}
 	}

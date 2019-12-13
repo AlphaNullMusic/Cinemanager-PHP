@@ -13,7 +13,8 @@ if (check_cinema() && has_permission('newsletters')) {
 
 		// Generate html
 		$message_html=file_get_contents($config['email_url']."?newsletter_id=".$_REQUEST['newsletter_id']);
-		$message_html=str_replace("uploads/",$config['cinema_url']."uploads/",$message_html);
+		$message_html=preg_replace('#\"uploads\/#','"'.$config['cinema_url']."uploads/",$message_html);
+		$message_html=preg_replace("#\'uploads\/#","'".$config['cinema_url']."uploads/",$message_html);
 		$message_text=strip_tags(file_get_contents($config['email_url']."?newsletter_id=".$_REQUEST['newsletter_id']."&plaintext=y"));
 
 		// Prepare message for sending

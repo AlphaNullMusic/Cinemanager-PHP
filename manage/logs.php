@@ -55,7 +55,8 @@ if (check_cinema() && check_admin()) {
 		isset($_GET['error-web']) ||
 		isset($_GET['error-manage']) ||
 		isset($_GET['error-mysql']) ||
-		isset($_GET['error-posters'])
+		isset($_GET['error-posters']) ||
+		isset($_GET['error-email'])
 	) {
 		if (isset($_GET['error-web'])) {
 			$log_name = 'error-web.log';
@@ -65,9 +66,14 @@ if (check_cinema() && check_admin()) {
                         $log_name = 'error-mysql.log';
                 } else if (isset($_GET['error-posters'])) {
                         $log_name = 'error-posters.log';
-                }
+                } else if (isset($_GET['error-email'])) {
+			$log_name = 'error-email.log';
+		}
 		$fn = "/var/www/logs/".$log_name;
-		$file = fopen($fn,"r");
+		if(!$file = fopen($fn,"r")) {
+			header("Location: ?");
+			exit;
+		}
 		$size = filesize($fn);
 		if ($size > 0) {
 			$text = fread($file,$size);
@@ -111,10 +117,10 @@ if (check_cinema() && check_admin()) {
                                               	<button class="btn btn-primary" style="margin-bottom:15px;" onclick="document.location = '?error-manage';">Manage Errors</button>
                                                 <button class="btn btn-primary" style="margin-bottom:15px;" onclick="document.location = '?error-mysql';">MySQL Errors</button>
                                                 <button class="btn btn-primary" style="margin-bottom:15px;" onclick="document.location = '?error-posters';">Poster Errors</button>
-
+						<button class="btn btn-primary" style="margin-bottom:15px;" onclick="document.location = '?error-email';">Email Errors</button>
 					</div>
 					
-					<?php if (isset($_GET['error-web']) || isset($_GET['error-manage']) || isset($_GET['error-mysql']) || isset($_GET['error-posters'])) { ?>
+					<?php if (isset($_GET['error-web']) || isset($_GET['error-manage']) || isset($_GET['error-mysql']) || isset($_GET['error-posters']) || isset($_GET['error-email'])) { ?>
 						<p><?php echo $log_name;?></p>
 						<pre><?php echo $text;?></pre>
 					<?php } ?>
