@@ -2,7 +2,7 @@
 include("inc/manage.inc.php");
 
 $url = array(
-    "http://localhost"
+    "https://shorelinecinema.co.nz/uploads/"
 );
 
 reset($_FILES);
@@ -26,11 +26,12 @@ if (is_uploaded_file($temp['tmp_name'])) {
     
     $fileName = "uploads/" . $temp['name'];
     move_uploaded_file($temp['tmp_name'], $fileName);
-    $fileUrl = $config['manage_url'] . $fileName;
+    $fileUrl = $config['cinema_url'] . $fileName;
 
     // Return JSON response with the uploaded file path.
     echo json_encode(array(
-        'file_path' => $fileUrl
+        //'file_path' => $fileUrl
+	'location' => $fileUrl
     ));
 }
 ?>

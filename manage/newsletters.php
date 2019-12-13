@@ -251,6 +251,7 @@ if (check_cinema() && has_permission('newsletters')) {
 								<input type="hidden" name="goto" value="send">
 								<input type="submit" name="goto" class="btn btn-warning submit" value="Amend">
 								<input type="submit" name="submit" class="btn btn-success submit" value="Send"></p>
+							</form>
 					  <?php } else { 
 								if (!isset($_REQUEST['newsletter_id'])) {
 									$t = strtotime("next Thursday");
@@ -432,10 +433,12 @@ if (check_cinema() && has_permission('newsletters')) {
 										<input type="hidden" name="newsletter_id" value="<?php echo $_REQUEST['newsletter_id']?>">
 							  <?php } ?>
 									<input type="hidden" name="goto" value="preview">
-									<input type="submit" name="submit" class="btn btn-primary submit" value="Preview">
 								</p>
-					  <?php } ?>
 						</form>
+						<div class="form-group"> 
+							<button name="submit" class="btn btn-primary submit" onclick="uploadImagesTinyMCE();">Preview</button>
+						</div>
+					<?php } ?>
 			  <?php } else { ?>
 					<main role="main" class="col-md-9 ml-sm-auto col-lg-12 pt-3 px-4">
 						<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">

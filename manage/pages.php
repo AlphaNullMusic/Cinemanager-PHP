@@ -84,12 +84,12 @@ if (check_cinema() && has_permission('edit_pages')) {
 								include('inc/tiny_mce/load.php');
 								?>
 								<input type="hidden" name="edit" value="<?php echo $_REQUEST['edit']?>">
-								<p>
-									<input type="submit" name="submit" class="btn btn-success submit" value="Save This Page" /> 
-										&nbsp; or &nbsp; 
-									<a href="pages.php" class="btn btn-outline-danger">abandon your changes.</a>
-								</p>
 							</form>
+							<div class="form-group">
+								<button name="submit" class="btn btn-success submit" onclick="uploadImagesTinyMCE();">Save This Page</button>
+                                                                                &nbsp; or &nbsp;
+                                                        	<a href="pages.php" class="btn btn-outline-danger">abandon your changes.</a>
+							</div>
 						</main>
 			  <?php }
 				} else { ?>

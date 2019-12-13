@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-12-08 21:49:03
+/* Smarty version 3.1.33, created on 2019-12-13 19:59:22
   from '/var/www/Cinemanager/web/tpl/newsletter_template.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5decb8ffab3775_45443705',
+  'unifunc' => 'content_5df336cad75952_86146187',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'aa3b2fa03344afca0000460f9e62189fcade2e56' => 
     array (
       0 => '/var/www/Cinemanager/web/tpl/newsletter_template.tpl',
-      1 => 1575794941,
+      1 => 1576220358,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:inc/css/email.css' => 1,
   ),
 ),false)) {
-function content_5decb8ffab3775_45443705 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5df336cad75952_86146187 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/Cinemanager/_deps/smarty/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
 if ($_smarty_tpl->tpl_vars['plaintext']->value) {?>Shoreline Cinema Weekly Newsletter<?php echo "\n\n";
 $_smarty_tpl->_assignInScope('divider', '========================================');
@@ -96,7 +96,7 @@ echo "\n\n";
 echo $_smarty_tpl->tpl_vars['divider']->value;
 echo "\n\n";
 } else { ?><!DOCTYPE html><html lang="en-nz"><head><title>Shoreline Cinema Newsletter</title><meta http-equiv="Content-Type" content="text/html;charset=UTF-8" /><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><style type="text/css"><?php $_smarty_tpl->_subTemplateRender("file:inc/css/email.css", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
-?>ul.sessions {min-height: 0!important;}</style></head><body class="SL_body"><table class="full" cellspacing="0" cellpadding="0"><thead><tr class="small-logo"><td><a class="logo hide-med" href="#" style="margin:0 auto;"><img src="https://shoreline.nz/tpl/inc/img/sl_logo.png" class="sl-logo-sm" height="25"></a></td></tr></thead></table><table class="full wrapper" cellspacing="0" cellpadding="0"><tbody><?php if ($_smarty_tpl->tpl_vars['editorial']->value) {?><tr class="featured"><td style="color:#ffffff;"><?php echo $_smarty_tpl->tpl_vars['editorial']->value;?>
+?>ul.sessions {min-height: 0!important;}</style></head><body class="SL_body"><table class="full" cellspacing="0" cellpadding="0"><thead><tr class="small-logo"><td><a class="logo hide-med" href="#" style="margin:0 auto;"><img src="https://shoreline.nz/tpl/inc/img/sl_logo.png" class="sl-logo-sm" width="316"></a></td></tr></thead></table><table class="full wrapper" cellspacing="0" cellpadding="0"><tbody><?php if ($_smarty_tpl->tpl_vars['editorial']->value) {?><tr class="featured"><td style="color:#ffffff;"><?php echo $_smarty_tpl->tpl_vars['editorial']->value;?>
 </td></tr><?php }
 if ($_smarty_tpl->tpl_vars['ns']->value) {?><tr class="information"><td><h1 style="font-weight:400;">Weekly Session Times</h1></td></tr><tr><td><table class="movie-times" cellspacing="0" cellpadding="10"><tbody><?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['ns']->value, 'n', false, NULL, 'n', array (
