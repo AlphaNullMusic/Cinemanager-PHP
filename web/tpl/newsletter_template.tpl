@@ -72,7 +72,7 @@ ul.sessions {
 			<tr class="small-logo">
 				<td>
 					<a class="logo hide-med" href="#" style="margin:0 auto;">
-					<img src="https://shoreline.nz/tpl/inc/img/sl_logo.png" class="sl-logo-sm" height="25">
+					<img src="https://shoreline.nz/tpl/inc/img/sl_logo.png" class="sl-logo-sm" width="316">
 					</a>
 				</td>
 			</tr>

@@ -35,7 +35,7 @@ if (isset($_REQUEST['newsletter_id'])) {
 	$sql="SELECT t.*, n.editorial, n.subject, n.sessions_start_date, n.sessions_num, n.movies 
 				FROM newsletter_templates t, newsletters n 
 				WHERE n.template_id=t.template_id 
-					AND n.newsletter_id='$newsletter_id'";
+					AND n.newsletter_id='".$mysqli->real_escape_string($newsletter_id)."'";
 	$template_res=$mysqli->query($sql);
 	$template_data=$template_res->fetch_assoc();
 	if ($template_data['editorial'] && $template_data['editorial']!="<P>&nbsp;</P>") { 

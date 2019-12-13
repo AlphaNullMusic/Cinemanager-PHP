@@ -175,6 +175,13 @@ b, strong { font-weight: bold; }
 .featured td {
 	padding: 35px;
 }
+tr.featured img {
+	max-width: 100%;
+	height: auto!important;
+}
+img.sl-logo-sm {
+	max-width: 100%;
+}
 .information {
 	background: #8a8259;
 	display: block;
