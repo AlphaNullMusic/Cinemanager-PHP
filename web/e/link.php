@@ -24,7 +24,7 @@ if (isset($_GET['l']) && is_numeric($_GET['l'])) {
 	if (isset($_GET['u']) && is_numeric($_GET['u'])) {
 		logNewsletterOpen($_GET['u'], $data['newsletter_id']);
 		$sql = "
-			INSERT INTO newsletter_user_log
+			INSERT IGNORE INTO newsletter_user_log
 			SET user_id = ?,
 				newsletter_id = ?,
 				id = ?,
