@@ -89,7 +89,7 @@ ul.sessions {
 			</tr>
 			{/if}
 
-			{if $ns}
+			{if $ns && !$no_movies}
 			<tr class="information">
 				<td>
 					<h1 style="font-weight:400;">Weekly Session Times</h1>

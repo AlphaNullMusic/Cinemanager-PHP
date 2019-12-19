@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-12-14 00:37:56
+/* Smarty version 3.1.33, created on 2019-12-19 14:26:35
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5df37814bdb704_58932235',
+  'unifunc' => 'content_5dfad1cbc1f2f4_07238346',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -24,7 +24,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_5df37814bdb704_58932235 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5dfad1cbc1f2f4_07238346 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
@@ -93,18 +93,19 @@ function content_5df37814bdb704_58932235 (Smarty_Internal_Template $_smarty_tpl)
 					    		                                        <span class="h3">Upcoming Screening Times</span>
                             <ul class="sessions">
                                                             	                              	
-                              	<li><strong>Saturday 14 Dec</strong><a href="/bookings/277/">12:00pm</a>                              	                              	
-                              	<li><strong>Sunday 15 Dec</strong><a href="/bookings/278/">10:30am</a>                              	                              	
-                              	<li><strong>Monday 16 Dec</strong><a href="/bookings/279/">4:30pm</a>                              	                              	
-                              	<li><strong>Tuesday 17 Dec</strong><a href="/bookings/280/">12:00pm</a>                              	                              	
-                              	<li><strong>Wednesday 18 Dec</strong><a href="/bookings/281/">12:00pm</a>                               </li>
+                              	<li><strong>Thursday 19 Dec</strong><a href="/bookings/303/">10:30am</a>                              	                              	
+                              	<li><strong>Friday 20 Dec</strong><a href="/bookings/304/">10:15am</a>                              	                              	
+                              	<li><strong>Saturday 21 Dec</strong><a href="/bookings/305/">4:30pm</a>                              	                              	
+                              	<li><strong>Sunday 22 Dec</strong><a href="/bookings/306/">6:15pm</a>                              	                              	
+                              	<li><strong>Monday 23 Dec</strong><a href="/bookings/307/">12:30pm</a>                              	                              	
+                              	<li><strong>Tuesday 24 Dec</strong><a href="/bookings/308/">4:30pm</a>                               </li>
                             </ul>
                           	<p><i>To place a booking, click on the session time you are interested in. Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
                             		    </div>
     		    <div class="content-wrapper details">
     		                			<p>
-        				<strong>Rated:</strong> TBC<br />
-        				 <em>To Be Confirmed</em>        			</p>
+        				<strong>Rated:</strong> M<br />
+        				 <em>Suitable for Mature Audiences</em>        			</p>
         		            		    <p>
         			        			        			        				<a class="btn dark" href="https://youtu.be/ne8YlKfn8Dw" target="_blank">Official Trailer</a>
         			        		    </p>

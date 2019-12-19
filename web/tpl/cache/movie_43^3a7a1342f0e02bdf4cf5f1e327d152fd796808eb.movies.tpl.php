@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-12-13 22:23:32
+/* Smarty version 3.1.33, created on 2019-12-19 14:29:37
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5df3589479a311_70314569',
+  'unifunc' => 'content_5dfad28193add2_90583933',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -24,14 +24,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_5df3589479a311_70314569 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5dfad28193add2_90583933 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Van Gogh & Japan - Info</title>
+<title>Bombshell - Info</title>
 <meta name="description" content="Shoreline Cinema is Waikanae's premiere cinema complex. Find out who we are, what's on, what's coming up, how to contact us and much more.">
 <link href="/tpl/inc/css/styles.css" rel="stylesheet" type="text/css" />
 <link href="/tpl/inc/css/print.css" rel="stylesheet" type="text/css" media="print" />
@@ -81,29 +81,22 @@ function content_5df3589479a311_70314569 (Smarty_Internal_Template $_smarty_tpl)
 
 
 <div class="information">
-    <h2>Van Gogh & Japan</h2>
+    <h2>Bombshell</h2>
     <div class="content">
     	<div class="content-wrapper poster">
-    		<img src="https://posters.shoreline.nz/38-medium-default.jpg" width="190" alt="Van Gogh & Japan Poster" />
+    		<img src="https://posters.shoreline.nz/43-medium-default.jpg" width="190" alt="Bombshell Poster" />
     	</div>
     	<div class="content-wrapper text"> 
     		<div class="content">
     		    <div class="content-wrapper text">
-    		        <p>In this little known story of Van Gogh’s art we see just how important his study of Japan was. The film travels not only to France and the Netherlands but also to Japan to further explore the remarkable heritage that so affected Van Gogh and made him the artist we know of today.</p>
-					    		                                        <span class="h3">Upcoming Screening Times</span>
-                            <ul class="sessions">
-                                                            	                              	
-                              	<li><strong>Friday 13 Dec</strong><a href="/bookings/206/">4:30pm</a>                              	                              	
-                              	<li><strong>Wednesday 18 Dec</strong><a href="/bookings/207/">4:30pm</a>                               </li>
-                            </ul>
-                          	<p><i>To place a booking, click on the session time you are interested in. Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
-                            		    </div>
+    		        <p>Bombshell (2019 film) Bombshell is an upcoming American drama film directed by Jay Roach and written by Charles Randolph. It stars Charlize Theron, Nicole Kidman, and Margot Robbie, and is based upon several women at Fox News who set out to expose CEO Roger Ailes for sexual harassment.</p>
+					    		                		    </div>
     		    <div class="content-wrapper details">
     		                			<p>
-        				<strong>Rated:</strong> E<br />
-        				 <em>Suitable for Everyone</em>        			</p>
+        				<strong>Rated:</strong> M<br />
+        				 <em>Suitable for Mature Audiences</em>        			</p>
         		            		    <p>
-        			        			        			        				<a class="btn dark" href="https://www.youtube.com/watch?v=boPI6c-IXG4&feature=emb_title" target="_blank">Official Trailer</a>
+        			        			        			        				<a class="btn dark" href="https://youtu.be/51t-y1nHDT8" target="_blank">Official Trailer</a>
         			        		    </p>
             		  
     		    </div>

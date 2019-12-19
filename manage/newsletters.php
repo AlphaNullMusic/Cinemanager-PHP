@@ -193,7 +193,7 @@ if (check_cinema() && has_permission('newsletters')) {
 								<br>
 								<br>
 								<?php
-								$list_res = $mysqli->query("SELECT COUNT(*) AS num FROM users");
+								$list_res = $mysqli->query("SELECT COUNT(*) AS num FROM users WHERE status = 'ok'");
 								$list_data = $list_res->fetch_assoc();
 								$list_num = $list_data['num']; ?>
 								<input type="radio" name="recipients" value="all" id="recipients_all">

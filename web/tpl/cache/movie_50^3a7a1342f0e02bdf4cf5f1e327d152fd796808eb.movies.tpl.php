@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-12-13 22:19:06
+/* Smarty version 3.1.33, created on 2019-12-19 14:29:20
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5df3578a1401c0_90210554',
+  'unifunc' => 'content_5dfad270888190_80208803',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -24,14 +24,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_5df3578a1401c0_90210554 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5dfad270888190_80208803 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Biggest Little Farm - Info</title>
+<title>Roxane - Info</title>
 <meta name="description" content="Shoreline Cinema is Waikanae's premiere cinema complex. Find out who we are, what's on, what's coming up, how to contact us and much more.">
 <link href="/tpl/inc/css/styles.css" rel="stylesheet" type="text/css" />
 <link href="/tpl/inc/css/print.css" rel="stylesheet" type="text/css" media="print" />
@@ -81,31 +81,22 @@ function content_5df3578a1401c0_90210554 (Smarty_Internal_Template $_smarty_tpl)
 
 
 <div class="information">
-    <h2>The Biggest Little Farm</h2>
+    <h2>Roxane</h2>
     <div class="content">
     	<div class="content-wrapper poster">
-    		<img src="https://posters.shoreline.nz/28-medium-default.jpg" width="190" alt="The Biggest Little Farm Poster" />
+    		<img src="https://posters.shoreline.nz/50-medium-default.jpg" width="190" alt="Roxane Poster" />
     	</div>
     	<div class="content-wrapper text"> 
     		<div class="content">
     		    <div class="content-wrapper text">
-    		        <p>The Biggest Little Farm is a 2018 American documentary film, directed by Emmy Award Winning director John Chester. The film profiles Chester and his wife Molly as they acquire and establish themselves on Apricot Lane Farms in Moorpark, California.</p>
-					    		                                        <span class="h3">Upcoming Screening Times</span>
-                            <ul class="sessions">
-                                                            	                              	
-                              	<li><strong>Friday 13 Dec</strong><a href="/bookings/252/">10:15am</a>                              	                              	
-                              	<li><strong>Saturday 14 Dec</strong><a href="/bookings/253/">4:30pm</a>                              	                              	
-                              	<li><strong>Tuesday 17 Dec</strong><a href="/bookings/254/">6:15pm</a>                               </li>
-                            </ul>
-                          	<p><i>To place a booking, click on the session time you are interested in. Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
-                            		    </div>
+    		        <p>What does Cyrano de Bergerac do at a chicken farmer in Brittany? This is the problem of Raymond, who has always kept his passion for the theater hidden. But when, back to the wall, he is ...</p>
+					    		                		    </div>
     		    <div class="content-wrapper details">
     		                			<p>
-        				<strong>Rated:</strong> PG<br />
-        				 <em>Parental Guidance is Recommended</em>        			</p>
+        				<strong>Rated:</strong> TBC<br />
+        				 <em>To Be Confirmed</em>        			</p>
         		            		    <p>
-        			        			        			        				<a class="btn dark" href="https://youtu.be/UfDTM4JxHl8" target="_blank">Official Trailer</a>
-        			        		    </p>
+        			        			        			        		    </p>
             		  
     		    </div>
     		</div>
