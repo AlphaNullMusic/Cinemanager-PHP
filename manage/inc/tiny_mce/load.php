@@ -67,6 +67,10 @@
 
 			xhr.send(formData);
 		},
+		urlconverter_callback: function(url,node,on_save,name) {
+			url = encodeURI(url);
+			return url;
+		},
 	});
 	
 	function uploadImagesTinyMCE() {

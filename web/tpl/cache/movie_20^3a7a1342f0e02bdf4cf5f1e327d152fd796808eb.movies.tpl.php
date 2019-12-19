@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-12-19 14:26:02
+/* Smarty version 3.1.33, created on 2019-12-19 14:26:17
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5dfad1aad09685_00001068',
+  'unifunc' => 'content_5dfad1b94fe2b5_28340217',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -24,14 +24,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_5dfad1aad09685_00001068 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5dfad1b94fe2b5_28340217 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vita & Virginia - Info</title>
+<title>Last Christmas - Info</title>
 <meta name="description" content="Shoreline Cinema is Waikanae's premiere cinema complex. Find out who we are, what's on, what's coming up, how to contact us and much more.">
 <link href="/tpl/inc/css/styles.css" rel="stylesheet" type="text/css" />
 <link href="/tpl/inc/css/print.css" rel="stylesheet" type="text/css" media="print" />
@@ -81,24 +81,22 @@ function content_5dfad1aad09685_00001068 (Smarty_Internal_Template $_smarty_tpl)
 
 
 <div class="information">
-    <h2>Vita & Virginia</h2>
+    <h2>Last Christmas</h2>
     <div class="content">
     	<div class="content-wrapper poster">
-    		<img src="https://posters.shoreline.nz/30-medium-default.jpg" width="190" alt="Vita & Virginia Poster" />
+    		<img src="https://posters.shoreline.nz/20-medium-default.jpg" width="190" alt="Last Christmas Poster" />
     	</div>
     	<div class="content-wrapper text"> 
     		<div class="content">
     		    <div class="content-wrapper text">
-    		        <p>VITA & VIRGINIA is a love story of the affair between author Virginia Woolf ( Elizabeth Debicki) and aristocrat Vita Sackville-West (Gemma Arteton). In 1922 when Vita receives an invitation to a party in Bloomsbury, her path crosses with Virginia's. Their subsequesnt romance overcomes all social boundaries. However Virginia's mental health suffers over Vita's recklessness and neither will ever be the same without the other.</p>
+    		        <p>Kate is a young woman subscribed to bad decisions. Her last date with disaster? That of having accepted to work as Santa's elf for a department store. However, she meets Tom there. Her life takes a new turn. For Kate, it seems too good to be true.								</p>
 					    		                                        <span class="h3">Upcoming Screening Times</span>
                             <ul class="sessions">
                                                             	                              	
-                              	<li><strong>Thursday 19 Dec</strong><a href="/bookings/346/">4:00pm</a>                              	                              	
-                              	<li><strong>Friday 20 Dec</strong><a href="/bookings/347/">6:15pm</a>                              	                              	
-                              	<li><strong>Saturday 21 Dec</strong><a href="/bookings/348/">2:30pm</a>                              	                              	
-                              	<li><strong>Sunday 22 Dec</strong><a href="/bookings/349/">1:45pm</a>                              	                              	
-                              	<li><strong>Monday 23 Dec</strong><a href="/bookings/350/">6:15pm</a>                              	                              	
-                              	<li><strong>Tuesday 24 Dec</strong><a href="/bookings/351/">4:15pm</a>                               </li>
+                              	<li><strong>Thursday 19 Dec</strong><a href="/bookings/319/">6:00pm</a>                              	                              	
+                              	<li><strong>Saturday 21 Dec</strong><a href="/bookings/352/">6:15pm</a>                              	                              	
+                              	<li><strong>Monday 23 Dec</strong><a href="/bookings/321/">4:15pm</a>                              	                              	
+                              	<li><strong>Tuesday 24 Dec</strong><a href="/bookings/322/">6:15pm</a>                               </li>
                             </ul>
                           	<p><i>To place a booking, click on the session time you are interested in. Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
                             		    </div>
@@ -107,7 +105,7 @@ function content_5dfad1aad09685_00001068 (Smarty_Internal_Template $_smarty_tpl)
         				<strong>Rated:</strong> M<br />
         				 <em>Suitable for Mature Audiences</em>        			</p>
         		            		    <p>
-        			        			        			        				<a class="btn dark" href="https://youtu.be/RzyVuP6HZ9U" target="_blank">Official Trailer</a>
+        			        			        			        				<a class="btn dark" href="https://youtu.be/z9CEIcmWmtA" target="_blank">Official Trailer</a>
         			        		    </p>
             		  
     		    </div>

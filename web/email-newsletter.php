@@ -50,13 +50,17 @@ if (isset($_REQUEST['newsletter_id'])) {
 	$movies=explode(", ",$movies);
 	if (!empty($movies)) {
 		$movie_list = get_movie_list_full('ns','m.title',$template_data['sessions_num'],'%W %D','%e %b',20,$template_data['sessions_start_date'],null,null,true,'medium');
-		$ns = array();
-		foreach($movies as $m) {
-			foreach($movie_list as $key => $movie) {
-				if($m == $movie['movie_id']) {
-					$ns[$key] = $movie;
+		if (!empty($movie_list)) {
+			$ns = array();
+			foreach($movies as $m) {
+				foreach($movie_list as $key => $movie) {
+					if($m == $movie['movie_id']) {
+						$ns[$key] = $movie;
+					}
 				}
 			}
+		} else {
+			$smarty->assign('no_movies',true);
 		}
 	} else {
 		$ns = get_movie_list_full('ns','m.title',$template_data['sessions_num'],'%W %D','%e %b',20,$template_data['sessions_start_date'],null,null,true,'medium');
