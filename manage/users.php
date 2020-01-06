@@ -89,6 +89,12 @@ if (check_cinema() && has_permission('user_list')) {
 					if (isset($_POST['last_name']) && $_POST['last_name'] != '') {
 						$sql .= ", last_name='".$mysqli->real_escape_string($_POST['last_name'])."'";
 					}
+					if (isset($_POST['landline']) && $_POST['landline'] != '') {
+                                                $sql .= ", landline='".$mysqli->real_escape_string($_POST['landline'])."'";
+                                        }
+					if (isset($_POST['mobile']) && $_POST['mobile'] != '') {
+                                                $sql .= ", mobile='".$mysqli->real_escape_string($_POST['mobile'])."'";
+                                        }
 					$sql .= " WHERE user_id='$user_id'";
 					$mysqli->query($sql);
 				}
@@ -109,7 +115,15 @@ if (check_cinema() && has_permission('user_list')) {
 			$mysqli->query("UPDATE user_newsletters SET plain_text='$plain_text' WHERE user_id='{$user_data['user_id']}' AND cinema_id='{$_SESSION['cinema_data']['cinema_id']}'") or $mysqli->error;
 			//optional updates
 			if (has_permission('newsletter_merge')) {
-				$mysqli->query("UPDATE users SET first_name='".$mysqli->real_escape_string($_POST['first_name'])."', last_name='".$mysqli->real_escape_string($_POST['last_name'])."' WHERE user_id='{$user_data['user_id']}'");
+				$sql = "
+					UPDATE users
+					SET first_name='".$mysqli->real_escape_string($_POST['first_name'])."',
+					last_name='".$mysqli->real_escape_string($_POST['last_name'])."',
+					landline='".$mysqli->real_escape_string($_POST['landline'])."',
+					mobile='".$mysqli->real_escape_string($_POST['mobile'])."'
+					WHERE user_id='{$user_data['user_id']}'
+				";
+				$mysqli->query($sql);
 			}
 		}
 		header("Location: users.php");
@@ -161,6 +175,7 @@ if (check_cinema() && has_permission('user_list')) {
 										<li>To enter multiple subscribers at once simply paste them into the box below.</li>
 										<li>Put a new line between each customer.</li>
 										<li>If you want to include the customer's name, put it before the email with a comma after it.</li>
+										<li>To add a phone number you will have to manually update each user by searching for them.</li>
 									</ul>
 									<strong>Example format:</strong>
 <pre style="margin-left:2em;">
@@ -201,6 +216,28 @@ jane@doe.co.nz
 												maxlength="100"
 											> 
 										</div>
+										<div class="form-group">
+                                                                                        <label for="landline"><strong>Home Phone Number</strong></label>
+                                                                                        <input
+                                                                                                name="landline"
+                                                                                                class="form-control"
+                                                                                                type="text"
+                                                                                                value="<?php echo isset($user_data['landline'])?$user_data['landline']:''?>"
+                                                                                                size="15"
+                                                                                                maxlength="100"
+                                                                                        >
+                                                                                </div>
+										<div class="form-group">
+                                                                                        <label for="mobile"><strong>Mobile Number</strong></label>
+                                                                                        <input
+                                                                                                name="mobile"
+                                                                                                class="form-control"
+                                                                                                type="text"
+                                                                                                value="<?php echo isset($user_data['mobile'])?$user_data['mobile']:''?>"
+                                                                                                size="15"
+                                                                                                maxlength="100"
+                                                                                        >
+                                                                                </div>
 									<?php } ?>
 									<p>
 										<strong>Email Format</strong>

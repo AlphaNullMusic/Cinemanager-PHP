@@ -21,7 +21,7 @@ if(!$smarty->isCached($tpl)) {
 		global $mysqli;
 		// Get session data
 		$sql = "
-			SELECT movie_id
+			SELECT movie_id, time
 			FROM sessions
 			WHERE session_id = '" . $mysqli->real_escape_string($_REQUEST['booking_id']) . "'
 			LIMIT 1
@@ -36,7 +36,7 @@ if(!$smarty->isCached($tpl)) {
 				
 				$smarty->assign($movie_data); 
 				$smarty->assign('movie_id',$movie_id); 
-				$smarty->assign('session',$session); 
+				$smarty->assign('session',$session);
 				
 				// Booking complete comfirmation
 				if (isset($_GET['booking']) && $_GET['booking']=='complete') {
@@ -98,6 +98,7 @@ if(!$smarty->isCached($tpl)) {
 							$mail->IsSMTP();
 							$mail->SMTPAuth = true;
 							$mail->SMTPSecure = 'tls';
+							//$mail->SMTPDebug = 2;
 							$mail->Host = $config['booking_smtp_server'];
 							$mail->Mailer = "smtp";
 							$mail->Port = 587;
@@ -214,6 +215,7 @@ if(!$smarty->isCached($tpl)) {
 			}
 		} else {
 			header("Location: ".$cinema_domain."404/");
+			exit;
 		}
 	}
 	

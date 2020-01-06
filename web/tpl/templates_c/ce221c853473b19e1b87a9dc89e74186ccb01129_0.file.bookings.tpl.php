@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-12-09 23:04:08
+/* Smarty version 3.1.33, created on 2019-12-31 14:04:36
   from '/var/www/Cinemanager/web/tpl/bookings.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5dee1c18c3ec48_99034296',
+  'unifunc' => 'content_5e0a9ea4c84965_75130849',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ce221c853473b19e1b87a9dc89e74186ccb01129' => 
     array (
       0 => '/var/www/Cinemanager/web/tpl/bookings.tpl',
-      1 => 1575885594,
+      1 => 1577754275,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:inc/tpl/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5dee1c18c3ec48_99034296 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e0a9ea4c84965_75130849 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/Cinemanager/_deps/smarty/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),1=>array('file'=>'/var/www/Cinemanager/_deps/smarty/plugins/function.html_options.php','function'=>'smarty_function_html_options',),));
 ?>
 <!DOCTYPE html>
@@ -155,7 +155,7 @@ function YY_checkform() { //v4.71
     	    <div class="content">
     	        <div class="content-wrapper text">
     	            <p><i>Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
-    	            <form action="/bookings/<?php echo $_smarty_tpl->tpl_vars['booking_id']->value;?>
+    	            			<form action="/bookings/<?php echo $_smarty_tpl->tpl_vars['booking_id']->value;?>
 /" method="post" name="bookings" onSubmit="YY_checkform('bookings','c_name','#q','0','Please enter your name.','c_email','#S','2','Please enter your email address.','c_phone','#q','0','Please enter your phone number.');return document.MM_returnValue">
                         <?php if (!$_smarty_tpl->tpl_vars['booking']->value) {?>
 							<span class="h3">Screening Details</span><br />
@@ -277,11 +277,11 @@ function YY_checkform() { //v4.71
                                 <input type="hidden" name="s" value="<?php echo $_smarty_tpl->tpl_vars['s']->value;?>
 ">
                                 <input type="hidden" name="action" value="place_booking">
-                                <button class="btn green" type="submit">Request Ticket</button></td>
+				                                <button class="btn green" type="submit">Request Ticket</button></td>
                             </table>
                         <?php }?>
                 		</form>
-    	        </div>
+										    	        </div>
     	    </div> 	
       </div> 
       <div class="content-wrapper details">
