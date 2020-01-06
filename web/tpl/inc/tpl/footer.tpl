@@ -35,6 +35,17 @@
   	    gtag('config', '{$gacode}');
 	</script>
     {/if}
+    {if $disable_btn}
+    <script>
+        $("form").submit(function () {
+            $(this).submit(function () {
+                return false;
+            });
+            $(this).find("button[type='submit']").attr('disabled', 'disabled').css('opacity', '0.8').text('Submiting...');
+            return true;
+        });
+    </script>
+    {/if}
 </body>
 </html>
 {/strip}

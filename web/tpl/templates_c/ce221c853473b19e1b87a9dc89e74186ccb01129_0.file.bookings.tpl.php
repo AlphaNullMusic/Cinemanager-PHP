@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-12-31 14:04:36
+/* Smarty version 3.1.33, created on 2020-01-06 20:53:34
   from '/var/www/Cinemanager/web/tpl/bookings.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5e0a9ea4c84965_75130849',
+  'unifunc' => 'content_5e12e77ec3f200_79184876',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ce221c853473b19e1b87a9dc89e74186ccb01129' => 
     array (
       0 => '/var/www/Cinemanager/web/tpl/bookings.tpl',
-      1 => 1577754275,
+      1 => 1578297195,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:inc/tpl/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5e0a9ea4c84965_75130849 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e12e77ec3f200_79184876 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/Cinemanager/_deps/smarty/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),1=>array('file'=>'/var/www/Cinemanager/_deps/smarty/plugins/function.html_options.php','function'=>'smarty_function_html_options',),));
 ?>
 <!DOCTYPE html>
@@ -167,10 +167,19 @@ function YY_checkform() { //v4.71
 </strong></p><br />
 						<?php }?>
 						<?php if ($_smarty_tpl->tpl_vars['er']->value == 'incomplete') {?>
-							<?php echo '<script'; ?>
+                            <?php if ($_smarty_tpl->tpl_vars['er_msg']->value) {?>
+                                <?php echo '<script'; ?>
+>alert('Request incomplete:\r\n<?php echo $_smarty_tpl->tpl_vars['er_msg']->value;?>
+');<?php echo '</script'; ?>
+>
+                                <h4 class="booking-failed"><i>Request incomplete:<br /><?php echo $_smarty_tpl->tpl_vars['er_msg']->value;?>
+</i></h4><br />
+                            <?php } else { ?>
+							    <?php echo '<script'; ?>
 >alert('Request incomplete.\r\nPlease check your details and try again.');<?php echo '</script'; ?>
 >
-							<h4 class="booking-failed"><i>Please try again.</i></h4><br />
+                                <h4 class="booking-failed"><i>Request incomplete:<br />Please try again.</i></h4><br />
+                            <?php }?>
 						<?php }?>
 						<?php if ($_smarty_tpl->tpl_vars['session']->value['label_name']) {?>
 						<h4 class="booking-failed"><i>Note, this session is labelled as: </i><br><strong><?php echo $_smarty_tpl->tpl_vars['session']->value['label_name'];?>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-12-09 23:47:41
+/* Smarty version 3.1.33, created on 2020-01-06 21:44:35
   from '/var/www/Cinemanager/web/tpl/inc/tpl/footer.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5dee264dcdd257_22448924',
+  'unifunc' => 'content_5e12f3734d16b1_73053819',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '12f3ac630680bc6778753de8bb98e13015ec9d16' => 
     array (
       0 => '/var/www/Cinemanager/web/tpl/inc/tpl/footer.tpl',
-      1 => 1575886306,
+      1 => 1578300179,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5dee264dcdd257_22448924 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e12f3734d16b1_73053819 (Smarty_Internal_Template $_smarty_tpl) {
 ?><footer><div id="text"><p>Web design and content &copy; <?php echo date('Y');?>
 , Shoreline Cinema Waikanae, New Zealand. <a id="improve-visibility">Improve Visibility.</a></p></div></footer></div><?php echo '<script'; ?>
  src="/tpl/inc/js/jquery-3.4.1.min.js"><?php echo '</script'; ?>
@@ -40,6 +40,10 @@ if ($_smarty_tpl->tpl_vars['gacode']->value) {?><!-- Global site tag (gtag.js) -
 ><?php echo '<script'; ?>
 >window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', '<?php echo $_smarty_tpl->tpl_vars['gacode']->value;?>
 ');<?php echo '</script'; ?>
+><?php }
+if ($_smarty_tpl->tpl_vars['disable_btn']->value) {
+echo '<script'; ?>
+>$("form").submit(function () {$(this).submit(function () {return false;});$(this).find("button[type='submit']").attr('disabled', 'disabled').css('opacity', '0.8').text('Submiting...');return true;});<?php echo '</script'; ?>
 ><?php }?></body></html>
 <?php }
 }

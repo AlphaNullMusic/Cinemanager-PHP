@@ -132,8 +132,13 @@ function YY_checkform() { //v4.71
 							<p>Time: <strong>{$session.session_time}</strong></p><br />
 						{/if}
 						{if $er=='incomplete'}
-							<script>alert('Request incomplete.\r\nPlease check your details and try again.');</script>
-							<h4 class="booking-failed"><i>Please try again.</i></h4><br />
+                            {if $er_msg}
+                                <script>alert('Request incomplete:\r\n{$er_msg}');</script>
+                                <h4 class="booking-failed"><i>Request incomplete:<br />{$er_msg}</i></h4><br />
+                            {else}
+							    <script>alert('Request incomplete.\r\nPlease check your details and try again.');</script>
+                                <h4 class="booking-failed"><i>Request incomplete:<br />Please try again.</i></h4><br />
+                            {/if}
 						{/if}
 						{if $session.label_name}
 						<h4 class="booking-failed"><i>Note, this session is labelled as: </i><br><strong>{$session.label_name}<strong></h4><br />
