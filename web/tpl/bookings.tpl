@@ -123,7 +123,8 @@ function YY_checkform() { //v4.71
     	    <div class="content">
     	        <div class="content-wrapper text">
     	            <p><i>Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
-    	            <form action="/bookings/{$booking_id}/" method="post" name="bookings" onSubmit="YY_checkform('bookings','c_name','#q','0','Please enter your name.','c_email','#S','2','Please enter your email address.','c_phone','#q','0','Please enter your phone number.');return document.MM_returnValue">
+    	            {*if $session.session_time|strtotime >= $smarty.now*}
+			<form action="/bookings/{$booking_id}/" method="post" name="bookings" onSubmit="YY_checkform('bookings','c_name','#q','0','Please enter your name.','c_email','#S','2','Please enter your email address.','c_phone','#q','0','Please enter your phone number.');return document.MM_returnValue">
                         {if !$booking}
 							<span class="h3">Screening Details</span><br />
 							<p>Movie: <strong>{$movie.title}</strong></p>
@@ -216,10 +217,14 @@ function YY_checkform() { //v4.71
                                 <input type="hidden" name="d" value="{$d}">
                                 <input type="hidden" name="s" value="{$s}">
                                 <input type="hidden" name="action" value="place_booking">
+				{* <span class="booking-failed">Sorry, bookings are temporarily disabled for maintenance.<br>Please <em><a href="/contact-us">contact us</a></em> to book.</span><br> *}
                                 <button class="btn green" type="submit">Request Ticket</button></td>
                             </table>
                         {/if}
                 		</form>
+			{*else*}
+				{*<span class="booking-failed"><em><strong>This session has already shown.</strong></em></span>*}
+			{*/if*}
     	        </div>
     	    </div> 	
       </div> 

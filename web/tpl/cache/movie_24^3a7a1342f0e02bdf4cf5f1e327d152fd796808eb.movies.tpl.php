@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-12-19 14:27:16
+/* Smarty version 3.1.33, created on 2020-01-06 14:58:40
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5dfad1f44612d5_91932736',
+  'unifunc' => 'content_5e129450f2bd89_99369403',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -24,7 +24,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_5dfad1f44612d5_91932736 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e129450f2bd89_99369403 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
@@ -96,12 +96,16 @@ Stars: Chris Evans, Ana de Armas, Daniel Craig, Daniel Redcliff</p>
 					    		                                        <span class="h3">Upcoming Screening Times</span>
                             <ul class="sessions">
                                                             	                              	
-                              	<li><strong>Thursday 19 Dec</strong><a href="/bookings/309/">8:15pm</a>                              	                              	
-                              	<li><strong>Friday 20 Dec</strong><a href="/bookings/310/">2:00pm</a>, <a href="/bookings/311/">8:30pm</a>                              	                              	
-                              	<li><strong>Saturday 21 Dec</strong><a href="/bookings/312/">12:00pm</a>, <a href="/bookings/313/">6:00pm</a>                              	                              	
-                              	<li><strong>Sunday 22 Dec</strong><a href="/bookings/314/">3:45pm</a>, <a href="/bookings/315/">8:15pm</a>                              	                              	
-                              	<li><strong>Monday 23 Dec</strong><a href="/bookings/316/">6:00pm</a>                              	                              	
-                              	<li><strong>Tuesday 24 Dec</strong><a href="/bookings/317/">10:15am</a>, <a href="/bookings/318/">8:30pm</a>                               </li>
+                              	<li><strong>Monday  6 Jan</strong><a href="/bookings/479/">6:00pm</a>                              	                              	
+                              	<li><strong>Tuesday  7 Jan</strong><a href="/bookings/480/">6:00pm</a>                              	                              	
+                              	<li><strong>Wednesday  8 Jan</strong><a href="/bookings/481/">6:00pm</a>                              	                              	
+                              	<li><strong>Thursday  9 Jan</strong><a href="/bookings/556/">8:15pm</a>                              	                              	
+                              	<li><strong>Friday 10 Jan</strong><a href="/bookings/557/">8:15pm</a>                              	                              	
+                              	<li><strong>Saturday 11 Jan</strong><a href="/bookings/558/">8:30pm</a>                              	                              	
+                              	<li><strong>Sunday 12 Jan</strong><a href="/bookings/559/">8:15pm</a>                              	                              	
+                              	<li><strong>Monday 13 Jan</strong><a href="/bookings/560/">8:30pm</a>                              	                              	
+                              	<li><strong>Tuesday 14 Jan</strong><a href="/bookings/561/">10:15am</a>                              	                              	
+                              	<li><strong>Wednesday 15 Jan</strong><a href="/bookings/562/">8:30pm</a>                               </li>
                             </ul>
                           	<p><i>To place a booking, click on the session time you are interested in. Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
                             		    </div>
@@ -119,7 +123,7 @@ Stars: Chris Evans, Ana de Armas, Daniel Craig, Daniel Redcliff</p>
       </div> 
     </div>
 
-<footer><div id="text"><p>Web design and content &copy; 2019, Shoreline Cinema Waikanae, New Zealand. <a id="improve-visibility">Improve Visibility.</a></p></div></footer></div><script src="/tpl/inc/js/jquery-3.4.1.min.js"></script><script src="/tpl/inc/js/js.cookie-2.2.1.min.js"></script><script src="/tpl/inc/js/scripts.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-137475424-1"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'UA-137475424-1');</script></body></html>
+<footer><div id="text"><p>Web design and content &copy; 2020, Shoreline Cinema Waikanae, New Zealand. <a id="improve-visibility">Improve Visibility.</a></p></div></footer></div><script src="/tpl/inc/js/jquery-3.4.1.min.js"></script><script src="/tpl/inc/js/js.cookie-2.2.1.min.js"></script><script src="/tpl/inc/js/scripts.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-137475424-1"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'UA-137475424-1');</script></body></html>
 
 
 <?php }

@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-12-19 14:29:07
+/* Smarty version 3.1.33, created on 2020-01-06 14:36:40
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5dfad26300b744_25451133',
+  'unifunc' => 'content_5e128f2878c572_35017816',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -24,7 +24,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_5dfad26300b744_25451133 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e128f2878c572_35017816 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
@@ -90,11 +90,23 @@ function content_5dfad26300b744_25451133 (Smarty_Internal_Template $_smarty_tpl)
     		<div class="content">
     		    <div class="content-wrapper text">
     		        <p>A hard-up delivery driver and his wife struggle to get by in modern-day England.</p>
-					    		                		    </div>
+					    		                                        <span class="h3">Upcoming Screening Times</span>
+                            <ul class="sessions">
+                                                            	                              	
+                              	<li><strong>Thursday  9 Jan</strong><a href="/bookings/577/">10:15am</a>                              	                              	
+                              	<li><strong>Friday 10 Jan</strong><a href="/bookings/578/">12:00pm</a>                              	                              	
+                              	<li><strong>Saturday 11 Jan</strong><a href="/bookings/579/">12:00pm</a>                              	                              	
+                              	<li><strong>Sunday 12 Jan</strong><a href="/bookings/580/">6:30pm</a>                              	                              	
+                              	<li><strong>Monday 13 Jan</strong><a href="/bookings/581/">12:15pm</a>                              	                              	
+                              	<li><strong>Tuesday 14 Jan</strong><a href="/bookings/582/">2:30pm</a>                              	                              	
+                              	<li><strong>Wednesday 15 Jan</strong><a href="/bookings/583/">4:15pm</a>                               </li>
+                            </ul>
+                          	<p><i>To place a booking, click on the session time you are interested in. Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
+                            		    </div>
     		    <div class="content-wrapper details">
     		                			<p>
-        				<strong>Rated:</strong> TBC<br />
-        				 <em>To Be Confirmed</em>        			</p>
+        				<strong>Rated:</strong> M<br />
+        				 <em>Suitable for Mature Audiences</em>        			</p>
         		            		    <p>
         			        			        			        				<a class="btn dark" href="https://www.youtube.com/watch?v=ysjwg-MnZao" target="_blank">Official Trailer</a>
         			        		    </p>
@@ -105,7 +117,7 @@ function content_5dfad26300b744_25451133 (Smarty_Internal_Template $_smarty_tpl)
       </div> 
     </div>
 
-<footer><div id="text"><p>Web design and content &copy; 2019, Shoreline Cinema Waikanae, New Zealand. <a id="improve-visibility">Improve Visibility.</a></p></div></footer></div><script src="/tpl/inc/js/jquery-3.4.1.min.js"></script><script src="/tpl/inc/js/js.cookie-2.2.1.min.js"></script><script src="/tpl/inc/js/scripts.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-137475424-1"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'UA-137475424-1');</script></body></html>
+<footer><div id="text"><p>Web design and content &copy; 2020, Shoreline Cinema Waikanae, New Zealand. <a id="improve-visibility">Improve Visibility.</a></p></div></footer></div><script src="/tpl/inc/js/jquery-3.4.1.min.js"></script><script src="/tpl/inc/js/js.cookie-2.2.1.min.js"></script><script src="/tpl/inc/js/scripts.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-137475424-1"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'UA-137475424-1');</script></body></html>
 
 
 <?php }

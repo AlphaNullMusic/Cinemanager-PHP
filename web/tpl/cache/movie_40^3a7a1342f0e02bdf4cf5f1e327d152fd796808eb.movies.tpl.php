@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2020-01-06 14:29:33
+/* Smarty version 3.1.33, created on 2020-01-06 15:02:45
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5e128d7d3610a2_00525325',
+  'unifunc' => 'content_5e129545ca2153_75957137',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -24,14 +24,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_5e128d7d3610a2_00525325 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e129545ca2153_75957137 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Gentlemen - Info</title>
+<title>Little Women - Info</title>
 <meta name="description" content="Shoreline Cinema is Waikanae's premiere cinema complex. Find out who we are, what's on, what's coming up, how to contact us and much more.">
 <link href="/tpl/inc/css/styles.css" rel="stylesheet" type="text/css" />
 <link href="/tpl/inc/css/print.css" rel="stylesheet" type="text/css" media="print" />
@@ -81,37 +81,37 @@ function content_5e128d7d3610a2_00525325 (Smarty_Internal_Template $_smarty_tpl)
 
 
 <div class="information">
-    <h2>The Gentlemen</h2>
+    <h2>Little Women</h2>
     <div class="content">
     	<div class="content-wrapper poster">
-    		<img src="https://posters.shoreline.nz/44-medium-default.jpg" width="190" alt="The Gentlemen Poster" />
+    		<img src="https://posters.shoreline.nz/40-medium-default.jpg" width="190" alt="Little Women Poster" />
     	</div>
     	<div class="content-wrapper text"> 
     		<div class="content">
     		    <div class="content-wrapper text">
-    		        <p>Mickey Pearson is an American expatriate who became rich by building a marijuana empire in London. When word gets out that he's looking to cash out of the business, it soon triggers an array of plots and schemes from those who want his fortune.</p>
+    		        <p>Four sisters come of age in America in the aftermath of the Civil War.</p>
 					    		                                        <span class="h3">Upcoming Screening Times</span>
                             <ul class="sessions">
                                                             	                              	
-                              	<li><strong>Monday  6 Jan</strong><a href="/bookings/507/">2:30pm</a>, <a href="/bookings/508/">8:30pm</a>                              	                              	
-                              	<li><strong>Tuesday  7 Jan</strong><a href="/bookings/509/">12:30pm</a>, <a href="/bookings/510/">6:15pm</a>                              	                              	
-                              	<li><strong>Wednesday  8 Jan</strong><a href="/bookings/511/">2:30pm</a>, <a href="/bookings/512/">8:30pm</a>                              	                              	
-                              	<li><strong>Thursday  9 Jan</strong><a href="/bookings/586/">12:15pm</a>, <a href="/bookings/587/">6:30pm</a>                              	                              	
-                              	<li><strong>Friday 10 Jan</strong><a href="/bookings/588/">4:00pm</a>, <a href="/bookings/589/">6:30pm</a>                              	                              	
-                              	<li><strong>Saturday 11 Jan</strong><a href="/bookings/590/">12:00pm</a>, <a href="/bookings/591/">6:15pm</a>                              	                              	
-                              	<li><strong>Sunday 12 Jan</strong><a href="/bookings/592/">12:00pm</a>, <a href="/bookings/593/">4:30pm</a>                              	                              	
-                              	<li><strong>Monday 13 Jan</strong><a href="/bookings/594/">10:15am</a>, <a href="/bookings/595/">6:30pm</a>                              	                              	
-                              	<li><strong>Tuesday 14 Jan</strong><a href="/bookings/596/">12:30pm</a>, <a href="/bookings/597/">6:30pm</a>                              	                              	
-                              	<li><strong>Wednesday 15 Jan</strong><a href="/bookings/614/">12:15pm</a>                               </li>
+                              	<li><strong>Monday  6 Jan</strong><a href="/bookings/490/">12:00pm</a> <i>(1 seat)</i>, <a href="/bookings/491/">8:15pm</a>                              	                              	
+                              	<li><strong>Tuesday  7 Jan</strong><a href="/bookings/492/">10:00am</a> <i>(Sold Out)</i>, <a href="/bookings/493/">8:30pm</a>                              	                              	
+                              	<li><strong>Wednesday  8 Jan</strong><a href="/bookings/494/">12:00pm</a> <i>(Sold Out)</i>, <a href="/bookings/495/">8:15pm</a>                              	                              	
+                              	<li><strong>Thursday  9 Jan</strong><a href="/bookings/563/">2:15pm</a>, <a href="/bookings/564/">8:30pm</a>                              	                              	
+                              	<li><strong>Friday 10 Jan</strong><a href="/bookings/565/">2:00pm</a>, <a href="/bookings/566/">8:30pm</a>                              	                              	
+                              	<li><strong>Saturday 11 Jan</strong><a href="/bookings/567/">1:45pm</a>, <a href="/bookings/568/">8:15pm</a>                              	                              	
+                              	<li><strong>Sunday 12 Jan</strong><a href="/bookings/569/">2:00pm</a>, <a href="/bookings/570/">8:30pm</a>                              	                              	
+                              	<li><strong>Monday 13 Jan</strong><a href="/bookings/571/">12:00pm</a>, <a href="/bookings/572/">6:00pm</a>                              	                              	
+                              	<li><strong>Tuesday 14 Jan</strong><a href="/bookings/573/">10:00am</a>, <a href="/bookings/574/">8:15pm</a>                              	                              	
+                              	<li><strong>Wednesday 15 Jan</strong><a href="/bookings/575/">2:15pm</a>, <a href="/bookings/576/">8:30pm</a>                               </li>
                             </ul>
                           	<p><i>To place a booking, click on the session time you are interested in. Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
                             		    </div>
     		    <div class="content-wrapper details">
     		                			<p>
-        				<strong>Rated:</strong> M<br />
-        				 <em>Suitable for Mature Audiences</em>        			</p>
+        				<strong>Rated:</strong> PG<br />
+        				 <em>Parental Guidance is Recommended</em>        			</p>
         		            		    <p>
-        			        			        			        				<a class="btn dark" href="https://youtu.be/Ify9S7hj480" target="_blank">Official Trailer</a>
+        			        			        			        				<a class="btn dark" href="https://www.youtube.com/watch?v=2kUTUCg6_R0" target="_blank">Official Trailer</a>
         			        		    </p>
             		  
     		    </div>
