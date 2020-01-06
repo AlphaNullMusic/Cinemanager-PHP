@@ -10,14 +10,15 @@ $tpl = $config['cinema_dir'].'tpl/'.$tpl_name;
 if(!$smarty->isCached($tpl)) {
 
 	if (isset($_REQUEST['booking_id']) && has_permission('bookings')) {
-		
+
 		// Assign page variables
 		$smarty->assign('domain',$cinema_domain);
 		$smarty->assign('name',$cinema_data['cinema_name']);
 		$smarty->assign('city',$cinema_data['city']);
 		$smarty->assign('booking_id',$_REQUEST['booking_id']);
 		$smarty->assign('gacode',$config['ga_code']);
-		
+        $smarty->assign('disable_btn',true);
+
 		global $mysqli;
 		// Get session data
 		$sql = "
@@ -33,8 +34,8 @@ if(!$smarty->isCached($tpl)) {
 			$movie_data = get_movie($movie_id,false,NULL,'medium');
 			$session = get_session($_REQUEST['booking_id']);
 			if (is_array($movie_data) && $session) {
-				
-				$smarty->assign($movie_data); 
+
+				$smarty->assign($movie_data);
 				$smarty->assign('movie_id',$movie_id); 
 				$smarty->assign('session',$session);
 				
@@ -63,7 +64,7 @@ if(!$smarty->isCached($tpl)) {
 						if (
 							isset($_POST['c_name']) && strlen($_POST['c_name'])>3 && 
 							isset($_POST['c_email']) && is_email($_POST['c_email']) && 
-							isset($_POST['c_phone']) && strlen($_POST['c_phone'])>3 && (
+							isset($_POST['c_phone']) && strlen($_POST['c_phone'])>3 && !preg_match('/([^0-9+\s])+/', $_POST['c_phone']) && (
 								(isset($_POST['t_adults']) && $_POST['t_adults']!=0) || 
 								(isset($_POST['t_children']) && $_POST['t_children']!=0) || 
 								(isset($_POST['t_seniors']) && $_POST['t_seniors']!=0) || 
@@ -196,10 +197,82 @@ if(!$smarty->isCached($tpl)) {
 							    $url .= (isset($_POST['t_seniors'])) ? "&ts={$_POST['t_seniors']}" : "" ;
 							    $url .= (isset($_POST['t_students'])) ? "&tu={$_POST['t_students']}" : "" ;
 							    header("Location: $url");
-							    exit; 
+							    exit;
 							}
 						// Return with variables and error message
 						} else {
+                            // Assign message based on what's wrong
+                            do {
+                                if (
+                                (isset($_POST['t_adults']) && $_POST['t_adults']==0) &&
+                                (isset($_POST['t_children']) && $_POST['t_children']==0) &&
+                                (isset($_POST['t_seniors']) && $_POST['t_seniors']==0) &&
+                                (isset($_POST['t_students']) && $_POST['t_students']==0)
+                                )
+                                {
+                                    $smarty->assign('er_msg', 'Please select at least one ticket.');
+                                    break;
+                                }
+
+                                if (isset($_POST['c_name']) && (strlen($_POST['c_name']) <= 3 || strlen($_POST['c_name']) > 35))
+                                {
+                                    $smarty->assign('er_msg', 'Your name must be longer than 3 and less than 35 characters.');
+                                    break;
+                                }
+
+                                if (isset($_POST['c_email']) && (strlen($_POST['c_email']) <= 6 || strlen($_POST['c_email']) > 35))
+                                {
+                                    $smarty->assign('er_msg', 'Your email address must be longer than 6 and less than 35 characters, please try again.');
+                                    break;
+                                }
+
+                                if (isset($_POST['c_email']) && !is_email($_POST['c_email']))
+                                {
+                                    $smarty->assign('er_msg', 'Your email address must be in the correct format (e.g: john@doe.co.nz).');
+                                    break;
+                                }
+
+                                if (isset($_POST['c_phone']) && (strlen($_POST['c_phone']) <= 7 || strlen($_POST['c_phone']) > 20))
+                                {
+                                    $smarty->assign('er_msg', 'Your phone number must be longer than 7 and less than 20 characters.');
+                                    break;
+                                }
+
+                                if (isset($_POST['c_phone']) && preg_match('/([^0-9+\s])+/', $_POST['c_phone']))
+                                {
+                                    $smarty->assign('er_msg', 'Your phone number must only contain digits 0-9, + symbol and spaces.');
+                                    break;
+                                }
+                            } while (0);
+
+                            // Send log to Logflare
+                            $api_data = [
+                                "source" => "fa920177-1a85-48c4-ab0a-170271ce74c4",
+                                "log_entry" => $_SERVER['REQUEST_METHOD'].' | '.$_SERVER['REDIRECT_STATUS'].' | '.$_SERVER['REMOTE_ADDR'].' | https://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'].' | '.$_SERVER['HTTP_USER_AGENT'].' | '.date(DATE_RFC1123),
+                                "metadata" => [
+                                    "name" => $_POST['c_name'],
+                                    "email" => $_POST['c_email'],
+                                    "phone" => $_POST['c_phone'],
+                                    "wheelchair" => $_POST['c_wheelchair'],
+                                    "adults" => $_POST['t_adults'],
+                                    "children" => $_POST['t_children'],
+                                    "seniors" => $_POST['t_seniors'],
+                                    "students" => $_POST['t_students'],
+                                    "message_given" => $smarty->getTemplateVars('er_msg'),
+                                ],
+                            ];
+
+                            $curl = curl_init('https://api.logflare.app/logs');
+                            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+                            curl_setopt($curl, CURLOPT_POST, true);
+                            curl_setopt($curl, CURLOPT_POSTFIELDS,  json_encode($api_data));
+                            curl_setopt($curl, CURLOPT_HTTPHEADER, [
+                                'Content-Type: application/json',
+                                'X-API-KEY: SPeNdXl6Lzhk'
+                            ]);
+                            $response = curl_exec($curl);
+                            curl_close($curl);
+
 							$smarty->assign('er','incomplete');
 							$smarty->assign('c_name',$_POST['c_name']);
 							$smarty->assign('c_email',$_POST['c_email']);
@@ -217,8 +290,7 @@ if(!$smarty->isCached($tpl)) {
 			header("Location: ".$cinema_domain."404/");
 			exit;
 		}
-	}
-	
+    }
 	// Common functions
 	include('inc/local.inc.php');
 }

@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2020-01-06 15:02:45
+/* Smarty version 3.1.33, created on 2020-01-06 21:48:08
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5e129545ca2153_75957137',
+  'unifunc' => 'content_5e12f448622363_97581715',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -18,13 +18,13 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     '12f3ac630680bc6778753de8bb98e13015ec9d16' => 
     array (
       0 => '/var/www/Cinemanager/web/tpl/inc/tpl/footer.tpl',
-      1 => 1575886306,
+      1 => 1578300179,
       2 => 'file',
     ),
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_5e129545ca2153_75957137 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e12f448622363_97581715 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
@@ -93,7 +93,7 @@ function content_5e129545ca2153_75957137 (Smarty_Internal_Template $_smarty_tpl)
 					    		                                        <span class="h3">Upcoming Screening Times</span>
                             <ul class="sessions">
                                                             	                              	
-                              	<li><strong>Monday  6 Jan</strong><a href="/bookings/490/">12:00pm</a> <i>(1 seat)</i>, <a href="/bookings/491/">8:15pm</a>                              	                              	
+                              	<li><strong>Monday  6 Jan</strong><a href="/bookings/490/">12:00pm</a> <i>(1 seat)</i>, <a href="/bookings/491/">8:15pm</a> <i>(Sold Out)</i>                              	                              	
                               	<li><strong>Tuesday  7 Jan</strong><a href="/bookings/492/">10:00am</a> <i>(Sold Out)</i>, <a href="/bookings/493/">8:30pm</a>                              	                              	
                               	<li><strong>Wednesday  8 Jan</strong><a href="/bookings/494/">12:00pm</a> <i>(Sold Out)</i>, <a href="/bookings/495/">8:15pm</a>                              	                              	
                               	<li><strong>Thursday  9 Jan</strong><a href="/bookings/563/">2:15pm</a>, <a href="/bookings/564/">8:30pm</a>                              	                              	
