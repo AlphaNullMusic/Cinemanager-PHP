@@ -275,11 +275,16 @@ jane@doe.co.nz
 							<?php echo check_msg(); ?>
 							<?php 
 								$sql="
-									SELECT u.user_id, u.first_name, u.last_name, u.email
+									SELECT u.user_id, u.first_name, u.last_name, u.email, u.date_joined
 									FROM users u
 								";
 								if (isset($_GET['search']) && $_GET['search'] != '') { 
-									$sql.="WHERE u.email LIKE '%".$mysqli->real_escape_string($_GET['search'])."%' AND status = 'ok' "; 
+									$sql .= "
+                                        WHERE (u.email LIKE '%".$mysqli->real_escape_string($_GET['search'])."%')
+                                        OR (u.first_name LIKE '%".$mysqli->real_escape_string($_GET['search'])."%')
+                                        OR (u.last_name LIKE '%".$mysqli->real_escape_string($_GET['search'])."%')
+                                        AND status = 'ok'
+                                    ";
 								} else {
 									$sql .= "WHERE status = 'ok' ";
 								}
@@ -377,8 +382,8 @@ jane@doe.co.nz
 					  <?php } ?>
 							<hr>
 							<p>
-								<h2>Find Subscribers By Email</h2>
-								<p>Search for a subscriber to remove or edit them.</p>
+								<h2>Find Subscribers</h2>
+								<p>Search for a subscriber by name, or email. <br />Click on their email to remove or edit them.</p>
 								<form name="movie_search" method="get" action="users.php">
 									<input name="search" type="text" id="search" value="<?=(isset($_GET['search']))?$_GET['search']:''?>" size="20" maxlength="100" style="margin-bottom:10px;">
 									<input name="Submit" class="btn btn-sm btn-primary" type="submit" class="submit" value="Search Subscribers">
@@ -386,13 +391,24 @@ jane@doe.co.nz
 							</p>
 					  <?php if (isset($_GET['search']) && $num_users > 0) { ?>
 								<table class="table table-striped">
+                                    <thead>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Added</th>
+                                    </thead>
+                                    <tbody>
 							  <?php while ($user_data=$user_res->fetch_assoc()) { ?>
 										<tr>
+                                            <th scope="row"><?php echo $user_data['user_id']?></th>
+                                            <td><?php echo ($user_data['last_name']) ? $user_data['first_name'].' '.$user_data['last_name'] : $user_data['first_name'] ?></td>
 											<td>
 												<a href="?edit=<?php echo $user_data['user_id'];?>"><?php echo $user_data['email']?></a>
 											</td>
+                                            <td><?php echo $user_data['date_joined']?></td>
 										</tr>
 							  <?php } ?>
+                                    </tbody>
 								</table>
 					  <?php } ?>
 							<br><hr><br>
