@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2020-01-06 20:53:34
+/* Smarty version 3.1.33, created on 2020-01-07 10:30:37
   from '/var/www/Cinemanager/web/tpl/bookings.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5e12e77ec3f200_79184876',
+  'unifunc' => 'content_5e13a6fda43806_96936467',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ce221c853473b19e1b87a9dc89e74186ccb01129' => 
     array (
       0 => '/var/www/Cinemanager/web/tpl/bookings.tpl',
-      1 => 1578297195,
+      1 => 1578346235,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:inc/tpl/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5e12e77ec3f200_79184876 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e13a6fda43806_96936467 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/Cinemanager/_deps/smarty/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),1=>array('file'=>'/var/www/Cinemanager/_deps/smarty/plugins/function.html_options.php','function'=>'smarty_function_html_options',),));
 ?>
 <!DOCTYPE html>
@@ -197,7 +197,8 @@ function YY_checkform() { //v4.71
 							<p>Date: <strong><?php echo smarty_modifier_date_format($_smarty_tpl->tpl_vars['session']->value['session_timestamp'],'%A %e %b');?>
 </strong></p>
 							<p>Time: <strong><?php echo $_smarty_tpl->tpl_vars['session']->value['session_time'];?>
-</strong></p>
+</strong></p><hr />
+                            <i>To give feedback on the new website, please <a href="/contact-us/"><strong>click here</strong></a>.</i>
                             <?php if ($_smarty_tpl->tpl_vars['t_adults']->value) {?>
                               <p>Adults: <strong><?php echo $_smarty_tpl->tpl_vars['t_adults']->value;?>
 </strong></p>

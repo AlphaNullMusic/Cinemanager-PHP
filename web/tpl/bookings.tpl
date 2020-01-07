@@ -150,7 +150,8 @@ function YY_checkform() { //v4.71
 							<span><strong>Your Session Details</strong></span><br />
 							<p>Movie: <strong>{$movie.title}</strong></p>
 							<p>Date: <strong>{$session.session_timestamp|date_format:'%A %e %b'}</strong></p>
-							<p>Time: <strong>{$session.session_time}</strong></p>
+							<p>Time: <strong>{$session.session_time}</strong></p><hr />
+                            <i>To give feedback on the new website, please <a href="/contact-us/"><strong>click here</strong></a>.</i>
                             {if $t_adults}
                               <p>Adults: <strong>{$t_adults}</strong></p>
                             {/if}

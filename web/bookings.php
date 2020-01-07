@@ -63,7 +63,7 @@ if(!$smarty->isCached($tpl)) {
 						// Send booking email
 						if (
 							isset($_POST['c_name']) && strlen($_POST['c_name'])>3 && 
-							isset($_POST['c_email']) && is_email($_POST['c_email']) && 
+							isset($_POST['c_email']) && is_email(trim($_POST['c_email'])) && 
 							isset($_POST['c_phone']) && strlen($_POST['c_phone'])>3 && !preg_match('/([^0-9+\s])+/', $_POST['c_phone']) && (
 								(isset($_POST['t_adults']) && $_POST['t_adults']!=0) || 
 								(isset($_POST['t_children']) && $_POST['t_children']!=0) || 
