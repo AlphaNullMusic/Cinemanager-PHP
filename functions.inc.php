@@ -175,7 +175,7 @@ function clean_chars($string, $strip_tags = false) {
     );
     $string  = str_replace($search, $replace, $string);
     
-    // Remove accents such as È ¡ Û ¸
+    // Remove accents such as √© √Å √≥ √º
     $string = preg_replace('/&([a-zA-Z])(uml|acute|grave|circ|tilde|cedil|ring);/', '$1', $string);
     
     // Add back to a decoded string
@@ -670,8 +670,9 @@ function get_movie($movie_id, $get_sessions = true, $extra_conditions = NULL, $s
     $return['movie'] = $movie_data;
     $return['status'] = $status;
     $return['movie']['classification'] = $movie_data['classification'];
-	$return['movie']['class_explanation'] = get_class_explanation($movie_data['classification']);
-	$return['movie']['poster_url'] = ($movie_data['custom_poster']==1 ? $config['poster_url'].$movie_data['movie_id'].'-'.$size.'-custom.jpg' : $config['poster_url'].$movie_data['movie_id'].'-'.$size.'-default.jpg');
+    $return['movie']['duration']  = (isset($movie_data['runtime'])) ? mintohr($movie_data['runtime']) : NULL;
+    $return['movie']['class_explanation'] = get_class_explanation($movie_data['classification']);
+    $return['movie']['poster_url'] = ($movie_data['custom_poster']==1 ? $config['poster_url'].$movie_data['movie_id'].'-'.$size.'-custom.jpg' : $config['poster_url'].$movie_data['movie_id'].'-'.$size.'-default.jpg');
     
     // Get sessions grouped by date
     if ($get_sessions) {
