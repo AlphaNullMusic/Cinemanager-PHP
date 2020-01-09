@@ -110,7 +110,7 @@
         		    <p>
         			{if $movie.duration}
               	        <strong>Duration:</strong><br />
-        				{$movie.duration}<br />
+        				{$movie.duration}<br /><br />
         			{/if}
         			{if $movie.official_site}
         				<a class="btn dark" href="{$movie.official_site}" target="_blank">Official Website</a><br />
