@@ -62,9 +62,9 @@ if(!$smarty->isCached($tpl)) {
 					if (isset($_POST['action']) && $_POST['action']=='place_booking') {
 						// Send booking email
 						if (
-							isset($_POST['c_name']) && strlen($_POST['c_name'])>3 && 
+							isset($_POST['c_name']) && strlen($_POST['c_name'])>2 && 
 							isset($_POST['c_email']) && is_email(trim($_POST['c_email'])) && 
-							isset($_POST['c_phone']) && strlen($_POST['c_phone'])>3 && !preg_match('/([^0-9+\s])+/', $_POST['c_phone']) && (
+							isset($_POST['c_phone']) && strlen($_POST['c_phone'])>6 && !preg_match('/([^0-9\+\-\s])+/', $_POST['c_phone']) && (
 								(isset($_POST['t_adults']) && $_POST['t_adults']!=0) || 
 								(isset($_POST['t_children']) && $_POST['t_children']!=0) || 
 								(isset($_POST['t_seniors']) && $_POST['t_seniors']!=0) || 
@@ -214,9 +214,9 @@ if(!$smarty->isCached($tpl)) {
                                     break;
                                 }
 
-                                if (isset($_POST['c_name']) && (strlen($_POST['c_name']) <= 3 || strlen($_POST['c_name']) > 35))
+                                if (isset($_POST['c_name']) && (strlen($_POST['c_name']) < 2 || strlen($_POST['c_name']) > 35))
                                 {
-                                    $smarty->assign('er_msg', 'Your name must be longer than 3 and less than 35 characters.');
+                                    $smarty->assign('er_msg', 'Your name must be longer than 2 and less than 35 characters.');
                                     break;
                                 }
 
@@ -238,9 +238,9 @@ if(!$smarty->isCached($tpl)) {
                                     break;
                                 }
 
-                                if (isset($_POST['c_phone']) && preg_match('/([^0-9+\s])+/', $_POST['c_phone']))
+                                if (isset($_POST['c_phone']) && preg_match('/([^0-9\+\-\s])+/', $_POST['c_phone']))
                                 {
-                                    $smarty->assign('er_msg', 'Your phone number must only contain digits 0-9, + symbol and spaces.');
+                                    $smarty->assign('er_msg', 'Your phone number must only contain digits 0-9, + and - symbols and spaces.');
                                     break;
                                 }
                             } while (0);
