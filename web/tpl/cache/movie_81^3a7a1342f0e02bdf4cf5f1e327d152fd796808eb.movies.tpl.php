@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2020-03-21 16:38:58
+/* Smarty version 3.1.33, created on 2020-03-21 15:54:37
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5e758c52c12a31_74090974',
+  'unifunc' => 'content_5e7581edae9334_66014028',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -24,14 +24,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_5e758c52c12a31_74090974 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e7581edae9334_66014028 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>All At Sea - Info</title>
+<title>Love Sarah - Info</title>
 <meta name="description" content="Shoreline Cinema is Waikanae's premiere cinema complex. Find out who we are, what's on, what's coming up, how to contact us and much more.">
 <link href="/tpl/inc/css/styles.css" rel="stylesheet" type="text/css" />
 <link href="/tpl/inc/css/print.css" rel="stylesheet" type="text/css" media="print" />
@@ -81,35 +81,22 @@ function content_5e758c52c12a31_74090974 (Smarty_Internal_Template $_smarty_tpl)
 
 
 <div class="information">
-    <h2>All At Sea</h2>
+    <h2>Love Sarah</h2>
     <div class="content">
     	<div class="content-wrapper poster">
-    		<img src="https://posters.shoreline.nz/71-medium-custom.jpg" width="190" alt="All At Sea Poster" />
+    		<img src="https://posters.shoreline.nz/81-medium-custom.jpg" width="190" alt="Love Sarah Poster" />
     	</div>
     	<div class="content-wrapper text"> 
     		<div class="content">
     		    <div class="content-wrapper text">
-    		        <p>This Norwegian and British comedy surrounds the playfulness of two elderly people living in a retirement home, trying to overcome their cheapskate care home manager and assist their friend in their quest to finally be able to be buried at sea.						</p>
-					    		                                        <span class="h3">Upcoming Screening Times</span>
-                            <ul class="sessions">
-                                                            	                              	
-                              	<li><strong>Saturday 21 Mar</strong><a href="/bookings/1381/">10:15am</a>, <a href="/bookings/1382/">2:15pm</a>                              	                              	
-                              	<li><strong>Sunday 22 Mar</strong><a href="/bookings/1383/">10:15am</a>, <a href="/bookings/1384/">2:30pm</a>                              	                              	
-                              	<li><strong>Monday 23 Mar</strong><a href="/bookings/1385/">10:30am</a>, <a href="/bookings/1386/">4:45pm</a>                              	                              	
-                              	<li><strong>Tuesday 24 Mar</strong><a href="/bookings/1387/">12:30pm</a>, <a href="/bookings/1388/">6:30pm</a>                              	                              	
-                              	<li><strong>Wednesday 25 Mar</strong><a href="/bookings/1389/">2:45pm</a>                               </li>
-                            </ul>
-                          	<p><i>To place a booking, click on the session time you are interested in. Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
-                            		    </div>
+    		        <p>A young woman wishes to fulfill her mother's dream of opening her own bakery in Notting Hill, London. To do this, she enlists the help of an old friend and her grandma.</p>
+					    		                		    </div>
     		    <div class="content-wrapper details">
     		                			<p>
         				<strong>Rated:</strong> TBC<br />
         				 <em>To Be Confirmed</em>        			</p>
         		            		    <p>
-        			              	        <strong>Duration:</strong><br />
-        				1hr 43min<br /><br />
-        			        			        			        				<a class="btn dark" href="https://youtu.be/fob_XekbpEw" target="_blank">Official Trailer</a>
-        			        		    </p>
+        			        			        			        		    </p>
             		  
     		    </div>
     		</div>

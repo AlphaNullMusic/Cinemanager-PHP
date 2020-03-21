@@ -1,8 +1,14 @@
 <?php
 header("Content-Type:application/json");
 header("Access-Control-Allow-Origin: *");
+header('Access-Control-Allow-Methods: GET, HEAD');
+date_default_timezone_set('Pacific/Auckland');
 require('../inc/web.inc.php');
 require('../inc/smarty_vars.inc.php');
+
+    if (isset($_REQUEST['rand'])) {
+        echo $_REQUEST['rand'];
+    }
 
 	$list = get_movie_list_full('ns','m.title',14,'%W %D','%e %b',20,'today',null,null,true,'large');
 
@@ -26,12 +32,19 @@ require('../inc/smarty_vars.inc.php');
             } else {
                 foreach ($list[$key]['sessions'][$date] as $session_id => $day) {
                     $list[$key]['sessions'][$date][$session_id]['time'] = ($day['label']) ? $day['time'].' ('.$day['label'].')' : $day['time'];
-                    $list[$key]['time'] = ($list[$key]['time']) ? $list[$key]['time'].', '.$list[$key]['sessions'][$date][$session_id]['time'] : $list[$key]['sessions'][$date][$session_id]['time'];
+
+                    $currenttime = new DateTime("now");
+                    $sessiontime = new DateTime($day['timestamp']);
+                    if ($currenttime > $sessiontime) {
+                        unset($list[$key]['sessions'][$date][$session_id]);
+                    } else {
+                        $list[$key]['time'] = ($list[$key]['time']) ? $list[$key]['time'].', '.$list[$key]['sessions'][$date][$session_id]['time'] : $list[$key]['sessions'][$date][$session_id]['time'];
+                    }
                 }
             }
         }
 
-        if (empty($list[$key]['sessions'])) {
+        if (empty($list[$key]['sessions']) || !isset($list[$key]['time'])) {
             unset($list[$key]);
         }
 
