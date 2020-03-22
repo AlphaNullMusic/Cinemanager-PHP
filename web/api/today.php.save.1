@@ -10,7 +10,7 @@ require('../inc/smarty_vars.inc.php');
         echo $_REQUEST['rand'];
     }
 
-    $list = get_movie_list_full('ns','m.title',14,'%W %D','%e %b',20,'today',null,null,true,'large');
+	$list = get_movie_list_full('ns','m.title',14,'%W %D','%e %b',20,'today',null,null,true,'large');
 
     if (!$list) { response(NULL, 404, 'Sessions Not Found'); }
 
@@ -55,12 +55,6 @@ require('../inc/smarty_vars.inc.php');
             }
         }
     }
-
-    function sortTime($a,$b) {
-        return ($a['time'] < $b['time']) ? -1 : 1;
-    }
-
-    usort($list, "sortTime");
 
     // Respond with JSON
     response($list, 200, 'Success');
