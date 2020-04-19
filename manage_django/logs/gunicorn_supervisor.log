@@ -670,3 +670,1751 @@ Starting manage_app as cinemanager
 [2020-04-19 19:56:29 +1200] [7104] [ERROR] Retrying in 1 second.
 [2020-04-19 19:56:30 +1200] [7104] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
 [2020-04-19 19:56:30 +1200] [7104] [ERROR] Retrying in 1 second.
+[2020-04-19 19:56:31 +1200] [7104] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:56:31 +1200] [7104] [ERROR] Retrying in 1 second.
+[2020-04-19 19:56:32 +1200] [7104] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:56:32 +1200] [7104] [ERROR] Retrying in 1 second.
+[2020-04-19 19:56:33 +1200] [7104] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:56:33 +1200] [7104] [ERROR] Retrying in 1 second.
+[2020-04-19 19:56:34 +1200] [7104] [ERROR] Can't connect to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock
+Starting manage_app as cinemanager
+[2020-04-19 19:56:36 +1200] [7112] [DEBUG] Current configuration:
+  config: None
+  bind: ['unix:/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock']
+  backlog: 2048
+  workers: 3
+  worker_class: sync
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/cinemanager/cinemanager/manage_django/manage
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 33
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: -
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: manage_app
+  default_proc_name: manage.wsgi:application
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7fe50b8d6730>
+  on_reload: <function OnReload.on_reload at 0x7fe50b8d6840>
+  when_ready: <function WhenReady.when_ready at 0x7fe50b8d6950>
+  pre_fork: <function Prefork.pre_fork at 0x7fe50b8d6a60>
+  post_fork: <function Postfork.post_fork at 0x7fe50b8d6b70>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7fe50b8d6c80>
+  worker_int: <function WorkerInt.worker_int at 0x7fe50b8d6d90>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7fe50b8d6ea0>
+  pre_exec: <function PreExec.pre_exec at 0x7fe50b8f0048>
+  pre_request: <function PreRequest.pre_request at 0x7fe50b8f0158>
+  post_request: <function PostRequest.post_request at 0x7fe50b8f01e0>
+  child_exit: <function ChildExit.child_exit at 0x7fe50b8f02f0>
+  worker_exit: <function WorkerExit.worker_exit at 0x7fe50b8f0400>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7fe50b8f0510>
+  on_exit: <function OnExit.on_exit at 0x7fe50b8f0620>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2020-04-19 19:56:36 +1200] [7112] [INFO] Starting gunicorn 20.0.4
+[2020-04-19 19:56:36 +1200] [7112] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:56:36 +1200] [7112] [ERROR] Retrying in 1 second.
+[2020-04-19 19:56:37 +1200] [7112] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:56:37 +1200] [7112] [ERROR] Retrying in 1 second.
+[2020-04-19 19:56:38 +1200] [7112] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:56:38 +1200] [7112] [ERROR] Retrying in 1 second.
+[2020-04-19 19:56:39 +1200] [7112] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:56:39 +1200] [7112] [ERROR] Retrying in 1 second.
+[2020-04-19 19:56:40 +1200] [7112] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:56:40 +1200] [7112] [ERROR] Retrying in 1 second.
+[2020-04-19 19:56:41 +1200] [7112] [ERROR] Can't connect to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock
+Starting manage_app as cinemanager
+[2020-04-19 19:56:42 +1200] [7119] [DEBUG] Current configuration:
+  config: None
+  bind: ['unix:/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock']
+  backlog: 2048
+  workers: 3
+  worker_class: sync
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/cinemanager/cinemanager/manage_django/manage
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 33
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: -
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: manage_app
+  default_proc_name: manage.wsgi:application
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7fadd696d730>
+  on_reload: <function OnReload.on_reload at 0x7fadd696d840>
+  when_ready: <function WhenReady.when_ready at 0x7fadd696d950>
+  pre_fork: <function Prefork.pre_fork at 0x7fadd696da60>
+  post_fork: <function Postfork.post_fork at 0x7fadd696db70>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7fadd696dc80>
+  worker_int: <function WorkerInt.worker_int at 0x7fadd696dd90>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7fadd696dea0>
+  pre_exec: <function PreExec.pre_exec at 0x7fadd6987048>
+  pre_request: <function PreRequest.pre_request at 0x7fadd6987158>
+  post_request: <function PostRequest.post_request at 0x7fadd69871e0>
+  child_exit: <function ChildExit.child_exit at 0x7fadd69872f0>
+  worker_exit: <function WorkerExit.worker_exit at 0x7fadd6987400>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7fadd6987510>
+  on_exit: <function OnExit.on_exit at 0x7fadd6987620>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2020-04-19 19:56:42 +1200] [7119] [INFO] Starting gunicorn 20.0.4
+[2020-04-19 19:56:42 +1200] [7119] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:56:42 +1200] [7119] [ERROR] Retrying in 1 second.
+[2020-04-19 19:56:43 +1200] [7119] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:56:43 +1200] [7119] [ERROR] Retrying in 1 second.
+[2020-04-19 19:56:44 +1200] [7119] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:56:44 +1200] [7119] [ERROR] Retrying in 1 second.
+[2020-04-19 19:56:45 +1200] [7119] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:56:45 +1200] [7119] [ERROR] Retrying in 1 second.
+[2020-04-19 19:56:46 +1200] [7119] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:56:46 +1200] [7119] [ERROR] Retrying in 1 second.
+[2020-04-19 19:56:47 +1200] [7119] [ERROR] Can't connect to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock
+Starting manage_app as cinemanager
+[2020-04-19 19:56:48 +1200] [7170] [DEBUG] Current configuration:
+  config: None
+  bind: ['unix:/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock']
+  backlog: 2048
+  workers: 3
+  worker_class: sync
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/cinemanager/cinemanager/manage_django/manage
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 33
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: -
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: manage_app
+  default_proc_name: manage.wsgi:application
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f33dc249730>
+  on_reload: <function OnReload.on_reload at 0x7f33dc249840>
+  when_ready: <function WhenReady.when_ready at 0x7f33dc249950>
+  pre_fork: <function Prefork.pre_fork at 0x7f33dc249a60>
+  post_fork: <function Postfork.post_fork at 0x7f33dc249b70>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f33dc249c80>
+  worker_int: <function WorkerInt.worker_int at 0x7f33dc249d90>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7f33dc249ea0>
+  pre_exec: <function PreExec.pre_exec at 0x7f33dc263048>
+  pre_request: <function PreRequest.pre_request at 0x7f33dc263158>
+  post_request: <function PostRequest.post_request at 0x7f33dc2631e0>
+  child_exit: <function ChildExit.child_exit at 0x7f33dc2632f0>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f33dc263400>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f33dc263510>
+  on_exit: <function OnExit.on_exit at 0x7f33dc263620>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2020-04-19 19:56:48 +1200] [7170] [INFO] Starting gunicorn 20.0.4
+[2020-04-19 19:56:48 +1200] [7170] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:56:48 +1200] [7170] [ERROR] Retrying in 1 second.
+[2020-04-19 19:56:49 +1200] [7170] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:56:49 +1200] [7170] [ERROR] Retrying in 1 second.
+[2020-04-19 19:56:50 +1200] [7170] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:56:50 +1200] [7170] [ERROR] Retrying in 1 second.
+[2020-04-19 19:56:51 +1200] [7170] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:56:51 +1200] [7170] [ERROR] Retrying in 1 second.
+[2020-04-19 19:56:52 +1200] [7170] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:56:52 +1200] [7170] [ERROR] Retrying in 1 second.
+[2020-04-19 19:56:53 +1200] [7170] [ERROR] Can't connect to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock
+Starting manage_app as cinemanager
+[2020-04-19 19:56:54 +1200] [7203] [DEBUG] Current configuration:
+  config: None
+  bind: ['unix:/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock']
+  backlog: 2048
+  workers: 3
+  worker_class: sync
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/cinemanager/cinemanager/manage_django/manage
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 33
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: -
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: manage_app
+  default_proc_name: manage.wsgi:application
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7fd499f7a730>
+  on_reload: <function OnReload.on_reload at 0x7fd499f7a840>
+  when_ready: <function WhenReady.when_ready at 0x7fd499f7a950>
+  pre_fork: <function Prefork.pre_fork at 0x7fd499f7aa60>
+  post_fork: <function Postfork.post_fork at 0x7fd499f7ab70>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7fd499f7ac80>
+  worker_int: <function WorkerInt.worker_int at 0x7fd499f7ad90>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7fd499f7aea0>
+  pre_exec: <function PreExec.pre_exec at 0x7fd499f94048>
+  pre_request: <function PreRequest.pre_request at 0x7fd499f94158>
+  post_request: <function PostRequest.post_request at 0x7fd499f941e0>
+  child_exit: <function ChildExit.child_exit at 0x7fd499f942f0>
+  worker_exit: <function WorkerExit.worker_exit at 0x7fd499f94400>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7fd499f94510>
+  on_exit: <function OnExit.on_exit at 0x7fd499f94620>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2020-04-19 19:56:54 +1200] [7203] [INFO] Starting gunicorn 20.0.4
+[2020-04-19 19:56:54 +1200] [7203] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:56:54 +1200] [7203] [ERROR] Retrying in 1 second.
+[2020-04-19 19:56:55 +1200] [7203] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:56:55 +1200] [7203] [ERROR] Retrying in 1 second.
+[2020-04-19 19:56:56 +1200] [7203] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:56:56 +1200] [7203] [ERROR] Retrying in 1 second.
+[2020-04-19 19:56:57 +1200] [7203] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:56:57 +1200] [7203] [ERROR] Retrying in 1 second.
+[2020-04-19 19:56:58 +1200] [7203] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:56:58 +1200] [7203] [ERROR] Retrying in 1 second.
+[2020-04-19 19:56:59 +1200] [7203] [ERROR] Can't connect to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock
+Starting manage_app as cinemanager
+[2020-04-19 19:57:00 +1200] [7210] [DEBUG] Current configuration:
+  config: None
+  bind: ['unix:/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock']
+  backlog: 2048
+  workers: 3
+  worker_class: sync
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/cinemanager/cinemanager/manage_django/manage
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 33
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: -
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: manage_app
+  default_proc_name: manage.wsgi:application
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f942adca730>
+  on_reload: <function OnReload.on_reload at 0x7f942adca840>
+  when_ready: <function WhenReady.when_ready at 0x7f942adca950>
+  pre_fork: <function Prefork.pre_fork at 0x7f942adcaa60>
+  post_fork: <function Postfork.post_fork at 0x7f942adcab70>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f942adcac80>
+  worker_int: <function WorkerInt.worker_int at 0x7f942adcad90>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7f942adcaea0>
+  pre_exec: <function PreExec.pre_exec at 0x7f942ade4048>
+  pre_request: <function PreRequest.pre_request at 0x7f942ade4158>
+  post_request: <function PostRequest.post_request at 0x7f942ade41e0>
+  child_exit: <function ChildExit.child_exit at 0x7f942ade42f0>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f942ade4400>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f942ade4510>
+  on_exit: <function OnExit.on_exit at 0x7f942ade4620>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2020-04-19 19:57:00 +1200] [7210] [INFO] Starting gunicorn 20.0.4
+[2020-04-19 19:57:00 +1200] [7210] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:57:00 +1200] [7210] [ERROR] Retrying in 1 second.
+[2020-04-19 19:57:01 +1200] [7210] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:57:01 +1200] [7210] [ERROR] Retrying in 1 second.
+[2020-04-19 19:57:02 +1200] [7210] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:57:02 +1200] [7210] [ERROR] Retrying in 1 second.
+[2020-04-19 19:57:03 +1200] [7210] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:57:03 +1200] [7210] [ERROR] Retrying in 1 second.
+[2020-04-19 19:57:04 +1200] [7210] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:57:04 +1200] [7210] [ERROR] Retrying in 1 second.
+[2020-04-19 19:57:05 +1200] [7210] [ERROR] Can't connect to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock
+Starting manage_app as cinemanager
+[2020-04-19 19:57:06 +1200] [7223] [DEBUG] Current configuration:
+  config: None
+  bind: ['unix:/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock']
+  backlog: 2048
+  workers: 3
+  worker_class: sync
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/cinemanager/cinemanager/manage_django/manage
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 33
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: -
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: manage_app
+  default_proc_name: manage.wsgi:application
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7fe7a4d67730>
+  on_reload: <function OnReload.on_reload at 0x7fe7a4d67840>
+  when_ready: <function WhenReady.when_ready at 0x7fe7a4d67950>
+  pre_fork: <function Prefork.pre_fork at 0x7fe7a4d67a60>
+  post_fork: <function Postfork.post_fork at 0x7fe7a4d67b70>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7fe7a4d67c80>
+  worker_int: <function WorkerInt.worker_int at 0x7fe7a4d67d90>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7fe7a4d67ea0>
+  pre_exec: <function PreExec.pre_exec at 0x7fe7a4d81048>
+  pre_request: <function PreRequest.pre_request at 0x7fe7a4d81158>
+  post_request: <function PostRequest.post_request at 0x7fe7a4d811e0>
+  child_exit: <function ChildExit.child_exit at 0x7fe7a4d812f0>
+  worker_exit: <function WorkerExit.worker_exit at 0x7fe7a4d81400>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7fe7a4d81510>
+  on_exit: <function OnExit.on_exit at 0x7fe7a4d81620>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2020-04-19 19:57:06 +1200] [7223] [INFO] Starting gunicorn 20.0.4
+[2020-04-19 19:57:06 +1200] [7223] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:57:06 +1200] [7223] [ERROR] Retrying in 1 second.
+[2020-04-19 19:57:07 +1200] [7223] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:57:07 +1200] [7223] [ERROR] Retrying in 1 second.
+[2020-04-19 19:57:08 +1200] [7223] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:57:08 +1200] [7223] [ERROR] Retrying in 1 second.
+[2020-04-19 19:57:09 +1200] [7223] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:57:09 +1200] [7223] [ERROR] Retrying in 1 second.
+[2020-04-19 19:57:10 +1200] [7223] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:57:10 +1200] [7223] [ERROR] Retrying in 1 second.
+[2020-04-19 19:57:11 +1200] [7223] [ERROR] Can't connect to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock
+Starting manage_app as cinemanager
+[2020-04-19 19:57:12 +1200] [7232] [DEBUG] Current configuration:
+  config: None
+  bind: ['unix:/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock']
+  backlog: 2048
+  workers: 3
+  worker_class: sync
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/cinemanager/cinemanager/manage_django/manage
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 33
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: -
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: manage_app
+  default_proc_name: manage.wsgi:application
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f5884298730>
+  on_reload: <function OnReload.on_reload at 0x7f5884298840>
+  when_ready: <function WhenReady.when_ready at 0x7f5884298950>
+  pre_fork: <function Prefork.pre_fork at 0x7f5884298a60>
+  post_fork: <function Postfork.post_fork at 0x7f5884298b70>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f5884298c80>
+  worker_int: <function WorkerInt.worker_int at 0x7f5884298d90>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7f5884298ea0>
+  pre_exec: <function PreExec.pre_exec at 0x7f58842b2048>
+  pre_request: <function PreRequest.pre_request at 0x7f58842b2158>
+  post_request: <function PostRequest.post_request at 0x7f58842b21e0>
+  child_exit: <function ChildExit.child_exit at 0x7f58842b22f0>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f58842b2400>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f58842b2510>
+  on_exit: <function OnExit.on_exit at 0x7f58842b2620>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2020-04-19 19:57:12 +1200] [7232] [INFO] Starting gunicorn 20.0.4
+[2020-04-19 19:57:12 +1200] [7232] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:57:12 +1200] [7232] [ERROR] Retrying in 1 second.
+[2020-04-19 19:57:13 +1200] [7232] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:57:13 +1200] [7232] [ERROR] Retrying in 1 second.
+[2020-04-19 19:57:14 +1200] [7232] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:57:14 +1200] [7232] [ERROR] Retrying in 1 second.
+[2020-04-19 19:57:15 +1200] [7232] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:57:15 +1200] [7232] [ERROR] Retrying in 1 second.
+[2020-04-19 19:57:16 +1200] [7232] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:57:16 +1200] [7232] [ERROR] Retrying in 1 second.
+[2020-04-19 19:57:17 +1200] [7232] [ERROR] Can't connect to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock
+Starting manage_app as cinemanager
+[2020-04-19 19:57:18 +1200] [7239] [DEBUG] Current configuration:
+  config: None
+  bind: ['unix:/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock']
+  backlog: 2048
+  workers: 3
+  worker_class: sync
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/cinemanager/cinemanager/manage_django/manage
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 33
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: -
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: manage_app
+  default_proc_name: manage.wsgi:application
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7ff9c05e2730>
+  on_reload: <function OnReload.on_reload at 0x7ff9c05e2840>
+  when_ready: <function WhenReady.when_ready at 0x7ff9c05e2950>
+  pre_fork: <function Prefork.pre_fork at 0x7ff9c05e2a60>
+  post_fork: <function Postfork.post_fork at 0x7ff9c05e2b70>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7ff9c05e2c80>
+  worker_int: <function WorkerInt.worker_int at 0x7ff9c05e2d90>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7ff9c05e2ea0>
+  pre_exec: <function PreExec.pre_exec at 0x7ff9c05fc048>
+  pre_request: <function PreRequest.pre_request at 0x7ff9c05fc158>
+  post_request: <function PostRequest.post_request at 0x7ff9c05fc1e0>
+  child_exit: <function ChildExit.child_exit at 0x7ff9c05fc2f0>
+  worker_exit: <function WorkerExit.worker_exit at 0x7ff9c05fc400>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7ff9c05fc510>
+  on_exit: <function OnExit.on_exit at 0x7ff9c05fc620>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2020-04-19 19:57:18 +1200] [7239] [INFO] Starting gunicorn 20.0.4
+[2020-04-19 19:57:18 +1200] [7239] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:57:18 +1200] [7239] [ERROR] Retrying in 1 second.
+[2020-04-19 19:57:19 +1200] [7239] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:57:19 +1200] [7239] [ERROR] Retrying in 1 second.
+[2020-04-19 19:57:20 +1200] [7239] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:57:20 +1200] [7239] [ERROR] Retrying in 1 second.
+[2020-04-19 19:57:21 +1200] [7239] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:57:21 +1200] [7239] [ERROR] Retrying in 1 second.
+[2020-04-19 19:57:22 +1200] [7239] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:57:22 +1200] [7239] [ERROR] Retrying in 1 second.
+[2020-04-19 19:57:23 +1200] [7239] [ERROR] Can't connect to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock
+Starting manage_app as cinemanager
+[2020-04-19 19:57:24 +1200] [7249] [DEBUG] Current configuration:
+  config: None
+  bind: ['unix:/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock']
+  backlog: 2048
+  workers: 3
+  worker_class: sync
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/cinemanager/cinemanager/manage_django/manage
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 33
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: -
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: manage_app
+  default_proc_name: manage.wsgi:application
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f3be9536730>
+  on_reload: <function OnReload.on_reload at 0x7f3be9536840>
+  when_ready: <function WhenReady.when_ready at 0x7f3be9536950>
+  pre_fork: <function Prefork.pre_fork at 0x7f3be9536a60>
+  post_fork: <function Postfork.post_fork at 0x7f3be9536b70>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f3be9536c80>
+  worker_int: <function WorkerInt.worker_int at 0x7f3be9536d90>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7f3be9536ea0>
+  pre_exec: <function PreExec.pre_exec at 0x7f3be9550048>
+  pre_request: <function PreRequest.pre_request at 0x7f3be9550158>
+  post_request: <function PostRequest.post_request at 0x7f3be95501e0>
+  child_exit: <function ChildExit.child_exit at 0x7f3be95502f0>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f3be9550400>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f3be9550510>
+  on_exit: <function OnExit.on_exit at 0x7f3be9550620>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2020-04-19 19:57:24 +1200] [7249] [INFO] Starting gunicorn 20.0.4
+[2020-04-19 19:57:24 +1200] [7249] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:57:24 +1200] [7249] [ERROR] Retrying in 1 second.
+[2020-04-19 19:57:25 +1200] [7249] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:57:25 +1200] [7249] [ERROR] Retrying in 1 second.
+[2020-04-19 19:57:26 +1200] [7249] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:57:26 +1200] [7249] [ERROR] Retrying in 1 second.
+[2020-04-19 19:57:27 +1200] [7249] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:57:27 +1200] [7249] [ERROR] Retrying in 1 second.
+[2020-04-19 19:57:28 +1200] [7249] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:57:28 +1200] [7249] [ERROR] Retrying in 1 second.
+[2020-04-19 19:57:29 +1200] [7249] [ERROR] Can't connect to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock
+Starting manage_app as cinemanager
+[2020-04-19 19:57:31 +1200] [7258] [DEBUG] Current configuration:
+  config: None
+  bind: ['unix:/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock']
+  backlog: 2048
+  workers: 3
+  worker_class: sync
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/cinemanager/cinemanager/manage_django/manage
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 33
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: -
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: manage_app
+  default_proc_name: manage.wsgi:application
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f5215083730>
+  on_reload: <function OnReload.on_reload at 0x7f5215083840>
+  when_ready: <function WhenReady.when_ready at 0x7f5215083950>
+  pre_fork: <function Prefork.pre_fork at 0x7f5215083a60>
+  post_fork: <function Postfork.post_fork at 0x7f5215083b70>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f5215083c80>
+  worker_int: <function WorkerInt.worker_int at 0x7f5215083d90>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7f5215083ea0>
+  pre_exec: <function PreExec.pre_exec at 0x7f521509d048>
+  pre_request: <function PreRequest.pre_request at 0x7f521509d158>
+  post_request: <function PostRequest.post_request at 0x7f521509d1e0>
+  child_exit: <function ChildExit.child_exit at 0x7f521509d2f0>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f521509d400>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f521509d510>
+  on_exit: <function OnExit.on_exit at 0x7f521509d620>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2020-04-19 19:57:31 +1200] [7258] [INFO] Starting gunicorn 20.0.4
+[2020-04-19 19:57:31 +1200] [7258] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:57:31 +1200] [7258] [ERROR] Retrying in 1 second.
+[2020-04-19 19:57:32 +1200] [7258] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:57:32 +1200] [7258] [ERROR] Retrying in 1 second.
+[2020-04-19 19:57:33 +1200] [7258] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:57:33 +1200] [7258] [ERROR] Retrying in 1 second.
+[2020-04-19 19:57:34 +1200] [7258] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:57:34 +1200] [7258] [ERROR] Retrying in 1 second.
+[2020-04-19 19:57:35 +1200] [7258] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:57:35 +1200] [7258] [ERROR] Retrying in 1 second.
+[2020-04-19 19:57:36 +1200] [7258] [ERROR] Can't connect to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock
+Starting manage_app as cinemanager
+[2020-04-19 19:57:37 +1200] [7266] [DEBUG] Current configuration:
+  config: None
+  bind: ['unix:/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock']
+  backlog: 2048
+  workers: 3
+  worker_class: sync
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/cinemanager/cinemanager/manage_django/manage
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 33
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: -
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: manage_app
+  default_proc_name: manage.wsgi:application
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f85f7ab1730>
+  on_reload: <function OnReload.on_reload at 0x7f85f7ab1840>
+  when_ready: <function WhenReady.when_ready at 0x7f85f7ab1950>
+  pre_fork: <function Prefork.pre_fork at 0x7f85f7ab1a60>
+  post_fork: <function Postfork.post_fork at 0x7f85f7ab1b70>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f85f7ab1c80>
+  worker_int: <function WorkerInt.worker_int at 0x7f85f7ab1d90>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7f85f7ab1ea0>
+  pre_exec: <function PreExec.pre_exec at 0x7f85f7acb048>
+  pre_request: <function PreRequest.pre_request at 0x7f85f7acb158>
+  post_request: <function PostRequest.post_request at 0x7f85f7acb1e0>
+  child_exit: <function ChildExit.child_exit at 0x7f85f7acb2f0>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f85f7acb400>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f85f7acb510>
+  on_exit: <function OnExit.on_exit at 0x7f85f7acb620>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2020-04-19 19:57:37 +1200] [7266] [INFO] Starting gunicorn 20.0.4
+[2020-04-19 19:57:37 +1200] [7266] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:57:37 +1200] [7266] [ERROR] Retrying in 1 second.
+[2020-04-19 19:57:38 +1200] [7266] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:57:38 +1200] [7266] [ERROR] Retrying in 1 second.
+[2020-04-19 19:57:39 +1200] [7266] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:57:39 +1200] [7266] [ERROR] Retrying in 1 second.
+[2020-04-19 19:57:40 +1200] [7266] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:57:40 +1200] [7266] [ERROR] Retrying in 1 second.
+[2020-04-19 19:57:41 +1200] [7266] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:57:41 +1200] [7266] [ERROR] Retrying in 1 second.
+[2020-04-19 19:57:42 +1200] [7266] [ERROR] Can't connect to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock
+Starting manage_app as cinemanager
+[2020-04-19 19:57:43 +1200] [7308] [DEBUG] Current configuration:
+  config: None
+  bind: ['unix:/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock']
+  backlog: 2048
+  workers: 3
+  worker_class: sync
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/cinemanager/cinemanager/manage_django/manage
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 33
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: -
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: manage_app
+  default_proc_name: manage.wsgi:application
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7fa4d0b02730>
+  on_reload: <function OnReload.on_reload at 0x7fa4d0b02840>
+  when_ready: <function WhenReady.when_ready at 0x7fa4d0b02950>
+  pre_fork: <function Prefork.pre_fork at 0x7fa4d0b02a60>
+  post_fork: <function Postfork.post_fork at 0x7fa4d0b02b70>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7fa4d0b02c80>
+  worker_int: <function WorkerInt.worker_int at 0x7fa4d0b02d90>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7fa4d0b02ea0>
+  pre_exec: <function PreExec.pre_exec at 0x7fa4d0b1c048>
+  pre_request: <function PreRequest.pre_request at 0x7fa4d0b1c158>
+  post_request: <function PostRequest.post_request at 0x7fa4d0b1c1e0>
+  child_exit: <function ChildExit.child_exit at 0x7fa4d0b1c2f0>
+  worker_exit: <function WorkerExit.worker_exit at 0x7fa4d0b1c400>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7fa4d0b1c510>
+  on_exit: <function OnExit.on_exit at 0x7fa4d0b1c620>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2020-04-19 19:57:43 +1200] [7308] [INFO] Starting gunicorn 20.0.4
+[2020-04-19 19:57:43 +1200] [7308] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:57:43 +1200] [7308] [ERROR] Retrying in 1 second.
+[2020-04-19 19:57:44 +1200] [7308] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:57:44 +1200] [7308] [ERROR] Retrying in 1 second.
+[2020-04-19 19:57:45 +1200] [7308] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:57:45 +1200] [7308] [ERROR] Retrying in 1 second.
+[2020-04-19 19:57:46 +1200] [7308] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:57:46 +1200] [7308] [ERROR] Retrying in 1 second.
+[2020-04-19 19:57:47 +1200] [7308] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:57:47 +1200] [7308] [ERROR] Retrying in 1 second.
+[2020-04-19 19:57:48 +1200] [7308] [ERROR] Can't connect to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock
+Starting manage_app as cinemanager
+[2020-04-19 19:57:49 +1200] [7316] [DEBUG] Current configuration:
+  config: None
+  bind: ['unix:/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock']
+  backlog: 2048
+  workers: 3
+  worker_class: sync
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/cinemanager/cinemanager/manage_django/manage
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 33
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: -
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: manage_app
+  default_proc_name: manage.wsgi:application
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f7992cfa730>
+  on_reload: <function OnReload.on_reload at 0x7f7992cfa840>
+  when_ready: <function WhenReady.when_ready at 0x7f7992cfa950>
+  pre_fork: <function Prefork.pre_fork at 0x7f7992cfaa60>
+  post_fork: <function Postfork.post_fork at 0x7f7992cfab70>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f7992cfac80>
+  worker_int: <function WorkerInt.worker_int at 0x7f7992cfad90>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7f7992cfaea0>
+  pre_exec: <function PreExec.pre_exec at 0x7f7992d14048>
+  pre_request: <function PreRequest.pre_request at 0x7f7992d14158>
+  post_request: <function PostRequest.post_request at 0x7f7992d141e0>
+  child_exit: <function ChildExit.child_exit at 0x7f7992d142f0>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f7992d14400>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f7992d14510>
+  on_exit: <function OnExit.on_exit at 0x7f7992d14620>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2020-04-19 19:57:49 +1200] [7316] [INFO] Starting gunicorn 20.0.4
+[2020-04-19 19:57:49 +1200] [7316] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:57:49 +1200] [7316] [ERROR] Retrying in 1 second.
+[2020-04-19 19:57:50 +1200] [7316] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:57:50 +1200] [7316] [ERROR] Retrying in 1 second.
+[2020-04-19 19:57:51 +1200] [7316] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:57:51 +1200] [7316] [ERROR] Retrying in 1 second.
+[2020-04-19 19:57:52 +1200] [7316] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:57:52 +1200] [7316] [ERROR] Retrying in 1 second.
+[2020-04-19 19:57:53 +1200] [7316] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:57:53 +1200] [7316] [ERROR] Retrying in 1 second.
+[2020-04-19 19:57:54 +1200] [7316] [ERROR] Can't connect to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock
+Starting manage_app as cinemanager
+[2020-04-19 19:57:55 +1200] [7328] [DEBUG] Current configuration:
+  config: None
+  bind: ['unix:/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock']
+  backlog: 2048
+  workers: 3
+  worker_class: sync
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/cinemanager/cinemanager/manage_django/manage
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 33
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: -
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: manage_app
+  default_proc_name: manage.wsgi:application
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7fca23faa730>
+  on_reload: <function OnReload.on_reload at 0x7fca23faa840>
+  when_ready: <function WhenReady.when_ready at 0x7fca23faa950>
+  pre_fork: <function Prefork.pre_fork at 0x7fca23faaa60>
+  post_fork: <function Postfork.post_fork at 0x7fca23faab70>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7fca23faac80>
+  worker_int: <function WorkerInt.worker_int at 0x7fca23faad90>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7fca23faaea0>
+  pre_exec: <function PreExec.pre_exec at 0x7fca23fc4048>
+  pre_request: <function PreRequest.pre_request at 0x7fca23fc4158>
+  post_request: <function PostRequest.post_request at 0x7fca23fc41e0>
+  child_exit: <function ChildExit.child_exit at 0x7fca23fc42f0>
+  worker_exit: <function WorkerExit.worker_exit at 0x7fca23fc4400>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7fca23fc4510>
+  on_exit: <function OnExit.on_exit at 0x7fca23fc4620>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2020-04-19 19:57:55 +1200] [7328] [INFO] Starting gunicorn 20.0.4
+[2020-04-19 19:57:55 +1200] [7328] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:57:55 +1200] [7328] [ERROR] Retrying in 1 second.
+[2020-04-19 19:57:56 +1200] [7328] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:57:56 +1200] [7328] [ERROR] Retrying in 1 second.
+[2020-04-19 19:57:57 +1200] [7328] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:57:57 +1200] [7328] [ERROR] Retrying in 1 second.
+[2020-04-19 19:57:58 +1200] [7328] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:57:58 +1200] [7328] [ERROR] Retrying in 1 second.
+[2020-04-19 19:57:59 +1200] [7328] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:57:59 +1200] [7328] [ERROR] Retrying in 1 second.
+[2020-04-19 19:58:00 +1200] [7328] [ERROR] Can't connect to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock
+Starting manage_app as cinemanager
+[2020-04-19 19:58:02 +1200] [7340] [DEBUG] Current configuration:
+  config: None
+  bind: ['unix:/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock']
+  backlog: 2048
+  workers: 3
+  worker_class: sync
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/cinemanager/cinemanager/manage_django/manage
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 33
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: -
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: manage_app
+  default_proc_name: manage.wsgi:application
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f880534d730>
+  on_reload: <function OnReload.on_reload at 0x7f880534d840>
+  when_ready: <function WhenReady.when_ready at 0x7f880534d950>
+  pre_fork: <function Prefork.pre_fork at 0x7f880534da60>
+  post_fork: <function Postfork.post_fork at 0x7f880534db70>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f880534dc80>
+  worker_int: <function WorkerInt.worker_int at 0x7f880534dd90>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7f880534dea0>
+  pre_exec: <function PreExec.pre_exec at 0x7f8805367048>
+  pre_request: <function PreRequest.pre_request at 0x7f8805367158>
+  post_request: <function PostRequest.post_request at 0x7f88053671e0>
+  child_exit: <function ChildExit.child_exit at 0x7f88053672f0>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f8805367400>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f8805367510>
+  on_exit: <function OnExit.on_exit at 0x7f8805367620>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2020-04-19 19:58:02 +1200] [7340] [INFO] Starting gunicorn 20.0.4
+[2020-04-19 19:58:02 +1200] [7340] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:58:02 +1200] [7340] [ERROR] Retrying in 1 second.
+[2020-04-19 19:58:03 +1200] [7340] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:58:03 +1200] [7340] [ERROR] Retrying in 1 second.
+[2020-04-19 19:58:04 +1200] [7340] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:58:04 +1200] [7340] [ERROR] Retrying in 1 second.
+[2020-04-19 19:58:05 +1200] [7340] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:58:05 +1200] [7340] [ERROR] Retrying in 1 second.
+[2020-04-19 19:58:06 +1200] [7340] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:58:06 +1200] [7340] [ERROR] Retrying in 1 second.
+[2020-04-19 19:58:07 +1200] [7340] [ERROR] Can't connect to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock
+Starting manage_app as cinemanager
+[2020-04-19 19:58:08 +1200] [7355] [DEBUG] Current configuration:
+  config: None
+  bind: ['unix:/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock']
+  backlog: 2048
+  workers: 3
+  worker_class: sync
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/cinemanager/cinemanager/manage_django/manage
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 33
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: -
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: manage_app
+  default_proc_name: manage.wsgi:application
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f395166b730>
+  on_reload: <function OnReload.on_reload at 0x7f395166b840>
+  when_ready: <function WhenReady.when_ready at 0x7f395166b950>
+  pre_fork: <function Prefork.pre_fork at 0x7f395166ba60>
+  post_fork: <function Postfork.post_fork at 0x7f395166bb70>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f395166bc80>
+  worker_int: <function WorkerInt.worker_int at 0x7f395166bd90>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7f395166bea0>
+  pre_exec: <function PreExec.pre_exec at 0x7f3951685048>
+  pre_request: <function PreRequest.pre_request at 0x7f3951685158>
+  post_request: <function PostRequest.post_request at 0x7f39516851e0>
+  child_exit: <function ChildExit.child_exit at 0x7f39516852f0>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f3951685400>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f3951685510>
+  on_exit: <function OnExit.on_exit at 0x7f3951685620>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2020-04-19 19:58:08 +1200] [7355] [INFO] Starting gunicorn 20.0.4
+[2020-04-19 19:58:08 +1200] [7355] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:58:08 +1200] [7355] [ERROR] Retrying in 1 second.
+[2020-04-19 19:58:09 +1200] [7355] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:58:09 +1200] [7355] [ERROR] Retrying in 1 second.
+[2020-04-19 19:58:10 +1200] [7355] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:58:10 +1200] [7355] [ERROR] Retrying in 1 second.
+[2020-04-19 19:58:11 +1200] [7355] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:58:11 +1200] [7355] [ERROR] Retrying in 1 second.
+[2020-04-19 19:58:12 +1200] [7355] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:58:12 +1200] [7355] [ERROR] Retrying in 1 second.
+[2020-04-19 19:58:13 +1200] [7355] [ERROR] Can't connect to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock
+Starting manage_app as cinemanager
+[2020-04-19 19:58:14 +1200] [7363] [DEBUG] Current configuration:
+  config: None
+  bind: ['unix:/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock']
+  backlog: 2048
+  workers: 3
+  worker_class: sync
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/cinemanager/cinemanager/manage_django/manage
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 33
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: -
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: manage_app
+  default_proc_name: manage.wsgi:application
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7fc49e6af730>
+  on_reload: <function OnReload.on_reload at 0x7fc49e6af840>
+  when_ready: <function WhenReady.when_ready at 0x7fc49e6af950>
+  pre_fork: <function Prefork.pre_fork at 0x7fc49e6afa60>
+  post_fork: <function Postfork.post_fork at 0x7fc49e6afb70>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7fc49e6afc80>
+  worker_int: <function WorkerInt.worker_int at 0x7fc49e6afd90>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7fc49e6afea0>
+  pre_exec: <function PreExec.pre_exec at 0x7fc49e6c9048>
+  pre_request: <function PreRequest.pre_request at 0x7fc49e6c9158>
+  post_request: <function PostRequest.post_request at 0x7fc49e6c91e0>
+  child_exit: <function ChildExit.child_exit at 0x7fc49e6c92f0>
+  worker_exit: <function WorkerExit.worker_exit at 0x7fc49e6c9400>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7fc49e6c9510>
+  on_exit: <function OnExit.on_exit at 0x7fc49e6c9620>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2020-04-19 19:58:14 +1200] [7363] [INFO] Starting gunicorn 20.0.4
+[2020-04-19 19:58:14 +1200] [7363] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:58:14 +1200] [7363] [ERROR] Retrying in 1 second.
+[2020-04-19 19:58:15 +1200] [7363] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:58:15 +1200] [7363] [ERROR] Retrying in 1 second.
+[2020-04-19 19:58:16 +1200] [7363] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:58:16 +1200] [7363] [ERROR] Retrying in 1 second.
+[2020-04-19 19:58:17 +1200] [7363] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:58:17 +1200] [7363] [ERROR] Retrying in 1 second.
+[2020-04-19 19:58:18 +1200] [7363] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:58:18 +1200] [7363] [ERROR] Retrying in 1 second.
+[2020-04-19 19:58:19 +1200] [7363] [ERROR] Can't connect to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock
+Starting manage_app as cinemanager
+[2020-04-19 19:58:20 +1200] [7371] [DEBUG] Current configuration:
+  config: None
+  bind: ['unix:/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock']
+  backlog: 2048
+  workers: 3
+  worker_class: sync
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/cinemanager/cinemanager/manage_django/manage
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1000
+  group: 33
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: -
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: manage_app
+  default_proc_name: manage.wsgi:application
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f7e88b7b730>
+  on_reload: <function OnReload.on_reload at 0x7f7e88b7b840>
+  when_ready: <function WhenReady.when_ready at 0x7f7e88b7b950>
+  pre_fork: <function Prefork.pre_fork at 0x7f7e88b7ba60>
+  post_fork: <function Postfork.post_fork at 0x7f7e88b7bb70>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f7e88b7bc80>
+  worker_int: <function WorkerInt.worker_int at 0x7f7e88b7bd90>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7f7e88b7bea0>
+  pre_exec: <function PreExec.pre_exec at 0x7f7e88b95048>
+  pre_request: <function PreRequest.pre_request at 0x7f7e88b95158>
+  post_request: <function PostRequest.post_request at 0x7f7e88b951e0>
+  child_exit: <function ChildExit.child_exit at 0x7f7e88b952f0>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f7e88b95400>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f7e88b95510>
+  on_exit: <function OnExit.on_exit at 0x7f7e88b95620>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2020-04-19 19:58:20 +1200] [7371] [INFO] Starting gunicorn 20.0.4
+[2020-04-19 19:58:20 +1200] [7371] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:58:20 +1200] [7371] [ERROR] Retrying in 1 second.
+[2020-04-19 19:58:21 +1200] [7371] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:58:21 +1200] [7371] [ERROR] Retrying in 1 second.
+[2020-04-19 19:58:22 +1200] [7371] [DEBUG] connection to /home/cinemanager/cinemanager/manage_django/run/gunicorn.sock failed: [Errno 1] Operation not permitted: '/home/cinemanager/cinemanager/manage_django/run/gunicorn.sock'
+[2020-04-19 19:58:22 +1200] [7371] [ERROR] Retrying in 1 second.
