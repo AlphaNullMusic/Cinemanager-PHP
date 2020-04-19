@@ -1,0 +1,17 @@
+[Unit]
+Description=gunicorn daemon for sites django app
+Requires=sites_django.socket
+After=network.target
+
+[Service]
+User=cinemanager
+Group=www-data
+WorkingDirectory=/home/cinemanager/cinemanager/sites_django/sites
+ExecStart=/home/cinemanager/cinemanager/sites_django/bin/gunicorn \
+          --access-logfile - \
+          --workers 3 \
+          --bind unix:/run/sites_django.sock \
+          sites.wsgi:application
+
+[Install]
+WantedBy=multi-user.target

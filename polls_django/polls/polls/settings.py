@@ -25,7 +25,7 @@ SECRET_KEY = 'nx((o8caay#c25cw!k+s7q&nh^93l%e=p+&udo4e5s35uk&!n7'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['polls.cinemanager.co.nz']
 
 
 # Application definition

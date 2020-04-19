@@ -1,0 +1,8 @@
+[Unit]
+Description=gunicorn socket for polls django app
+
+[Socket]
+ListenStream=/run/polls_django.sock
+
+[Install]
+WantedBy=sockets.target

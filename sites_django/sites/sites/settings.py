@@ -25,7 +25,7 @@ SECRET_KEY = '++^_@s&#+2sjrkx3!0wwb2v-%j(g73=^2a6d9ru@lhojbq9v$t'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['sites.cinemanager.co.nz']
 
 
 # Application definition

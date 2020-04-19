@@ -1,0 +1,8 @@
+[Unit]
+Description=gunicorn socket for manage django app
+
+[Socket]
+ListenStream=/run/manage_django.sock
+
+[Install]
+WantedBy=sockets.target

@@ -1,0 +1,8 @@
+[Unit]
+Description=gunicorn socket for sites django app
+
+[Socket]
+ListenStream=/run/sites_django.sock
+
+[Install]
+WantedBy=sockets.target
