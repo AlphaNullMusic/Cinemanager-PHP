@@ -28,7 +28,7 @@ def _deactivate(args):
 _deactivate(["nondestructive"])
 aliases["deactivate"] = _deactivate
 
-$VIRTUAL_ENV = r"/home/cinemanager/cinemanager"
+$VIRTUAL_ENV = r"/home/cinemanager/cinemanager_django"
 
 $_OLD_VIRTUAL_PATH = $PATH
 $PATH = $PATH[:]

@@ -1,0 +1,8 @@
+[Unit]
+Description=gunicorn socket for cinemanager app
+
+[Socket]
+ListenStream=/run/cinemanager_django.sock
+
+[Install]
+WantedBy=sockets.target

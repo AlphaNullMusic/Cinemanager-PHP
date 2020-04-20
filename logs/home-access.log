@@ -1,0 +1,4 @@
+125.239.175.5 - - [20/Apr/2020:20:27:46 +1200] "GET / HTTP/1.1" 502 584 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36"
+125.239.175.5 - - [20/Apr/2020:20:27:46 +1200] "GET /favicon.ico HTTP/1.1" 502 584 "http://cinemanager.co.nz/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36"
+125.239.175.5 - - [20/Apr/2020:20:31:59 +1200] "GET / HTTP/1.1" 400 57197 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36"
+125.239.175.5 - - [20/Apr/2020:20:31:59 +1200] "GET /favicon.ico HTTP/1.1" 400 57120 "http://cinemanager.co.nz/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36"

@@ -1,4 +1,4 @@
-#!/home/cinemanager/cinemanager/bin/python
+#!/home/cinemanager/cinemanager_django/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
