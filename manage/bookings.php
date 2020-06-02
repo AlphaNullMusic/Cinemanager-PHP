@@ -93,7 +93,7 @@ require("inc/manage.inc.php");
 															$title .= "<b>Adults:</b> {$booking_data['adults']}<br>";
 														}
 														if ($booking_data['children'] != 0) {
-                                                                                                                        $title .= "<b>Adults:</b> {$booking_data['children']}<br>";
+                                                                                                                        $title .= "<b>Children:</b> {$booking_data['children']}<br>";
                                                                                                                 }
 														if ($booking_data['seniors'] != 0) {
                                                                                                                         $title .= "<b>Seniors:</b> {$booking_data['seniors']}<br>";
