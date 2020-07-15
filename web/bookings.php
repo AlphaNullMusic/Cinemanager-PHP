@@ -57,7 +57,12 @@ if(!$smarty->isCached($tpl)) {
 				// Booking display and process
 				} else {
 					$smarty->assign('ticket_nums', array(0,1,2,3,4,5,6,7,8,9,10));
-					$smarty->assign('movie_list',get_movie_list_full('ns','m.title',0,'%W %D','%e %b',100,'today',null,null,true,'medium'));
+
+                    /*
+                     * 15-07-20: Changed $num_sessions from 0 to 1, as we can't book movies that are coming soon without it. This shouldn't be a problem as all movies being booked have at least 1 session.
+                    **/
+					$smarty->assign('movie_list',get_movie_list_full('ns','m.title',1,'%W %D','%e %b',100,'today',null,null,true,'medium'));
+
 					// Send booking request
 					if (isset($_POST['action']) && $_POST['action']=='place_booking') {
 						// Send booking email

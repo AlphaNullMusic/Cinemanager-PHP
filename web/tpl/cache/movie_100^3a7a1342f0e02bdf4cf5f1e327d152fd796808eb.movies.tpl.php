@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2020-07-15 13:13:37
+/* Smarty version 3.1.33, created on 2020-07-15 13:17:19
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5f0e584130a857_71965634',
+  'unifunc' => 'content_5f0e591f391576_40418366',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -24,14 +24,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_5f0e584130a857_71965634 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f0e591f391576_40418366 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Booksellers - Info</title>
+<title>A Bump Along the Way - Info</title>
 <meta name="description" content="Shoreline Cinema is Waikanae's premiere cinema complex. Find out who we are, what's on, what's coming up, how to contact us and much more.">
 <link href="/tpl/inc/css/styles.css" rel="stylesheet" type="text/css" />
 <link href="/tpl/inc/css/print.css" rel="stylesheet" type="text/css" media="print" />
@@ -81,32 +81,36 @@ function content_5f0e584130a857_71965634 (Smarty_Internal_Template $_smarty_tpl)
 
 
 <div class="information">
-    <h2>The Booksellers</h2>
+    <h2>A Bump Along the Way</h2>
     <div class="content">
     	<div class="content-wrapper poster">
-    		<img src="https://posters.shoreline.nz/99-medium-default.jpg" width="190" alt="The Booksellers Poster" />
+    		<img src="https://posters.shoreline.nz/100-medium-default.jpg" width="190" alt="A Bump Along the Way Poster" />
     	</div>
     	<div class="content-wrapper text"> 
     		<div class="content">
     		    <div class="content-wrapper text">
-    		        <p>A Documentary behind-the-scenes look at the New York rare book world.								</p>
+    		        <p>A boozy 44-year-old single mother becomes pregnant from a one-night-stand, much to the shame of her buttoned-up teen daughter.</p>
 					    		                                        <span class="h3">Upcoming Screening Times</span>
                             <ul class="sessions">
                                                             	                              	
-                              	<li><strong>Wednesday 15 Jul</strong><a href="/bookings/2120/">5:45pm</a>                              	                              	
-                              	<li><strong>Friday 17 Jul</strong><a href="/bookings/2183/">4:30pm</a>                              	                              	
-                              	<li><strong>Sunday 19 Jul</strong><a href="/bookings/2184/">5:30pm</a>                              	                              	
-                              	<li><strong>Wednesday 22 Jul</strong><a href="/bookings/2185/">4:00pm</a>                               </li>
+                              	<li><strong>Wednesday 15 Jul</strong><a href="/bookings/2145/">12:15pm</a>                              	                              	
+                              	<li><strong>Thursday 16 Jul</strong><a href="/bookings/2228/">10:30am</a>                              	                              	
+                              	<li><strong>Friday 17 Jul</strong><a href="/bookings/2229/">2:15pm</a>, <a href="/bookings/2230/">8:30pm</a>                              	                              	
+                              	<li><strong>Saturday 18 Jul</strong><a href="/bookings/2231/">11:00am</a>, <a href="/bookings/2232/">6:30pm</a>                              	                              	
+                              	<li><strong>Sunday 19 Jul</strong><a href="/bookings/2233/">3:45pm</a>                              	                              	
+                              	<li><strong>Monday 20 Jul</strong><a href="/bookings/2234/">12:30pm</a>, <a href="/bookings/2235/">5:45pm</a>                              	                              	
+                              	<li><strong>Tuesday 21 Jul</strong><a href="/bookings/2236/">12:15pm</a>, <a href="/bookings/2237/">6:15pm</a>                              	                              	
+                              	<li><strong>Wednesday 22 Jul</strong><a href="/bookings/2238/">12:30pm</a>, <a href="/bookings/2239/">6:00pm</a>                               </li>
                             </ul>
                           	<p><i>To place a booking, click on the session time you are interested in. Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
                             		    </div>
     		    <div class="content-wrapper details">
     		                			<p>
-        				<strong>Rated:</strong> E<br />
-        				 <em>Suitable for Everyone</em>        			</p>
+        				<strong>Rated:</strong> PG<br />
+        				 <em>Parental Guidance is Recommended</em>        			</p>
         		            		    <p>
         			              	        <strong>Duration:</strong><br />
-        				1hr 39min<br /><br />
+        				1hr 35min<br /><br />
         			        			        			        		    </p>
             		  
     		    </div>
