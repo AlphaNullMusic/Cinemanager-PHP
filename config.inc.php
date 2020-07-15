@@ -68,17 +68,17 @@ $config = array(
 	// Booking Email Settings
 	"booking_send_email" => "bookings@shoreline.nz",
 	"booking_receive_email" => "manager.shoreline.cinema@gmail.com",
-	"booking_smtp_server" => "mail.shoreline.nz",
+	"booking_smtp_server" => "mail.cinemanager.co.nz",
 	"booking_email_pass" => "xNbaMYjpWAhN",
 
 	// Error Email Settings
 	"admin_email" => "roman@shoreline.nz",
 	"error_email" => "errors@shoreline.nz",
-	"error_smtp_server" => "mail.shoreline.nz",
+	"error_smtp_server" => "mail.cinemanager.co.nz",
 	"error_email_pass" => "3mqqZNED7dka",
 
 	// Newsletter Email Settings
-	"newsletter_smtp_server" => "mail.shoreline.nz",
+	"newsletter_smtp_server" => "mail.cinemanager.co.nz",
 	"newsletter_email" => "sessions@shoreline.nz",
 	"newsletter_email_pass" => "xNbaMYjpWAhN", 
 	
