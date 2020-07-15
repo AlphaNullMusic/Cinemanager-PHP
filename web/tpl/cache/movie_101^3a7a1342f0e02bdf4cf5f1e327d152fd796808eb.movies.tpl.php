@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2020-07-15 13:13:37
+/* Smarty version 3.1.33, created on 2020-07-15 13:19:52
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5f0e584130a857_71965634',
+  'unifunc' => 'content_5f0e59b8c20872_28212044',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -24,14 +24,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_5f0e584130a857_71965634 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f0e59b8c20872_28212044 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Booksellers - Info</title>
+<title>Tenet - Info</title>
 <meta name="description" content="Shoreline Cinema is Waikanae's premiere cinema complex. Find out who we are, what's on, what's coming up, how to contact us and much more.">
 <link href="/tpl/inc/css/styles.css" rel="stylesheet" type="text/css" />
 <link href="/tpl/inc/css/print.css" rel="stylesheet" type="text/css" media="print" />
@@ -81,32 +81,21 @@ function content_5f0e584130a857_71965634 (Smarty_Internal_Template $_smarty_tpl)
 
 
 <div class="information">
-    <h2>The Booksellers</h2>
+    <h2>Tenet</h2>
     <div class="content">
     	<div class="content-wrapper poster">
-    		<img src="https://posters.shoreline.nz/99-medium-default.jpg" width="190" alt="The Booksellers Poster" />
+    		<img src="https://posters.shoreline.nz/101-medium-default.jpg" width="190" alt="Tenet Poster" />
     	</div>
     	<div class="content-wrapper text"> 
     		<div class="content">
     		    <div class="content-wrapper text">
-    		        <p>A Documentary behind-the-scenes look at the New York rare book world.								</p>
-					    		                                        <span class="h3">Upcoming Screening Times</span>
-                            <ul class="sessions">
-                                                            	                              	
-                              	<li><strong>Wednesday 15 Jul</strong><a href="/bookings/2120/">5:45pm</a>                              	                              	
-                              	<li><strong>Friday 17 Jul</strong><a href="/bookings/2183/">4:30pm</a>                              	                              	
-                              	<li><strong>Sunday 19 Jul</strong><a href="/bookings/2184/">5:30pm</a>                              	                              	
-                              	<li><strong>Wednesday 22 Jul</strong><a href="/bookings/2185/">4:00pm</a>                               </li>
-                            </ul>
-                          	<p><i>To place a booking, click on the session time you are interested in. Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
-                            		    </div>
+    		        <p>Armed with only one word -- Tenet -- and fighting for the survival of the entire world, the Protagonist journeys through a twilight world of international espionage on a mission that will unfold in something beyond real time.</p>
+					    		                		    </div>
     		    <div class="content-wrapper details">
     		                			<p>
-        				<strong>Rated:</strong> E<br />
-        				 <em>Suitable for Everyone</em>        			</p>
+        				<strong>Rated:</strong> TBC<br />
+        				 <em>To Be Confirmed</em>        			</p>
         		            		    <p>
-        			              	        <strong>Duration:</strong><br />
-        				1hr 39min<br /><br />
         			        			        			        		    </p>
             		  
     		    </div>
