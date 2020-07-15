@@ -398,8 +398,9 @@ function get_movie_list_full($type = 'ns', $order_by = 'm.title', $num_sessions 
 	
     if ($limit > 0) {
         // Timezone
-        $timezoneOffset = (!empty($cinema_data['timezoneOffset'])) ? $cinema_data['timezoneOffset'] : 17;
-        
+        //$timezoneOffset = (!empty($cinema_data['timezoneOffset'])) ? $cinema_data['timezoneOffset'] : 17;
+        // Remove as caused issues with movies starting the next day
+
         // $cinema_data['image_cat_id'] will be absent if using $bypass_cid
         if (!isset($cinema_data['image_cat_id'])) {
             $cinema_data['image_cat_id'] = 2;
@@ -511,7 +512,7 @@ function get_movie_list_full($type = 'ns', $order_by = 'm.title', $num_sessions 
                     AND s.time >= NOW()
                 LEFT JOIN classifications c
                     ON c.classification_id=m.classification_id
-                WHERE (m.release_date > DATE_ADD(NOW(), INTERVAL $timezoneOffset HOUR) OR m.release_date='0000-00-00') 
+                WHERE (m.release_date > NOW() OR m.release_date='0000-00-00') 
 					AND m.status='ok'
                 GROUP BY m.movie_id 
                 $having

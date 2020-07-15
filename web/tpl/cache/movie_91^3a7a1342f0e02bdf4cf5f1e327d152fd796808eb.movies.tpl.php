@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2020-06-02 17:38:34
+/* Smarty version 3.1.33, created on 2020-07-15 12:57:57
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5ed5e5da9a0588_81727421',
+  'unifunc' => 'content_5f0e5495a2d228_06722898',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -24,7 +24,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_5ed5e5da9a0588_81727421 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f0e5495a2d228_06722898 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
@@ -90,11 +90,19 @@ function content_5ed5e5da9a0588_81727421 (Smarty_Internal_Template $_smarty_tpl)
     		<div class="content">
     		    <div class="content-wrapper text">
     		        <p>N/A</p>
-					    		                		    </div>
+					    		                                        <span class="h3">Upcoming Screening Times</span>
+                            <ul class="sessions">
+                                                            	                              	
+                              	<li><strong>Wednesday 15 Jul</strong><a href="/bookings/2138/">10:30am</a>                              	                              	
+                              	<li><strong>Monday 20 Jul</strong><a href="/bookings/2165/">2:15pm</a>                              	                              	
+                              	<li><strong>Wednesday 22 Jul</strong><a href="/bookings/2166/">4:15pm</a>                               </li>
+                            </ul>
+                          	<p><i>To place a booking, click on the session time you are interested in. Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
+                            		    </div>
     		    <div class="content-wrapper details">
     		                			<p>
-        				<strong>Rated:</strong> TBC<br />
-        				 <em>To Be Confirmed</em>        			</p>
+        				<strong>Rated:</strong> E<br />
+        				 <em>Suitable for Everyone</em>        			</p>
         		            		    <p>
         			              	        <strong>Duration:</strong><br />
         				1hr 20min<br /><br />

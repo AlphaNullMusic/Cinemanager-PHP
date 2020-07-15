@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2020-06-01 16:00:56
+/* Smarty version 3.1.33, created on 2020-07-15 13:01:51
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5ed47d7888f984_91619254',
+  'unifunc' => 'content_5f0e557f9d6a51_42194891',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -24,7 +24,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_5ed47d7888f984_91619254 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f0e557f9d6a51_42194891 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
@@ -90,7 +90,19 @@ function content_5ed47d7888f984_91619254 (Smarty_Internal_Template $_smarty_tpl)
     		<div class="content">
     		    <div class="content-wrapper text">
     		        <p>Based on the novel by Charles Dickens.</p>
-					    		                		    </div>
+					    		                                        <span class="h3">Upcoming Screening Times</span>
+                            <ul class="sessions">
+                                                            	                              	
+                              	<li><strong>Thursday 16 Jul</strong><a href="/bookings/2210/">4:00pm</a>, <a href="/bookings/2211/">8:15pm</a>                              	                              	
+                              	<li><strong>Friday 17 Jul</strong><a href="/bookings/2212/">2:00pm</a>, <a href="/bookings/2213/">8:15pm</a>                              	                              	
+                              	<li><strong>Saturday 18 Jul</strong><a href="/bookings/2214/">4:00pm</a>, <a href="/bookings/2215/">8:15pm</a>                              	                              	
+                              	<li><strong>Sunday 19 Jul</strong><a href="/bookings/2216/">12:15pm</a>, <a href="/bookings/2217/">4:30pm</a>                              	                              	
+                              	<li><strong>Monday 20 Jul</strong><a href="/bookings/2218/">2:00pm</a>, <a href="/bookings/2219/">6:00pm</a>                              	                              	
+                              	<li><strong>Tuesday 21 Jul</strong><a href="/bookings/2220/">2:00pm</a>, <a href="/bookings/2221/">8:00pm</a>                              	                              	
+                              	<li><strong>Wednesday 22 Jul</strong><a href="/bookings/2222/">2:00pm</a>, <a href="/bookings/2223/">8:00pm</a>                               </li>
+                            </ul>
+                          	<p><i>To place a booking, click on the session time you are interested in. Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
+                            		    </div>
     		    <div class="content-wrapper details">
     		                			<p>
         				<strong>Rated:</strong> PG<br />
