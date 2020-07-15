@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2020-06-02 11:25:36
+/* Smarty version 3.1.33, created on 2020-07-15 13:01:45
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5ed58e70efd570_73892846',
+  'unifunc' => 'content_5f0e5579df21d2_85307166',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -24,7 +24,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_5ed58e70efd570_73892846 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f0e5579df21d2_85307166 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
@@ -90,7 +90,19 @@ function content_5ed58e70efd570_73892846 (Smarty_Internal_Template $_smarty_tpl)
     		<div class="content">
     		    <div class="content-wrapper text">
     		        <p>A story of the scientific and romantic passions of Marie Sklodowska-Curie (Polish scientist) and Pierre Curie, and the reverberation of their discoveries throughout the 20th century.</p>
-					    		                		    </div>
+					    		                                        <span class="h3">Upcoming Screening Times</span>
+                            <ul class="sessions">
+                                                            	                              	
+                              	<li><strong>Thursday 16 Jul</strong><a href="/bookings/2196/">12:00pm</a>, <a href="/bookings/2197/">6:15pm</a>                              	                              	
+                              	<li><strong>Friday 17 Jul</strong><a href="/bookings/2198/">12:00pm</a>, <a href="/bookings/2199/">6:15pm</a>                              	                              	
+                              	<li><strong>Saturday 18 Jul</strong><a href="/bookings/2200/">2:00pm</a>, <a href="/bookings/2201/">6:15pm</a>                              	                              	
+                              	<li><strong>Sunday 19 Jul</strong><a href="/bookings/2202/">2:30pm</a>, <a href="/bookings/2203/">6:45pm</a>                              	                              	
+                              	<li><strong>Monday 20 Jul</strong><a href="/bookings/2204/">12:00pm</a>, <a href="/bookings/2205/">7:45pm</a>                              	                              	
+                              	<li><strong>Tuesday 21 Jul</strong><a href="/bookings/2206/">12:00pm</a>, <a href="/bookings/2207/">8:00pm</a>                              	                              	
+                              	<li><strong>Wednesday 22 Jul</strong><a href="/bookings/2208/">12:00pm</a>, <a href="/bookings/2209/">6:00pm</a>                               </li>
+                            </ul>
+                          	<p><i>To place a booking, click on the session time you are interested in. Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
+                            		    </div>
     		    <div class="content-wrapper details">
     		                			<p>
         				<strong>Rated:</strong> PG<br />
