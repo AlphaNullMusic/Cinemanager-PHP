@@ -89,21 +89,28 @@ require("inc/manage.inc.php");
 													title="
 													<?php
 														$title = "<b><em>{$booking_data['title']}<br>{$booking_data['session_date']} - {$booking_data['session_time']}</em></b><br><br>";
-														if ($booking_data['adults'] != 0) {
+														if ($booking_data['adults'] != 0)
+                                                        {
 															$title .= "<b>Adults:</b> {$booking_data['adults']}<br>";
 														}
-														if ($booking_data['children'] != 0) {
-                                                                                                                        $title .= "<b>Children:</b> {$booking_data['children']}<br>";
-                                                                                                                }
-														if ($booking_data['seniors'] != 0) {
-                                                                                                                        $title .= "<b>Seniors:</b> {$booking_data['seniors']}<br>";
-                                                                                                                }
-														if ($booking_data['students'] != 0) {
-                                                                                                                        $title .= "<b>Students:</b> {$booking_data['students']}<br>";
-                                                                                                                }
+														if ($booking_data['children'] != 0)
+                                                        {
+                                                            $title .= "<b>Children:</b> {$booking_data['children']}<br>";
+                                                        }
+														if ($booking_data['seniors'] != 0)
+                                                        {
+                                                            $title .= "<b>Seniors:</b> {$booking_data['seniors']}<br>";
+                                                        }
+														if ($booking_data['students'] != 0)
+                                                        {
+                                                            $title .= "<b>Students:</b> {$booking_data['students']}<br>";
+                                                        }
 														if ($booking_data['wheelchair'] == 1) {
-															$title .= '<em>Requested Wheelchair</em> ';
+															$title .= '<em>Requested Wheelchair</em><br>';
 														}
+                                                        if ($booking_data['newsletter_signup'] == 1) {
+                                                            $title .= '<em>Signed up for newsletter</em> ';
+                                                        }
 														echo $title;
 													?>
 													"

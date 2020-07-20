@@ -36,24 +36,21 @@ if(!$smarty->isCached($tpl)) {
 			if (is_array($movie_data) && $session) {
 
 				$smarty->assign($movie_data);
-				$smarty->assign('movie_id',$movie_id); 
+				$smarty->assign('movie_id',$movie_id);
 				$smarty->assign('session',$session);
-				
-				// Booking complete comfirmation
-				if (isset($_GET['booking']) && $_GET['booking']=='complete') {
-					$smarty->assign('booking','complete');
-					$smarty->assign('t_adults',(isset($_GET['ta']))?$_GET['ta']:0);
-					$smarty->assign('t_children',(isset($_GET['tc']))?$_GET['tc']:0);
-					$smarty->assign('t_seniors',(isset($_GET['ts']))?$_GET['ts']:0);
-					$smarty->assign('t_students',(isset($_GET['tu']))?$_GET['tu']:0);
-				// Booking failed message
-				} elseif (isset($_GET['booking']) && $_GET['booking']=='failed') {
-					$smarty->assign('booking','failed');
-					$smarty->assign('t_adults',(isset($_GET['ta']))?$_GET['ta']:0);
-					$smarty->assign('t_children',(isset($_GET['tc']))?$_GET['tc']:0);
-					$smarty->assign('t_seniors',(isset($_GET['ts']))?$_GET['ts']:0);
-					$smarty->assign('t_students',(isset($_GET['tu']))?$_GET['tu']:0);
-				
+
+				// Booking message
+                /*
+                 * 20-07-20: Condensed code to avoid repetition.
+                **/
+                if (isset($_GET['booking']))
+                {
+                    $type = ($_GET['booking'] == 'complete') ? 'complete' : 'failed';
+                    $smarty->assign('booking',$type);
+                    $smarty->assign('t_adults',(isset($_GET['ta']))?$_GET['ta']:0);
+                    $smarty->assign('t_children',(isset($_GET['tc']))?$_GET['tc']:0);
+                    $smarty->assign('t_seniors',(isset($_GET['ts']))?$_GET['ts']:0);
+                    $smarty->assign('t_students',(isset($_GET['tu']))?$_GET['tu']:0);
 				// Booking display and process
 				} else {
 					$smarty->assign('ticket_nums', array(0,1,2,3,4,5,6,7,8,9,10));
@@ -116,7 +113,7 @@ if(!$smarty->isCached($tpl)) {
 							$mail->FromName	= $cinema_data['name']." Website";
 							$mail->Subject = $subject;
 							$mail->Body = $message;
-							//die(print_r($mail));
+
 							if($mail->Send()) {
 								$mail->ClearAddresses();
 
@@ -128,24 +125,67 @@ if(!$smarty->isCached($tpl)) {
 										email = '" . $mysqli->real_escape_string($_POST['c_email']) . "',
 										session_id = '" . $mysqli->real_escape_string($_REQUEST['booking_id']) . "',
 									";
-									if (isset($_POST['t_adults'])) {
+                                    // Add number of adults
+									if (isset($_POST['t_adults']))
+                                    {
 										$sql .= " adults = '" . $mysqli->real_escape_string($_POST['t_adults']) . "',";
 									}
-									if (isset($_POST['t_children'])) {
-                                                                                $sql .= " children = '" . $mysqli->real_escape_string($_POST['t_children']) . "',";
-                                                                        }
-									if (isset($_POST['t_seniors'])) {
-                                                                                $sql .= " seniors = '" . $mysqli->real_escape_string($_POST['t_seniors']) . "',";
-                                                                        }
-									if (isset($_POST['t_students'])) {
-                                                                                $sql .= " students = '" . $mysqli->real_escape_string($_POST['t_students']) . "',";
-                                                                        }
-									if (isset($_POST['c_wheelchair'])) {
-                                                                                $sql .= " wheelchair = '1',";
-                                                                        }
+
+                                    // Add number of children
+									if (isset($_POST['t_children']))
+                                    {
+                                        $sql .= " children = '" . $mysqli->real_escape_string($_POST['t_children']) . "',";
+                                    }
+
+                                    // Add number of seniors
+									if (isset($_POST['t_seniors']))
+                                    {
+                                        $sql .= " seniors = '" . $mysqli->real_escape_string($_POST['t_seniors']) . "',";
+                                    }
+
+                                    // Add number of students
+									if (isset($_POST['t_students']))
+                                    {
+                                        $sql .= " students = '" . $mysqli->real_escape_string($_POST['t_students']) . "',";
+                                    }
+
+                                    // Requested wheelchair
+									if (isset($_POST['c_wheelchair']))
+                                    {
+                                        $sql .= " wheelchair = '1',";
+                                    }
+
+                                    // Agreed to newsletter signup
+                                    if (isset($_POST['c_newsletter_signup']))
+                                    {
+                                        $sql .= " newsletter_signup = '1',";
+                                    }
+
 									$sql .= "phone = '" . $mysqli->real_escape_string($_POST['c_phone']) . "'";
 									$mysqli->query($sql) or user_error("Error at: ".$sql);
 								}
+
+                                // Add customer to newsletter
+                                if (has_permission('booking_newsletter_signup') && isset($_POST['c_newsletter_signup']))
+                                {
+                                    $name = split_name($_POST['c_name']);
+                                    $sql = "
+                                        INSERT INTO users
+                                        set first_name = '" . $mysqli->real_escape_string($name[0]) . "',
+                                            last_name = '" . $mysqli->real_escape_string($name[1]) . "',
+                                            email = '" . $mysqli->real_escape_string($_POST['c_email']) . "',
+                                            phone = '" . $mysqli->real_escape_string($_POST['c_phone']) . "',
+                                            date_joined = '" . date('Y-m-d') . "'
+                                        ON DUPLICATE KEY UPDATE
+                                        first_name = values(first_name),
+                                        last_name = values(last_name),
+                                        email = values(email),
+                                        phone = values(phone),
+                                        date_joined = values(date_joined),
+                                        status = 'ok';
+                                    ";
+                                    $mysqli->query($sql) or user_error("Error at: ".$sql);
+                                }
 
 							    // Email the customer back
 							    if (has_permission('email_booking_reply')) {
@@ -259,6 +299,7 @@ if(!$smarty->isCached($tpl)) {
                                     "email" => $_POST['c_email'],
                                     "phone" => $_POST['c_phone'],
                                     "wheelchair" => $_POST['c_wheelchair'],
+                                    "newsletter_signup" => $_POST['c_newsletter_signup'],
                                     "adults" => $_POST['t_adults'],
                                     "children" => $_POST['t_children'],
                                     "seniors" => $_POST['t_seniors'],
@@ -283,6 +324,7 @@ if(!$smarty->isCached($tpl)) {
 							$smarty->assign('c_email',$_POST['c_email']);
 							$smarty->assign('c_phone',$_POST['c_phone']);
 							$smarty->assign('c_wheelchair',(isset($_POST['c_wheelchair']))?'checked':'');
+                            $smarty->assign('c_newsletter_signup',(isset($_POST['c_newsletter_signup']))?'checked':'');
 							$smarty->assign('t_adults',(isset($_POST['t_adults']))?$_POST['t_adults']:'');
 							$smarty->assign('t_children',(isset($_POST['t_children']))?$_POST['t_children']:'');
 							$smarty->assign('t_seniors',(isset($_POST['t_seniors']))?$_POST['t_seniors']:'');

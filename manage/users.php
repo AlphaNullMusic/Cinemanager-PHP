@@ -89,11 +89,8 @@ if (check_cinema() && has_permission('user_list')) {
 					if (isset($_POST['last_name']) && $_POST['last_name'] != '') {
 						$sql .= ", last_name='".$mysqli->real_escape_string($_POST['last_name'])."'";
 					}
-					if (isset($_POST['landline']) && $_POST['landline'] != '') {
-                                                $sql .= ", landline='".$mysqli->real_escape_string($_POST['landline'])."'";
-                                        }
-					if (isset($_POST['mobile']) && $_POST['mobile'] != '') {
-                                                $sql .= ", mobile='".$mysqli->real_escape_string($_POST['mobile'])."'";
+					if (isset($_POST['phone']) && $_POST['phone'] != '') {
+                                                $sql .= ", phone='".$mysqli->real_escape_string($_POST['phone'])."'";
                                         }
 					$sql .= " WHERE user_id='$user_id'";
 					$mysqli->query($sql);
@@ -119,8 +116,7 @@ if (check_cinema() && has_permission('user_list')) {
 					UPDATE users
 					SET first_name='".$mysqli->real_escape_string($_POST['first_name'])."',
 					last_name='".$mysqli->real_escape_string($_POST['last_name'])."',
-					landline='".$mysqli->real_escape_string($_POST['landline'])."',
-					mobile='".$mysqli->real_escape_string($_POST['mobile'])."'
+					phone='".$mysqli->real_escape_string($_POST['phone'])."'
 					WHERE user_id='{$user_data['user_id']}'
 				";
 				$mysqli->query($sql);
@@ -217,23 +213,12 @@ jane@doe.co.nz
 											> 
 										</div>
 										<div class="form-group">
-                                                                                        <label for="landline"><strong>Home Phone Number</strong></label>
+                                                                                        <label for="phone"><strong>Phone Number</strong></label>
                                                                                         <input
-                                                                                                name="landline"
+                                                                                                name="phone"
                                                                                                 class="form-control"
                                                                                                 type="text"
-                                                                                                value="<?php echo isset($user_data['landline'])?$user_data['landline']:''?>"
-                                                                                                size="15"
-                                                                                                maxlength="100"
-                                                                                        >
-                                                                                </div>
-										<div class="form-group">
-                                                                                        <label for="mobile"><strong>Mobile Number</strong></label>
-                                                                                        <input
-                                                                                                name="mobile"
-                                                                                                class="form-control"
-                                                                                                type="text"
-                                                                                                value="<?php echo isset($user_data['mobile'])?$user_data['mobile']:''?>"
+                                                                                                value="<?php echo isset($user_data['phone'])?$user_data['phone']:''?>"
                                                                                                 size="15"
                                                                                                 maxlength="100"
                                                                                         >
