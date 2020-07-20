@@ -425,7 +425,7 @@ function get_movie_list_full($type = 'ns', $order_by = 'm.title', $num_sessions 
         
         // Additional selection conditions
         if ($type == 'ns' && $num_sessions == 0) {
-            $extra_conditions .= " AND m.release_date <= DATE_ADD(NOW(), INTERVAL $timezoneOffset HOUR) "; // Temporary fix, we need dynamic timezone entered here
+            $extra_conditions .= " AND m.release_date <= NOW() "; // Temporary fix, we need dynamic timezone entered here
         }
         
         // Restrict movies shown
