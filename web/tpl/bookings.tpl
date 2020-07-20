@@ -216,7 +216,7 @@ function YY_checkform() { //v4.71
                               <td><input name="c_wheelchair" type="checkbox" id="c_wheelchair" {$c_wheelchair}></td>
                             </tr>
                             <tr>
-                              <td align="right">Sign up for Weekly Update</td>
+                              <td align="right">Sign up for Weekly Session Timetable</td>
                               <td>&nbsp;</td>
                               <td><input name="c_newsletter_signup" type="checkbox" id="c_newsletter_signup" {$c_newsletter_signup}></td>
                             </tr>
