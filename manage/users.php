@@ -294,31 +294,27 @@ jane@doe.co.nz
 							for ($n=1; $n<=$weeks; $n++) {
 								$from = mktime(0, 0, 0, $finalDayParts[1], $finalDayParts[2]-$n*7, $finalDayParts[0]);
 								$to = mktime(23, 59, 59, $finalDayParts[1], $finalDayParts[2]-$n*7+6, $finalDayParts[0]);
-								$sql="
+								$sql = "
 									SELECT COUNT(DISTINCT u.user_id) AS subscribers
 									FROM users u
-									WHERE u.last_updated >= FROM_UNIXTIME('$from')
-										AND u.last_updated <= FROM_UNIXTIME('$to')
+									WHERE u.date_joined <= FROM_UNIXTIME('$to')
 										AND u.status = 'ok'
 								";
 								$subscriberRes = $mysqli->query($sql) or user_error("Gnarly: $sql");
 								$subscriberData = $subscriberRes->fetch_assoc();
-								$sql="
-									SELECT COUNT(DISTINCT nul.user_id) AS unSubscribers
-									FROM newsletter_user_log nul
-									INNER JOIN users u
-										ON u.user_id = nul.user_id
-									WHERE nul.timestamp >= FROM_UNIXTIME('$from')
-										AND nul.timestamp <= FROM_UNIXTIME('$to')
-										AND nul.action IN ('unsubscribe', 'bounce')
-								";
-								$unSubscriberRes = $mysqli->query($sql) or user_error("Gnarly: $sql");
-								$unSubscriberData = $unSubscriberRes->fetch_assoc();
-								if (!isset($total)) {
-									$total = $num_users;
-								} else {
-									$total = $total -$subscriberData['subscribers'] + $unSubscriberData['unSubscribers'];
-								}
+
+                                $sql="
+                                    SELECT COUNT(DISTINCT nul.user_id) AS unSubscribers
+                                    FROM newsletter_user_log nul
+                                    INNER JOIN users u
+                                        ON u.user_id = nul.user_id
+                                    WHERE nul.timestamp >= FROM_UNIXTIME('$from')
+                                        AND nul.timestamp <= FROM_UNIXTIME('$to')
+                                        AND nul.action IN ('unsubscribe', 'bounce')
+                                ";
+                                $unSubscriberRes = $mysqli->query($sql) or user_error("Gnarly: $sql");
+                                $unSubscriberData = $unSubscriberRes->fetch_assoc();
+
 								$weeklyStats[] = array(
 									'from' => $from,
 									'to' => $to,
@@ -326,8 +322,8 @@ jane@doe.co.nz
 									'fromDate' => date('Y-m-d', $from),
 									'toDate' => date('Y-m-d', $to),
 									'subscribers' => $subscriberData['subscribers'],
-									'unSubscribers' => $unSubscriberData['unSubscribers'],
-									'total' => $total
+                                    'unsubscribers' => $unSubscriberData['unSubscribers'],
+									'total' => $subscriberData['subscribers']
 								);
 							}
 							$weeklyStats = array_reverse($weeklyStats); 
@@ -335,32 +331,52 @@ jane@doe.co.nz
 							<div class="d-none d-md-block">
 							<h2>Quarterly Trend</h2>
 							<div id="chart_div"></div>
-								<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+								<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 								<script type="text/javascript">
-									google.load("visualization", "1", {packages:["corechart"]});
-									google.setOnLoadCallback(drawChart);
+									google.charts.load('current', {'packages':['line']});
+									google.charts.setOnLoadCallback(drawChart);
+
 									function drawChart() {
-										var data = google.visualization.arrayToDataTable([
-											['Date', 'Subscribers']
-									  <?php foreach ($weeklyStats as $s) {
-												echo ",['{$s['fromDateShort']}', {$s['total']} ]";
+										var data = new google.visualization.DataTable();
+                                            data.addColumn('string', 'Date');
+                                            data.addColumn('number', 'Subscribers');
+                                            data.addColumn('number', 'Unsubscribers');
+
+                                            data.addRows([
+									  <?php foreach ($weeklyStats as $key => $stats) {
+                                                reset($weeklyStats);
+                                                if ($key !== key($weeklyStats))
+                                                {
+                                                    echo ", ";
+                                                }
+												echo "['{$stats['fromDateShort']}', {$stats['total']}, {$stats['unsubscribers']} ]";
 											} ?>
-										]);
+                                            ]);
+
 										var options = {
 											isStacked: false,
 											curveType: 'function',
 											focusTarget: 'category',
 											colors: ['#719F2A', '#006A72'],
 											fontSize: 12,
-											hAxis: {titleTextStyle: {color: '#666666'}},
-											vAxis: {titleTextStyle: {color: '#666666'}},
+                                            series: {
+                                                0: {axis: 'Subscribers'},
+                                                1: {axis: 'Unsubscribers'}
+                                            },
+                                            axes: {
+                                                y: {
+                                                    Subscribers: {label: 'Subscribers'},
+                                                    Unsubscribers: {label: 'Unsubscribers'}
+                                                }
+                                            },
 											width: 680,
 											height: 200,
 											chartArea: {left:"6%", top:"4%", width:"82%", height:"84%"},
 											legend: {'position': 'none'}
 										};
-										var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
-										chart.draw(data, options);
+
+										var chart = new google.charts.Line(document.getElementById('chart_div'));
+										chart.draw(data, google.charts.Line.convertOptions(options));
 									}
 								</script>
 							</div>
