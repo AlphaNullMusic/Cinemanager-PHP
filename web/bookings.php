@@ -39,6 +39,15 @@ if(!$smarty->isCached($tpl)) {
 				$smarty->assign('movie_id',$movie_id);
 				$smarty->assign('session',$session);
 
+                // Get remembered details
+                if (has_permission('booking_remember_details') && isset($_COOKIE['cm_details']))
+                {
+                    $cookie_details = json_decode($_COOKIE['cm_details']);
+                    $smarty->assign('c_name', $cookie_details->c_name);
+                    $smarty->assign('c_email', $cookie_details->c_email);
+                    $smarty->assign('c_phone', $cookie_details->c_phone);
+                }
+
 				// Booking message
                 /*
                  * 20-07-20: Condensed code to avoid repetition.
@@ -185,6 +194,15 @@ if(!$smarty->isCached($tpl)) {
                                         status = 'ok';
                                     ";
                                     $mysqli->query($sql) or user_error("Error at: ".$sql);
+                                }
+
+                                // Save details as cookie
+                                if (has_permission('booking_remember_details'))
+                                {
+                                    $cookie_name = "cm_details";
+                                    setcookie($cookie_name, "", time() - 3600);
+                                    $cookie_value = array('c_name' => $_POST['c_name'], 'c_email' => $_POST['c_email'], 'c_phone' => $_POST['c_phone']);
+                                    setcookie($cookie_name, json_encode($cookie_value), strtotime("+1 year"), '/bookings');
                                 }
 
 							    // Email the customer back

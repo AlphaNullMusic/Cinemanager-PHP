@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2020-07-22 21:38:41
+/* Smarty version 3.1.33, created on 2020-07-22 15:04:41
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5f180921aaaa18_99649212',
+  'unifunc' => 'content_5f17acc9b4d014_56350757',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -24,14 +24,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_5f180921aaaa18_99649212 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f17acc9b4d014_56350757 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Love Sarah - Info</title>
+<title>Unhinged - Info</title>
 <meta name="description" content="Shoreline Cinema is Waikanae's premiere cinema complex. Find out who we are, what's on, what's coming up, how to contact us and much more.">
 <link href="/tpl/inc/css/styles.css" rel="stylesheet" type="text/css" />
 <link href="/tpl/inc/css/print.css" rel="stylesheet" type="text/css" media="print" />
@@ -81,34 +81,23 @@ function content_5f180921aaaa18_99649212 (Smarty_Internal_Template $_smarty_tpl)
 
 
 <div class="information">
-    <h2>Love Sarah</h2>
+    <h2>Unhinged</h2>
     <div class="content">
     	<div class="content-wrapper poster">
-    		<img src="https://posters.shoreline.nz/81-medium-custom.jpg" width="190" alt="Love Sarah Poster" />
+    		<img src="https://posters.shoreline.nz/106-medium-default.jpg" width="190" alt="Unhinged Poster" />
     	</div>
     	<div class="content-wrapper text"> 
     		<div class="content">
     		    <div class="content-wrapper text">
-    		        <p>A young woman wishes to fulfill her mother's dream of opening her own bakery in Notting Hill, London. To do this, she enlists the help of an old friend and her grandma.</p>
-					    		                                        <span class="h3">Upcoming Screening Times</span>
-                            <ul class="sessions">
-                                                            	                              	
-                              	<li><strong>Wednesday 22 Jul</strong><a href="/bookings/2164/">10:30am</a>                              	                              	
-                              	<li><strong>Thursday 23 Jul</strong><a href="/bookings/2249/">10:15am</a>                              	                              	
-                              	<li><strong>Friday 24 Jul</strong><a href="/bookings/2250/">2:15pm</a>                              	                              	
-                              	<li><strong>Saturday 25 Jul</strong><a href="/bookings/2251/">10:15am</a>, <a href="/bookings/2252/">2:45pm</a>                              	                              	
-                              	<li><strong>Sunday 26 Jul</strong><a href="/bookings/2253/">10:30am</a>                              	                              	
-                              	<li><strong>Monday 27 Jul</strong><a href="/bookings/2254/">4:15pm</a>                              	                              	
-                              	<li><strong>Tuesday 28 Jul</strong><a href="/bookings/2255/">10:15am</a>, <a href="/bookings/2256/">2:30pm</a>                              	                              	
-                              	<li><strong>Wednesday 29 Jul</strong><a href="/bookings/2257/">10:30am</a>                               </li>
-                            </ul>
-                          	<p><i>To place a booking, click on the session time you are interested in. Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
-                            		    </div>
+    		        <p>Unhinged is a psychological thriller that takes something we've all experienced - road rage - to an unpredictable and terrifying conclusion.</p>
+					    		                		    </div>
     		    <div class="content-wrapper details">
     		                			<p>
-        				<strong>Rated:</strong> PG<br />
-        				 <em>Parental Guidance is Recommended</em>        			</p>
+        				<strong>Rated:</strong> R<br />
+        				 <em>Restricted</em>        			</p>
         		            		    <p>
+        			              	        <strong>Duration:</strong><br />
+        				1hr 31min<br /><br />
         			        			        			        		    </p>
             		  
     		    </div>
