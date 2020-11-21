@@ -563,15 +563,13 @@ class manage_sessions {
                 $ampm = "pm";
             }
         }
-        
+
         // Comments without brackets
         //if ($comment) { $comment = preg_replace('/\((.+)\)/', '\1', $comment); }
-        
+
         // Convert to timestamp
         $session_time = $this->session_date . ' ' . $hour . $mins . $ampm;
         $session_time = strtotime($session_time);
-	$res = $mysqli->query("SELECT FROM_UNIXTIME($session_time)");
-	$data = $res->fetch_assoc();
         // Check if session exists
         $sql = "
 			SELECT session_id
@@ -581,15 +579,11 @@ class manage_sessions {
 		";
         $res = $mysqli->query($sql) or user_error("Error at: $sql");
         if ($res->num_rows == 1) {
-            // Session is already in database, so just update comment
-            /*$data = $res->fetch_assoc();
-            $sql  = "
-				UPDATE sessions
-				SET comments = '$comment'
-				WHERE session_id = '{$data['session_id']}'
-			";
-            $mysqli->query($sql) or user_error("Error at: $sql");*/
-            if (isset($this->old_sessions[$data['session_id']])) { unset($this->old_sessions[$data['session_id']]); }
+		$data = $res->fetch_assoc();
+        	// Session is already in database, so remove it from old_sessions
+        	if (isset($this->old_sessions[$data['session_id']])) {
+			unset($this->old_sessions[$data['session_id']]);
+		}
         } else {
             // Insert new session into database
             $sql = "
@@ -605,7 +599,7 @@ class manage_sessions {
         }
         return true;
     }
-    
+
 	// Set label for a session
 	function set_label($s,$id = NULL) {
 		global $mysqli;
