@@ -17,7 +17,7 @@ if (check_cinema() && (has_permission('sessions'))) {
         $data         = $res->fetch_assoc();
         $_REQUEST['conf'] = "Sessions updated successfully for {$data['title']}.";
     }
-    
+
     if (isset($_REQUEST['action']) && $_REQUEST['action'] == "listmovie") {
         // Format date
         if (isset($_POST['tba'])) {
