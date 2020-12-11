@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2020-12-11 17:47:19
+/* Smarty version 3.1.33, created on 2020-12-11 19:29:51
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5fd2f9d704e642_01412341',
+  'unifunc' => 'content_5fd311df5581d7_14513254',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -24,7 +24,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_5fd2f9d704e642_01412341 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fd311df5581d7_14513254 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>

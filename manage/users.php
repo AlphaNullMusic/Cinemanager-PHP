@@ -283,10 +283,13 @@ jane@doe.co.nz
 								$sql .= "ORDER BY FIELD(status, 'ok', 'bounced', 'rejected', 'nonexistent', 'deleted'), u.email";
 								$user_res=$mysqli->query($sql) or user_error("Gnarly: $sql");
 								$num_users = $user_res->num_rows;
+
+								// Get number of users with status = 'ok'
+								$sql = "SELECT user_id FROM users WHERE status = 'ok'";
+								$num_users_res = $mysqli->query($sql) or user_error("Gnarly: $sql");
+								$num_active_users = $num_users_res->num_rows;
 							?>
-							<p>
-								<?php echo $num_users; ?> users found <?php if (isset($_GET['search'])&&$_GET['search']!='') { echo "matching \"".$_GET['search']."\""; } else { echo "in total"; } ?>
-							</p>
+							<p><?php echo $num_active_users; ?> active and <?php echo $num_users - $num_active_users; ?> bounced users found in total.</p>
 
 					  <?php if (empty($_GET['search'])) {
 							$weeks = 12; // How many weeks of stats to show
@@ -313,8 +316,6 @@ jane@doe.co.nz
                                 $sql="
                                     SELECT COUNT(DISTINCT nul.user_id) AS unSubscribers
                                     FROM newsletter_user_log nul
-                                    INNER JOIN users u
-                                        ON u.user_id = nul.user_id
                                     WHERE nul.timestamp >= FROM_UNIXTIME('$from')
                                         AND nul.timestamp <= FROM_UNIXTIME('$to')
                                         AND nul.action IN ('unsubscribe', 'bounce')
