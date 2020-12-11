@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2020-11-22 11:21:07
+/* Smarty version 3.1.33, created on 2020-12-11 16:41:20
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5fb992d39b4404_81139776',
+  'unifunc' => 'content_5fd2ea60351919_35915441',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -24,7 +24,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_5fb992d39b4404_81139776 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fd2ea60351919_35915441 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
@@ -93,10 +93,12 @@ function content_5fb992d39b4404_81139776 (Smarty_Internal_Template $_smarty_tpl)
 					    		                                        <span class="h3">Upcoming Screening Times</span>
                             <ul class="sessions">
                                                             	                              	
-                              	<li><strong>Sunday 22 Nov</strong><a href="/bookings/3661/">10:15am</a>, <a href="/bookings/3662/">4:00pm</a>                              	                              	
-                              	<li><strong>Monday 23 Nov</strong><a href="/bookings/3663/">3:00pm</a>, <a href="/bookings/3664/">7:45pm</a>                              	                              	
-                              	<li><strong>Tuesday 24 Nov</strong><a href="/bookings/3665/">12:30pm</a>, <a href="/bookings/3666/">6:15pm</a>                              	                              	
-                              	<li><strong>Wednesday 25 Nov</strong><a href="/bookings/3667/">2:45pm</a>, <a href="/bookings/3668/">8:15pm</a>                               </li>
+                              	<li><strong>Friday 11 Dec</strong><a href="/bookings/3982/">6:15pm</a>                              	                              	
+                              	<li><strong>Saturday 12 Dec</strong><a href="/bookings/3983/">4:30pm</a>                              	                              	
+                              	<li><strong>Sunday 13 Dec</strong><a href="/bookings/3984/">4:15pm</a>                              	                              	
+                              	<li><strong>Monday 14 Dec</strong><a href="/bookings/3985/">2:45pm</a>                              	                              	
+                              	<li><strong>Tuesday 15 Dec</strong><a href="/bookings/3986/">2:15pm</a>                              	                              	
+                              	<li><strong>Wednesday 16 Dec</strong><a href="/bookings/3987/">8:15pm</a>                               </li>
                             </ul>
                           	<p><i>To place a booking, click on the session time you are interested in. Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
                             		    </div>

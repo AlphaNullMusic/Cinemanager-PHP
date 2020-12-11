@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2020-11-22 10:48:10
+/* Smarty version 3.1.33, created on 2020-12-11 13:21:45
   from '/var/www/Cinemanager/web/tpl/generic.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5fb98b1a8090d5_69355923',
+  'unifunc' => 'content_5fd2bb99c18a87_73412848',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -30,7 +30,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_5fb98b1a8090d5_69355923 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fd2bb99c18a87_73412848 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html><html lang="en-nz"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8" /><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>About Us</title><meta name="description" content="Shoreline Cinema is Waikanae's premiere cinema complex. Find out who we are, what's on, what's coming up, how to contact us and much more."><link href="/tpl/inc/css/styles.css" rel="stylesheet" type="text/css" /><link href="/tpl/inc/css/print.css" rel="stylesheet" type="text/css" media="print" /></head><body><header><div class="box-auto hide show-med"><img src="/tpl/inc/img/sl_logo.png" class="img-responsive mc-auto show"></div><nav><a class="logo hide-med" href="#"><img src="/tpl/inc/img/sl_logo.png" height="25"></a><button class="hide-med" type="button"><span class="icon-text">Menu&nbsp;</span><span class="icon"></span></button><div class="collapse jc-center" id="navbar"><ul class="nav-links"><li class="nav-item"><a class="nav-link " href="/home/">HOME</a></li><li class="nav-item"><a class="nav-link " href="/whats-on-today/">WHAT&apos;S ON TODAY</a></li><li class="nav-item"><a class="nav-link " href="/whats-on/">WHAT&apos;S ON</a></li><li class="nav-item"><a class="nav-link " href="/coming-soon/">COMING SOON</a></li><li class="nav-item"><a class="nav-link " href="/venue-hire/">VENUE HIRE</a></li><li class="nav-item"><a class="nav-link active" href="/about-us/">ABOUT US</a></li><li class="nav-item"><a class="nav-link " href="/contact-us/">CONTACT US</a></li></ul></div></nav></header><div class="wrapper">
 <div class="information"><h1>About Us</h1><!DOCTYPE html>
 <html>
@@ -49,9 +49,9 @@ function content_5fb98b1a8090d5_69355923 (Smarty_Internal_Template $_smarty_tpl)
 <p>&nbsp;</p>
 <p><strong>Ticket Prices</strong></p>
 <ul>
-<li><strong>Adults</strong> <br />All Seats: $17.00</li>
-<li><strong>Students and Senior Citizen</strong><br />All Seats: $13.50</li>
-<li><strong>Children</strong>&nbsp;(ten years and under)<br />All Seats: $10.00</li>
+<li><strong>Adults</strong> <br />All Seats: $18.00</li>
+<li><strong>Students and Senior Citizen</strong><br />All Seats: $14.50</li>
+<li><strong>Children</strong>&nbsp;(ten years and under)<br />All Seats: $11.00</li>
 <li><strong>Met Opera</strong><br />Adult: $33<br />Concession: $28</li>
 <li><strong>National Theatre Live</strong><br />Adult: $25<br />Concession: $20</li>
 </ul>

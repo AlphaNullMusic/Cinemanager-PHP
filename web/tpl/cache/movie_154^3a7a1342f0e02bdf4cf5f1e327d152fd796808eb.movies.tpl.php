@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2020-11-22 11:18:58
+/* Smarty version 3.1.33, created on 2020-12-11 12:37:58
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5fb99252355941_45672715',
+  'unifunc' => 'content_5fd2b1567fb872_22262516',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -24,7 +24,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_5fb99252355941_45672715 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fd2b1567fb872_22262516 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
@@ -90,16 +90,7 @@ function content_5fb99252355941_45672715 (Smarty_Internal_Template $_smarty_tpl)
     		<div class="content">
     		    <div class="content-wrapper text">
     		        <p>Tunisia, summer 2011. A holiday to the southern country ends in disaster for fares, Miriam and 10 year old son Aziz when he is accidently shot in an ambush. His injury will challenge their lives – Aziz needs a liver transplant which leads to the discovery of a long buried secret. Will Aziz and their relationship survive?						</p>
-					    		                                        <span class="h3">Upcoming Screening Times</span>
-                            <ul class="sessions">
-                                                            	                              	
-                              	<li><strong>Sunday 22 Nov</strong><a href="/bookings/3622/">12:00pm</a>                              	                              	
-                              	<li><strong>Monday 23 Nov</strong><a href="/bookings/3623/">4:00pm</a>                              	                              	
-                              	<li><strong>Tuesday 24 Nov</strong><a href="/bookings/3624/">4:15pm</a>                              	                              	
-                              	<li><strong>Wednesday 25 Nov</strong><a href="/bookings/3625/">4:15pm</a>                               </li>
-                            </ul>
-                          	<p><i>To place a booking, click on the session time you are interested in. Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
-                            		    </div>
+					    		                		    </div>
     		    <div class="content-wrapper details">
     		                			<p>
         				<strong>Rated:</strong> M<br />

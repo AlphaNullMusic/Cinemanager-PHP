@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2020-11-22 11:49:48
+/* Smarty version 3.1.33, created on 2020-12-11 16:39:23
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5fb9998c1382c8_23239007',
+  'unifunc' => 'content_5fd2e9eb0baa03_09195547',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -24,7 +24,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_5fb9998c1382c8_23239007 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fd2e9eb0baa03_09195547 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
@@ -92,7 +92,18 @@ function content_5fb9998c1382c8_23239007 (Smarty_Internal_Template $_smarty_tpl)
     		        <p>	A Christmas-themed follow-up to crowd-pleaser A STREETCAT NAMED BOB. Based on the book by former Big Issue seller James Bowen, the first film told the story of how a stray ginger cat changes the life of James (Luke Treadaway), a homeless London street musician and recovering drug addict.<br />
 A CHRISTMAS GIFT FROM BOB sees James looking back at the last Christmas he and Bob spent scraping a living on the streets and how Bob helped him through tough times by providing strength, friendship and inspiration.<br />
 							</p>
-					    		                		    </div>
+					    		                                        <span class="h3">Upcoming Screening Times</span>
+                            <ul class="sessions">
+                                                            	                              	
+                              	<li><strong>Friday 11 Dec</strong><a href="/bookings/3963/">10:15am</a>, <a href="/bookings/3964/">4:15pm</a>                              	                              	
+                              	<li><strong>Saturday 12 Dec</strong><a href="/bookings/3965/">10:15am</a>, <a href="/bookings/3966/">4:30pm</a>                              	                              	
+                              	<li><strong>Sunday 13 Dec</strong><a href="/bookings/3967/">10:15am</a>, <a href="/bookings/3968/">8:15pm</a>                              	                              	
+                              	<li><strong>Monday 14 Dec</strong><a href="/bookings/3969/">12:15pm</a>, <a href="/bookings/3970/">4:30pm</a>                              	                              	
+                              	<li><strong>Tuesday 15 Dec</strong><a href="/bookings/3971/">10:15am</a>, <a href="/bookings/3972/">4:30pm</a>                              	                              	
+                              	<li><strong>Wednesday 16 Dec</strong><a href="/bookings/3973/">10:15am</a>, <a href="/bookings/3974/">4:15pm</a>                               </li>
+                            </ul>
+                          	<p><i>To place a booking, click on the session time you are interested in. Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
+                            		    </div>
     		    <div class="content-wrapper details">
     		                			<p>
         				<strong>Rated:</strong> PG<br />

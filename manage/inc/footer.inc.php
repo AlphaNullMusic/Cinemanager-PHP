@@ -4,6 +4,8 @@
 <script src="inc/js/jquery-3.4.1.min.js"></script>
 <script src="inc/js/popper.min.js"></script>
 <script src="inc/js/bootstrap.min.js"></script>
+<script src="inc/js/jquery.dataTables.min.js"></script>
+<script src="inc/js/dataTables.bootstrap4.min.js"></script>
 <script src="inc/js/generic.js"></script>
 <script>
 	window.addEventListener("resize", function(event) {
@@ -25,5 +27,12 @@
 
 		// Tooltips
 		$('body').tooltip({ selector: '[data-toggle=tooltip]' });
+
+		// Data Tables
+		if ($("#data_table").length) {
+			$('#data_table').DataTable({
+				order: []
+			});
+		}
 	});
 </script>
