@@ -24,15 +24,15 @@ if (isset($_GET['l']) && is_numeric($_GET['l'])) {
 	if (isset($_GET['u']) && is_numeric($_GET['u'])) {
 		logNewsletterOpen($_GET['u'], $data['newsletter_id']);
 		$sql = "
-			INSERT IGNORE INTO newsletter_user_log
+			INSERT INTO newsletter_user_log
 			SET user_id = ?,
 				newsletter_id = ?,
-				id = ?,
 				action = 'click',
-				time = NOW()
+				time = NOW(),
+				url = ?
 		";
 		$stmt = $db->prepare($sql);
-		$stmt->execute(array($_GET['u'],$data['newsletter_id'],$_GET['l']));
+		$stmt->execute(array($_GET['u'],$data['newsletter_id'],$data['url']));
 		$stmt = NULL;
 	}
 	
