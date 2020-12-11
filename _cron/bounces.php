@@ -29,7 +29,7 @@ if ($failed) {
 		preg_match($status_pattern, $message, $matches);
 
 		if (in_array($matches[1], $delete_codes)) {
-			$status = 'deleted';
+			$status = 'nonexistent';
 		} else if (in_array($matches[1], $rejected_codes)) {
 			$status = 'rejected';
 		} else if (in_array($matches[1], $office_banned_codes)) {
