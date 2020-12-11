@@ -8,10 +8,27 @@ if (check_cinema() && has_permission('user_list')) {
 			SELECT u.*
 			FROM users u
 			WHERE u.user_id='{$_REQUEST['edit']}' 
-			AND status = 'ok'
 		";
 		$user_res = $mysqli->query($sql) or user_error("Gnarly: $sql");
 		$user_data = $user_res->fetch_assoc();
+
+		$warning_message = '';
+		switch ($user_data['status']) {
+			case 'bounced': 
+				$warning_message .= "This email address has bounced one or more times. ";
+				break;
+			case 'rejected':
+				$warning_message .= "This email address has been rejected by the mail server. ";
+				break;
+			case 'nonexistent':
+				$warning_message .= "This email address is reported as nonexistant and so cannot recieve emails. ";
+				break;
+			case 'deleted':
+				$warning_message .= "This email address has been deleted by a staff member. ";
+				break;
+		}
+		$warning_message .= "Submitting this form will set the status to 'ok'.";
+		$_REQUEST['warn'] = $warning_message;
 	}
 	
 	// Save email change
@@ -260,20 +277,13 @@ jane@doe.co.nz
 							<?php echo check_msg(); ?>
 							<?php 
 								$sql="
-									SELECT u.user_id, u.first_name, u.last_name, u.email, u.date_joined
+									SELECT u.user_id, u.first_name, u.last_name, u.email, u.status, u.date_joined
 									FROM users u
 								";
-								if (isset($_GET['search']) && $_GET['search'] != '') { 
-									$sql .= "
-                                        WHERE (u.email LIKE '%".$mysqli->real_escape_string($_GET['search'])."%')
-                                        OR (u.first_name LIKE '%".$mysqli->real_escape_string($_GET['search'])."%')
-                                        OR (u.last_name LIKE '%".$mysqli->real_escape_string($_GET['search'])."%')
-                                        AND status = 'ok'
-                                    ";
-								} else {
-									$sql .= "WHERE status = 'ok' ";
+								if ($_REQUEST['deleted_users'] != 'true') {
+									$sql .= "WHERE status = 'ok'";
 								}
-								$sql .= "ORDER BY u.email";
+								$sql .= "ORDER BY FIELD(status, 'ok', 'bounced', 'rejected', 'nonexistent', 'deleted'), u.email";
 								$user_res=$mysqli->query($sql) or user_error("Gnarly: $sql");
 								$num_users = $user_res->num_rows;
 							?>
@@ -385,17 +395,16 @@ jane@doe.co.nz
 							<p>
 								<h2>Find Subscribers</h2>
 								<p>Search for a subscriber by name, or email. <br />Click on their email to remove or edit them.</p>
-								<form name="movie_search" method="get" action="users.php">
-									<input name="search" type="text" id="search" value="<?=(isset($_GET['search']))?$_GET['search']:''?>" size="20" maxlength="100" style="margin-bottom:10px;">
-									<input name="Submit" class="btn btn-sm btn-primary" type="submit" class="submit" value="Search Subscribers">
-								</form>
 							</p>
-					  <?php if (isset($_GET['search']) && $num_users > 0) { ?>
-								<table class="table table-striped">
+							<form>
+								<a class="btn btn-primary" href="<?php echo ($_REQUEST['deleted_users']) ? 'users.php' : '?deleted_users=true'; ?>"><?php echo ($_REQUEST['deleted_users']) ? "Hide" : "Show"; ?> deleted users</a>
+							</form>
+								<table id="data_table" class="table table-striped">
                                     <thead>
                                         <th scope="col">#</th>
                                         <th scope="col">Name</th>
                                         <th scope="col">Email</th>
+					<th scope="col">Status</th>
                                         <th scope="col">Added</th>
                                     </thead>
                                     <tbody>
@@ -406,12 +415,12 @@ jane@doe.co.nz
 											<td>
 												<a href="?edit=<?php echo $user_data['user_id'];?>"><?php echo $user_data['email']?></a>
 											</td>
+											<td><?php echo ucfirst($user_data['status']); ?></td>
                                             <td><?php echo $user_data['date_joined']?></td>
 										</tr>
 							  <?php } ?>
                                     </tbody>
 								</table>
-					  <?php } ?>
 							<br><hr><br>
 							<p><?php button_1("Add One Subscriber","?edit=new") ?></p>
 							<p><?php button_1("Add Many Subscribers","?edit=new&multi=true") ?></p>

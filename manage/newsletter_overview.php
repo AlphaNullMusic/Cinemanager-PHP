@@ -22,7 +22,7 @@ if (check_cinema() && has_permission('newsletters')) {
 	}
 	
 	// get some stats, grouped by week
-	// recipients reached, recipients clicked, recipients recipients bounced, recipients unsubscribed
+	// recipients reached, recipients clicked, recipients bounced, recipients unsubscribed
 	
 	date_default_timezone_set($_SESSION['cinema_data']['timezone']);
 	
