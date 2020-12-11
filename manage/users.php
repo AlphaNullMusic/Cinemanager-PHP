@@ -280,9 +280,6 @@ jane@doe.co.nz
 									SELECT u.user_id, u.first_name, u.last_name, u.email, u.status, u.date_joined
 									FROM users u
 								";
-								if ($_REQUEST['deleted_users'] != 'true') {
-									$sql .= "WHERE status = 'ok'";
-								}
 								$sql .= "ORDER BY FIELD(status, 'ok', 'bounced', 'rejected', 'nonexistent', 'deleted'), u.email";
 								$user_res=$mysqli->query($sql) or user_error("Gnarly: $sql");
 								$num_users = $user_res->num_rows;
@@ -396,9 +393,6 @@ jane@doe.co.nz
 								<h2>Find Subscribers</h2>
 								<p>Search for a subscriber by name, or email. <br />Click on their email to remove or edit them.</p>
 							</p>
-							<form>
-								<a class="btn btn-primary" href="<?php echo ($_REQUEST['deleted_users']) ? 'users.php' : '?deleted_users=true'; ?>"><?php echo ($_REQUEST['deleted_users']) ? "Hide" : "Show"; ?> deleted users</a>
-							</form>
 								<table id="data_table" class="table table-striped">
                                     <thead>
                                         <th scope="col">#</th>
