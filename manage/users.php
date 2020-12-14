@@ -279,8 +279,11 @@ jane@doe.co.nz
 								$sql="
 									SELECT u.user_id, u.first_name, u.last_name, u.email, u.status, u.date_joined
 									FROM users u
+									WHERE status = 'ok'
+										OR status = 'bounced'
+										OR status = 'rejected'
 								";
-								$sql .= "ORDER BY FIELD(status, 'ok', 'bounced', 'rejected', 'nonexistent', 'deleted'), u.email";
+								$sql .= "ORDER BY FIELD(status, 'ok', 'bounced', 'rejected'), u.email";
 								$user_res=$mysqli->query($sql) or user_error("Gnarly: $sql");
 								$num_users = $user_res->num_rows;
 
