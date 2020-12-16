@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2020-12-11 19:06:57
+/* Smarty version 3.1.33, created on 2020-12-16 21:00:35
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5fd30c81160a98_18243708',
+  'unifunc' => 'content_5fd9bea3899ad9_27735571',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -24,7 +24,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_5fd30c81160a98_18243708 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fd9bea3899ad9_27735571 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
@@ -95,11 +95,14 @@ Almost 50 years later, the case continues to confound the FBI and inspire wild s
 					    		                                        <span class="h3">Upcoming Screening Times</span>
                             <ul class="sessions">
                                                             	                              	
-                              	<li><strong>Friday 11 Dec</strong><a href="/bookings/4024/">2:45pm</a>                              	                              	
-                              	<li><strong>Saturday 12 Dec</strong><a href="/bookings/4025/">2:45pm</a>                              	                              	
-                              	<li><strong>Sunday 13 Dec</strong><a href="/bookings/4026/">2:15pm</a>                              	                              	
-                              	<li><strong>Monday 14 Dec</strong><a href="/bookings/4027/">8:30pm</a>                              	                              	
-                              	<li><strong>Wednesday 16 Dec</strong><a href="/bookings/4045/">6:15pm</a>                               </li>
+                              	<li><strong>Wednesday 16 Dec</strong><a href="/bookings/4045/">6:15pm</a>                              	                              	
+                              	<li><strong>Thursday 17 Dec</strong><a href="/bookings/4109/">2:15pm</a>                              	                              	
+                              	<li><strong>Friday 18 Dec</strong><a href="/bookings/4110/">4:15pm</a>                              	                              	
+                              	<li><strong>Saturday 19 Dec</strong><a href="/bookings/4111/">2:15pm</a>                              	                              	
+                              	<li><strong>Sunday 20 Dec</strong><a href="/bookings/4112/">12:15pm</a>                              	                              	
+                              	<li><strong>Monday 21 Dec</strong><a href="/bookings/4113/">12:15pm</a>                              	                              	
+                              	<li><strong>Tuesday 22 Dec</strong><a href="/bookings/4114/">2:15pm</a>                              	                              	
+                              	<li><strong>Wednesday 23 Dec</strong><a href="/bookings/4115/">12:15pm</a>                               </li>
                             </ul>
                           	<p><i>To place a booking, click on the session time you are interested in. Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
                             		    </div>

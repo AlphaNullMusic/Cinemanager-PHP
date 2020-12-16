@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2020-12-11 19:38:41
+/* Smarty version 3.1.33, created on 2020-12-16 21:17:02
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5fd313f11b5224_77050785',
+  'unifunc' => 'content_5fd9c27e0ada34_03588119',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -24,7 +24,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_5fd313f11b5224_77050785 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fd9c27e0ada34_03588119 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
@@ -95,12 +95,14 @@ A CHRISTMAS GIFT FROM BOB sees James looking back at the last Christmas he and B
 					    		                                        <span class="h3">Upcoming Screening Times</span>
                             <ul class="sessions">
                                                             	                              	
-                              	<li><strong>Friday 11 Dec</strong><a href="/bookings/3963/">10:15am</a>, <a href="/bookings/3964/">4:15pm</a>                              	                              	
-                              	<li><strong>Saturday 12 Dec</strong><a href="/bookings/3965/">10:15am</a>, <a href="/bookings/3966/">4:30pm</a>                              	                              	
-                              	<li><strong>Sunday 13 Dec</strong><a href="/bookings/3967/">10:15am</a>, <a href="/bookings/3968/">8:15pm</a>                              	                              	
-                              	<li><strong>Monday 14 Dec</strong><a href="/bookings/3969/">12:15pm</a>, <a href="/bookings/3970/">4:30pm</a>                              	                              	
-                              	<li><strong>Tuesday 15 Dec</strong><a href="/bookings/3971/">10:15am</a>, <a href="/bookings/3972/">4:30pm</a>                              	                              	
-                              	<li><strong>Wednesday 16 Dec</strong><a href="/bookings/3973/">10:15am</a>, <a href="/bookings/3974/">4:15pm</a>                               </li>
+                              	<li><strong>Wednesday 16 Dec</strong><a href="/bookings/3973/">10:15am</a>, <a href="/bookings/3974/">4:15pm</a>                              	                              	
+                              	<li><strong>Thursday 17 Dec</strong><a href="/bookings/4046/">12:15pm</a>                              	                              	
+                              	<li><strong>Friday 18 Dec</strong><a href="/bookings/4047/">10:15am</a>                              	                              	
+                              	<li><strong>Saturday 19 Dec</strong><a href="/bookings/4048/">10:15am</a>                              	                              	
+                              	<li><strong>Sunday 20 Dec</strong><a href="/bookings/4049/">10:15am</a>                              	                              	
+                              	<li><strong>Monday 21 Dec</strong><a href="/bookings/4050/">10:15am</a>                              	                              	
+                              	<li><strong>Tuesday 22 Dec</strong><a href="/bookings/4051/">12:15pm</a>                              	                              	
+                              	<li><strong>Wednesday 23 Dec</strong><a href="/bookings/4052/">10:15am</a>                               </li>
                             </ul>
                           	<p><i>To place a booking, click on the session time you are interested in. Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
                             		    </div>
