@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2020-12-11 19:08:27
+/* Smarty version 3.1.33, created on 2020-12-16 05:53:57
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5fd30cdb1c3751_24020615',
+  'unifunc' => 'content_5fd8ea2514bf81_66631742',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -24,7 +24,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_5fd30cdb1c3751_24020615 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fd8ea2514bf81_66631742 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
@@ -90,14 +90,7 @@ function content_5fd30cdb1c3751_24020615 (Smarty_Internal_Template $_smarty_tpl)
     		<div class="content">
     		    <div class="content-wrapper text">
     		        <p>In post-WWII America, a woman, rebuilding her life in the suburbs with her husband, kidnaps her neighbor and seeks vengeance for the heinous war crimes she believes he committed against her.</p>
-					    		                                        <span class="h3">Upcoming Screening Times</span>
-                            <ul class="sessions">
-                                                            	                              	
-                              	<li><strong>Sunday 13 Dec</strong><a href="/bookings/4029/">10:15am</a>                              	                              	
-                              	<li><strong>Tuesday 15 Dec</strong><a href="/bookings/4030/">12:15pm</a>                               </li>
-                            </ul>
-                          	<p><i>To place a booking, click on the session time you are interested in. Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
-                            		    </div>
+					    		                		    </div>
     		    <div class="content-wrapper details">
     		                			<p>
         				<strong>Rated:</strong> R16<br />

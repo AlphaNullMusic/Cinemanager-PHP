@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2020-12-11 17:51:34
+/* Smarty version 3.1.33, created on 2020-12-16 21:16:01
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5fd2fad6473cd5_27193944',
+  'unifunc' => 'content_5fd9c241bf5e94_27882091',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -24,7 +24,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_5fd2fad6473cd5_27193944 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fd9c241bf5e94_27882091 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
@@ -92,7 +92,14 @@ function content_5fd2fad6473cd5_27193944 (Smarty_Internal_Template $_smarty_tpl)
     		        <p>		Charlatan is a 2020 Czech biographical drama directed by Polish director Agnieszka Holland. It is about a Czech healer Jan Mikolášek who cured hundreds of people using plant-based remedies. It was selected as the Czech entry for the Best International Feature Film at the 93rd Academy Awards.<br />
 Jan Mikolášek is a man of action, reason and intuition. A faith healer. Just one glance at the urine bottle is enough for him to know what ails his patient. With fame comes fortune, and this at a time when Czechoslovakia is a pawn in a game being played by the major power blocs. Protected and used by both the National Socialist and Communist regimes, he steps in wherever the system fails. Along with his assistant František, with whom, as the secret police are well aware, he has much more in common than herbal medicine, the charlatan finds his morals being put to the test.<br />
 						</p>
-					    		                		    </div>
+					    		                                        <span class="h3">Upcoming Screening Times</span>
+                            <ul class="sessions">
+                                                            	                              	
+                              	<li><strong>Saturday 19 Dec</strong><a href="/bookings/4060/">12:00pm</a>                              	                              	
+                              	<li><strong>Tuesday 22 Dec</strong><a href="/bookings/4061/">8:15pm</a>                               </li>
+                            </ul>
+                          	<p><i>To place a booking, click on the session time you are interested in. Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
+                            		    </div>
     		    <div class="content-wrapper details">
     		                			<p>
         				<strong>Rated:</strong> R13<br />
