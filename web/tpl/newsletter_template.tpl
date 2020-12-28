@@ -158,6 +158,17 @@ ul.sessions {
 								</td>
 							</tr>
 							{/foreach}
+
+							<tr>
+								<td>
+									<br>
+									<h1>Contact Us</h1>
+									<p>Please use the information below to contact us if you have any questions about our cinema including venue hire enquiries.</p>
+									<p><strong>Email</strong> for general enquiries:<br><a href="mailto:escape@shorelinecinema.co.nz">escape@shorelinecinema.co.nz</a></p>
+									<p><strong>Phone</strong> for the cinema and reservations: <br>(04) 902 8070</p>
+									<p><strong>Address</strong> for written correspondence:<br>PO Box 414, Waikanae 5036, New Zealand</p>
+								</td>
+				                        </tr>
 						</tbody>
 					</table>
 				</td>
@@ -169,8 +180,7 @@ ul.sessions {
 				<td class="footer">
 					<p style="text-align:center;">
 						To unsubscribe from this email newsletter, <a href="<!--unsub-->" id="unsubscribe">click here</a>.<br>
-						While every attempt is made to ensure this website is accurate,<br>
-						we are not liable for any omissions or errors.<br>
+						While every attempt is made to ensure this website is accurate, we are not liable for any omissions or errors.<br>
 						Web design and content &copy; {'Y'|date}, Shoreline Cinema Waikanae, New Zealand.
 					</p> 
 				</td>

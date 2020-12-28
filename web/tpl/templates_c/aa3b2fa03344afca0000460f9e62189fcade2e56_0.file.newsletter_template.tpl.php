@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-12-19 14:29:41
+/* Smarty version 3.1.33, created on 2020-12-28 17:36:02
   from '/var/www/Cinemanager/web/tpl/newsletter_template.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5dfad2851bd982_76342918',
+  'unifunc' => 'content_5fe960b2cfa421_05896766',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'aa3b2fa03344afca0000460f9e62189fcade2e56' => 
     array (
       0 => '/var/www/Cinemanager/web/tpl/newsletter_template.tpl',
-      1 => 1576718975,
+      1 => 1609130159,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:inc/css/email.css' => 1,
   ),
 ),false)) {
-function content_5dfad2851bd982_76342918 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fe960b2cfa421_05896766 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/Cinemanager/_deps/smarty/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
 if ($_smarty_tpl->tpl_vars['plaintext']->value) {?>Shoreline Cinema Weekly Newsletter<?php echo "\n\n";
 $_smarty_tpl->_assignInScope('divider', '========================================');
@@ -163,7 +163,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?></li></ul></td></tr></table></td></tr><?php
 }
 }
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?></tbody></table></td></tr><?php }?></tbody><tfoot><tr><td class="footer"><p style="text-align:center;">To unsubscribe from this email newsletter, <a href="<!--unsub-->" id="unsubscribe">click here</a>.<br>While every attempt is made to ensure this website is accurate,<br>we are not liable for any omissions or errors.<br>Web design and content &copy; <?php echo date('Y');?>
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?><tr><td><br><h1>Contact Us</h1><p>Please use the information below to contact us if you have any questions about our cinema including venue hire enquiries.</p><p><strong>Email</strong> for general enquiries:<br><a href="mailto:escape@shorelinecinema.co.nz">escape@shorelinecinema.co.nz</a></p><p><strong>Phone</strong> for the cinema and reservations: <br>(04) 902 8070</p><p><strong>Address</strong> for written correspondence:<br>PO Box 414, Waikanae 5036, New Zealand</p></td></tr></tbody></table></td></tr><?php }?></tbody><tfoot><tr><td class="footer"><p style="text-align:center;">To unsubscribe from this email newsletter, <a href="<!--unsub-->" id="unsubscribe">click here</a>.<br>While every attempt is made to ensure this website is accurate, we are not liable for any omissions or errors.<br>Web design and content &copy; <?php echo date('Y');?>
 , Shoreline Cinema Waikanae, New Zealand.</p></td></tr></tfoot></table></body></html><?php }
 }
 }
