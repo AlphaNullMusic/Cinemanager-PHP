@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2020-12-16 20:24:34
+/* Smarty version 3.1.33, created on 2020-12-28 17:36:33
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5fd9b63274d133_24214061',
+  'unifunc' => 'content_5fe960d175c210_17287299',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -24,7 +24,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_5fd9b63274d133_24214061 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fe960d175c210_17287299 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
@@ -90,7 +90,18 @@ function content_5fd9b63274d133_24214061 (Smarty_Internal_Template $_smarty_tpl)
     		<div class="content">
     		    <div class="content-wrapper text">
     		        <p>A cop returns to his hometown to face the demons of his past after his childhood friend dies in a gruesome murder-suicide.</p>
-					    		                		    </div>
+					    		                                        <span class="h3">Upcoming Screening Times</span>
+                            <ul class="sessions">
+                                                            	                              	
+                              	<li><strong>Friday  1 Jan</strong><a href="/bookings/4268/">12:00pm</a>, <a href="/bookings/4269/">6:00pm</a>                              	                              	
+                              	<li><strong>Saturday  2 Jan</strong><a href="/bookings/4270/">10:00am</a>, <a href="/bookings/4271/">6:00pm</a>                              	                              	
+                              	<li><strong>Sunday  3 Jan</strong><a href="/bookings/4272/">12:00pm</a>, <a href="/bookings/4273/">8:15pm</a>                              	                              	
+                              	<li><strong>Monday  4 Jan</strong><a href="/bookings/4274/">2:30pm</a>, <a href="/bookings/4275/">8:30pm</a>                              	                              	
+                              	<li><strong>Tuesday  5 Jan</strong><a href="/bookings/4276/">10:00am</a>, <a href="/bookings/4277/">8:15pm</a>                              	                              	
+                              	<li><strong>Wednesday  6 Jan</strong><a href="/bookings/4278/">10:15am</a>, <a href="/bookings/4279/">6:00pm</a>                               </li>
+                            </ul>
+                          	<p><i>To place a booking, click on the session time you are interested in. Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
+                            		    </div>
     		    <div class="content-wrapper details">
     		                			<p>
         				<strong>Rated:</strong> PG<br />

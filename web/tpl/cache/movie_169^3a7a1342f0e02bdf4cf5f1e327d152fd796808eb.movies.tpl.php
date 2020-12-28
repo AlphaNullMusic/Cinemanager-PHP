@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2020-12-15 23:22:26
+/* Smarty version 3.1.33, created on 2020-12-28 16:56:19
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5fd88e623d3ef3_55406168',
+  'unifunc' => 'content_5fe957637f6769_05265809',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -24,14 +24,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_5fd88e623d3ef3_55406168 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fe957637f6769_05265809 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Another Round - Info</title>
+<title>Ammonite - Info</title>
 <meta name="description" content="Shoreline Cinema is Waikanae's premiere cinema complex. Find out who we are, what's on, what's coming up, how to contact us and much more.">
 <link href="/tpl/inc/css/styles.css" rel="stylesheet" type="text/css" />
 <link href="/tpl/inc/css/print.css" rel="stylesheet" type="text/css" media="print" />
@@ -81,24 +81,25 @@ function content_5fd88e623d3ef3_55406168 (Smarty_Internal_Template $_smarty_tpl)
 
 
 <div class="information">
-    <h2>Another Round</h2>
+    <h2>Ammonite</h2>
     <div class="content">
     	<div class="content-wrapper poster">
-    		<img src="https://posters.shoreline.nz/166-medium-default.jpg" width="190" alt="Another Round Poster" />
+    		<img src="https://posters.shoreline.nz/169-medium-default.jpg" width="190" alt="Ammonite Poster" />
     	</div>
     	<div class="content-wrapper text"> 
     		<div class="content">
     		    <div class="content-wrapper text">
-    		        <p>Four friends, all high school teachers, test a theory that they will improve their lives by maintaining a constant level of alcohol in their blood.</p>
+    		        <p>1840s England, acclaimed but overlooked fossil hunter Mary Anning and a young woman sent to convalesce by the sea develop an intense relationship, altering both of their lives forever.</p>
 					    		                		    </div>
     		    <div class="content-wrapper details">
     		                			<p>
-        				<strong>Rated:</strong> TBC<br />
-        				 <em>To Be Confirmed</em>        			</p>
+        				<strong>Rated:</strong> R<br />
+        				 <em>Restricted</em>        			</p>
         		            		    <p>
         			              	        <strong>Duration:</strong><br />
-        				1hr 57min<br /><br />
-        			        			        			        		    </p>
+        				2hr 0min<br /><br />
+        			        			        			        				<a class="btn dark" href="https://youtu.be/AnDhlrs3XVM" target="_blank">Official Trailer</a>
+        			        		    </p>
             		  
     		    </div>
     		</div>

@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2020-12-16 14:45:45
+/* Smarty version 3.1.33, created on 2020-12-28 17:30:58
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5fd966c9e82e17_12433978',
+  'unifunc' => 'content_5fe95f82e8e265_54196559',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -24,7 +24,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_5fd966c9e82e17_12433978 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fe95f82e8e265_54196559 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
@@ -90,7 +90,22 @@ function content_5fd966c9e82e17_12433978 (Smarty_Internal_Template $_smarty_tpl)
     		<div class="content">
     		    <div class="content-wrapper text">
     		        <p>At the dawn of World War II, a desperate Winston Churchill orders his new spy agency to train women for covert operations. Together, these female agents help undermine the Nazi regime in France, leaving an unmistakable legacy in their wake.					</p>
-					    		                		    </div>
+					    		                                        <span class="h3">Upcoming Screening Times</span>
+                            <ul class="sessions">
+                                                            	                              	
+                              	<li><strong>Monday 28 Dec</strong><a href="/bookings/4156/">8:15pm</a>                              	                              	
+                              	<li><strong>Tuesday 29 Dec</strong><a href="/bookings/4157/">2:00pm</a>                              	                              	
+                              	<li><strong>Wednesday 30 Dec</strong><a href="/bookings/4158/">4:00pm</a>                              	                              	
+                              	<li><strong>Thursday 31 Dec</strong><a href="/bookings/4204/">2:15pm</a>, <a href="/bookings/4205/">8:00pm</a>                              	                              	
+                              	<li><strong>Friday  1 Jan</strong><a href="/bookings/4206/">2:15pm</a>                              	                              	
+                              	<li><strong>Saturday  2 Jan</strong><a href="/bookings/4207/">10:00am</a>, <a href="/bookings/4208/">8:15pm</a>                              	                              	
+                              	<li><strong>Sunday  3 Jan</strong><a href="/bookings/4209/">2:00pm</a>                              	                              	
+                              	<li><strong>Monday  4 Jan</strong><a href="/bookings/4210/">12:00pm</a>                              	                              	
+                              	<li><strong>Tuesday  5 Jan</strong><a href="/bookings/4211/">12:00pm</a>                              	                              	
+                              	<li><strong>Wednesday  6 Jan</strong><a href="/bookings/4212/">2:15pm</a>                               </li>
+                            </ul>
+                          	<p><i>To place a booking, click on the session time you are interested in. Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
+                            		    </div>
     		    <div class="content-wrapper details">
     		                			<p>
         				<strong>Rated:</strong> G<br />

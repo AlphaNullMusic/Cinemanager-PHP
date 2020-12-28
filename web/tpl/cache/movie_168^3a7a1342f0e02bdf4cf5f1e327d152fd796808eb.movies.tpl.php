@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2020-12-16 21:16:01
+/* Smarty version 3.1.33, created on 2020-12-28 16:55:29
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5fd9c241bf5e94_27882091',
+  'unifunc' => 'content_5fe957313dd599_39580354',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -24,14 +24,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_5fd9c241bf5e94_27882091 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fe957313dd599_39580354 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Charlatan - Info</title>
+<title>The People Upstairs - Info</title>
 <meta name="description" content="Shoreline Cinema is Waikanae's premiere cinema complex. Find out who we are, what's on, what's coming up, how to contact us and much more.">
 <link href="/tpl/inc/css/styles.css" rel="stylesheet" type="text/css" />
 <link href="/tpl/inc/css/print.css" rel="stylesheet" type="text/css" media="print" />
@@ -81,33 +81,26 @@ function content_5fd9c241bf5e94_27882091 (Smarty_Internal_Template $_smarty_tpl)
 
 
 <div class="information">
-    <h2>Charlatan</h2>
+    <h2>The People Upstairs</h2>
     <div class="content">
     	<div class="content-wrapper poster">
-    		<img src="https://posters.shoreline.nz/147-medium-custom.jpg" width="190" alt="Charlatan Poster" />
+    		<img src="https://posters.shoreline.nz/168-medium-custom.jpg" width="190" alt="The People Upstairs Poster" />
     	</div>
     	<div class="content-wrapper text"> 
     		<div class="content">
     		    <div class="content-wrapper text">
-    		        <p>		Charlatan is a 2020 Czech biographical drama directed by Polish director Agnieszka Holland. It is about a Czech healer Jan Mikolášek who cured hundreds of people using plant-based remedies. It was selected as the Czech entry for the Best International Feature Film at the 93rd Academy Awards.<br />
-Jan Mikolášek is a man of action, reason and intuition. A faith healer. Just one glance at the urine bottle is enough for him to know what ails his patient. With fame comes fortune, and this at a time when Czechoslovakia is a pawn in a game being played by the major power blocs. Protected and used by both the National Socialist and Communist regimes, he steps in wherever the system fails. Along with his assistant František, with whom, as the secret police are well aware, he has much more in common than herbal medicine, the charlatan finds his morals being put to the test.<br />
-						</p>
-					    		                                        <span class="h3">Upcoming Screening Times</span>
-                            <ul class="sessions">
-                                                            	                              	
-                              	<li><strong>Saturday 19 Dec</strong><a href="/bookings/4060/">12:00pm</a>                              	                              	
-                              	<li><strong>Tuesday 22 Dec</strong><a href="/bookings/4061/">8:15pm</a>                               </li>
-                            </ul>
-                          	<p><i>To place a booking, click on the session time you are interested in. Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
-                            		    </div>
+    		        <p>Julio and Ana have been together for over fifteen years. They don’t look at each other or touch each other anymore and daily conflicts have become the norm. This evening, Ana has invited the upstairs neighbors over. Salva and Laura are slightly younger than them and welcomed them with open arms when they moved into the building, but the constant moaning and groaning coming from their apartment has become a source of arguments for Julio and Ana... perhaps it’s jealousy, they wish their own sex life was as spicy.<br />
+<br />
+This evening, the neighbors will become both the instigators and victims of an emotional tsunami, brought on by an unusual and surprising proposal. The four neighbors can’t help but get caught up in an evening of excess and catharsis.																</p>
+					    		                		    </div>
     		    <div class="content-wrapper details">
     		                			<p>
-        				<strong>Rated:</strong> R13<br />
-        				 <em>Restricted to Audiences of 13 Years and Over</em>        			</p>
+        				<strong>Rated:</strong> TBC<br />
+        				 <em>To Be Confirmed</em>        			</p>
         		            		    <p>
         			              	        <strong>Duration:</strong><br />
-        				1hr 58min<br /><br />
-        			        			        			        				<a class="btn dark" href="https://www.youtube.com/watch?v=0K2VypjntDc" target="_blank">Official Trailer</a>
+        				1hr 21min<br /><br />
+        			        			        			        				<a class="btn dark" href=" https://www.youtube.com/watch?v=a4mxHlXBy_g" target="_blank">Official Trailer</a>
         			        		    </p>
             		  
     		    </div>

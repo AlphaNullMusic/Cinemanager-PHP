@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2020-12-16 22:13:19
+/* Smarty version 3.1.33, created on 2020-12-28 17:29:18
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5fd9cfaf05ec62_65706064',
+  'unifunc' => 'content_5fe95f1e931283_27872262',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -24,7 +24,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_5fd9cfaf05ec62_65706064 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fe95f1e931283_27872262 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
@@ -93,14 +93,15 @@ function content_5fd9cfaf05ec62_65706064 (Smarty_Internal_Template $_smarty_tpl)
 					    		                                        <span class="h3">Upcoming Screening Times</span>
                             <ul class="sessions">
                                                             	                              	
-                              	<li><strong>Wednesday 16 Dec</strong><a href="/bookings/4012/">10:15am</a>                              	                              	
-                              	<li><strong>Thursday 17 Dec</strong><a href="/bookings/4090/">10:15am</a>, <a href="/bookings/4091/">4:00pm</a>                              	                              	
-                              	<li><strong>Friday 18 Dec</strong><a href="/bookings/4092/">2:30pm</a>, <a href="/bookings/4093/">8:15pm</a>                              	                              	
-                              	<li><strong>Saturday 19 Dec</strong><a href="/bookings/4094/">6:15pm</a>                              	                              	
-                              	<li><strong>Sunday 20 Dec</strong><a href="/bookings/4095/">2:15pm</a>                              	                              	
-                              	<li><strong>Monday 21 Dec</strong><a href="/bookings/4096/">2:15pm</a>                              	                              	
-                              	<li><strong>Tuesday 22 Dec</strong><a href="/bookings/4097/">10:15am</a>, <a href="/bookings/4098/">4:30pm</a>                              	                              	
-                              	<li><strong>Wednesday 23 Dec</strong><a href="/bookings/4099/">12:15pm</a>                               </li>
+                              	<li><strong>Monday 28 Dec</strong><a href="/bookings/4200/">4:00pm</a> <i>(Sold Out)</i>                              	                              	
+                              	<li><strong>Tuesday 29 Dec</strong><a href="/bookings/4201/">12:15pm</a>                              	                              	
+                              	<li><strong>Wednesday 30 Dec</strong><a href="/bookings/4202/">12:00pm</a>                              	                              	
+                              	<li><strong>Thursday 31 Dec</strong><a href="/bookings/4258/">10:00am</a>                              	                              	
+                              	<li><strong>Friday  1 Jan</strong><a href="/bookings/4259/">10:00am</a>                              	                              	
+                              	<li><strong>Saturday  2 Jan</strong><a href="/bookings/4260/">12:15pm</a>                              	                              	
+                              	<li><strong>Sunday  3 Jan</strong><a href="/bookings/4261/">11:45am</a>                              	                              	
+                              	<li><strong>Monday  4 Jan</strong><a href="/bookings/4262/">12:15pm</a>                              	                              	
+                              	<li><strong>Tuesday  5 Jan</strong><a href="/bookings/4263/">2:15pm</a>                               </li>
                             </ul>
                           	<p><i>To place a booking, click on the session time you are interested in. Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
                             		    </div>
