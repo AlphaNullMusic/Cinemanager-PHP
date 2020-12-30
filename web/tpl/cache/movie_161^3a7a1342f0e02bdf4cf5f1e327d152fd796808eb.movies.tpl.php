@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2020-12-28 17:34:40
+/* Smarty version 3.1.33, created on 2020-12-30 22:27:22
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5fe96060f2ee07_47642427',
+  'unifunc' => 'content_5fec47fa3769d9_06239778',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -24,7 +24,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_5fe96060f2ee07_47642427 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fec47fa3769d9_06239778 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
@@ -93,8 +93,6 @@ function content_5fe96060f2ee07_47642427 (Smarty_Internal_Template $_smarty_tpl)
 					    		                                        <span class="h3">Upcoming Screening Times</span>
                             <ul class="sessions">
                                                             	                              	
-                              	<li><strong>Monday 28 Dec</strong><a href="/bookings/4148/">12:15pm</a>, <a href="/bookings/4149/">8:15pm</a>                              	                              	
-                              	<li><strong>Tuesday 29 Dec</strong><a href="/bookings/4150/">4:30pm</a>, <a href="/bookings/4151/">8:30pm</a>                              	                              	
                               	<li><strong>Wednesday 30 Dec</strong><a href="/bookings/4152/">2:30pm</a>, <a href="/bookings/4153/">8:30pm</a>                              	                              	
                               	<li><strong>Thursday 31 Dec</strong><a href="/bookings/4242/">4:30pm</a>, <a href="/bookings/4243/">8:30pm</a>                              	                              	
                               	<li><strong>Friday  1 Jan</strong><a href="/bookings/4244/">4:30pm</a>, <a href="/bookings/4245/">8:30pm</a>                              	                              	

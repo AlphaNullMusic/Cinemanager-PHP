@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2020-12-28 17:30:58
+/* Smarty version 3.1.33, created on 2020-12-30 21:19:13
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5fe95f82e8e265_54196559',
+  'unifunc' => 'content_5fec38016ed1a2_49034297',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -24,7 +24,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_5fe95f82e8e265_54196559 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fec38016ed1a2_49034297 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
@@ -93,10 +93,8 @@ function content_5fe95f82e8e265_54196559 (Smarty_Internal_Template $_smarty_tpl)
 					    		                                        <span class="h3">Upcoming Screening Times</span>
                             <ul class="sessions">
                                                             	                              	
-                              	<li><strong>Monday 28 Dec</strong><a href="/bookings/4156/">8:15pm</a>                              	                              	
-                              	<li><strong>Tuesday 29 Dec</strong><a href="/bookings/4157/">2:00pm</a>                              	                              	
-                              	<li><strong>Wednesday 30 Dec</strong><a href="/bookings/4158/">4:00pm</a>                              	                              	
-                              	<li><strong>Thursday 31 Dec</strong><a href="/bookings/4204/">2:15pm</a>, <a href="/bookings/4205/">8:00pm</a>                              	                              	
+                              	<li><strong>Wednesday 30 Dec</strong><a href="/bookings/4158/">4:00pm</a> <i>(Sold Out)</i>                              	                              	
+                              	<li><strong>Thursday 31 Dec</strong><a href="/bookings/4204/">2:15pm</a>, <a href="/bookings/4205/">8:00pm</a> <i>(1 seat)</i>                              	                              	
                               	<li><strong>Friday  1 Jan</strong><a href="/bookings/4206/">2:15pm</a>                              	                              	
                               	<li><strong>Saturday  2 Jan</strong><a href="/bookings/4207/">10:00am</a>, <a href="/bookings/4208/">8:15pm</a>                              	                              	
                               	<li><strong>Sunday  3 Jan</strong><a href="/bookings/4209/">2:00pm</a>                              	                              	
