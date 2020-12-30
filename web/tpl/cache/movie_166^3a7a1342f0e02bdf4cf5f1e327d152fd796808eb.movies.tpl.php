@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2020-12-30 22:04:20
+/* Smarty version 3.1.33, created on 2020-12-30 22:01:18
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5fec4294f05bb1_40705393',
+  'unifunc' => 'content_5fec41dee803f8_26365369',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -24,14 +24,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_5fec4294f05bb1_40705393 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fec41dee803f8_26365369 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Made in Italy - Info</title>
+<title>Another Round - Info</title>
 <meta name="description" content="Shoreline Cinema is Waikanae's premiere cinema complex. Find out who we are, what's on, what's coming up, how to contact us and much more.">
 <link href="/tpl/inc/css/styles.css" rel="stylesheet" type="text/css" />
 <link href="/tpl/inc/css/print.css" rel="stylesheet" type="text/css" media="print" />
@@ -81,38 +81,24 @@ function content_5fec4294f05bb1_40705393 (Smarty_Internal_Template $_smarty_tpl)
 
 
 <div class="information">
-    <h2>Made in Italy</h2>
+    <h2>Another Round</h2>
     <div class="content">
     	<div class="content-wrapper poster">
-    		<img src="https://posters.shoreline.nz/134-medium-default.jpg" width="190" alt="Made in Italy Poster" />
+    		<img src="https://posters.shoreline.nz/166-medium-default.jpg" width="190" alt="Another Round Poster" />
     	</div>
     	<div class="content-wrapper text"> 
     		<div class="content">
     		    <div class="content-wrapper text">
-    		        <p>A bohemian artist travels from London to Italy with his estranged son to sell the house he inherited from his late wife.</p>
-					    		                                        <span class="h3">Upcoming Screening Times</span>
-                            <ul class="sessions">
-                                                            	                              	
-                              	<li><strong>Wednesday 30 Dec</strong><a href="/bookings/4196/">10:15am</a>                              	                              	
-                              	<li><strong>Thursday 31 Dec</strong><a href="/bookings/4233/">6:15pm</a>                              	                              	
-                              	<li><strong>Friday  1 Jan</strong><a href="/bookings/4234/">4:15pm</a>                              	                              	
-                              	<li><strong>Saturday  2 Jan</strong><a href="/bookings/4235/">2:15pm</a>                              	                              	
-                              	<li><strong>Sunday  3 Jan</strong><a href="/bookings/4236/">4:15pm</a>                              	                              	
-                              	<li><strong>Monday  4 Jan</strong><a href="/bookings/4237/">4:45pm</a>                              	                              	
-                              	<li><strong>Tuesday  5 Jan</strong><a href="/bookings/4238/">4:15pm</a>                              	                              	
-                              	<li><strong>Wednesday  6 Jan</strong><a href="/bookings/4239/">12:30pm</a>                               </li>
-                            </ul>
-                          	<p><i>To place a booking, click on the session time you are interested in. Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
-                            		    </div>
+    		        <p>Four friends, all high school teachers, test a theory that they will improve their lives by maintaining a constant level of alcohol in their blood.</p>
+					    		                		    </div>
     		    <div class="content-wrapper details">
     		                			<p>
-        				<strong>Rated:</strong> PG<br />
-        				 <em>Parental Guidance is Recommended</em>        			</p>
+        				<strong>Rated:</strong> TBC<br />
+        				 <em>To Be Confirmed</em>        			</p>
         		            		    <p>
         			              	        <strong>Duration:</strong><br />
-        				1hr 34min<br /><br />
-        			        			        			        				<a class="btn dark" href="https://www.youtube.com/watch?v=tJHcv0Pm0RU" target="_blank">Official Trailer</a>
-        			        		    </p>
+        				1hr 57min<br /><br />
+        			        			        			        		    </p>
             		  
     		    </div>
     		</div>
