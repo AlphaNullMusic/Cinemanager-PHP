@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2020-12-30 22:27:22
+/* Smarty version 3.1.33, created on 2021-03-07 11:37:13
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5fec47fa3769d9_06239778',
+  'unifunc' => 'content_60440419a0e9f6_05759304',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7e731f8444ca3c4d387cec6c94cedd5afa32db57' => 
     array (
       0 => '/var/www/Cinemanager/web/tpl/movies.tpl',
-      1 => 1578551715,
+      1 => 1613537787,
       2 => 'file',
     ),
     '12f3ac630680bc6778753de8bb98e13015ec9d16' => 
@@ -24,7 +24,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_5fec47fa3769d9_06239778 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60440419a0e9f6_05759304 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
@@ -93,21 +93,17 @@ function content_5fec47fa3769d9_06239778 (Smarty_Internal_Template $_smarty_tpl)
 					    		                                        <span class="h3">Upcoming Screening Times</span>
                             <ul class="sessions">
                                                             	                              	
-                              	<li><strong>Wednesday 30 Dec</strong><a href="/bookings/4152/">2:30pm</a>, <a href="/bookings/4153/">8:30pm</a>                              	                              	
-                              	<li><strong>Thursday 31 Dec</strong><a href="/bookings/4242/">4:30pm</a>, <a href="/bookings/4243/">8:30pm</a>                              	                              	
-                              	<li><strong>Friday  1 Jan</strong><a href="/bookings/4244/">4:30pm</a>, <a href="/bookings/4245/">8:30pm</a>                              	                              	
-                              	<li><strong>Saturday  2 Jan</strong><a href="/bookings/4246/">2:30pm</a>, <a href="/bookings/4247/">6:30pm</a>                              	                              	
-                              	<li><strong>Sunday  3 Jan</strong><a href="/bookings/4248/">4:15pm</a>, <a href="/bookings/4249/">6:00pm</a>                              	                              	
-                              	<li><strong>Monday  4 Jan</strong><a href="/bookings/4250/">4:15pm</a>, <a href="/bookings/4251/">8:15pm</a>                              	                              	
-                              	<li><strong>Tuesday  5 Jan</strong><a href="/bookings/4252/">12:15pm</a>, <a href="/bookings/4253/">6:00pm</a>                              	                              	
-                              	<li><strong>Wednesday  6 Jan</strong><a href="/bookings/4254/">4:30pm</a>, <a href="/bookings/4255/">8:30pm</a>                               </li>
+                              	<li><strong>Sunday  7 Mar</strong><a href="/bookings/5007/">2:30pm</a>                              	                              	
+                              	<li><strong>Monday  8 Mar</strong><a href="/bookings/5008/">4:15pm</a>                              	                              	
+                              	<li><strong>Tuesday  9 Mar</strong><a href="/bookings/5009/">4:15pm</a>                              	                              	
+                              	<li><strong>Wednesday 10 Mar</strong><a href="/bookings/5010/">2:30pm</a>                               </li>
                             </ul>
                           	<p><i>To place a booking, click on the session time you are interested in. Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
                             		    </div>
     		    <div class="content-wrapper details">
     		                			<p>
         				<strong>Rated:</strong> G<br />
-        				 <em>Suitable for General Audiences</em>        			</p>
+					        				 <em>Suitable for General Audiences</em>        			</p>
         		            		    <p>
         			              	        <strong>Duration:</strong><br />
         				1hr 48min<br /><br />
@@ -120,7 +116,7 @@ function content_5fec47fa3769d9_06239778 (Smarty_Internal_Template $_smarty_tpl)
       </div> 
     </div>
 
-<footer><div id="text"><p>Web design and content &copy; 2020, Shoreline Cinema Waikanae, New Zealand. <a id="improve-visibility">Improve Visibility.</a></p></div></footer></div><script src="/tpl/inc/js/jquery-3.4.1.min.js"></script><script src="/tpl/inc/js/js.cookie-2.2.1.min.js"></script><script src="/tpl/inc/js/scripts.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-137475424-1"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'UA-137475424-1');</script></body></html>
+<footer><div id="text"><p>Web design and content &copy; 2021, Shoreline Cinema Waikanae, New Zealand. <a id="improve-visibility">Improve Visibility.</a></p></div></footer></div><script src="/tpl/inc/js/jquery-3.4.1.min.js"></script><script src="/tpl/inc/js/js.cookie-2.2.1.min.js"></script><script src="/tpl/inc/js/scripts.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-137475424-1"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'UA-137475424-1');</script></body></html>
 
 
 <?php }

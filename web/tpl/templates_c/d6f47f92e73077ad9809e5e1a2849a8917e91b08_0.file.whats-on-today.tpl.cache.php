@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-12-10 11:28:05
+/* Smarty version 3.1.33, created on 2021-02-17 17:47:40
   from '/var/www/Cinemanager/web/tpl/whats-on-today.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5deeca756c1f42_58190626',
+  'unifunc' => 'content_602c9fec88a4a2_92564380',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd6f47f92e73077ad9809e5e1a2849a8917e91b08' => 
     array (
       0 => '/var/www/Cinemanager/web/tpl/whats-on-today.tpl',
-      1 => 1575930468,
+      1 => 1613537203,
       2 => 'file',
     ),
   ),
@@ -22,9 +22,9 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:inc/tpl/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5deeca756c1f42_58190626 (Smarty_Internal_Template $_smarty_tpl) {
+function content_602c9fec88a4a2_92564380 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/Cinemanager/_deps/smarty/plugins/function.cycle.php','function'=>'smarty_function_cycle',),));
-$_smarty_tpl->compiled->nocache_hash = '5383937035deeca7561d541_54523349';
+$_smarty_tpl->compiled->nocache_hash = '331412973602c9fec87b971_61522358';
 $_smarty_tpl->_subTemplateRender("file:inc/tpl/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 9999, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?><div class="information"><h1>What's on Today</h1><div class="movie-list"><?php if ($_smarty_tpl->tpl_vars['sessions']->value) {
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['sessions']->value, 's', false, NULL, 's', array (
@@ -38,7 +38,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['s']->value) {
 " height="279" border="0"></a><h2><a href="/movies/<?php echo $_smarty_tpl->tpl_vars['s']->value['movie_id'];?>
 /"><?php echo $_smarty_tpl->tpl_vars['s']->value['title'];?>
 </a> <span class="details">(<?php echo $_smarty_tpl->tpl_vars['s']->value['classification'];?>
-)</span></h2><p><strong><?php
+)</span></h2><?php if ($_smarty_tpl->tpl_vars['s']->value['id_required'] == 1) {?><p class="id-required"><em>ID Required</em></p><?php }?><p><strong><?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['s']->value['sessions'], 'st', false, NULL, 'st', array (
   'first' => true,
   'index' => true,

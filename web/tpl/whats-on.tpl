@@ -17,6 +17,7 @@
 			        <div class="content-wrapper text">
 			            <h2><a href="/movies/{$n.movie_id}/">{$n.title}</a>
 				        <span class="details">&nbsp;&nbsp;[<strong>{$n.classification}</strong>
+					{if $n.id_required == 1}&nbsp;-&nbsp;ID Required&nbsp;{/if}
 				        {if $n.class_explanation} ({$n.class_explanation}){/if}
 				        {if $n.duration} - {$n.duration}{/if}]</span>
 				        </h2>

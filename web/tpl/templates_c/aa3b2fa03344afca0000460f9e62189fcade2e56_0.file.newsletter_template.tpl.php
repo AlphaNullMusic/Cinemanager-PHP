@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2020-12-30 22:21:29
+/* Smarty version 3.1.33, created on 2020-12-30 22:30:59
   from '/var/www/Cinemanager/web/tpl/newsletter_template.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5fec469922c698_18546960',
+  'unifunc' => 'content_5fec48d3618613_24712344',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'aa3b2fa03344afca0000460f9e62189fcade2e56' => 
     array (
       0 => '/var/www/Cinemanager/web/tpl/newsletter_template.tpl',
-      1 => 1609320054,
+      1 => 1609320609,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:inc/css/email.css' => 1,
   ),
 ),false)) {
-function content_5fec469922c698_18546960 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fec48d3618613_24712344 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/Cinemanager/_deps/smarty/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
 if ($_smarty_tpl->tpl_vars['plaintext']->value) {?>Shoreline Cinema Weekly Newsletter<?php echo "\n\n";
 $_smarty_tpl->_assignInScope('divider', '========================================');

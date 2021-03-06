@@ -104,6 +104,7 @@
     		        {if $movie.classification}
         			<p>
         				<strong>Rated:</strong> {$movie.classification}<br />
+					{if $movie.id_required == 1}<u><em>ID Required</em></u><br />{/if}
         				{if $movie.class_explanation} <em>{$movie.class_explanation}</em>{/if}
         			</p>
         		    {/if}

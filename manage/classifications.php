@@ -44,10 +44,17 @@ if (check_cinema() && has_permission('sessions')) {
 		if (!isset($er)) {
 			$sql = ($_POST['edit'] == 'new') ? "INSERT INTO " : "UPDATE " ;
 			// Save name
+
+			$id_required = 0;
+			if ($_POST['id_required'] == 'on') {
+				$id_required = 1;
+			}
+
 			$sql .= "
 				classifications
 				SET classification = '".$mysqli->real_escape_string($_POST['classification'])."',
-				class_explanation = '".$mysqli->real_escape_string($_POST['class_explanation'])."'
+				class_explanation = '".$mysqli->real_escape_string($_POST['class_explanation'])."',
+				id_required = '".$mysqli->real_escape_string($id_required)."'
 			";
 			$sql .= ($_POST['edit'] == 'new') ? "" : "WHERE classification_id = '{$_POST['edit']}' " ;
 			$mysqli->query($sql);
@@ -74,7 +81,7 @@ if (check_cinema() && has_permission('sessions')) {
 	if (isset($_REQUEST['edit'])) {
 		$values = array();
 		$sql = "
-			SELECT c.classification_id, c.classification, c.class_explanation
+			SELECT c.classification_id, c.classification, c.class_explanation, c.id_required
 			FROM classifications c
 			WHERE c.classification_id = '".$mysqli->real_escape_string($_REQUEST['edit'])."'
 		";
@@ -83,6 +90,7 @@ if (check_cinema() && has_permission('sessions')) {
 			if (!isset($values['classification']) && isset($data['classification'])) {
 				$values['classification'] = $data['classification'];
 				$values['class_explanation'] = (isset($data['class_explanation'])) ? $data['class_explanation'] : '';
+				$values['id_required'] = (isset($data['id_required'])) ? $data['id_required'] : '';
 			}
 		}
 	}
@@ -134,6 +142,14 @@ if (check_cinema() && has_permission('sessions')) {
 												<label for="class_explanation"><strong>Explanation<strong></label>
 												<div class="input-group mb-3">
 													<input name="class_explanation" id="class_explanation" class="form-control" type="text" value="<?php echo (isset($values['class_explanation']))?$values['class_explanation']:''?>">
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<label for="id_required"><strong>ID Required</strong></label>
+												<div class="input-group mb-3">
+													<input name="id_required" id="id_required" class="form-control" type="checkbox" <?php echo (isset($values['id_required']) && $values['id_required'] == 1)?'checked="checked"':''?>>
 												</div>
 											</td>
 										</tr>
