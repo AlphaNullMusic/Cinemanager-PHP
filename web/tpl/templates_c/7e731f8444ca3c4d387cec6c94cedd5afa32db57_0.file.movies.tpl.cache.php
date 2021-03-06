@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2020-01-09 19:35:18
+/* Smarty version 3.1.33, created on 2021-02-17 17:56:30
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5e16c9a6a52729_42505836',
+  'unifunc' => 'content_602ca1fef29384_61622806',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7e731f8444ca3c4d387cec6c94cedd5afa32db57' => 
     array (
       0 => '/var/www/Cinemanager/web/tpl/movies.tpl',
-      1 => 1578551715,
+      1 => 1613537787,
       2 => 'file',
     ),
   ),
@@ -21,9 +21,9 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:inc/tpl/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5e16c9a6a52729_42505836 (Smarty_Internal_Template $_smarty_tpl) {
+function content_602ca1fef29384_61622806 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/Cinemanager/_deps/smarty/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
-$_smarty_tpl->compiled->nocache_hash = '2913667775e16c9a69ac975_39975721';
+$_smarty_tpl->compiled->nocache_hash = '1373521049602ca1fef01db5_53861320';
 ?>
 <!DOCTYPE html>
 <html lang="en-nz">
@@ -159,6 +159,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         			<p>
         				<strong>Rated:</strong> <?php echo $_smarty_tpl->tpl_vars['movie']->value['classification'];?>
 <br />
+					<?php if ($_smarty_tpl->tpl_vars['movie']->value['id_required'] == 1) {?><u><em>ID Required</em></u><br /><?php }?>
         				<?php if ($_smarty_tpl->tpl_vars['movie']->value['class_explanation']) {?> <em><?php echo $_smarty_tpl->tpl_vars['movie']->value['class_explanation'];?>
 </em><?php }?>
         			</p>

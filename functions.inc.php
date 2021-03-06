@@ -478,7 +478,8 @@ function get_movie_list_full($type = 'ns', $order_by = 'm.title', $num_sessions 
 					COUNT(DISTINCT st.session_id) AS total_sessions, 
 					DATE_FORMAT(m.release_date,'$date_format') AS release_date_f1,
 					DATE_FORMAT(m.release_date,'$date_format2') AS release_date_f2,
-					c.classification
+					c.classification,
+					c.id_required
                     $extra_select
                 FROM movies m
                 INNER JOIN sessions st
@@ -516,6 +517,7 @@ function get_movie_list_full($type = 'ns', $order_by = 'm.title', $num_sessions 
                     DATE_FORMAT(m.release_date,'$date_format') AS release_date_f1, 
 					DATE_FORMAT(m.release_date,'$date_format2') AS release_date_f2, 
                     c.classification,
+		    c.id_required,
                     IF(m.release_date = '0000-00-00', 1, 0) AS tbc
                     $extra_select
                 FROM movies m
@@ -551,7 +553,8 @@ function get_movie_list_full($type = 'ns', $order_by = 'm.title', $num_sessions 
                     COUNT(DISTINCT s.session_id) AS total_sessions,
                     DATE_FORMAT(m.release_date,'$date_format') AS release_date_f1, 
 					DATE_FORMAT(m.release_date,'$date_format2') AS release_date_f2, 
-                    c.classification
+                    c.classification,
+		    c.id_required
 					$extra_select
                 FROM movies m
                 LEFT JOIN sessions s
@@ -578,6 +581,7 @@ function get_movie_list_full($type = 'ns', $order_by = 'm.title', $num_sessions 
                 $movies[$n]['imdb_id']           = (isset($movie_list_data['imdb_id'])) ? $movie_list_data['imdb_id'] : NULL;
                 $movies[$n]['title']             = (isset($movie_list_data['title'])) ? $movie_list_data['title'] : NULL;
                 $movies[$n]['classification']    = (isset($movie_list_data['classification'])) ? $movie_list_data['classification'] : NULL;
+		$movies[$n]['id_required']	 = (isset($movie_list_data['id_required'])) ? $movie_list_data['id_required'] : NULL;
                 $movies[$n]['class_explanation'] = (isset($movie_list_data['class_explanation'])) ? get_class_explanation($movies[$n]['classification']) : NULL;
                 $movies[$n]['runtime']           = (isset($movie_list_data['runtime'])) ? $movie_list_data['runtime'] : NULL;
 				$movies[$n]['duration']          = (isset($movie_list_data['runtime'])) ? mintohr($movie_list_data['runtime']) : NULL;
@@ -652,6 +656,7 @@ function get_movie($movie_id, $get_sessions = true, $extra_conditions = NULL, $s
 			m.poster_url, 
 			m.custom_poster,   
             c.classification, 
+		c.id_required,
 			m.classification_id, 
 			m.synopsis,  
             GROUP_CONCAT(DISTINCT m.comments SEPARATOR '') AS comments, 
@@ -683,6 +688,7 @@ function get_movie($movie_id, $get_sessions = true, $extra_conditions = NULL, $s
     $return['movie'] = $movie_data;
     $return['status'] = $status;
     $return['movie']['classification'] = $movie_data['classification'];
+    $return['movie']['id_required'] = $movie_data['id_required'];
     $return['movie']['duration']  = (isset($movie_data['runtime'])) ? mintohr($movie_data['runtime']) : NULL;
     $return['movie']['class_explanation'] = get_class_explanation($movie_data['classification']);
     $return['movie']['poster_url'] = ($movie_data['custom_poster']==1 ? $config['poster_url'].$movie_data['movie_id'].'-'.$size.'-custom.jpg' : $config['poster_url'].$movie_data['movie_id'].'-'.$size.'-default.jpg');
@@ -997,7 +1003,8 @@ function get_sessions_today($cinema_id, $day = NULL, $add_day = NULL, $order_by 
 				)
 			) AS time_format, 
             sl.name AS label, 
-            c.classification 
+            c.classification,
+	    c.id_required
         FROM movies m
         INNER JOIN sessions s
             ON s.movie_id=m.movie_id
@@ -1023,7 +1030,8 @@ function get_sessions_today($cinema_id, $day = NULL, $add_day = NULL, $order_by 
                 'title' => $sd['title'],
                 'poster_url' => ($sd['custom_poster']==1 ? $config['poster_url'].$sd['movie_id'].'-'.$size.'-custom.jpg' : $config['poster_url'].$sd['movie_id'].'-'.$size.'-default.jpg'),
                 'classification' => $sd['classification'],
-				'class_explanation' => get_class_explanation($sd['classification']),
+		'id_required' => $sd['id_required'],
+		'class_explanation' => get_class_explanation($sd['classification']),
                 'synopsis' => $sd['synopsis'],
                 'trailer' => $sd['trailer'],
             );

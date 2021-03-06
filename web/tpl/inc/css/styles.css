@@ -523,6 +523,9 @@ p {
     margin-top: 0;
     margin-bottom: 1rem;
 }
+p.id-required {
+	margin-bottom: 0;
+}
 .information pre { font-size: 1.2rem; }
 a:hover {
     color: #f7f3dc;
@@ -558,3 +561,5 @@ body.im-vis .sessions a:hover { background-color: #ffdb00; }
 body.im-vis hr { border-color: #000; }
 body.im-vis footer { background: #eaeaea; }
 body.im-vis footer #improve-visibility { color: #214e00; }
+
+body.im-vis p.id-required { color: #000; }

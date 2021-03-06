@@ -50,7 +50,7 @@ require('../inc/smarty_vars.inc.php');
 
         // Remove unneded data
         foreach ($value as $attr => $data) {
-            if ($attr != 'title' && $attr != 'thumbnail' && $attr != 'time') {
+            if ($attr != 'title' && $attr != 'thumbnail' && $attr != 'time' && $attr != 'id_required') {
                 unset($list[$key][$attr]);
             }
         }

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2020-12-30 21:56:18
+/* Smarty version 3.1.33, created on 2021-03-07 11:33:39
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5fec40b21687d2_94053807',
+  'unifunc' => 'content_6044034353d3f3_71652038',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7e731f8444ca3c4d387cec6c94cedd5afa32db57' => 
     array (
       0 => '/var/www/Cinemanager/web/tpl/movies.tpl',
-      1 => 1578551715,
+      1 => 1613537787,
       2 => 'file',
     ),
     '12f3ac630680bc6778753de8bb98e13015ec9d16' => 
@@ -24,7 +24,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_5fec40b21687d2_94053807 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6044034353d3f3_71652038 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
@@ -89,12 +89,21 @@ function content_5fec40b21687d2_94053807 (Smarty_Internal_Template $_smarty_tpl)
     	<div class="content-wrapper text"> 
     		<div class="content">
     		    <div class="content-wrapper text">
-    		        <p>1840s England, acclaimed but overlooked fossil hunter Mary Anning and a young woman sent to convalesce by the sea develop an intense relationship, altering both of their lives forever.</p>
-					    		                		    </div>
+    		        <p>	1840s England, acclaimed but overlooked fossil hunter Mary Anning (Kate Winslet) works alone as a fossil hunter on the rugged Southern coastland. With the days of her famed discoveries behind her, she now searches for common fossils to sell to tourists in order to support herself and her ailing mother. When a wealthy visitor entrusts Mary with the care of his wife Charlotte Murchison (Saorsie Ronan), she cannot afford to turn his offer down. Proud and relentlessly passionate about her work, Mary initially clashes with her unwelcome guest, but despite the difference between their social class and personalities, an intense bond begins to develop, compelling the two woman to determine the true nature of their relationship.					</p>
+					    		                                        <span class="h3">Upcoming Screening Times</span>
+                            <ul class="sessions">
+                                                            	                              	
+                              	<li><strong>Sunday  7 Mar</strong><a href="/bookings/4987/">10:15am</a>                              	                              	
+                              	<li><strong>Monday  8 Mar</strong><a href="/bookings/4988/">10:30am</a>                              	                              	
+                              	<li><strong>Tuesday  9 Mar</strong><a href="/bookings/4989/">10:15am</a>                              	                              	
+                              	<li><strong>Wednesday 10 Mar</strong><a href="/bookings/4990/">10:15am</a>                               </li>
+                            </ul>
+                          	<p><i>To place a booking, click on the session time you are interested in. Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
+                            		    </div>
     		    <div class="content-wrapper details">
     		                			<p>
-        				<strong>Rated:</strong> R<br />
-        				 <em>Restricted</em>        			</p>
+        				<strong>Rated:</strong> R16<br />
+					<u><em>ID Required</em></u><br />        				 <em>Restricted to Audiences of 16 Years and Over</em>        			</p>
         		            		    <p>
         			              	        <strong>Duration:</strong><br />
         				2hr 0min<br /><br />
@@ -107,7 +116,7 @@ function content_5fec40b21687d2_94053807 (Smarty_Internal_Template $_smarty_tpl)
       </div> 
     </div>
 
-<footer><div id="text"><p>Web design and content &copy; 2020, Shoreline Cinema Waikanae, New Zealand. <a id="improve-visibility">Improve Visibility.</a></p></div></footer></div><script src="/tpl/inc/js/jquery-3.4.1.min.js"></script><script src="/tpl/inc/js/js.cookie-2.2.1.min.js"></script><script src="/tpl/inc/js/scripts.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-137475424-1"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'UA-137475424-1');</script></body></html>
+<footer><div id="text"><p>Web design and content &copy; 2021, Shoreline Cinema Waikanae, New Zealand. <a id="improve-visibility">Improve Visibility.</a></p></div></footer></div><script src="/tpl/inc/js/jquery-3.4.1.min.js"></script><script src="/tpl/inc/js/js.cookie-2.2.1.min.js"></script><script src="/tpl/inc/js/scripts.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-137475424-1"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'UA-137475424-1');</script></body></html>
 
 
 <?php }

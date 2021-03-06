@@ -2,3 +2,8 @@ User-agent: *
 Disallow: /inc/
 Disallow: /e/
 Disallow: /tpl/
+Disallow: /movies/
+Disallow: /bookings/
+
+
+Sitemap: https://shorelinecinema.co.nz/sitemap.xml

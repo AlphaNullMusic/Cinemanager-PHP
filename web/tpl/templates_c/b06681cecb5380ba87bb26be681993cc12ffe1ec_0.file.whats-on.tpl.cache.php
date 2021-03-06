@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-11-25 17:09:25
+/* Smarty version 3.1.33, created on 2021-02-17 17:51:16
   from '/var/www/Cinemanager/web/tpl/whats-on.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5ddb53f59c0695_56801998',
+  'unifunc' => 'content_602ca0c46c4bc7_87857041',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'b06681cecb5380ba87bb26be681993cc12ffe1ec' => 
     array (
       0 => '/var/www/Cinemanager/web/tpl/whats-on.tpl',
-      1 => 1574633434,
+      1 => 1613537473,
       2 => 'file',
     ),
   ),
@@ -22,9 +22,9 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:inc/tpl/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5ddb53f59c0695_56801998 (Smarty_Internal_Template $_smarty_tpl) {
+function content_602ca0c46c4bc7_87857041 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/Cinemanager/_deps/smarty/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
-$_smarty_tpl->compiled->nocache_hash = '18319989635ddb53f59a50e7_96258594';
+$_smarty_tpl->compiled->nocache_hash = '1769579250602ca0c46a9450_31639009';
 $_smarty_tpl->_subTemplateRender("file:inc/tpl/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 9999, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?><div class="information"><h1>What's On</h1><?php if ($_smarty_tpl->tpl_vars['now_showing']->value) {?><ul class="movie-times"><?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['now_showing']->value, 'n', false, NULL, 'n', array (
@@ -37,7 +37,8 @@ foreach ($_from as $_smarty_tpl->tpl_vars['n']->value) {
 " width="190" border="0"></a></div><div class="content-wrapper text"><h2><a href="/movies/<?php echo $_smarty_tpl->tpl_vars['n']->value['movie_id'];?>
 /"><?php echo $_smarty_tpl->tpl_vars['n']->value['title'];?>
 </a><span class="details">&nbsp;&nbsp;[<strong><?php echo $_smarty_tpl->tpl_vars['n']->value['classification'];?>
-</strong><?php if ($_smarty_tpl->tpl_vars['n']->value['class_explanation']) {?> (<?php echo $_smarty_tpl->tpl_vars['n']->value['class_explanation'];?>
+</strong><?php if ($_smarty_tpl->tpl_vars['n']->value['id_required'] == 1) {?>&nbsp;-&nbsp;ID Required&nbsp;<?php }
+if ($_smarty_tpl->tpl_vars['n']->value['class_explanation']) {?> (<?php echo $_smarty_tpl->tpl_vars['n']->value['class_explanation'];?>
 )<?php }
 if ($_smarty_tpl->tpl_vars['n']->value['duration']) {?> - <?php echo $_smarty_tpl->tpl_vars['n']->value['duration'];
 }?>]</span></h2><strong><em><?php if ($_smarty_tpl->tpl_vars['n']->value['comments']) {?> (<?php echo $_smarty_tpl->tpl_vars['n']->value['comments'];?>

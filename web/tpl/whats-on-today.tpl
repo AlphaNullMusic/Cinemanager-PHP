@@ -11,6 +11,7 @@
 			<div style="clear:{cycle values="left,none"};">
 				<a href="/movies/{$s.movie_id}/"><img src="{$s.poster_url}" alt="{$s.title}" height="279" border="0"></a>
 	      <h2><a href="/movies/{$s.movie_id}/">{$s.title}</a> <span class="details">({$s.classification})</span></h2>
+		{if $s.id_required == 1}<p class="id-required"><em>ID Required</em></p>{/if}
 	      <p><strong>
 	        {foreach from=$s.sessions item=st name=st}
 	          {if !$smarty.foreach.st.first}, {/if}{$st.time}
