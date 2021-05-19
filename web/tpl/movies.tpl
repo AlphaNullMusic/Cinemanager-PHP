@@ -108,6 +108,12 @@
         				{if $movie.class_explanation} <em>{$movie.class_explanation}</em>{/if}
         			</p>
         		    {/if}
+			{if $movie.comments}
+				<p>
+					<strong>Comments:</strong><br />
+					<em>{$movie.comments}</em>
+				</p>
+			{/if}
         		    <p>
         			{if $movie.duration}
               	        <strong>Duration:</strong><br />

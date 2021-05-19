@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2021-03-07 11:22:02
+/* Smarty version 3.1.33, created on 2021-05-20 11:01:17
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_6044008a14edf2_94016288',
+  'unifunc' => 'content_60a598bd7fabc5_75005309',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -24,7 +24,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_6044008a14edf2_94016288 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60a598bd7fabc5_75005309 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
@@ -90,7 +90,19 @@ function content_6044008a14edf2_94016288 (Smarty_Internal_Template $_smarty_tpl)
     		<div class="content">
     		    <div class="content-wrapper text">
     		        <p>A man refuses all assistance from his daughter as he ages. As he tries to make sense of his changing circumstances, he begins to doubt his loved ones, his own mind and even the fabric of his reality.</p>
-					    		                		    </div>
+					    		                                        <span class="h3">Upcoming Screening Times</span>
+                            <ul class="sessions">
+                                                            	                              	
+                              	<li><strong>Thursday 20 May</strong><a href="/bookings/5965/">12:30pm</a>                              	                              	
+                              	<li><strong>Friday 21 May</strong><a href="/bookings/5966/">2:15pm</a>                              	                              	
+                              	<li><strong>Saturday 22 May</strong><a href="/bookings/5967/">4:00pm</a>                              	                              	
+                              	<li><strong>Sunday 23 May</strong><a href="/bookings/5968/">4:30pm</a>                              	                              	
+                              	<li><strong>Monday 24 May</strong><a href="/bookings/5969/">12:30pm</a>                              	                              	
+                              	<li><strong>Tuesday 25 May</strong><a href="/bookings/5970/">2:00pm</a>                              	                              	
+                              	<li><strong>Wednesday 26 May</strong><a href="/bookings/5971/">2:15pm</a>                               </li>
+                            </ul>
+                          	<p><i>To place a booking, click on the session time you are interested in. Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
+                            		    </div>
     		    <div class="content-wrapper details">
     		                			<p>
         				<strong>Rated:</strong> PG<br />
