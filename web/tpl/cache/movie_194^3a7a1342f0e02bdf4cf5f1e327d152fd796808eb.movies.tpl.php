@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2021-05-20 11:35:15
+/* Smarty version 3.1.33, created on 2021-06-04 20:53:13
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_60a5a0b3022d42_43720835',
+  'unifunc' => 'content_60b9e9f9760893_03259397',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7e731f8444ca3c4d387cec6c94cedd5afa32db57' => 
     array (
       0 => '/var/www/Cinemanager/web/tpl/movies.tpl',
-      1 => 1613537787,
+      1 => 1621467589,
       2 => 'file',
     ),
     '12f3ac630680bc6778753de8bb98e13015ec9d16' => 
@@ -24,7 +24,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_60a5a0b3022d42_43720835 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60b9e9f9760893_03259397 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
@@ -93,13 +93,12 @@ function content_60a5a0b3022d42_43720835 (Smarty_Internal_Template $_smarty_tpl)
 					    		                                        <span class="h3">Upcoming Screening Times</span>
                             <ul class="sessions">
                                                             	                              	
-                              	<li><strong>Thursday 20 May</strong><a href="/bookings/5938/">10:15am</a>, <a href="/bookings/5939/">4:00pm</a>                              	                              	
-                              	<li><strong>Friday 21 May</strong><a href="/bookings/5940/">12:00pm</a>, <a href="/bookings/5941/">6:15pm</a>                              	                              	
-                              	<li><strong>Saturday 22 May</strong><a href="/bookings/5942/">2:30pm</a>, <a href="/bookings/5943/">6:30pm</a>                              	                              	
-                              	<li><strong>Sunday 23 May</strong><a href="/bookings/5944/">2:15pm</a>                              	                              	
-                              	<li><strong>Monday 24 May</strong><a href="/bookings/5945/">10:15am</a>, <a href="/bookings/5946/">6:15pm</a>                              	                              	
-                              	<li><strong>Tuesday 25 May</strong><a href="/bookings/5947/">10:15am</a>, <a href="/bookings/5948/">6:30pm</a>                              	                              	
-                              	<li><strong>Wednesday 26 May</strong><a href="/bookings/5949/">10:15am</a>, <a href="/bookings/5950/">6:15pm</a>                               </li>
+                              	<li><strong>Friday  4 Jun</strong><a href="/bookings/6109/">4:30pm</a>                              	                              	
+                              	<li><strong>Saturday  5 Jun</strong><a href="/bookings/6110/">2:45pm</a>                              	                              	
+                              	<li><strong>Sunday  6 Jun</strong><a href="/bookings/6111/">12:15pm</a>                              	                              	
+                              	<li><strong>Monday  7 Jun</strong><a href="/bookings/6112/">2:30pm</a>                              	                              	
+                              	<li><strong>Tuesday  8 Jun</strong><a href="/bookings/6113/">2:30pm</a>                              	                              	
+                              	<li><strong>Wednesday  9 Jun</strong><a href="/bookings/6114/">2:15pm</a>                               </li>
                             </ul>
                           	<p><i>To place a booking, click on the session time you are interested in. Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
                             		    </div>
@@ -107,7 +106,13 @@ function content_60a5a0b3022d42_43720835 (Smarty_Internal_Template $_smarty_tpl)
     		                			<p>
         				<strong>Rated:</strong> M<br />
 					        				 <em>Suitable for Mature Audiences</em>        			</p>
-        		            		    <p>
+        		    							<p>
+					<strong>Comments:</strong><br />
+					<em>Drama // War Violence</em>
+				</p>
+			        		    <p>
+        			              	        <strong>Duration:</strong><br />
+        				1hr 40min<br /><br />
         			        			        			        				<a class="btn dark" href="https://www.youtube.com/watch?v=3Mb-Y-tUZm0" target="_blank">Official Trailer</a>
         			        		    </p>
             		  

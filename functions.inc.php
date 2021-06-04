@@ -99,8 +99,10 @@ function is_alphanumeric($string) { return (preg_match("/^[A-Za-z0-9]+$/i", $str
 
 // Check if $email is in valid email format
 function is_email($email) {
-    if (preg_match('/^[_a-z0-9+-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/i', $email)) {
-        return true;
+    //if (preg_match('/^[_a-z0-9+-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/i', $email)) {
+    // Update email to support .kiwi format
+    if (preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $email)) {
+	return true;
     } else {
         return false;
     }

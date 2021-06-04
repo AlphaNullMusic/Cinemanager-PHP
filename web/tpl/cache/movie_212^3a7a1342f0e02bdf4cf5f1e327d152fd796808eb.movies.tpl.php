@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2021-05-20 11:00:24
+/* Smarty version 3.1.33, created on 2021-06-04 23:23:19
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_60a59888dfec51_68060760',
+  'unifunc' => 'content_60ba0d27a7b969_41438875',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7e731f8444ca3c4d387cec6c94cedd5afa32db57' => 
     array (
       0 => '/var/www/Cinemanager/web/tpl/movies.tpl',
-      1 => 1613537787,
+      1 => 1621467589,
       2 => 'file',
     ),
     '12f3ac630680bc6778753de8bb98e13015ec9d16' => 
@@ -24,14 +24,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_60a59888dfec51_68060760 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60ba0d27a7b969_41438875 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>First Cow - Info</title>
+<title>In the Heights - Info</title>
 <meta name="description" content="Shoreline Cinema is Waikanae's premiere cinema complex. Find out who we are, what's on, what's coming up, how to contact us and much more.">
 <link href="/tpl/inc/css/styles.css" rel="stylesheet" type="text/css" />
 <link href="/tpl/inc/css/print.css" rel="stylesheet" type="text/css" media="print" />
@@ -81,31 +81,24 @@ function content_60a59888dfec51_68060760 (Smarty_Internal_Template $_smarty_tpl)
 
 
 <div class="information">
-    <h2>First Cow</h2>
+    <h2>In the Heights</h2>
     <div class="content">
     	<div class="content-wrapper poster">
-    		<img src="https://posters.shoreline.nz/196-medium-default.jpg" width="190" alt="First Cow Poster" />
+    		<img src="https://posters.shoreline.nz/212-medium-default.jpg" width="190" alt="In the Heights Poster" />
     	</div>
     	<div class="content-wrapper text"> 
     		<div class="content">
     		    <div class="content-wrapper text">
-    		        <p>A skilled cook has traveled west and joined a group of fur trappers in Oregon, though he only finds true connection with a Chinese immigrant also seeking his fortune. Soon the two collaborate on a successful business.</p>
-					    		                                        <span class="h3">Upcoming Screening Times</span>
-                            <ul class="sessions">
-                                                            	                              	
-                              	<li><strong>Sunday 23 May</strong><a href="/bookings/5972/">6:30pm</a>                              	                              	
-                              	<li><strong>Tuesday 25 May</strong><a href="/bookings/5905/">8:00pm</a> <i>(FINAL SCREENING)</i>                               </li>
-                            </ul>
-                          	<p><i>To place a booking, click on the session time you are interested in. Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
-                            		    </div>
+    		        <p>In the Heights centers on a variety of characters living in the neighborhood of Washington Heights, on the northern tip of Manhattan. At the center of the show is Usnavi, a bodega owner who looks after the aging Cuban lady next door, pines for the gorgeous girl working in the neighboring beauty salon and dreams of winning the lottery and escaping to the shores of his native Dominican Republic. Meanwhile, Nina, a childhood friend of Usnavi's, has returned to the neighborhood from her first year at college with surprising news for her parents, who have spent their life savings on building a better life for their daughter. Ultimately, Usnavi and the residents of the close-knit neighborhood get a dose of what it means to be home.</p>
+					    		                		    </div>
     		    <div class="content-wrapper details">
     		                			<p>
         				<strong>Rated:</strong> PG<br />
 					        				 <em>Parental Guidance is Recommended</em>        			</p>
-        		            		    <p>
+        		    			        		    <p>
         			              	        <strong>Duration:</strong><br />
-        				2hr 2min<br /><br />
-        			        			        			        				<a class="btn dark" href="https://www.youtube.com/watch?v=-jWZ6P1rWy4" target="_blank">Official Trailer</a>
+        				2hr 23min<br /><br />
+        			        			        			        				<a class="btn dark" href="https://www.youtube.com/watch?v=u5pTICZ2oeg" target="_blank">Official Trailer</a>
         			        		    </p>
             		  
     		    </div>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2021-05-19 18:46:28
+/* Smarty version 3.1.33, created on 2021-06-04 21:25:42
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_60a4b444016a01_19358012',
+  'unifunc' => 'content_60b9f196ee3e86_54387284',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7e731f8444ca3c4d387cec6c94cedd5afa32db57' => 
     array (
       0 => '/var/www/Cinemanager/web/tpl/movies.tpl',
-      1 => 1613537787,
+      1 => 1621467589,
       2 => 'file',
     ),
     '12f3ac630680bc6778753de8bb98e13015ec9d16' => 
@@ -24,7 +24,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_60a4b444016a01_19358012 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60b9f196ee3e86_54387284 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
@@ -90,12 +90,27 @@ function content_60a4b444016a01_19358012 (Smarty_Internal_Template $_smarty_tpl)
     		<div class="content">
     		    <div class="content-wrapper text">
     		        <p>Dream Alliance is an unlikely race horse bred by small-town Welsh bartender Jan Vokes. With no experience, Jan convinces her neighbors to chip in their meager earnings to help raise Dream in the hopes he can compete with the racing elites.</p>
-					    		                		    </div>
+					    		                                        <span class="h3">Upcoming Screening Times</span>
+                            <ul class="sessions">
+                                                            	                              	
+                              	<li><strong>Friday  4 Jun</strong><a href="/bookings/6057/">2:15pm</a>, <a href="/bookings/6058/">8:30pm</a>                              	                              	
+                              	<li><strong>Saturday  5 Jun</strong><a href="/bookings/6059/">2:00pm</a>, <a href="/bookings/6060/">8:15pm</a>                              	                              	
+                              	<li><strong>Sunday  6 Jun</strong><a href="/bookings/6061/">4:30pm</a>, <a href="/bookings/6062/">8:30pm</a>                              	                              	
+                              	<li><strong>Monday  7 Jun</strong><a href="/bookings/6063/">2:15pm</a>, <a href="/bookings/6064/">6:30pm</a>                              	                              	
+                              	<li><strong>Tuesday  8 Jun</strong><a href="/bookings/6065/">12:15pm</a>, <a href="/bookings/6066/">8:15pm</a>                              	                              	
+                              	<li><strong>Wednesday  9 Jun</strong><a href="/bookings/6067/">12:15pm</a>, <a href="/bookings/6068/">6:15pm</a>                               </li>
+                            </ul>
+                          	<p><i>To place a booking, click on the session time you are interested in. Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
+                            		    </div>
     		    <div class="content-wrapper details">
     		                			<p>
         				<strong>Rated:</strong> PG<br />
 					        				 <em>Parental Guidance is Recommended</em>        			</p>
-        		            		    <p>
+        		    							<p>
+					<strong>Comments:</strong><br />
+					<em>Coarse Language and sexual references</em>
+				</p>
+			        		    <p>
         			              	        <strong>Duration:</strong><br />
         				1hr 53min<br /><br />
         			        			        			        				<a class="btn dark" href="https://www.youtube.com/watch?v=I57HRSY2Wk4" target="_blank">Official Trailer</a>
