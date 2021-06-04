@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2021-05-20 11:00:50
+/* Smarty version 3.1.33, created on 2021-06-04 22:03:02
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_60a598a2c572e2_27292766',
+  'unifunc' => 'content_60b9fa56791b99_84926541',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7e731f8444ca3c4d387cec6c94cedd5afa32db57' => 
     array (
       0 => '/var/www/Cinemanager/web/tpl/movies.tpl',
-      1 => 1613537787,
+      1 => 1621467589,
       2 => 'file',
     ),
     '12f3ac630680bc6778753de8bb98e13015ec9d16' => 
@@ -24,14 +24,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_60a598a2c572e2_27292766 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60b9fa56791b99_84926541 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Peter Rabbit 2: The Runaway - Info</title>
+<title>James and Isey - Info</title>
 <meta name="description" content="Shoreline Cinema is Waikanae's premiere cinema complex. Find out who we are, what's on, what's coming up, how to contact us and much more.">
 <link href="/tpl/inc/css/styles.css" rel="stylesheet" type="text/css" />
 <link href="/tpl/inc/css/print.css" rel="stylesheet" type="text/css" media="print" />
@@ -81,31 +81,39 @@ function content_60a598a2c572e2_27292766 (Smarty_Internal_Template $_smarty_tpl)
 
 
 <div class="information">
-    <h2>Peter Rabbit 2: The Runaway</h2>
+    <h2>James and Isey</h2>
     <div class="content">
     	<div class="content-wrapper poster">
-    		<img src="https://posters.shoreline.nz/70-medium-default.jpg" width="190" alt="Peter Rabbit 2: The Runaway Poster" />
+    		<img src="https://posters.shoreline.nz/197-medium-custom.jpg" width="190" alt="James and Isey Poster" />
     	</div>
     	<div class="content-wrapper text"> 
     		<div class="content">
     		    <div class="content-wrapper text">
-    		        <p>Despite his efforts, Peter can't seem to shake his reputation for mischief among the other rabbits. Once he adventures out of the garden Peter finds himself in a world where mischief is appreciated, but soon his family come to bring him home.						</p>
+    		        <p>James & Isey follows treasured kuia Isey Cross as she approaches her 100th birthday and her special relationship with her son James. The film's publicity team says it "subtly explores the history of Aotearoa through the lens of [Isey's] lifetime, a centenary milestone which has been achieved through James' unconditional love and Isey's wicked sense of adventure and unstoppable spirit". 															</p>
 					    		                                        <span class="h3">Upcoming Screening Times</span>
                             <ul class="sessions">
                                                             	                              	
-                              	<li><strong>Saturday 22 May</strong><a href="/bookings/5934/">12:15pm</a>                              	                              	
-                              	<li><strong>Sunday 23 May</strong><a href="/bookings/5935/">10:15am</a>                               </li>
+                              	<li><strong>Friday  4 Jun</strong><a href="/bookings/6076/">6:15pm</a>                              	                              	
+                              	<li><strong>Saturday  5 Jun</strong><a href="/bookings/6077/">6:45pm</a>                              	                              	
+                              	<li><strong>Sunday  6 Jun</strong><a href="/bookings/6078/">6:45pm</a>                              	                              	
+                              	<li><strong>Monday  7 Jun</strong><a href="/bookings/6079/">4:30pm</a>                              	                              	
+                              	<li><strong>Tuesday  8 Jun</strong><a href="/bookings/6080/">12:30pm</a>                              	                              	
+                              	<li><strong>Wednesday  9 Jun</strong><a href="/bookings/6081/">4:30pm</a>                               </li>
                             </ul>
                           	<p><i>To place a booking, click on the session time you are interested in. Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
                             		    </div>
     		    <div class="content-wrapper details">
     		                			<p>
-        				<strong>Rated:</strong> G<br />
-					        				 <em>Suitable for General Audiences</em>        			</p>
-        		            		    <p>
+        				<strong>Rated:</strong> M<br />
+					        				 <em>Suitable for Mature Audiences</em>        			</p>
+        		    							<p>
+					<strong>Comments:</strong><br />
+					<em>Drama, Documentary // Offensive Language</em>
+				</p>
+			        		    <p>
         			              	        <strong>Duration:</strong><br />
-        				1hr 35min<br /><br />
-        			        			        			        				<a class="btn dark" href="https://youtu.be/PWBcqCz7l_c" target="_blank">Official Trailer</a>
+        				1hr 32min<br /><br />
+        			        			        			        				<a class="btn dark" href="https://www.youtube.com/watch?v=LAF3ZEFVFtQ" target="_blank">Official Trailer</a>
         			        		    </p>
             		  
     		    </div>

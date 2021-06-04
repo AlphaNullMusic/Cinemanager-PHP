@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2021-05-19 21:39:13
+/* Smarty version 3.1.33, created on 2021-06-04 22:37:30
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_60a4dcc1827899_59608864',
+  'unifunc' => 'content_60ba026a3b8b61_00519232',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7e731f8444ca3c4d387cec6c94cedd5afa32db57' => 
     array (
       0 => '/var/www/Cinemanager/web/tpl/movies.tpl',
-      1 => 1613537787,
+      1 => 1621467589,
       2 => 'file',
     ),
     '12f3ac630680bc6778753de8bb98e13015ec9d16' => 
@@ -24,14 +24,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_60a4dcc1827899_59608864 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60ba026a3b8b61_00519232 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Raphael - The Young Progidy - Info</title>
+<title>Poppy - Info</title>
 <meta name="description" content="Shoreline Cinema is Waikanae's premiere cinema complex. Find out who we are, what's on, what's coming up, how to contact us and much more.">
 <link href="/tpl/inc/css/styles.css" rel="stylesheet" type="text/css" />
 <link href="/tpl/inc/css/print.css" rel="stylesheet" type="text/css" media="print" />
@@ -81,32 +81,39 @@ function content_60a4dcc1827899_59608864 (Smarty_Internal_Template $_smarty_tpl)
 
 
 <div class="information">
-    <h2>Raphael - The Young Progidy</h2>
+    <h2>Poppy</h2>
     <div class="content">
     	<div class="content-wrapper poster">
-    		<img src="https://posters.shoreline.nz/204-medium-custom.jpg" width="190" alt="Raphael - The Young Progidy Poster" />
+    		<img src="https://posters.shoreline.nz/208-medium-custom.jpg" width="190" alt="Poppy Poster" />
     	</div>
     	<div class="content-wrapper text"> 
     		<div class="content">
     		    <div class="content-wrapper text">
-    		        <p>The story of the artist from Urbino, beginning with his extraordinary early portraits of women - the Mother, the Friend, the Secret Lover and the Client.  Delve into Raphael’s uncanny ability to capture celestial beauty, and to focus his gaze beyond the physical and into the psychology of his subjects so that their personalities explosively emerge on the canvas. With fascinating contributions from internationally renowned experts, this special cinema event will uncover the most significant people and places and inspirations in the life and times of Raphael.							</p>
+    		        <p>			Poppy's ambition is to become a motor mechanic – starting with the apprenticeship promised by her late father – is stalled by her super protective brother who has reluctantlyinherited the family workshop/garage business. And it’s not until she teams up with a school friend who needs his car fixed in time to enter the local burnout competition that her plans progress. Poppy is a film about a young woman with Down syndrome who refuses to be defined by disability and takes control of her own life.					</p>
 					    		                                        <span class="h3">Upcoming Screening Times</span>
                             <ul class="sessions">
                                                             	                              	
-                              	<li><strong>Wednesday 19 May</strong><a href="/bookings/5857/">2:30pm</a>                              	                              	
-                              	<li><strong>Monday 24 May</strong><a href="/bookings/5936/">2:30pm</a>                              	                              	
-                              	<li><strong>Wednesday 26 May</strong><a href="/bookings/5937/">4:30pm</a>                               </li>
+                              	<li><strong>Friday  4 Jun</strong><a href="/bookings/6098/">12:15pm</a>, <a href="/bookings/6099/">6:30pm</a>                              	                              	
+                              	<li><strong>Saturday  5 Jun</strong><a href="/bookings/6100/">12:00pm</a>, <a href="/bookings/6101/">6:15pm</a>                              	                              	
+                              	<li><strong>Sunday  6 Jun</strong><a href="/bookings/6102/">2:15pm</a> <i>(Q&A With Director)</i>, <a href="/bookings/6103/">8:30pm</a>                              	                              	
+                              	<li><strong>Monday  7 Jun</strong><a href="/bookings/6104/">12:15pm</a>                              	                              	
+                              	<li><strong>Tuesday  8 Jun</strong><a href="/bookings/6132/">10:15am</a>, <a href="/bookings/6106/">6:30pm</a>                              	                              	
+                              	<li><strong>Wednesday  9 Jun</strong><a href="/bookings/6107/">2:30pm</a>                               </li>
                             </ul>
                           	<p><i>To place a booking, click on the session time you are interested in. Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
                             		    </div>
     		    <div class="content-wrapper details">
     		                			<p>
-        				<strong>Rated:</strong> TBC<br />
-					        				 <em>To Be Confirmed</em>        			</p>
-        		            		    <p>
+        				<strong>Rated:</strong> PG<br />
+					        				 <em>Parental Guidance is Recommended</em>        			</p>
+        		    							<p>
+					<strong>Comments:</strong><br />
+					<em>Drama // Offensive Language, Sexual References</em>
+				</p>
+			        		    <p>
         			              	        <strong>Duration:</strong><br />
-        				1hr 31min<br /><br />
-        			        			        			        				<a class="btn dark" href="https://www.youtube.com/watch?v=BQ69l3FXTTM" target="_blank">Official Trailer</a>
+        				1hr 39min<br /><br />
+        			        			        			        				<a class="btn dark" href="https://www.youtube.com/watch?v=609KtmTHGhw" target="_blank">Official Trailer</a>
         			        		    </p>
             		  
     		    </div>
