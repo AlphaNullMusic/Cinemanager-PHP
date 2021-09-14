@@ -319,10 +319,11 @@ jane@doe.co.nz
                                 $sql="
                                     SELECT COUNT(DISTINCT nul.user_id) AS unSubscribers
                                     FROM newsletter_user_log nul
-                                    WHERE nul.timestamp >= FROM_UNIXTIME('$from')
-                                        AND nul.timestamp <= FROM_UNIXTIME('$to')
-                                        AND nul.action IN ('unsubscribe', 'bounce')
+                                    WHERE nul.time >= FROM_UNIXTIME('$from')
+                                        AND nul.time <= FROM_UNIXTIME('$to')
+                                        AND nul.action IN ('unsubscribe')
                                 ";
+				// 01-07-2021 - Removed 'bounce' from list of actions to count as unsubscriber.
                                 $unSubscriberRes = $mysqli->query($sql) or user_error("Gnarly: $sql");
                                 $unSubscriberData = $unSubscriberRes->fetch_assoc();
 
