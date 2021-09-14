@@ -1,4 +1,5 @@
-<script type="text/javascript" src="inc/tiny_mce/tinymce.min.js"></script>
+<!--<script type="text/javascript" src="inc/tiny_mce/tinymce.min.js"></script>-->
+<script src="https://cdn.tiny.cloud/1/dxhzbi0yrgf2ezu7caxqh8828v4mofukpvf7rs842gd2ttu6/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <script type="text/javascript">
 	tinymce.init({
 		selector: 'textarea',

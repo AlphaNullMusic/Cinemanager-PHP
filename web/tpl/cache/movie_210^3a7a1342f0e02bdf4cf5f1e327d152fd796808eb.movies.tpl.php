@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2021-06-04 22:52:03
+/* Smarty version 3.1.33, created on 2021-09-15 10:20:05
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_60ba05d35bfe02_63286251',
+  'unifunc' => 'content_61412015ef9058_49762764',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -24,7 +24,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_60ba05d35bfe02_63286251 (Smarty_Internal_Template $_smarty_tpl) {
+function content_61412015ef9058_49762764 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
@@ -90,7 +90,20 @@ function content_60ba05d35bfe02_63286251 (Smarty_Internal_Template $_smarty_tpl)
     		<div class="content">
     		    <div class="content-wrapper text">
     		        <p>The Man in the Hat journeys through France in a Fiat 500 accompanied by a framed photograph of an unknown woman. He is pursued by five angry men in a Citroën Dyane. Why are they chasing him? And how can he shake them off?</p>
-					    		                		    </div>
+					    		                                        <span class="h3">Upcoming Screening Times</span>
+                            <ul class="sessions">
+                                                            	                              	
+                              	<li><strong>Wednesday 15 Sep</strong><a href="/bookings/6986/">12:45pm</a>, <a href="/bookings/6987/">7:30pm</a>                              	                              	
+                              	<li><strong>Thursday 16 Sep</strong><a href="/bookings/7070/">12:00pm</a>                              	                              	
+                              	<li><strong>Friday 17 Sep</strong><a href="/bookings/7071/">3:45pm</a>                              	                              	
+                              	<li><strong>Saturday 18 Sep</strong><a href="/bookings/7072/">4:15pm</a>                              	                              	
+                              	<li><strong>Sunday 19 Sep</strong><a href="/bookings/7073/">12:15pm</a>                              	                              	
+                              	<li><strong>Monday 20 Sep</strong><a href="/bookings/7074/">3:00pm</a>                              	                              	
+                              	<li><strong>Tuesday 21 Sep</strong><a href="/bookings/7075/">4:15pm</a>                              	                              	
+                              	<li><strong>Wednesday 22 Sep</strong><a href="/bookings/7076/">10:15am</a>, <a href="/bookings/7077/">5:00pm</a>                               </li>
+                            </ul>
+                          	<p><i>To place a booking, click on the session time you are interested in. Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
+                            		    </div>
     		    <div class="content-wrapper details">
     		                			<p>
         				<strong>Rated:</strong> PG<br />
