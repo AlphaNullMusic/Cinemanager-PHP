@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2021-09-15 10:43:32
+/* Smarty version 3.1.33, created on 2021-09-15 10:41:52
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_61412594268345_24109673',
+  'unifunc' => 'content_614125306c30f5_39871759',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -24,14 +24,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_61412594268345_24109673 (Smarty_Internal_Template $_smarty_tpl) {
+function content_614125306c30f5_39871759 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Aretha Franklin: Respect - Info</title>
+<title>The Justice of Bunny King - Info</title>
 <meta name="description" content="Shoreline Cinema is Waikanae's premiere cinema complex. Find out who we are, what's on, what's coming up, how to contact us and much more.">
 <link href="/tpl/inc/css/styles.css" rel="stylesheet" type="text/css" />
 <link href="/tpl/inc/css/print.css" rel="stylesheet" type="text/css" media="print" />
@@ -81,26 +81,24 @@ function content_61412594268345_24109673 (Smarty_Internal_Template $_smarty_tpl)
 
 
 <div class="information">
-    <h2>Aretha Franklin: Respect</h2>
+    <h2>The Justice of Bunny King</h2>
     <div class="content">
     	<div class="content-wrapper poster">
-    		<img src="https://posters.shoreline.nz/231-medium-custom.jpg" width="190" alt="Aretha Franklin: Respect Poster" />
+    		<img src="https://posters.shoreline.nz/206-medium-custom.jpg" width="190" alt="The Justice of Bunny King Poster" />
     	</div>
     	<div class="content-wrapper text"> 
     		<div class="content">
     		    <div class="content-wrapper text">
-    		        <p>The life story of legendary R&B singer, Aretha Franklin.														</p>
+    		        <p>A triumph over adversity tale about women fighting their way back from the bottom of society.</p>
 					    		                                        <span class="h3">Upcoming Screening Times</span>
                             <ul class="sessions">
                                                             	                              	
-                              	<li><strong>Wednesday 15 Sep</strong><a href="/bookings/6953/">12:30pm</a>, <a href="/bookings/6954/">6:45pm</a>                              	                              	
-                              	<li><strong>Thursday 16 Sep</strong><a href="/bookings/7032/">3:00pm</a>                              	                              	
-                              	<li><strong>Friday 17 Sep</strong><a href="/bookings/7033/">1:00pm</a>, <a href="/bookings/7034/">8:00pm</a>                              	                              	
-                              	<li><strong>Saturday 18 Sep</strong><a href="/bookings/7035/">1:00pm</a>, <a href="/bookings/7036/">8:15pm</a>                              	                              	
-                              	<li><strong>Sunday 19 Sep</strong><a href="/bookings/7037/">1:15pm</a>, <a href="/bookings/7038/">4:30pm</a>                              	                              	
-                              	<li><strong>Monday 20 Sep</strong><a href="/bookings/7039/">12:30pm</a>, <a href="/bookings/7040/">7:15pm</a>                              	                              	
-                              	<li><strong>Tuesday 21 Sep</strong><a href="/bookings/7041/">10:15am</a>, <a href="/bookings/7042/">8:00pm</a>                              	                              	
-                              	<li><strong>Wednesday 22 Sep</strong><a href="/bookings/7043/">12:30pm</a>, <a href="/bookings/7044/">7:15pm</a>                               </li>
+                              	<li><strong>Wednesday 15 Sep</strong><a href="/bookings/6977/">2:45pm</a>                              	                              	
+                              	<li><strong>Thursday 16 Sep</strong><a href="/bookings/7058/">10:30am</a>                              	                              	
+                              	<li><strong>Friday 17 Sep</strong><a href="/bookings/7059/">12:30pm</a>                              	                              	
+                              	<li><strong>Saturday 18 Sep</strong><a href="/bookings/7060/">12:30pm</a>                              	                              	
+                              	<li><strong>Monday 20 Sep</strong><a href="/bookings/7061/">10:15am</a>                              	                              	
+                              	<li><strong>Tuesday 21 Sep</strong><a href="/bookings/7062/">12:30pm</a>                               </li>
                             </ul>
                           	<p><i>To place a booking, click on the session time you are interested in. Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
                             		    </div>
@@ -110,12 +108,12 @@ function content_61412594268345_24109673 (Smarty_Internal_Template $_smarty_tpl)
 					        				 <em>Suitable for Mature Audiences</em>        			</p>
         		    							<p>
 					<strong>Comments:</strong><br />
-					<em>Offensive Language</em>
+					<em>Domestic Abuse Themes, Violence & Offensive Language</em>
 				</p>
 			        		    <p>
         			              	        <strong>Duration:</strong><br />
-        				2hr 25min<br /><br />
-        			        			        			        				<a class="btn dark" href="https://www.youtube.com/watch?v=xKLyXSgPVOg" target="_blank">Official Trailer</a>
+        				1hr 41min<br /><br />
+        			        			        			        				<a class="btn dark" href="https://www.youtube.com/watch?v=F1GtwocYu_g" target="_blank">Official Trailer</a>
         			        		    </p>
             		  
     		    </div>

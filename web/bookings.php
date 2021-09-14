@@ -135,10 +135,10 @@ if(!$smarty->isCached($tpl)) {
 										session_id = '" . $mysqli->real_escape_string($_REQUEST['booking_id']) . "',
 									";
                                     // Add number of adults
-									if (isset($_POST['t_adults']))
-                                    {
-										$sql .= " adults = '" . $mysqli->real_escape_string($_POST['t_adults']) . "',";
-									}
+				if (isset($_POST['t_adults']))
+                                	{
+					$sql .= " adults = '" . $mysqli->real_escape_string($_POST['t_adults']) . "',";
+					}
 
                                     // Add number of children
 									if (isset($_POST['t_children']))
@@ -168,14 +168,31 @@ if(!$smarty->isCached($tpl)) {
                                     if (isset($_POST['c_newsletter_signup']))
                                     {
                                         $sql .= " newsletter_signup = '1',";
+					$userSql =  "
+                                        INSERT INTO users
+                                        set first_name = '" . $mysqli->real_escape_string($name[0]) . "',
+                                            last_name = '" . $mysqli->real_escape_string($name[1]) . "',
+                                            email = '" . $mysqli->real_escape_string($_POST['c_email']) . "',
+                                            phone = '" . $mysqli->real_escape_string($_POST['c_phone']) . "',
+                                            date_joined = '" . date('Y-m-d') . "'
+                                        ON DUPLICATE KEY UPDATE
+                                        first_name = values(first_name),
+                                        last_name = values(last_name),
+                                        email = values(email),
+                                        phone = values(phone),
+                                        date_joined = values(date_joined),
+                                        status = 'ok';
+                                    ";
+					$mysqli->query($userSql) or user_error("Error at: ".$userSql);
+
                                     }
 
 									$sql .= "phone = '" . $mysqli->real_escape_string($_POST['c_phone']) . "'";
 									$mysqli->query($sql) or user_error("Error at: ".$sql);
-								}
+					
 
                                 // Add customer to newsletter
-                                if (has_permission('booking_newsletter_signup') && isset($_POST['c_newsletter_signup']))
+                                /*if (has_permission('booking_newsletter_signup') && isset($_POST['c_newsletter_signup']))
                                 {
                                     $name = split_name($_POST['c_name']);
                                     $sql = "
@@ -194,7 +211,9 @@ if(!$smarty->isCached($tpl)) {
                                         status = 'ok';
                                     ";
                                     $mysqli->query($sql) or user_error("Error at: ".$sql);
-                                }
+                                }*/
+
+				}
 
                                 // Save details as cookie
                                 if (has_permission('booking_remember_details'))
