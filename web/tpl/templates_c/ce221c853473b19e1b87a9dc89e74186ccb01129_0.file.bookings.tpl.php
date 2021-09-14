@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2020-07-21 11:17:18
+/* Smarty version 3.1.33, created on 2021-09-15 10:49:58
   from '/var/www/Cinemanager/web/tpl/bookings.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5f1625fe9c3b35_69744165',
+  'unifunc' => 'content_614127161bc617_83710831',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ce221c853473b19e1b87a9dc89e74186ccb01129' => 
     array (
       0 => '/var/www/Cinemanager/web/tpl/bookings.tpl',
-      1 => 1595287036,
+      1 => 1631659792,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:inc/tpl/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5f1625fe9c3b35_69744165 (Smarty_Internal_Template $_smarty_tpl) {
+function content_614127161bc617_83710831 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/Cinemanager/_deps/smarty/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),1=>array('file'=>'/var/www/Cinemanager/_deps/smarty/plugins/function.html_options.php','function'=>'smarty_function_html_options',),));
 ?>
 <!DOCTYPE html>
@@ -279,7 +279,7 @@ function YY_checkform() { //v4.71
                             <tr>
                               <td align="right">Sign up for Weekly Session Timetable</td>
                               <td>&nbsp;</td>
-                              <td><input name="c_newsletter_signup" type="checkbox" id="c_newsletter_signup" <?php echo $_smarty_tpl->tpl_vars['c_newsletter_signup']->value;?>
+                              <td><input name="c_newsletter_signup" type="checkbox" checked="checked" id="c_newsletter_signup" <?php echo $_smarty_tpl->tpl_vars['c_newsletter_signup']->value;?>
 ></td>
                             </tr>
                             <tr>
