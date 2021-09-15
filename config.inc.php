@@ -26,32 +26,11 @@ $config = array(
 	"cinema_url" => "https://shorelinecinema.co.nz/",
 	"cinema_dir" => $root_dir."web/",
 	"template_dir" => $root_dir."web/tpl/",
-
-	// Movie Images
-	//"movie_image_url" => "https://media.moviemanager.biz/movies/",
-	//"movie_image_url_secure" => "https://media.moviemanager.biz/movies/",
-	//"movie_image_dir" => $root_dir."media.moviemanager.biz/movie_images/",
-	//"image_overlay_dir"	=> $root_dir."media.moviemanager.biz/overlays/",
 	
 	// Posters
 	"poster_url" => "https://posters.shoreline.nz/",
 	"poster_dir" => $root_dir."posters/",
 	"tmp_poster_dir" => $root_dir."posters/tmp/",
-	
-	// Movie Images
-	//"movie_trailer_url"	=> "http://media2.cinemanager.ga/trailers/",
-	//"movie_trailer_dir"	=> $root_dir."media.cinemanager.ga/movie_trailers/",
-
-	// Cinema Images
-	//"cinema_image_url" => "http://media.cinemanager.ga/cinemas/",
-	//"cinema_image_dir" => $root_dir."media.cinemanager.ga/cinema_images/",
-
-	// Cinema News Files
-	//"cinema_news_url" => "http://media.cinemanager.ga/cinema_news/",
-	//"cinema_news_dir" => $root_dir."media.cinemanager.ga/cinema_news/",
-
-	// External Data Directory
-	//"external_dir" => $root_dir."_external/",	
 
 	// Lib Directories
 	"libs_dir" => $root_dir."_deps/",

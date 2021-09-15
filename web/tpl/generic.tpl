@@ -1,3 +1,5 @@
+{nocache}
+
 {strip}
 
 {include file="inc/tpl/header.tpl"}
@@ -13,3 +15,5 @@
 {include file="inc/tpl/footer.tpl"}
 
 {/strip}
+
+{/nocache}

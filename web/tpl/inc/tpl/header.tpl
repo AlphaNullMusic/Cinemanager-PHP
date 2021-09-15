@@ -52,15 +52,13 @@
                 <li class="nav-item">
                     <a class="nav-link {if $tpl_name == 'coming-soon.tpl'}active{/if}" href="/coming-soon/">COMING SOON</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link {if $tpl_name == 'venue-hire.tpl'}active{/if}" href="/venue-hire/">VENUE HIRE</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {if $tpl_name == 'about-us.tpl'}active{/if}" href="/about-us/">ABOUT US</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {if $tpl_name == 'contact-us.tpl'}active{/if}" href="/contact-us/">CONTACT US</a>
-                </li>
+		{if $page_list}
+		{foreach $page_list as $page}
+			<li class="nav-item">
+				<a class="nav-link {if $current_page == $page.reference}active{/if}" href="/{$page.reference}">{{strtoupper($page.title)}}</a>
+			</li>
+		{/foreach}
+		{/if}
             </ul>
         </div>
       </nav>

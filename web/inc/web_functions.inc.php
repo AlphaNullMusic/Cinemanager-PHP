@@ -86,13 +86,13 @@ function get_page_content($reference=null) {
 
 
 // Get a list of all the cinema's pages
-function get_page_list($cinema_id) {
+function get_page_list() {
+	global $mysqli;
 	$sql = "
-		SELECT page_id, reference, content, title
+		SELECT page_id, reference, title
 		FROM pages
-		WHERE cinema_id = '" . $mysqli->real_escape_string($cinema_id) . "'
-			AND status = 'ok'
-			AND public = 1
+		WHERE status = 'ok'
+		AND NOT reference = 'homepage'
 		ORDER BY priority ASC, title ASC
 	";
 	$res = $mysqli->query($sql) or user_error("Gnarly: $sql");
