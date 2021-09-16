@@ -41,7 +41,29 @@ if (check_cinema() && has_permission('edit_pages')) {
 		header('Location: pages.php?conf='.$page['title'].' page saved successfully.');
 		exit;
 	}
-	
+
+
+	if (isset($_POST['update-list'])) {
+		//$page_list = get_page_list(
+		$sql = "UPDATE pages
+			SET status='ok'
+			WHERE 1";
+		$mysqli->query($sql) or die("Gnarly: ".$sql);
+
+		foreach ($_POST as $key => $value) {
+			if (substr($key, 0, strlen("hide-")) === "hide-") {
+				$name = str_replace("hide-", "", $key);
+				$sql = "UPDATE pages
+					SET status='hidden'
+					WHERE reference='".$mysqli->real_escape_string($name)."'
+				";
+				$mysqli->query($sql) or die("Gnarly: ".$sql);
+			}
+		}
+
+		smarty_clear_cache(NULL,NULL,NULL,false,true);
+	}
+
 }
 
 ?>
@@ -104,21 +126,45 @@ if (check_cinema() && has_permission('edit_pages')) {
 								page_id, 
 								reference, 
 								title, 
-								status 
+								status ,
+								priority
 							FROM pages 
-							WHERE status = 'ok' 
-							ORDER BY title 
+							WHERE status = 'ok' or status = 'hidden' 
+							ORDER BY priority ASC, title 
 						";
 						$page_res = $mysqli->query($sql) or user_error("Gnarly: $sql");
 						if ($page_res->num_rows == 0) { ?>
 							<em>No pages found.</em>
-				  <?php } else {
-							echo "<ul>";
-							while ($page_data=$page_res->fetch_assoc()) { ?>
-								<li><a href="?edit=<?php echo $page_data['page_id']?>"><?php echo $page_data['title']?></a></li>
-					  <?php }
-							echo "</ul>";
-						} ?>
+				  <?php } else { ?>
+				<form action="pages.php" method="post" name="page_list_form">
+					<table class="table">
+						<thead>
+							<tr>
+								<th scope="col">Title</th>
+								<th scope="col">Priority</th>
+								<th scope="col"></th>
+								<th scope="col">Hidden</th>
+								<th scope="col"></th>
+							</tr>
+						</thead>
+						<tbody>
+						<?php while ($page_data=$page_res->fetch_assoc()) { ?>
+							<tr name="<?php echo $page_data['reference']?>">
+								<td scope="row"><?php echo $page_data['title']?></td>
+								<td><?php echo $page_data['priority']?></td>
+								<td></td>
+								<td><div class="form-check">
+									<input class="form-check-label" name="hide-<?php echo $page_data['reference']?>" type="checkbox" value="" <?php if ($page_data['status'] == 'hidden') { echo 'checked'; } ?>>
+								</div></td>
+								<td><a class="btn btn-outline-info btn-sm" href="?edit=<?php echo $page_data['page_id']?>">Edit</a></td>
+							</tr>
+						<?php } ?>
+						</tbody>
+					</table>
+					<input type="hidden" name="update-list" value="true"></input>
+					<button type="submit" class="btn btn-success">Save Changes</button>
+				</form>
+				<?php } ?>
 					</main>
 		  <?php } 
 			} else { ?>
