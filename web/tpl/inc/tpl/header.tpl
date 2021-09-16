@@ -11,9 +11,7 @@
     {if $tpl_name == 'whats-on-today.tpl'}What's On Today{/if}
     {if $tpl_name == 'whats-on.tpl'}What's On{/if}
     {if $tpl_name == 'coming-soon.tpl'}Coming Soon{/if}
-    {if $tpl_name == 'venue-hire.tpl'}Venue Hire{/if}
-    {if $tpl_name == 'about-us.tpl'}About Us{/if}
-    {if $tpl_name == 'contact-us.tpl'}Contact Us{/if}
+    {if $page_title}{$page_title}{/if}
 </title>
 <meta name="description" content="Shoreline Cinema is Waikanae's premiere cinema complex. Find out who we are, what's on, what's coming up, how to contact us and much more.">
 <link href="/tpl/inc/css/styles.css" rel="stylesheet" type="text/css" />
