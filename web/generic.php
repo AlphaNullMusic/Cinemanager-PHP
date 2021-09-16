@@ -10,13 +10,15 @@ $tpl = $config['site_dir'].'tpl/generic.tpl';
 	$smarty->assign('city',$cinema_data['city']);
 	$smarty->assign('gacode',$config['ga_code']);
 
-	if (get_page_content($_GET['page']) == null) {
-		header("Location: /error.php?404");
-		die();
-	}
+	$page_content = get_page_content($_GET['page']);
 
-	if (has_permission('edit_pages')) {
-		$smarty->assign('page',get_page_content($_GET['page']));
+	if (has_permission('edit_pages') && $page_content != null) {
+		$page_content = get_page_content($_GET['page']);
+		$smarty->assign('page', $page_content);
+		$smarty->assign('page_title', $page_content['title']);
+	} else {
+		header("Location: /error.php?404");
+                die();
 	}
 
 	// Common functions

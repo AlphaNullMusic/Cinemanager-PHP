@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2021-09-16 11:26:15
+/* Smarty version 3.1.33, created on 2021-09-16 12:39:36
   from '/var/www/Cinemanager/web/tpl/inc/tpl/header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_61428117669bd5_93952256',
+  'unifunc' => 'content_614292488c3f90_92409142',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2ddc8f9c3e6633867c3e519bcee932881794a66f' => 
     array (
       0 => '/var/www/Cinemanager/web/tpl/inc/tpl/header.tpl',
-      1 => 1631748311,
+      1 => 1631752622,
       2 => 'file',
     ),
   ),
@@ -20,14 +20,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_61428117669bd5_93952256 (Smarty_Internal_Template $_smarty_tpl) {
+function content_614292488c3f90_92409142 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html><html lang="en-nz"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8" /><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title><?php if ($_smarty_tpl->tpl_vars['tpl_name']->value == 'home.tpl') {?>Shoreline Cinema Waikanae<?php }
 if ($_smarty_tpl->tpl_vars['tpl_name']->value == 'whats-on-today.tpl') {?>What's On Today<?php }
 if ($_smarty_tpl->tpl_vars['tpl_name']->value == 'whats-on.tpl') {?>What's On<?php }
 if ($_smarty_tpl->tpl_vars['tpl_name']->value == 'coming-soon.tpl') {?>Coming Soon<?php }
-if ($_smarty_tpl->tpl_vars['tpl_name']->value == 'venue-hire.tpl') {?>Venue Hire<?php }
-if ($_smarty_tpl->tpl_vars['tpl_name']->value == 'about-us.tpl') {?>About Us<?php }
-if ($_smarty_tpl->tpl_vars['tpl_name']->value == 'contact-us.tpl') {?>Contact Us<?php }?></title><meta name="description" content="Shoreline Cinema is Waikanae's premiere cinema complex. Find out who we are, what's on, what's coming up, how to contact us and much more."><link href="/tpl/inc/css/styles.css" rel="stylesheet" type="text/css" /><link href="/tpl/inc/css/print.css" rel="stylesheet" type="text/css" media="print" /><?php if ($_smarty_tpl->tpl_vars['js_checkform']->value) {
+if ($_smarty_tpl->tpl_vars['page_title']->value) {
+echo $_smarty_tpl->tpl_vars['page_title']->value;
+}?></title><meta name="description" content="Shoreline Cinema is Waikanae's premiere cinema complex. Find out who we are, what's on, what's coming up, how to contact us and much more."><link href="/tpl/inc/css/styles.css" rel="stylesheet" type="text/css" /><link href="/tpl/inc/css/print.css" rel="stylesheet" type="text/css" media="print" /><?php if ($_smarty_tpl->tpl_vars['js_checkform']->value) {
 echo '<script'; ?>
  language="JavaScript" src="../includes/checkform.js"><?php echo '</script'; ?>
 ><?php }
