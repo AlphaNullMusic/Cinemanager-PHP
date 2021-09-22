@@ -219,7 +219,7 @@ function YY_checkform() { //v4.71
                               <td align="right">Sign up for Weekly Session Timetable</td>
                               <td>&nbsp;</td>
                               <td><input name="c_newsletter_signup" type="checkbox" checked="checked" id="c_newsletter_signup" {$c_newsletter_signup}></td>
-                            </tr>
+			    </tr>
                             <tr>
                               <td>&nbsp;</td>
                               <td>&nbsp;</td>
@@ -231,6 +231,7 @@ function YY_checkform() { //v4.71
 				{* <span class="booking-failed">Sorry, bookings are temporarily disabled for maintenance.<br>Please <em><a href="/contact-us">contact us</a></em> to book.</span><br> *}
                                 <button class="btn green" type="submit">Request Ticket</button></td>
                             </table>
+				<em>By checking the above box, you agree to recieve weekly session times sent to your email address.</em>
                         {/if}
                 		</form>
 			{*else*}
