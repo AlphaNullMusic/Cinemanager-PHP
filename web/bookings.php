@@ -167,6 +167,7 @@ if(!$smarty->isCached($tpl)) {
                                     // Agreed to newsletter signup
                                     if (isset($_POST['c_newsletter_signup']))
                                     {
+					$name = split_name($_POST['c_name']);
                                         $sql .= " newsletter_signup = '1',";
 					$userSql =  "
                                         INSERT INTO users
