@@ -17,7 +17,7 @@ if(!$smarty->isCached($tpl)) {
 		$smarty->assign('city',$cinema_data['city']);
 		$smarty->assign('booking_id',$_REQUEST['booking_id']);
 		$smarty->assign('gacode',$config['ga_code']);
-        $smarty->assign('disable_btn',true);
+	        $smarty->assign('disable_btn',true);
 
 		global $mysqli;
 		// Get session data
@@ -40,12 +40,16 @@ if(!$smarty->isCached($tpl)) {
 				$smarty->assign('session',$session);
 
                 // Get remembered details
+		/*
+		 * 29-10-21: Now remembers when customer unchecks newsletter signup.
+		**/
                 if (has_permission('booking_remember_details') && isset($_COOKIE['cm_details']))
                 {
                     $cookie_details = json_decode($_COOKIE['cm_details']);
                     $smarty->assign('c_name', $cookie_details->c_name);
                     $smarty->assign('c_email', $cookie_details->c_email);
                     $smarty->assign('c_phone', $cookie_details->c_phone);
+		    $smarty->assign('c_newsletter_signup', $cookie_details->c_newsletter_signup);
                 }
 
 				// Booking message
@@ -181,39 +185,15 @@ if(!$smarty->isCached($tpl)) {
                                         last_name = values(last_name),
                                         email = values(email),
                                         phone = values(phone),
-                                        date_joined = values(date_joined),
-                                        status = 'ok';
+                                        date_joined = values(date_joined)
                                     ";
 					$mysqli->query($userSql) or user_error("Error at: ".$userSql);
 
                                     }
 
-									$sql .= "phone = '" . $mysqli->real_escape_string($_POST['c_phone']) . "'";
-									$mysqli->query($sql) or user_error("Error at: ".$sql);
+					$sql .= "phone = '" . $mysqli->real_escape_string($_POST['c_phone']) . "'";
+					$mysqli->query($sql) or user_error("Error at: ".$sql);
 					
-
-                                // Add customer to newsletter
-                                /*if (has_permission('booking_newsletter_signup') && isset($_POST['c_newsletter_signup']))
-                                {
-                                    $name = split_name($_POST['c_name']);
-                                    $sql = "
-                                        INSERT INTO users
-                                        set first_name = '" . $mysqli->real_escape_string($name[0]) . "',
-                                            last_name = '" . $mysqli->real_escape_string($name[1]) . "',
-                                            email = '" . $mysqli->real_escape_string($_POST['c_email']) . "',
-                                            phone = '" . $mysqli->real_escape_string($_POST['c_phone']) . "',
-                                            date_joined = '" . date('Y-m-d') . "'
-                                        ON DUPLICATE KEY UPDATE
-                                        first_name = values(first_name),
-                                        last_name = values(last_name),
-                                        email = values(email),
-                                        phone = values(phone),
-                                        date_joined = values(date_joined),
-                                        status = 'ok';
-                                    ";
-                                    $mysqli->query($sql) or user_error("Error at: ".$sql);
-                                }*/
-
 				}
 
                                 // Save details as cookie
@@ -221,7 +201,7 @@ if(!$smarty->isCached($tpl)) {
                                 {
                                     $cookie_name = "cm_details";
                                     setcookie($cookie_name, "", time() - 3600);
-                                    $cookie_value = array('c_name' => $_POST['c_name'], 'c_email' => $_POST['c_email'], 'c_phone' => $_POST['c_phone']);
+                                    $cookie_value = array('c_name' => $_POST['c_name'], 'c_email' => $_POST['c_email'], 'c_phone' => $_POST['c_phone'], 'c_newsletter_signup' => ($_POST['c_newsletter_signup']) ? 'checked' : 'unchecked');
                                     setcookie($cookie_name, json_encode($cookie_value), strtotime("+1 year"), '/bookings');
                                 }
 

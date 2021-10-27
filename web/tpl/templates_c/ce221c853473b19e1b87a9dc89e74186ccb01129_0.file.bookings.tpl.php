@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2021-09-22 16:41:44
+/* Smarty version 3.1.33, created on 2021-10-27 13:35:25
   from '/var/www/Cinemanager/web/tpl/bookings.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_614ab408b7dcc7_85288619',
+  'unifunc' => 'content_61789ecdba8026_34817351',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ce221c853473b19e1b87a9dc89e74186ccb01129' => 
     array (
       0 => '/var/www/Cinemanager/web/tpl/bookings.tpl',
-      1 => 1632285697,
+      1 => 1635294919,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:inc/tpl/footer.tpl' => 1,
   ),
 ),false)) {
-function content_614ab408b7dcc7_85288619 (Smarty_Internal_Template $_smarty_tpl) {
+function content_61789ecdba8026_34817351 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/Cinemanager/_deps/smarty/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),1=>array('file'=>'/var/www/Cinemanager/_deps/smarty/plugins/function.html_options.php','function'=>'smarty_function_html_options',),));
 ?>
 <!DOCTYPE html>
@@ -279,7 +279,7 @@ function YY_checkform() { //v4.71
                             <tr>
                               <td align="right">Sign up for Weekly Session Timetable</td>
                               <td>&nbsp;</td>
-                              <td><input name="c_newsletter_signup" type="checkbox" checked="checked" id="c_newsletter_signup" <?php echo $_smarty_tpl->tpl_vars['c_newsletter_signup']->value;?>
+                              <td><input name="c_newsletter_signup" type="checkbox" <?php if ($_smarty_tpl->tpl_vars['c_newsletter_signup']->value != 'unchecked') {?> checked="checked" <?php }?> id="c_newsletter_signup" <?php echo $_smarty_tpl->tpl_vars['c_newsletter_signup']->value;?>
 ></td>
 			    </tr>
                             <tr>
