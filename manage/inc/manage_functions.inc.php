@@ -268,6 +268,7 @@ function delete_poster($movie_id, $type = 'custom') {
 		WHERE movie_id = '".$mysqli->real_escape_string($movie_id)."'
 		AND status = '".$mysqli->real_escape_string($type)."'
 	";
+	$mysqli->query($sql) or user_error("Error at ".$sql);
 	return true;
 }
 	
