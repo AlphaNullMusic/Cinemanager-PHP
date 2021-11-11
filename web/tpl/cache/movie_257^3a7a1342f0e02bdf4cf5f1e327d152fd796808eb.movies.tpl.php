@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2021-10-27 13:07:18
+/* Smarty version 3.1.33, created on 2021-11-11 17:24:56
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_617898363e9439_13174141',
+  'unifunc' => 'content_618c9b1815bcb8_23641576',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -24,7 +24,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_617898363e9439_13174141 (Smarty_Internal_Template $_smarty_tpl) {
+function content_618c9b1815bcb8_23641576 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
@@ -90,7 +90,19 @@ function content_617898363e9439_13174141 (Smarty_Internal_Template $_smarty_tpl)
     		<div class="content">
     		    <div class="content-wrapper text">
     		        <p>The Garden of Evil from director Larry Keating delves into two dramatic stories of Kiwi environmentalists, yachting icon and United Nations Special Envoy for the environment Sir Peter Blake, and eco-warrior Captain Pete Bethune. Both men were brutally attacked in the Brazilian Amazon. Sir Peter was murdered and Pete Bethune narrowly escaped with his life while on separate expeditions 16 years apart. The film sets out to shed new light on why and who was behind these, and many other violent attacks on conservationists. Bethune and three investigative journalists unravel the connections between organised crime, piracy and street gangs in one of the most dangerous ports on the Amazon. The film highlights the greed and ruthless protectionism in the Amazon, in contrast to the survival of the poorest, driving ever-increasing crime and violence in expanding towns and cities. We also see the plight of the endangered indigenous people in the rainforests. Irish journalist and professor of criminology Donal MacIntyre leads the investigative team for eight weeks filming in the Amazon. Together with Caio Vilela, foreign correspondent Sam Cowie meet up with victim Pete Bethune, who faces his own demons at a crime scene he vowed never to return to.</p>
-					    		                		    </div>
+					    		                                        <span class="h3">Upcoming Screening Times</span>
+                            <ul class="sessions">
+                                                            	                              	
+                              	<li><strong>Thursday 11 Nov</strong><a href="/bookings/7640/">1:15pm</a>                              	                              	
+                              	<li><strong>Friday 12 Nov</strong><a href="/bookings/7641/">4:15pm</a>                              	                              	
+                              	<li><strong>Saturday 13 Nov</strong><a href="/bookings/7642/">4:45pm</a>                              	                              	
+                              	<li><strong>Sunday 14 Nov</strong><a href="/bookings/7643/">10:30am</a>                              	                              	
+                              	<li><strong>Monday 15 Nov</strong><a href="/bookings/7644/">10:15am</a>                              	                              	
+                              	<li><strong>Tuesday 16 Nov</strong><a href="/bookings/7645/">3:00pm</a>                              	                              	
+                              	<li><strong>Wednesday 17 Nov</strong><a href="/bookings/7646/">2:30pm</a>                               </li>
+                            </ul>
+                          	<p><i>To place a booking, click on the session time you are interested in. Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
+                            		    </div>
     		    <div class="content-wrapper details">
     		                			<p>
         				<strong>Rated:</strong> TBC<br />

@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2021-10-27 11:43:33
+/* Smarty version 3.1.33, created on 2021-11-11 17:37:08
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_61788495854868_00940514',
+  'unifunc' => 'content_618c9df4427566_30102769',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -24,7 +24,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_61788495854868_00940514 (Smarty_Internal_Template $_smarty_tpl) {
+function content_618c9df4427566_30102769 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
@@ -90,7 +90,15 @@ function content_61788495854868_00940514 (Smarty_Internal_Template $_smarty_tpl)
     		<div class="content">
     		    <div class="content-wrapper text">
     		        <p>								</p>
-					    		                		    </div>
+					    		                                        <span class="h3">Upcoming Screening Times</span>
+                            <ul class="sessions">
+                                                            	                              	
+                              	<li><strong>Friday 12 Nov</strong><a href="/bookings/7667/">2:15pm</a>                              	                              	
+                              	<li><strong>Saturday 13 Nov</strong><a href="/bookings/7668/">10:15am</a>                              	                              	
+                              	<li><strong>Wednesday 17 Nov</strong><a href="/bookings/7669/">10:15am</a>                               </li>
+                            </ul>
+                          	<p><i>To place a booking, click on the session time you are interested in. Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
+                            		    </div>
     		    <div class="content-wrapper details">
     		                			<p>
         				<strong>Rated:</strong> TBC<br />
