@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2021-10-27 13:07:40
+/* Smarty version 3.1.33, created on 2021-11-11 17:33:07
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_6178984c034990_47522347',
+  'unifunc' => 'content_618c9d0343fb12_72416166',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -24,7 +24,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_6178984c034990_47522347 (Smarty_Internal_Template $_smarty_tpl) {
+function content_618c9d0343fb12_72416166 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
@@ -90,7 +90,19 @@ function content_6178984c034990_47522347 (Smarty_Internal_Template $_smarty_tpl)
     		<div class="content">
     		    <div class="content-wrapper text">
     		        <p>Severe, pale-eyed, handsome, Phil Burbank is brutally beguiling. All of Phil's romance, power and fragility is trapped in the past and in the land: He can castrate a bull calf with two swift slashes of his knife; he swims naked in the river, smearing his body with mud. He is a cowboy as raw as his hides. The year is 1925. The Burbank brothers are wealthy ranchers in Montana. At the Red Mill restaurant on their way to market, the brothers meet Rose, the widowed proprietress, and her impressionable son Peter. Phil behaves so cruelly he drives them both to tears, revelling in their hurt and rousing his fellow cowhands to laughter - all except his brother George, who comforts Rose then returns to marry her. As Phil swings between fury and cunning, his taunting of Rose takes an eerie form - he hovers at the edges of her vision, whistling a tune she can no longer play. His mockery of her son is more overt, amplified by the cheering of Phil's cowhand disciples. Then Phil appears to take the boy under his wing. Is this latest gesture a softening that leaves Phil exposed, or a plot twisting further into menace?</p>
-					    		                		    </div>
+					    		                                        <span class="h3">Upcoming Screening Times</span>
+                            <ul class="sessions">
+                                                            	                              	
+                              	<li><strong>Thursday 11 Nov</strong><a href="/bookings/7649/">10:15am</a>, <a href="/bookings/7650/">7:45pm</a>                              	                              	
+                              	<li><strong>Friday 12 Nov</strong><a href="/bookings/7651/">8:15pm</a>                              	                              	
+                              	<li><strong>Saturday 13 Nov</strong><a href="/bookings/7652/">2:15pm</a>, <a href="/bookings/7653/">8:30pm</a>                              	                              	
+                              	<li><strong>Sunday 14 Nov</strong><a href="/bookings/7654/">2:30pm</a>, <a href="/bookings/7655/">7:30pm</a>                              	                              	
+                              	<li><strong>Monday 15 Nov</strong><a href="/bookings/7656/">2:00pm</a>, <a href="/bookings/7657/">7:15pm</a>                              	                              	
+                              	<li><strong>Tuesday 16 Nov</strong><a href="/bookings/7658/">12:30pm</a>, <a href="/bookings/7659/">5:15pm</a>                              	                              	
+                              	<li><strong>Wednesday 17 Nov</strong><a href="/bookings/7660/">12:00pm</a>, <a href="/bookings/7661/">7:15pm</a>                               </li>
+                            </ul>
+                          	<p><i>To place a booking, click on the session time you are interested in. Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
+                            		    </div>
     		    <div class="content-wrapper details">
     		                			<p>
         				<strong>Rated:</strong> R<br />

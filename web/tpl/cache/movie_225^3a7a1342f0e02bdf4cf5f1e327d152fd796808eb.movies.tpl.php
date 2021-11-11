@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2021-10-27 13:26:55
+/* Smarty version 3.1.33, created on 2021-11-11 17:35:53
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_61789ccf2eae57_90689977',
+  'unifunc' => 'content_618c9da9675b82_39792186',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -24,7 +24,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_61789ccf2eae57_90689977 (Smarty_Internal_Template $_smarty_tpl) {
+function content_618c9da9675b82_39792186 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
@@ -93,13 +93,13 @@ function content_61789ccf2eae57_90689977 (Smarty_Internal_Template $_smarty_tpl)
 					    		                                        <span class="h3">Upcoming Screening Times</span>
                             <ul class="sessions">
                                                             	                              	
-                              	<li><strong>Thursday 28 Oct</strong><a href="/bookings/7475/">10:30am</a>                              	                              	
-                              	<li><strong>Friday 29 Oct</strong><a href="/bookings/7476/">10:15am</a>, <a href="/bookings/7477/">6:30pm</a>                              	                              	
-                              	<li><strong>Saturday 30 Oct</strong><a href="/bookings/7478/">10:30am</a>, <a href="/bookings/7479/">6:00pm</a>                              	                              	
-                              	<li><strong>Sunday 31 Oct</strong><a href="/bookings/7480/">5:45pm</a>                              	                              	
-                              	<li><strong>Monday  1 Nov</strong><a href="/bookings/7481/">12:45pm</a>, <a href="/bookings/7482/">5:30pm</a>                              	                              	
-                              	<li><strong>Tuesday  2 Nov</strong><a href="/bookings/7483/">10:15am</a>, <a href="/bookings/7484/">5:30pm</a>                              	                              	
-                              	<li><strong>Wednesday  3 Nov</strong><a href="/bookings/7485/">12:45pm</a>, <a href="/bookings/7486/">5:30pm</a>                               </li>
+                              	<li><strong>Thursday 11 Nov</strong><a href="/bookings/7603/">12:45pm</a>, <a href="/bookings/7604/">5:45pm</a>                              	                              	
+                              	<li><strong>Friday 12 Nov</strong><a href="/bookings/7605/">12:30pm</a>, <a href="/bookings/7606/">5:45pm</a>                              	                              	
+                              	<li><strong>Saturday 13 Nov</strong><a href="/bookings/7607/">1:00pm</a>, <a href="/bookings/7608/">6:00pm</a>                              	                              	
+                              	<li><strong>Sunday 14 Nov</strong><a href="/bookings/7609/">12:15pm</a>, <a href="/bookings/7610/">5:15pm</a>                              	                              	
+                              	<li><strong>Monday 15 Nov</strong><a href="/bookings/7611/">10:15am</a>, <a href="/bookings/7612/">5:15pm</a>                              	                              	
+                              	<li><strong>Tuesday 16 Nov</strong><a href="/bookings/7613/">10:15am</a>, <a href="/bookings/7614/">3:15pm</a>                              	                              	
+                              	<li><strong>Wednesday 17 Nov</strong><a href="/bookings/7615/">10:15am</a>, <a href="/bookings/7616/">5:15pm</a>                               </li>
                             </ul>
                           	<p><i>To place a booking, click on the session time you are interested in. Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
                             		    </div>

@@ -123,8 +123,8 @@ if (check_cinema()) {
 				}
 				// Allow certain file formats
 				if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-				&& $imageFileType != "gif" ) {
-					$location = "movie_edit_details.php?movie_id=".$_POST['movie_id']."&er=Sorry,+only+JPG,+JPEG,+PNG+%26+GIF+files+are+allowed.";
+				&& $imageFileType != "gif" && $imageFileType != "jfif" ) {
+					$location = "movie_edit_details.php?movie_id=".$_POST['movie_id']."&er=Sorry,+only+JPG,+JPEG,+JFIF,+PNG+%26+GIF+files+are+allowed.";
 					header("Location: $location");
 					$uploadOk = 0;
 					exit;
