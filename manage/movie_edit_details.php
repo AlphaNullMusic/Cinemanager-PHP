@@ -5,8 +5,8 @@ ini_set('memory_limit','512M');
 ini_set('upload_max_filesize' , '20M');
 ini_set('post_max_size', '22M');
 $max_file_size = array(20971520,'20MB');
-error_reporting(0);
-//error_reporting(E_ALL);
+//error_reporting(0);
+error_reporting(E_ALL);
 //ini_set('display_errors',TRUE);
 
 if (check_cinema()) {
@@ -48,6 +48,10 @@ if (check_cinema()) {
             $runtime  = (!isset($_POST['duration'])) ? '0' : stringtomins($_POST['duration']);
             $trailer  = (!isset($_POST['trailer'])) ? '' : $_POST['trailer'];
 			$custom_poster  = (!isset($_POST['custom_poster']) || $_POST['custom_poster'] != 1) ? 0 : $_POST['custom_poster'];
+
+			if ($custom_poster != 1) {
+				delete_poster($_POST['movie_id']);
+			}
 			
 			$extra_sql = '';
 			if (!isset($_POST['title_edit'])) {
@@ -146,6 +150,9 @@ if (check_cinema()) {
 					exit;
 				// if everything is ok, try to upload file
 				} else {
+					// First delete existing custom posters
+					delete_poster($_POST['movie_id'], 'custom');
+
 					if (rename($tmp_file, $target_file)) {
 						if (save_poster($target_file, $_POST['movie_id'], true)) {
 							@unlink($target_file);
