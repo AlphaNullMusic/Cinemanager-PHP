@@ -122,7 +122,9 @@ function YY_checkform() { //v4.71
     	<div class="content-wrapper text">
     	    <div class="content">
     	        <div class="content-wrapper text">
-    	            <p><i>Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
+		    {if $page_content}
+			<p>{$page_content.content}</p>
+		    {/if}
     	            {*if $session.session_time|strtotime >= $smarty.now*}
 			<form action="/bookings/{$booking_id}/" method="post" name="bookings" onSubmit="YY_checkform('bookings','c_name','#q','0','Please enter your name.','c_email','#S','2','Please enter your email address.','c_phone','#q','0','Please enter your phone number.');return document.MM_returnValue">
                         {if !$booking}

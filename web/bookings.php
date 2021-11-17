@@ -9,6 +9,9 @@ $tpl = $config['cinema_dir'].'tpl/'.$tpl_name;
 
 if(!$smarty->isCached($tpl)) {
 
+	$page_content = get_page_content('bookings');
+	$smarty->assign('page_content', $page_content);
+
 	if (isset($_REQUEST['booking_id']) && has_permission('bookings')) {
 
 		// Assign page variables
