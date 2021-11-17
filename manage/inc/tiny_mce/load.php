@@ -3,7 +3,7 @@
 <script type="text/javascript">
 	tinymce.init({
 		selector: 'textarea',
-		plugins: 'print preview fullpage paste importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern noneditable help charmap quickbars emoticons',
+		plugins: 'print preview paste importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern noneditable help charmap quickbars emoticons',
 		toolbar: 'undo redo | styleselect removeformat | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | image media link | outdent indent |  numlist bullist | forecolor backcolor | pagebreak | charmap emoticons | fullscreen  preview save print | ltr rtl',
 		content_css: "<?php echo $config['manage_url'].'inc/css/editor.css';?>",
 		paste_preprocess : function(pl, o) {
