@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2021-10-27 13:35:25
+/* Smarty version 3.1.33, created on 2021-11-18 12:00:03
   from '/var/www/Cinemanager/web/tpl/bookings.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_61789ecdba8026_34817351',
+  'unifunc' => 'content_61958973e03de1_39413330',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ce221c853473b19e1b87a9dc89e74186ccb01129' => 
     array (
       0 => '/var/www/Cinemanager/web/tpl/bookings.tpl',
-      1 => 1635294919,
+      1 => 1637189999,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:inc/tpl/footer.tpl' => 1,
   ),
 ),false)) {
-function content_61789ecdba8026_34817351 (Smarty_Internal_Template $_smarty_tpl) {
+function content_61958973e03de1_39413330 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'/var/www/Cinemanager/_deps/smarty/plugins/modifier.date_format.php','function'=>'smarty_modifier_date_format',),1=>array('file'=>'/var/www/Cinemanager/_deps/smarty/plugins/function.html_options.php','function'=>'smarty_function_html_options',),));
 ?>
 <!DOCTYPE html>
@@ -154,7 +154,10 @@ function YY_checkform() { //v4.71
     	<div class="content-wrapper text">
     	    <div class="content">
     	        <div class="content-wrapper text">
-    	            <p><i>Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
+		    <?php if ($_smarty_tpl->tpl_vars['page_content']->value) {?>
+			<p><?php echo $_smarty_tpl->tpl_vars['page_content']->value['content'];?>
+</p>
+		    <?php }?>
     	            			<form action="/bookings/<?php echo $_smarty_tpl->tpl_vars['booking_id']->value;?>
 /" method="post" name="bookings" onSubmit="YY_checkform('bookings','c_name','#q','0','Please enter your name.','c_email','#S','2','Please enter your email address.','c_phone','#q','0','Please enter your phone number.');return document.MM_returnValue">
                         <?php if (!$_smarty_tpl->tpl_vars['booking']->value) {?>
