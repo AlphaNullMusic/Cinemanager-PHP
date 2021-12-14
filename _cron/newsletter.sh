@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Run cinemaemails.php
-/usr/bin/php /var/www/Cinemanager/_cron/cinemaemails.php
+/usr/bin/php7.2 /var/www/Cinemanager/_cron/cinemaemails.php
 
 # Copy log files
 mkdir /var/www/logs && chown www-data:www-data /var/www/logs && chmod 755 /var/www/logs

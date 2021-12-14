@@ -1,0 +1,6 @@
+[Unit]
+Description=Checks for bounced newsletter users
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash /var/www/Cinemanager/_cron/bounces.sh

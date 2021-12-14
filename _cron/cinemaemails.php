@@ -1,4 +1,4 @@
-#!/usr/bin/php
+#!/usr/bin/php7.2
 <?php
 
 ini_set('memory_limit','512M');
