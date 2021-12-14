@@ -1,0 +1,166 @@
+# shorelinecinema.co.nz, www.shorelinecinema.co.nz
+server {
+
+        server_name shorelinecinema.co.nz www.shorelinecinema.co.nz;
+
+        location / {
+            proxy_pass http://10.10.88.72:81;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+
+    listen [::]:443 ssl; # managed by Certbot
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/shorelinecinema.co.nz/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/shorelinecinema.co.nz/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+}
+
+# Redirect http to https - (www.)shorelinecinema.co.nz
+server {
+    listen 80;
+    listen [::]:80;
+    server_name shorelinecinema.co.nz www.shorelinecinema.co.nz;
+
+    return 301 https://$server_name$request_uri;
+}
+
+# shoreline.nz, www.shoreline.nz
+server {
+
+        server_name shoreline.nz www.shoreline.nz;
+
+	location / {
+            proxy_pass http://10.10.88.72:81;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+
+    listen [::]:443 ssl; # managed by Certbot
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/shoreline.nz/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/shoreline.nz/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+}
+
+# Redirect http to https - (www.)shoreline.nz
+server {
+    listen 80;
+    listen [::]:80;
+    server_name shoreline.nz www.shoreline.nz;
+
+    return 301 https://$server_name$request_uri;
+}
+
+# manage.shoreline.nz
+server {
+        server_name manage.shoreline.nz;
+
+        location / {
+            proxy_pass http://10.10.88.72:81;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+
+    listen [::]:443 ssl; # managed by Certbot
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/manage.shoreline.nz/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/manage.shoreline.nz/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+}
+
+# Redirect http to https - manage.shoreline.nz
+server {
+    listen 80;
+    listen [::]:80;
+    server_name manage.shoreline.nz;
+
+    return 301 https://$server_name$request_uri;
+}
+
+# posters.shoreline.nz
+server {
+
+        root /var/www/Cinemanager/posters;
+        index index.html;
+
+        server_name posters.shoreline.nz;
+
+        location / {
+                try_files $uri $uri/ =404;
+        }
+
+    listen [::]:443 ssl; # managed by Certbot
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/posters.shoreline.nz/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/posters.shoreline.nz/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+}
+
+# Redirect http to https - posters.shoreline.nz
+server {
+    listen 80;
+    listen [::]:80;
+    server_name posters.shoreline.nz;
+
+    return 301 https://$server_name$request_uri;
+}
+
+# mysql.shoreline.nz
+server {
+        root /usr/share/phpmyadmin;
+        index index.php index.html index.htm index.nginx-debian.html;
+
+        server_name mysql.shoreline.nz;
+
+	location / {
+            try_files $uri $uri/ =404;
+        }
+
+	location ~ \.php$ {
+            include snippets/fastcgi-php.conf;
+            fastcgi_pass unix:/var/run/php/php8.0-fpm.sock;
+	    fastcgi_split_path_info ^(.+\.php)(/.+)$;
+        fastcgi_param PHP_VALUE "upload_max_filesize = 100M \n post_max_size=100M";
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_param HTTP_PROXY "";
+        fastcgi_intercept_errors off;
+        fastcgi_buffer_size 16k;
+        fastcgi_buffers 4 16k;
+        fastcgi_connect_timeout 300;
+        fastcgi_send_timeout 300;
+        fastcgi_read_timeout 300;
+        include /etc/nginx/fastcgi_params;
+        }
+        
+
+    listen [::]:443 ssl ipv6only=on; # managed by Certbot
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/mysql.shoreline.nz/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/mysql.shoreline.nz/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+}
+
+# Redirect http to https - mysql.shoreline.nz
+server {
+    listen 80;
+    listen [::]:80;
+    server_name mysql.shoreline.nz;
+
+    return 301 https://$server_name$request_uri;
+}

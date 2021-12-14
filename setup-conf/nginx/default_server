@@ -1,0 +1,20 @@
+server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+
+        root /var/www/html;
+        index index.html index.htm index.nginx-debian.html;
+
+        server_name _;
+
+        location / {
+                try_files $uri $uri/ =404;
+        }
+}
+
+server {
+        listen 80;
+        listen [::]:80;
+        server_name IP_ADDRESS;
+        return 301 $https://www.shorelinecinema.co.nz$request_uri;
+}
