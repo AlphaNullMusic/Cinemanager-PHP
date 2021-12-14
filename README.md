@@ -10,3 +10,11 @@
 
 - Setup NGINX as front-facing web server and reverse proxy to Apache2:
   - `https://www.digitalocean.com/community/tutorials/how-to-configure-nginx-as-a-web-server-and-reverse-proxy-for-apache-on-one-ubuntu-20-04-server`
+
+
+- Copy apache configuration: `cp /var/www/Cinemanager/apache2-conf/* /etc/apache2/sites-available/`
+- Rename apache conf
+
+# Setup Apache2
+- `a2dissite 000-default`
+- 
