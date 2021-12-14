@@ -1,0 +1,10 @@
+[Unit]
+Description=Emails every 10 minutes
+
+[Timer]
+OnCalendar=*-*-* 00:00:00
+Persistent=true
+AccuracySec=1s
+
+[Install]
+WantedBy=timers.target

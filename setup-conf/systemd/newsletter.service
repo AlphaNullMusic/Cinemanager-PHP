@@ -1,0 +1,7 @@
+[Unit]
+Description=Sends scheduled newsletters
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash /var/www/Cinemanager/_cron/newsletter.sh
+

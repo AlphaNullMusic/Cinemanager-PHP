@@ -1,4 +1,4 @@
-#!/usr/bin/php
+#!/usr/bin/php7.2
 <?php
 
 $root_dir = dirname(dirname(__FILE__));
