@@ -5,8 +5,8 @@ ini_set('memory_limit','512M');
 ini_set('upload_max_filesize' , '20M');
 ini_set('post_max_size', '22M');
 $max_file_size = array(20971520,'20MB');
-//error_reporting(0);
-error_reporting(E_ALL);
+error_reporting(0);
+//error_reporting(E_ALL);
 //ini_set('display_errors',TRUE);
 
 if (check_cinema()) {
