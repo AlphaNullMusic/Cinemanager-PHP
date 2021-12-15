@@ -110,7 +110,7 @@ if(!$smarty->isCached($tpl)) {
 							$message.="\n";
 							$subject="{$cinema_data['name']} {$cinema_data['city']} Online Booking";
 							$subject.=" from {$_POST['c_email']}";
-							//$to="{$cinema_data['cinema_name']} <{$cinema_data['booking_email']}>";
+							$to="{$cinema_data['cinema_name']} <{$cinema_data['booking_email']}>";
 							//$headers="From: {$cinema_data['cinema_name']} Website <{$cinema_data['booking_email']}>";
 							//mail($to,$subject,$message,$headers);
 							$mail = new PHPMailer();

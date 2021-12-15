@@ -3,7 +3,7 @@ require("inc/manage.inc.php");
 
 // For processing large posters
 ini_set('memory_limit', '512M');
-error_reporting(0);
+error_reporting(1);
 
 if (check_cinema() && (has_permission('sessions'))) {
 
@@ -57,7 +57,7 @@ if (check_cinema() && (has_permission('sessions'))) {
                 $mysqli->query($sql) or user_error("Gnarly: $sql");
                 $movie_id = $mysqli->insert_id;
 		save_poster($movie_details['poster'], $movie_id, $custom = false);
-            } else {
+	    } else {
                 // Movie exists, set movie_id to existing movie
                 $data     = $res->fetch_assoc();
                 $movie_id = $data['movie_id'];
