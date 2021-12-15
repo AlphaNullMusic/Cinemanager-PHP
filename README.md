@@ -27,7 +27,7 @@
 # Get PHP 7.2
 - `apt-get install software-properties-common -y`
 - `apt-get update -y`
-- `apt-get install php7.2 php7.2-fpm php7.2-mysql php7.2-xml libapache2-mod-php7.2 -y`
+- `apt-get install php7.2 php7.2-fpm php7.2-mysql php7.2-xml php7.2-gd libapache2-mod-php7.2 -y`
 - `systemctl start php7.2-fpm`
 - `a2enmod actions fcgid alias proxy_fcgi`
 - `systemctl restart apache2`
