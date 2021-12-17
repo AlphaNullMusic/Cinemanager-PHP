@@ -96,3 +96,8 @@
   - `certbot --agree-tos --no-eff-email --email roman@cinemanager.co.nz --nginx -d manage.shoreline.nz`
   - `certbot --agree-tos --no-eff-email --email roman@cinemanager.co.nz --nginx -d mysql.shoreline.nz`
   - `certbot --agree-tos --no-eff-email --email roman@cinemanager.co.nz --nginx -d posters.shoreline.nz`
+- Create a crontab: `sudo crontab -e`
+  - Add the following:
+  ```
+  0 0 * * * certbot renew
+  ```
