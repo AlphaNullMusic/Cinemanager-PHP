@@ -1,6 +1,6 @@
 <?php
 header("Content-Type:application/json");
-header("Access-COntrol-Allow-Origin: *");
+header("Access-Control-Allow-Origin: *");
 header('Access-Control-Allow-Methods: GET, HEAD');
 date_default_timezone_set('Pacific/Auckland');
 

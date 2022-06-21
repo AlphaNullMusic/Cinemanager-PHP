@@ -15,7 +15,7 @@ require($config['phpmailer_dir']."class.phpmailer.php");
 
 //prepare variables
 $total_sends=0;
-$maximum_sends=2000; //per newsletter
+$maximum_sends=4000; //per newsletter
 
 //get list of all pending newsletters
 $sql = "
