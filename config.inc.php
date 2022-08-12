@@ -140,7 +140,7 @@ define('DB_TYPE', 'mysql');
 define('DB_HOST', "localhost");
 define('DB_NAME', "shoreline");
 define('DB_USER', "shoreline");
-define('DB_PASS', "r4L-MOn423#M");
+define('DB_PASS', "CuM4GZXA4_*bNK=V");
 
 if (isset($use_pdo)) {
 	db_pdo();

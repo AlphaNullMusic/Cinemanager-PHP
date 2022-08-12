@@ -12,7 +12,7 @@ $username = $config['newsletter_email'];
 $password = $config['newsletter_email_pass'];
 $inbox = imap_open($hostname,$username,$password) or die('Cannot connect to mailbox: ' . imap_last_error());
 
-$failed = imap_search($inbox,'FROM "MAILER-DAEMON@mail.shoreline.nz" BODY "Action: failed"');
+$failed = imap_search($inbox,'FROM "MAILER-DAEMON@mail.cinemanager.co.nz" BODY "Action: failed"');
 $delete_codes = ['5.5.0', '5.1.1', '5.4.4']; // 5.4.4: host not found
 $rejected_codes = ['5.0.0', '5.2.2', '5.7.1'];
 $office_banned_codes = ['5.7.606'];
