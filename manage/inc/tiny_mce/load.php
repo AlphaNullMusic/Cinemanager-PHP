@@ -1,9 +1,8 @@
-<!--<script type="text/javascript" src="inc/tiny_mce/tinymce.min.js"></script>-->
-<script src="https://cdn.tiny.cloud/1/dxhzbi0yrgf2ezu7caxqh8828v4mofukpvf7rs842gd2ttu6/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="https://cdn.tiny.cloud/1/dxhzbi0yrgf2ezu7caxqh8828v4mofukpvf7rs842gd2ttu6/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 <script type="text/javascript">
 	tinymce.init({
 		selector: 'textarea',
-		plugins: 'print preview paste importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern noneditable help charmap quickbars emoticons',
+		plugins: 'print preview paste importcss searchreplace autolink autosave directionality code visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern noneditable help charmap quickbars emoticons',
 		toolbar: 'undo redo | styleselect removeformat | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | image media link | outdent indent |  numlist bullist | forecolor backcolor | pagebreak | charmap emoticons | fullscreen  preview save print | ltr rtl',
 		content_css: "<?php echo $config['manage_url'].'inc/css/editor.css';?>",
 		paste_preprocess : function(pl, o) {
@@ -37,45 +36,69 @@
 				{ title: 'Justify', format: 'alignjustify' }
   			]}
 		],
-		images_upload_url: 'tiny_mce_upload.php',
+		//images_upload_url: 'tiny_mce_upload.php',
 		automatic_uploads: false,
-		images_upload_handler : function(blobInfo, success, failure) {
-			var xhr, formData;
+		image_file_types: 'jpeg,jpg,png',
+		images_upload_handler: function (blobInfo, progress) {
+			return new Promise(function (resolve, reject) {
+				const xhr = new XMLHttpRequest();
+				xhr.withCredentials = false;
+				xhr.open('POST', 'tiny_mce_upload.php');
 
-			xhr = new XMLHttpRequest();
-			xhr.withCredentials = false;
-			xhr.open('POST', 'tiny_mce_upload.php');
+  				xhr.upload.onprogress = (e) => {
+    					progress(e.loaded / e.total * 100);
+  				};
 
-			xhr.onload = function() {
-				var json;
+  				xhr.onload = () => {
+    					if (xhr.status === 403) {
+      						reject({ message: 'Error: image upload forbidden.', remove: true });
+      						return;
+    					}
 
-				if (xhr.status != 200) {
-					failure('HTTP Error: ' + xhr.status);
-					return;
-				}
+					if (xhr.status === 413) {
+						reject({ message: 'Error: image too large.', remove: true });
+						return;
+					}
 
-				json = JSON.parse(xhr.responseText);
+    					if (xhr.status < 200 || xhr.status >= 300) {
+				        	reject({ message: 'HTTP Error: ' + xhr.status, remove: true });
+      						return;
+    					}
 
-				if (!json || typeof json.location != 'string') {
-					failure('Invalid JSON: ' + xhr.responseText);
-					return;
-				}
-				success(json.location);
-			};
+				    	const json = JSON.parse(xhr.responseText);
 
-			formData = new FormData();
-			formData.append('file', blobInfo.blob(), blobInfo.filename());
+    					if (!json || typeof json.location != 'string') {
+      						reject({ message: 'Error: invalid response from server - ' + xhr.responseText, remove: true });
+      						return;
+   					}
 
-			xhr.send(formData);
+    					resolve(json.location);
+  				};
+
+  				xhr.onerror = () => {
+    					reject({ message: 'Image upload failed due to a XHR Transport error. Code: ' + xhr.status, remove: true });
+  				};
+
+  				const formData = new FormData();
+  				formData.append('file', blobInfo.blob(), blobInfo.filename());
+
+  				xhr.send(formData);
+			});
 		},
 		urlconverter_callback: function(url,node,on_save,name) {
 			url = encodeURI(url);
 			return url;
 		},
 	});
-	
+
 	function uploadImagesTinyMCE() {
-		tinymce.activeEditor.uploadImages(function(success) {
+		tinymce.activeEditor.uploadImages().then((status) => {
+			if (status !== null) {
+				for (image in status) {
+					if (image && image.status === false) return;
+				}
+			}
+
 			// Upload ok, submit form
 			document.forms[0].submit();
 		});

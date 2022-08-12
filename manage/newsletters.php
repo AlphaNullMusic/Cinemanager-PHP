@@ -437,7 +437,7 @@ if (check_cinema() && has_permission('newsletters')) {
 								</p>
 						</form>
 						<div class="form-group"> 
-							<button name="submit" class="btn btn-primary submit" onclick="uploadImagesTinyMCE();">Preview</button>
+							<button name="submit" class="btn btn-primary submit" onclick="uploadImagesTinyMCE();"submit">Preview</button>
 						</div>
 					<?php } ?>
 			  <?php } else { ?>
