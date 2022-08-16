@@ -1,4 +1,5 @@
 # Cinemanager
+A custom-built CMS for cinema websites.
 
 # Download software
 - Login as root: `su -`
