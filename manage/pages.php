@@ -44,13 +44,13 @@ if (check_cinema() && has_permission('edit_pages')) {
 
 
 	if (isset($_POST['update-list'])) {
-		//$page_list = get_page_list(
 		$sql = "UPDATE pages
-			SET status='ok'
+			SET status='ok', hidden_in_menu='0'
 			WHERE 1";
 		$mysqli->query($sql) or die("Gnarly: ".$sql);
 
 		foreach ($_POST as $key => $value) {
+			// Process 'hide page'
 			if (substr($key, 0, strlen("hide-")) === "hide-") {
 				$name = str_replace("hide-", "", $key);
 				$sql = "UPDATE pages
@@ -59,6 +59,16 @@ if (check_cinema() && has_permission('edit_pages')) {
 				";
 				$mysqli->query($sql) or die("Gnarly: ".$sql);
 			}
+
+			// Process 'hide in menu'
+			if (substr($key, 0, strlen("hide-in-menu-")) === "hide-in-menu-") {
+                                $name = str_replace("hide-in-menu-", "", $key);
+                                $sql = "UPDATE pages
+                                        SET hidden_in_menu='1'
+                                        WHERE reference='".$mysqli->real_escape_string($name)."'
+                                ";
+                                $mysqli->query($sql) or die("Gnarly: ".$sql);
+                        }
 		}
 
 		smarty_clear_cache(NULL,NULL,NULL,false,true);
@@ -126,7 +136,8 @@ if (check_cinema() && has_permission('edit_pages')) {
 								page_id, 
 								reference, 
 								title, 
-								status ,
+								status,
+								hidden_in_menu,
 								priority
 							FROM pages 
 							WHERE status = 'ok' or status = 'hidden' 
@@ -143,7 +154,8 @@ if (check_cinema() && has_permission('edit_pages')) {
 								<th scope="col">Title</th>
 								<th scope="col">Priority</th>
 								<th scope="col"></th>
-								<th scope="col">Hidden</th>
+								<th scope="col">Hide page</th>
+								<th scope="col">Hide in menu</th>
 								<th scope="col"></th>
 							</tr>
 						</thead>
@@ -156,6 +168,9 @@ if (check_cinema() && has_permission('edit_pages')) {
 								<td><div class="form-check">
 									<input class="form-check-label" name="hide-<?php echo $page_data['reference']?>" type="checkbox" value="" <?php if ($page_data['status'] == 'hidden') { echo 'checked'; } ?>>
 								</div></td>
+								<td><div class="form-check">
+                                                                        <input class="form-check-label" name="hide-in-menu-<?php echo $page_data['reference']?>" type="checkbox" value="" <?php if ($page_data['hidden_in_menu'] == '1') { echo 'checked'; } ?>>
+                                                                </div></td>
 								<td><a class="btn btn-outline-info btn-sm" href="?edit=<?php echo $page_data['page_id']?>">Edit</a></td>
 							</tr>
 						<?php } ?>

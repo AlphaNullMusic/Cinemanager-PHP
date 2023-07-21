@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2023-07-22 11:25:38
+/* Smarty version 3.1.33, created on 2023-07-22 11:52:57
   from '/var/www/Cinemanager/web/tpl/generic.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_64bb13f24570f4_49525246',
+  'unifunc' => 'content_64bb1a59ec5046_76879823',
   'has_nocache_code' => true,
   'file_dependency' => 
   array (
@@ -18,7 +18,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_64bb13f24570f4_49525246 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64bb1a59ec5046_76879823 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 <?php $_smarty_tpl->_subTemplateRender("file:inc/tpl/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);

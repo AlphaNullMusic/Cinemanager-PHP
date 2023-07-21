@@ -92,6 +92,7 @@ function get_page_list() {
 		SELECT page_id, reference, title
 		FROM pages
 		WHERE status = 'ok'
+		AND hidden_in_menu = '0'
 		AND NOT reference = 'homepage'
 		ORDER BY priority ASC, title ASC
 	";
