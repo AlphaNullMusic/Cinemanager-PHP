@@ -1,0 +1,177 @@
+<?php
+ini_set('display_errors',1);
+date_default_timezone_set("Pacific/Auckland");
+error_reporting(E_ALL ^ E_NOTICE);
+
+/////////////////
+// Global Vars //
+/////////////////
+
+$root_dir = dirname(__FILE__).'/';
+$config = array(
+
+	// Basics
+	"cinema_name" => "",
+
+	// Manage
+	"manage_url" => "",
+	"manage_dir" => $root_dir."manage/",
+
+	// API
+	"api_url" => "",
+	"api_dir" => $root_dir."api/",
+
+	// Cinema Sites
+	"cinema_url" => "",
+	"cinema_dir" => $root_dir."web/",
+	"template_dir" => $root_dir."web/tpl/",
+	
+	// Posters
+	"poster_url" => "",
+	"poster_dir" => $root_dir."posters/",
+	"tmp_poster_dir" => $root_dir."posters/tmp/",
+
+	// Lib Directories
+	"libs_dir" => $root_dir."_deps/",
+	"smarty_dir" => $root_dir."_deps/smarty/",
+	"phpmailer_dir"	=> $root_dir."_deps/phpmailer/",
+	
+	// Emails
+	"no_reply_email" => "",
+	"reply_email" => "",
+	"bounce_email" => "",
+	"support_email"	=> "",
+	"email_url" => "",
+
+	// Booking Email Settings
+	"booking_send_email" => "",
+	"booking_receive_email" => "",
+	"booking_smtp_server" => "",
+	"booking_email_pass" => "",
+
+	// Error Email Settings
+	"admin_email" => "",
+	"error_email" => "",
+	"error_smtp_server" => "",
+	"error_email_pass" => "",
+
+	// Newsletter Email Settings
+	"newsletter_smtp_server" => "",
+	"newsletter_email" => "",
+	"newsletter_email_pass" => "", 
+	
+	"cookie" => "Cinemanager",
+	"title_pre" => "Cinemanager: ",
+	
+	// Salts (used by Cinemanager cookies)
+	"salt_int" => "",
+	"salt_div" => "",
+	"salt_string" => "",
+	
+	// External Booking Systems
+	//"bms_session_booking_url" => "http://www.bookmyshow.co.nz/go.aspx",
+	//"sentry_session_booking_launchpad_url" => "/sentry.php",
+	//"veezi_session_booking_url" => "https://ticketing.us.veezi.com/purchase/",
+	
+	// Allowed Mime Types
+	"safe_mime_types" => array('
+	    image/jpeg',
+	    'image/png',
+	    'application/msword',
+	    'application/rtf',
+	    'application/pdf',
+	    'application/mspublisher',
+	    'application/vnd.ms-publisher',
+	    'application/vnd.ms-word',
+	    'application/vnd.openxmlformats-officedocument.wordprocessingml.document
+	'),
+	
+	// OMDB API Key
+	"omdb_api" => "",
+
+	// Google Analytics Code
+	"ga_code" => ""
+	
+);
+
+//////////////////
+// Poster Sizes //
+//////////////////
+
+$config['poster_sizes'] = array(
+	// Manage Dashboard
+	'tiny' => array(
+		'name' => 'tiny',
+		'width' => 30,
+		'height' => 44
+	),
+	// Featured
+	'small' => array(
+		'name' => 'small',
+		'width' => 150
+	),
+	// What's On, Movie Page and Bookings
+	'medium' => array(
+		'name' => 'medium',
+		'width' => 190
+	),
+	// Coming Soon and What's On Today
+	'large' => array(
+		'name' => 'large',
+		'height' => 279
+		/*'width' => 100*/
+		// keep aspect ratio when converting
+	),
+	// Original
+	'full' => array(
+		'name' => 'full',
+		/*'height' => 2046
+		'width' => 100*/
+		// keep aspect ratio when converting
+	),
+);
+
+//////////////////////////
+// Database Connections //
+//////////////////////////
+
+define('DB_TYPE', 'mysql');
+define('DB_HOST', "localhost");
+define('DB_NAME', "");
+define('DB_USER', "");
+define('DB_PASS', "");
+
+if (isset($use_pdo)) {
+	db_pdo();
+} else {
+	db_direct();
+}
+
+function db_pdo() {
+	if (!class_exists('db')) {
+		try {
+			$dbh = new PDO(DB_TYPE.':host='.DB_HOST.';dbname='.DB_NAME, DB_USER, DB_PASS);
+			$dbh->query('SELECT 1');
+			$dbh = null;
+		} catch (PDOException $e) {
+			print "Error!: " . $e->getMessage() . "<br/>";
+			die();
+		}
+		class db extends PDO {
+			function __construct() {
+				parent::__construct(DB_TYPE.':host='.DB_HOST.';dbname='.DB_NAME, DB_USER, DB_PASS, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
+				$this->setAttribute(PDO::ATTR_EMULATE_PREPARES, true);
+				$this->setAttribute(PDO::ATTR_PERSISTENT, true);
+				$this->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			}
+		}
+	}
+}
+
+function db_direct() {
+	global $mysqli;
+	$mysqli = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME) or die("Could not connect to db");
+        $mysqli->query("SET NAMES utf8");
+}
+
+?>
