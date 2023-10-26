@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2023-07-22 11:57:45
+/* Smarty version 3.1.33, created on 2023-10-27 00:35:35
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_64bb1b798c7d26_37993771',
+  'unifunc' => 'content_653a4f076f85f7_89319563',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -24,14 +24,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_64bb1b798c7d26_37993771 (Smarty_Internal_Template $_smarty_tpl) {
+function content_653a4f076f85f7_89319563 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Oppenheimer - Info</title>
+<title>Killers of the Flower Moon - Info</title>
 <meta name="description" content="Shoreline Cinema is Waikanae's premiere cinema complex. Find out who we are, what's on, what's coming up, how to contact us and much more.">
 <link href="/tpl/inc/css/styles.css" rel="stylesheet" type="text/css" />
 <link href="/tpl/inc/css/print.css" rel="stylesheet" type="text/css" media="print" />
@@ -81,23 +81,24 @@ function content_64bb1b798c7d26_37993771 (Smarty_Internal_Template $_smarty_tpl)
 
 
 <div class="information">
-    <h2>Oppenheimer</h2>
+    <h2>Killers of the Flower Moon</h2>
     <div class="content">
     	<div class="content-wrapper poster">
-    		<img src="https://posters.shoreline.nz/456-medium-default.jpg" width="190" alt="Oppenheimer Poster" />
+    		<img src="https://posters.shoreline.nz/489-medium-default.jpg" width="190" alt="Killers of the Flower Moon Poster" />
     	</div>
     	<div class="content-wrapper text"> 
     		<div class="content">
     		    <div class="content-wrapper text">
-    		        <p>The story of American scientist J. Robert Oppenheimer and his role in the development of the atomic bomb.</p>
+    		        <p>Members of the Osage tribe in the United States are murdered under mysterious circumstances in the 1920s, sparking a major F.B.I. investigation involving J. Edgar Hoover.</p>
 					    		                                        <span class="h3">Upcoming Screening Times</span>
                             <ul class="sessions">
                                                             	                              	
-                              	<li><strong>Saturday 22 Jul</strong><a href="/bookings/14363/">1:45pm</a> <i>(1 seat)</i>, <a href="/bookings/14364/">8:00pm</a> <i>(1 seat)</i>                              	                              	
-                              	<li><strong>Sunday 23 Jul</strong><a href="/bookings/14365/">3:15pm</a> <i>(1 seat)</i>, <a href="/bookings/14366/">6:45pm</a> <i>(1 seat)</i>                              	                              	
-                              	<li><strong>Monday 24 Jul</strong><a href="/bookings/14367/">10:15am</a>, <a href="/bookings/14368/">6:45pm</a>                              	                              	
-                              	<li><strong>Tuesday 25 Jul</strong><a href="/bookings/14369/">10:30am</a>, <a href="/bookings/14370/">7:00pm</a>                              	                              	
-                              	<li><strong>Wednesday 26 Jul</strong><a href="/bookings/14371/">12:15pm</a>, <a href="/bookings/14372/">6:00pm</a>                               </li>
+                              	<li><strong>Friday 27 Oct</strong><a href="/bookings/15397/">1:00pm</a>, <a href="/bookings/15398/">7:00pm</a>                              	                              	
+                              	<li><strong>Saturday 28 Oct</strong><a href="/bookings/15399/">1:15pm</a>, <a href="/bookings/15400/">7:15pm</a>                              	                              	
+                              	<li><strong>Sunday 29 Oct</strong><a href="/bookings/15439/">1:15pm</a>, <a href="/bookings/15402/">6:00pm</a>                              	                              	
+                              	<li><strong>Monday 30 Oct</strong><a href="/bookings/15403/">12:15pm</a>, <a href="/bookings/15404/">6:00pm</a>                              	                              	
+                              	<li><strong>Tuesday 31 Oct</strong><a href="/bookings/15405/">10:15am</a>, <a href="/bookings/15406/">6:15pm</a>                              	                              	
+                              	<li><strong>Wednesday  1 Nov</strong><a href="/bookings/15407/">12:15pm</a>, <a href="/bookings/15408/">6:15pm</a>                               </li>
                             </ul>
                           	<p><i>To place a booking, click on the session time you are interested in. Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
                             		    </div>
@@ -107,8 +108,8 @@ function content_64bb1b798c7d26_37993771 (Smarty_Internal_Template $_smarty_tpl)
 					        				 <em>Suitable for Mature Audiences</em>        			</p>
         		    			        		    <p>
         			              	        <strong>Duration:</strong><br />
-        				3hr 0min<br /><br />
-        			        			        			        				<a class="btn dark" href="https://www.youtube.com/watch?v=uYPbbksJxIg" target="_blank">Official Trailer</a>
+        				3hr 26min<br /><br />
+        			        			        			        				<a class="btn dark" href="https://www.youtube.com/watch?v=EG0si5bSd6I" target="_blank">Official Trailer</a>
         			        		    </p>
             		  
     		    </div>

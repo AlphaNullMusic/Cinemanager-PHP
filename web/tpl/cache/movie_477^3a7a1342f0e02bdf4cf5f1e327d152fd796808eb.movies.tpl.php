@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2023-07-22 11:52:55
+/* Smarty version 3.1.33, created on 2023-10-26 22:57:40
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_64bb1a57310a11_77673247',
+  'unifunc' => 'content_653a3814950920_12721487',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -24,14 +24,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_64bb1a57310a11_77673247 (Smarty_Internal_Template $_smarty_tpl) {
+function content_653a3814950920_12721487 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Andre Rieu -Love is all Around 2023 - Info</title>
+<title>Country Cabaret - Info</title>
 <meta name="description" content="Shoreline Cinema is Waikanae's premiere cinema complex. Find out who we are, what's on, what's coming up, how to contact us and much more.">
 <link href="/tpl/inc/css/styles.css" rel="stylesheet" type="text/css" />
 <link href="/tpl/inc/css/print.css" rel="stylesheet" type="text/css" media="print" />
@@ -81,32 +81,35 @@ function content_64bb1a57310a11_77673247 (Smarty_Internal_Template $_smarty_tpl)
 
 
 <div class="information">
-    <h2>Andre Rieu -Love is all Around 2023</h2>
+    <h2>Country Cabaret</h2>
     <div class="content">
     	<div class="content-wrapper poster">
-    		<img src="https://posters.shoreline.nz/468-medium-custom.jpg" width="190" alt="Andre Rieu -Love is all Around 2023 Poster" />
+    		<img src="https://posters.shoreline.nz/477-medium-custom.jpg" width="190" alt="Country Cabaret Poster" />
     	</div>
     	<div class="content-wrapper text"> 
     		<div class="content">
     		    <div class="content-wrapper text">
-    		        <p>N/A</p>
+    		        <p>						Country Cabaret is a French - a very French! - feelgood movie about a real-life farmer who decided to raise money by creating a cabaret, complete with dancers, jugglers, burlesque artists and conjurors - in his barn. A hit at the French Film Festival.										</p>
 					    		                                        <span class="h3">Upcoming Screening Times</span>
                             <ul class="sessions">
                                                             	                              	
-                              	<li><strong>Saturday 26 Aug</strong><a href="/bookings/14321/">12:30pm</a> <i>(2 single seats)</i>                              	                              	
-                              	<li><strong>Sunday 27 Aug</strong><a href="/bookings/14322/">12:30pm</a>                              	                              	
-                              	<li><strong>Sunday  3 Sep</strong><a href="/bookings/14383/">10:30am</a>                               </li>
+                              	<li><strong>Friday 27 Oct</strong><a href="/bookings/15410/">4:45pm</a>                              	                              	
+                              	<li><strong>Saturday 28 Oct</strong><a href="/bookings/15441/">5:10pm</a>                              	                              	
+                              	<li><strong>Sunday 29 Oct</strong><a href="/bookings/15442/">3:00pm</a>                              	                              	
+                              	<li><strong>Monday 30 Oct</strong><a href="/bookings/15413/">4:45pm</a>                              	                              	
+                              	<li><strong>Tuesday 31 Oct</strong><a href="/bookings/15414/">4:30pm</a>                              	                              	
+                              	<li><strong>Wednesday  1 Nov</strong><a href="/bookings/15415/">5:15pm</a>                               </li>
                             </ul>
                           	<p><i>To place a booking, click on the session time you are interested in. Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
                             		    </div>
     		    <div class="content-wrapper details">
     		                			<p>
-        				<strong>Rated:</strong> TBC<br />
-					        				 <em>To Be Confirmed</em>        			</p>
+        				<strong>Rated:</strong> M<br />
+					        				 <em>Suitable for Mature Audiences</em>        			</p>
         		    			        		    <p>
         			              	        <strong>Duration:</strong><br />
-        				3hr 0min<br /><br />
-        			        			        			        				<a class="btn dark" href="https://mail.google.com/mail/u/0/#inbox/FMfcgzGtvsWtdfTmBxfXZVMWqDMqrbKm?projector=1" target="_blank">Official Trailer</a>
+        				1hr 41min<br /><br />
+        			        			        			        				<a class="btn dark" href="https://www.google.com/search?q=Country+caberet+film&rlz=1C1CHBF_enNZ920NZ920&oq=Country+caberet+fil" target="_blank">Official Trailer</a>
         			        		    </p>
             		  
     		    </div>

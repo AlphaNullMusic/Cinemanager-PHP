@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.33, created on 2023-07-22 11:56:31
+/* Smarty version 3.1.33, created on 2023-10-26 22:29:18
   from '/var/www/Cinemanager/web/tpl/movies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_64bb1b2f20d659_07308240',
+  'unifunc' => 'content_653a316e10f067_61042077',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -24,14 +24,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 600,
 ),true)) {
-function content_64bb1b2f20d659_07308240 (Smarty_Internal_Template $_smarty_tpl) {
+function content_653a316e10f067_61042077 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en-nz">
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Indiana Jones and the Dial of Destiny - Info</title>
+<title>Uproar - Info</title>
 <meta name="description" content="Shoreline Cinema is Waikanae's premiere cinema complex. Find out who we are, what's on, what's coming up, how to contact us and much more.">
 <link href="/tpl/inc/css/styles.css" rel="stylesheet" type="text/css" />
 <link href="/tpl/inc/css/print.css" rel="stylesheet" type="text/css" media="print" />
@@ -81,33 +81,33 @@ function content_64bb1b2f20d659_07308240 (Smarty_Internal_Template $_smarty_tpl)
 
 
 <div class="information">
-    <h2>Indiana Jones and the Dial of Destiny</h2>
+    <h2>Uproar</h2>
     <div class="content">
     	<div class="content-wrapper poster">
-    		<img src="https://posters.shoreline.nz/445-medium-default.jpg" width="190" alt="Indiana Jones and the Dial of Destiny Poster" />
+    		<img src="https://posters.shoreline.nz/487-medium-custom.jpg" width="190" alt="Uproar Poster" />
     	</div>
     	<div class="content-wrapper text"> 
     		<div class="content">
     		    <div class="content-wrapper text">
-    		        <p>The plot is unknown at this time.</p>
+    		        <p>								</p>
 					    		                                        <span class="h3">Upcoming Screening Times</span>
                             <ul class="sessions">
                                                             	                              	
-                              	<li><strong>Saturday 22 Jul</strong><a href="/bookings/14337/">10:30am</a>, <a href="/bookings/14338/">5:30pm</a>                              	                              	
-                              	<li><strong>Sunday 23 Jul</strong><a href="/bookings/14339/">2:00pm</a>                              	                              	
-                              	<li><strong>Monday 24 Jul</strong><a href="/bookings/14340/">12:15pm</a>                              	                              	
-                              	<li><strong>Tuesday 25 Jul</strong><a href="/bookings/14341/">12:15pm</a>                              	                              	
-                              	<li><strong>Wednesday 26 Jul</strong><a href="/bookings/14342/">1:30pm</a>                               </li>
+                              	<li><strong>Thursday 26 Oct</strong><a href="/bookings/15429/">7:00pm</a>                              	                              	
+                              	<li><strong>Friday 27 Oct</strong><a href="/bookings/15430/">4:30pm</a>                              	                              	
+                              	<li><strong>Saturday 28 Oct</strong><a href="/bookings/15431/">5:00pm</a>                              	                              	
+                              	<li><strong>Sunday 29 Oct</strong><a href="/bookings/15440/">11:00am</a>                              	                              	
+                              	<li><strong>Monday 30 Oct</strong><a href="/bookings/15433/">2:30pm</a>                              	                              	
+                              	<li><strong>Tuesday 31 Oct</strong><a href="/bookings/15434/">4:15pm</a>                              	                              	
+                              	<li><strong>Wednesday  1 Nov</strong><a href="/bookings/15435/">4:00pm</a>                               </li>
                             </ul>
                           	<p><i>To place a booking, click on the session time you are interested in. Bookings must be made an hour before the film starts. Please wait for confirmation from us via phone or email.</i></p>
                             		    </div>
     		    <div class="content-wrapper details">
     		                			<p>
-        				<strong>Rated:</strong> PG<br />
-					        				 <em>Parental Guidance is Recommended</em>        			</p>
+        				<strong>Rated:</strong> M<br />
+					        				 <em>Suitable for Mature Audiences</em>        			</p>
         		    			        		    <p>
-        			              	        <strong>Duration:</strong><br />
-        				2hr 22min<br /><br />
         			        			        			        		    </p>
             		  
     		    </div>

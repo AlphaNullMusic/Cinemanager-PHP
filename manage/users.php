@@ -292,7 +292,7 @@ jane@doe.co.nz
 								$num_users_res = $mysqli->query($sql) or user_error("Gnarly: $sql");
 								$num_active_users = $num_users_res->num_rows;
 							?>
-							<p><?php echo $num_active_users; ?> active and <?php echo $num_users - $num_active_users; ?> bounced users found in total.</p>
+							<p><?php echo $num_active_users; ?> active and <?php echo $num_users - $num_active_users; ?> bounced, rejected, and deleted users found in total.</p>
 
 					  <?php if (empty($_GET['search'])) {
 							$weeks = 12; // How many weeks of stats to show
