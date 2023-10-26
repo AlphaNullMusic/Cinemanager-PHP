@@ -2,7 +2,7 @@
 <?php
 
 ini_set('memory_limit','512M');
-ini_set('max_execution_time',600);
+ini_set('max_execution_time',800);
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -15,7 +15,7 @@ require($config['phpmailer_dir']."class.phpmailer.php");
 
 //prepare variables
 $total_sends=0;
-$maximum_sends=4000; //per newsletter
+$maximum_sends=6000; //per newsletter
 
 //get list of all pending newsletters
 $sql = "
