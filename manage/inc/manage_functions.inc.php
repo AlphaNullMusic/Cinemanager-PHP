@@ -397,6 +397,7 @@ function strip_script_tags($html) {
 
 	// for each tag, remove it from the DOM
 	for ($i = 0; $i < $length; $i++) {
+		if (null === $script_tags->item($i)) { continue; }
 		$script_tags->item($i)->parentNode->removeChild($script_tags->item($i));
 	}
 

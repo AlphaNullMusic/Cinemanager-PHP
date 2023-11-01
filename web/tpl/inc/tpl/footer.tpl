@@ -24,6 +24,7 @@
 	}
     </script>
     {/if}
+    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "fe23f5fc856f452698f802fa220fe07b"}'></script><!-- End Cloudflare Web Analytics -->
     {if $gacode}
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id={$gacode}"></script>
