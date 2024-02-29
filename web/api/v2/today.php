@@ -73,7 +73,6 @@ require('../inc/smarty_vars.inc.php');
 
         $json_response = json_encode($response);
         echo $json_response;
-	die();
     }
 
 ?>

@@ -427,7 +427,7 @@ function get_movie_list_full($type = 'ns', $order_by = 'm.title', $num_sessions 
         if ($session_start == 'today') {
             $session_start = date('Y-m-d');
         }
-        $session_end = (date('Y') + 5) . date('-m-d');
+	$session_end = (date('Y') + 8) . date('-m-d');
         if (isset($days_of_sessions) && !empty($days_of_sessions)) {
             $temp          = explode('-', $session_start);
             $session_end   = date('Y-m-d', mktime(0, 0, 0, $temp[1], $temp[2] + $days_of_sessions - 1, $temp[0])) . ' 23:59:59';
